@@ -1,132 +1,1156 @@
 <!DOCTYPE html>
-<html lang="fr" class="bg-black text-white selection:bg-cyan-500">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENJOYLIFE | Join the Experience</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @font-face {
-            font-family: 'FCFastest';
-            src: url('FC Fastest Bold ver 1.01.otf') format('opentype');
-            font-weight: bold;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ENJOYLIFE 2027 — This is not a festival.</title>
+  <meta name="description" content="ENJOYLIFE 2027 — Ambérieu-en-Bugey. Techno & Immersive Arts. Billets bientôt disponibles." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
 
-        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
-        .font-fastest { font-family: 'FCFastest', sans-serif; text-transform: uppercase; }
+  <style>
+    @font-face {
+      font-family: 'FCFastest';
+      src: url('FC Fastest Bold ver 1.01.otf') format('opentype');
+      font-weight: bold;
+    }
 
-        .blue-heart-glow {
-            background: radial-gradient(circle, rgba(94,234,212,0.4) 0%, rgba(147,51,234,0.2) 50%, rgba(5,5,16,0) 70%);
-            filter: blur(60px);
-            animation: pulse-heart 6s infinite ease-in-out;
-        }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #080808; color: #fff; font-family: 'DM Mono', monospace; overflow-x: hidden; cursor: none; }
+    ::selection { background: rgba(34,211,238,.2); }
 
-        @keyframes pulse-heart {
-            0%, 100% { transform: scale(1); opacity: 0.6; }
-            50% { transform: scale(1.2); opacity: 0.9; }
-        }
+    :root {
+      --c: #22d3ee;
+      --v: #a855f7;
+      --bg: #080808;
+      --mu: rgba(255,255,255,.35);
+      --br: rgba(255,255,255,.07);
+      --br2: rgba(255,255,255,.1);
+    }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+    ::-webkit-scrollbar { width: 2px; }
+    ::-webkit-scrollbar-track { background: #000; }
+    ::-webkit-scrollbar-thumb { background: var(--c); }
 
-        .glass-card:hover {
-            border-color: rgba(94,234,212,0.5);
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
+    /* CURSOR */
+    #cur, #cur-r { position: fixed; pointer-events: none; border-radius: 50%; transform: translate(-50%,-50%); }
+    #cur { width: 8px; height: 8px; background: var(--c); z-index: 9999; mix-blend-mode: difference; transition: width .18s, height .18s; }
+    #cur-r { width: 30px; height: 30px; border: 1px solid rgba(34,211,238,.35); z-index: 9998; transition: width .3s cubic-bezier(.16,1,.3,1), height .3s cubic-bezier(.16,1,.3,1); }
+    body.h #cur { width: 18px; height: 18px; }
+    body.h #cur-r { width: 52px; height: 52px; }
 
-        .text-glow {
-            text-shadow: 0 0 30px rgba(255,255,255,0.3);
-        }
-    </style>
+    /* NOISE */
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 150px; opacity: .025;
+    }
+
+    /* ORB — très discret, juste une atmosphère */
+    #orb {
+      position: fixed; width: 800px; height: 800px; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      background: radial-gradient(circle, rgba(34,211,238,.055) 0%, rgba(168,85,247,.03) 45%, transparent 70%);
+      border-radius: 50%; filter: blur(90px); z-index: 0; pointer-events: none;
+      animation: orb 14s ease-in-out infinite;
+    }
+    @keyframes orb { 0%,100% { opacity:.6; transform:translate(-50%,-50%) scale(1); } 50% { opacity:1; transform:translate(-50%,-50%) scale(1.07); } }
+
+    /* BASE */
+    .ff { font-family: 'FCFastest', 'Syne', sans-serif; text-transform: uppercase; }
+    .mono { font-family: 'DM Mono', monospace; }
+    .lbl { font-family: 'DM Mono', monospace; font-size: .58rem; letter-spacing: .32em; text-transform: uppercase; color: var(--c); opacity: .65; }
+    .br { height: 1px; background: var(--br); position: relative; z-index: 2; }
+    .sec { position: relative; z-index: 2; padding: 8rem 4rem; max-width: 1400px; margin: 0 auto; }
+
+    /* NAV */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3rem; height: 66px;
+      transition: background .5s, border-color .5s;
+      border-bottom: 1px solid transparent;
+    }
+    #nav.s { background: rgba(8,8,8,.88); backdrop-filter: blur(20px); border-bottom-color: var(--br); }
+    .nav-logo img { height: 28px; width: auto; }
+    /* Fallback logo texte si SVG absent */
+    .nav-logo-txt { font-family: 'FCFastest', sans-serif; text-transform: uppercase; font-size: 1rem; letter-spacing: .06em; color: #fff; text-decoration: none; cursor: none; display: none; }
+    .nav-r { display: flex; gap: 2.5rem; align-items: center; }
+    .nav-r a { font-family: 'DM Mono', monospace; font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--mu); text-decoration: none; transition: color .2s; cursor: none; }
+    .nav-r a:hover { color: #fff; }
+    .nav-r a.cta-nav {
+      color: #000; background: var(--c); padding: .55rem 1.4rem; border-radius: 999px;
+      font-weight: 700; transition: box-shadow .25s, transform .2s;
+      box-shadow: 0 0 20px rgba(34,211,238,.3);
+    }
+    .nav-r a.cta-nav:hover { box-shadow: 0 0 35px rgba(34,211,238,.5); transform: scale(1.03); }
+
+    /* ══════════════════════════════
+       HERO — PLEIN ÉCRAN TOMORROWLAND
+    ══════════════════════════════ */
+    #hero {
+      position: relative; width: 100vw; height: 100vh;
+      overflow: hidden; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+    }
+    #hero-video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 0;
+      filter: brightness(.55);
+    }
+    /* Overlay gradient */
+    #hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background:
+        linear-gradient(to bottom, rgba(8,8,8,.35) 0%, transparent 25%, transparent 65%, rgba(8,8,8,.95) 100%),
+        linear-gradient(to right, rgba(8,8,8,.2) 0%, transparent 40%);
+    }
+    /* Logo centré */
+    #hero-logo {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+    }
+    #hero-logo img {
+      /* LOGO PRINCIPAL : /assets/logo/logo-main.svg — hauteur 80px max */
+      height: 72px; width: auto;
+      filter: brightness(0) invert(1);
+      opacity: .95;
+    }
+    /* Fallback si pas de logo */
+    #hero-logo-txt {
+      font-family: 'FCFastest', sans-serif; text-transform: uppercase;
+      font-size: clamp(3rem, 8vw, 7rem); letter-spacing: -.01em; line-height: 1;
+      color: #fff; display: none; /* Mettre display:block si pas de logo SVG */
+      text-shadow: 0 2px 60px rgba(0,0,0,.8);
+    }
+    .hero-tagline {
+      font-family: 'DM Mono', monospace; font-size: .65rem;
+      letter-spacing: .45em; text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+    }
+    /* Infos bas de hero — style Coachella */
+    #hero-bottom {
+      position: absolute; bottom: 2.5rem; left: 0; right: 0; z-index: 2;
+      display: flex; align-items: flex-end; justify-content: space-between;
+      padding: 0 3rem;
+    }
+    .hero-info-left { display: flex; flex-direction: column; gap: .5rem; }
+    .hero-info-left span {
+      font-family: 'DM Mono', monospace; font-size: .6rem;
+      letter-spacing: .28em; text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      display: block;
+    }
+    .hero-info-left span.place { font-size: .75rem; color: rgba(255,255,255,.85); letter-spacing: .15em; }
+    .hero-info-right { text-align: right; }
+    .hero-cta {
+      font-family: 'FCFastest', sans-serif; text-transform: uppercase;
+      font-size: .85rem; letter-spacing: .1em;
+      color: var(--c); text-decoration: none; cursor: none;
+      display: flex; align-items: center; gap: .6rem;
+      transition: opacity .2s;
+    }
+    .hero-cta:hover { opacity: .65; }
+    .hero-cta-sub {
+      font-family: 'DM Mono', monospace; font-size: .52rem;
+      letter-spacing: .25em; text-transform: uppercase;
+      color: rgba(255,255,255,.25); margin-top: .35rem;
+    }
+    /* Scroll bar */
+    .hero-scroll {
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      z-index: 3; width: 1px; height: 60px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.0), rgba(255,255,255,.2));
+      animation: scrollBar 2.5s ease-in-out infinite;
+    }
+    @keyframes scrollBar {
+      0% { opacity:0; transform: translateX(-50%) scaleY(0); transform-origin: top; }
+      50% { opacity:1; transform: translateX(-50%) scaleY(1); transform-origin: top; }
+      100% { opacity:0; transform: translateX(-50%) scaleY(1); transform-origin: bottom; }
+    }
+
+    /* ══════════════════════════════
+       PARTENAIRES MAJEURS — Intégration fluide sous hero
+    ══════════════════════════════ */
+    #partners-hero {
+      position: relative; z-index: 2;
+      padding: 2rem 4rem;
+      display: flex; align-items: center; gap: 3rem;
+      border-bottom: 1px solid var(--br);
+      background: rgba(8,8,8,.6);
+      backdrop-filter: blur(10px);
+    }
+    .ph-label {
+      font-family: 'DM Mono', monospace; font-size: .5rem;
+      letter-spacing: .3em; text-transform: uppercase;
+      color: rgba(255,255,255,.2); white-space: nowrap; flex-shrink: 0;
+    }
+    .ph-sep { width: 1px; height: 32px; background: var(--br2); flex-shrink: 0; }
+    .ph-logos { display: flex; align-items: center; gap: 3.5rem; flex: 1; flex-wrap: wrap; }
+    .ph-logo {
+      display: flex; align-items: center; gap: .75rem;
+      opacity: .3; transition: opacity .3s; cursor: none;
+    }
+    .ph-logo:hover { opacity: .7; }
+    .ph-logo img { height: 22px; width: auto; filter: brightness(0) invert(1); }
+    /* Fallback texte si pas de logo */
+    .ph-logo-txt {
+      font-family: 'DM Mono', monospace; font-size: .62rem;
+      letter-spacing: .12em; text-transform: uppercase; color: #fff;
+    }
+
+    /* ══════════════════════════════
+       MARQUEE
+    ══════════════════════════════ */
+    .marquee-wrap { overflow: hidden; border-top: 1px solid var(--br); border-bottom: 1px solid var(--br); padding: 1rem 0; position: relative; z-index: 2; }
+    .marquee-t { display: flex; gap: 3.5rem; animation: mq 24s linear infinite; white-space: nowrap; }
+    .marquee-t span { font-family: 'FCFastest', sans-serif; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.1); flex-shrink: 0; }
+    .marquee-t .dot { color: var(--c); opacity: .35; }
+    @keyframes mq { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+
+    /* ══════════════════════════════
+       MANIFESTO
+    ══════════════════════════════ */
+    #manifesto {
+      position: relative; z-index: 2; min-height: 85vh;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    #manifesto-video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: .15; filter: grayscale(50%);
+    }
+    #manifesto::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to bottom, #080808 0%, transparent 15%, transparent 85%, #080808 100%);
+    }
+    .manifesto-content { position: relative; z-index: 2; text-align: center; padding: 2rem 4rem; max-width: 1000px; }
+    .manifesto-q {
+      font-family: 'FCFastest', sans-serif; text-transform: uppercase;
+      font-size: clamp(2.2rem, 5.5vw, 5.5rem); line-height: 1.02; letter-spacing: -.01em;
+      color: #fff;
+    }
+    .manifesto-q em { font-style: normal; color: var(--c); }
+
+    /* ══════════════════════════════
+       STATS
+    ══════════════════════════════ */
+    .stats-row { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--br); }
+    .stat-c { padding: 4rem 3.5rem; border-right: 1px solid var(--br); }
+    .stat-c:last-child { border-right: none; }
+    .stat-n {
+      font-family: 'FCFastest', sans-serif;
+      font-size: clamp(3.5rem, 7vw, 7rem); line-height: 1; letter-spacing: -.02em;
+      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,.4) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat-l { font-family: 'DM Mono', monospace; font-size: .57rem; letter-spacing: .28em; text-transform: uppercase; color: var(--mu); margin-top: .75rem; }
+
+    /* ══════════════════════════════
+       STORYTELLING — TIMELINE
+    ══════════════════════════════ */
+    #story { position: relative; z-index: 2; padding: 8rem 4rem; max-width: 1400px; margin: 0 auto; }
+    .story-header { margin-bottom: 6rem; }
+    .story-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border: 1px solid var(--br); }
+    .story-card {
+      padding: 3.5rem 2.5rem;
+      border-right: 1px solid var(--br);
+      position: relative; overflow: hidden;
+      transition: background .4s;
+      cursor: none;
+    }
+    .story-card:last-child { border-right: none; }
+    .story-card:hover { background: rgba(255,255,255,.02); }
+    /* Accent line top */
+    .story-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: transparent; transition: background .4s;
+    }
+    .story-card:hover::before { background: var(--c); }
+    .story-year {
+      font-family: 'FCFastest', sans-serif; font-size: 3.5rem;
+      letter-spacing: -.03em; line-height: 1;
+      color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.15);
+      margin-bottom: 2rem; display: block;
+      transition: -webkit-text-stroke .4s, color .4s;
+    }
+    .story-card:hover .story-year { -webkit-text-stroke: 1px rgba(34,211,238,.5); }
+    .story-edition {
+      font-family: 'DM Mono', monospace; font-size: .52rem;
+      letter-spacing: .32em; text-transform: uppercase;
+      color: var(--c); opacity: .6; margin-bottom: 1.2rem; display: block;
+    }
+    .story-text {
+      font-family: 'Syne', sans-serif; font-size: .9rem;
+      line-height: 1.65; color: rgba(255,255,255,.6);
+      font-weight: 400;
+    }
+    .story-text strong { color: #fff; font-weight: 700; }
+    .story-sold {
+      margin-top: 1.5rem; display: inline-flex; align-items: center; gap: .5rem;
+      font-family: 'DM Mono', monospace; font-size: .52rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--c); opacity: .7;
+    }
+    .story-sold::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--c); box-shadow: 0 0 8px var(--c); }
+
+    /* ══════════════════════════════
+       EXPERIENCE PILLARS
+    ══════════════════════════════ */
+    .pillars { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--br); }
+    .pillar { padding: 3rem 2.5rem 3rem 0; border-right: 1px solid var(--br); }
+    .pillar:last-child { border-right: none; }
+    .p-num { font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .3em; color: var(--c); opacity: .5; margin-bottom: 1.8rem; display: block; }
+    .p-title { font-family: 'FCFastest', sans-serif; text-transform: uppercase; font-size: .95rem; margin-bottom: .9rem; letter-spacing: .02em; }
+    .p-text { font-size: .68rem; line-height: 1.95; color: var(--mu); }
+
+    /* ══════════════════════════════
+       HALL OF FAME — ARTISTES PASSÉS
+    ══════════════════════════════ */
+    #hof { position: relative; z-index: 2; padding: 8rem 4rem; max-width: 1400px; margin: 0 auto; }
+    .hof-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 1.5rem; }
+    .hof-intro { max-width: 500px; font-size: .72rem; line-height: 1.9; color: var(--mu); margin-top: 1.2rem; }
+
+    /* Grille style UNVRS — paysage asymétrique */
+    .hof-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: var(--br); border: 1px solid var(--br); }
+    .hof-card { position: relative; overflow: hidden; cursor: none; background: #0e0e0e; }
+    .hof-card.wide { grid-column: span 2; }
+    .hof-card .ratio-l { aspect-ratio: 16/8; }
+    .hof-card.wide .ratio-l { aspect-ratio: 32/8; }
+    /* Fallback couleur si pas d'image */
+    .hof-bg {
+      width: 100%; height: 100%; position: absolute; inset: 0;
+      background: linear-gradient(135deg, #0e0e0e 0%, #1a1a1a 100%);
+    }
+    .hof-card img {
+      width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0;
+      filter: grayscale(60%) brightness(.7);
+      transition: filter .7s ease, transform .8s cubic-bezier(.16,1,.3,1);
+    }
+    .hof-card:hover img { filter: grayscale(0%) brightness(.85); transform: scale(1.06); }
+    .hof-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.88) 0%, transparent 55%); }
+    .hof-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 2.5rem; }
+    .hof-edition { font-family: 'DM Mono', monospace; font-size: .5rem; letter-spacing: .3em; text-transform: uppercase; color: var(--c); opacity: .75; margin-bottom: .4rem; display: block; }
+    .hof-name { font-family: 'FCFastest', sans-serif; text-transform: uppercase; font-size: clamp(1.1rem, 2vw, 1.9rem); letter-spacing: -.01em; color: #fff; line-height: 1; }
+    .hof-handle { font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .14em; color: rgba(255,255,255,.3); margin-top: .45rem; display: block; }
+    /* Superstar badge */
+    .hof-badge {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      font-family: 'DM Mono', monospace; font-size: .48rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--c); border: 1px solid rgba(34,211,238,.3); padding: .3rem .7rem; border-radius: 999px;
+      background: rgba(34,211,238,.06);
+    }
+    /* Placeholder visuel si pas de photo */
+    .hof-placeholder {
+      width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #111 0%, #1c1c1c 100%);
+    }
+    .hof-placeholder-letter {
+      font-family: 'FCFastest', sans-serif; font-size: 5rem; color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,.06);
+    }
+
+    /* ══════════════════════════════
+       TICKETS — IMPOSSIBLE À RATER
+    ══════════════════════════════ */
+    #tickets { position: relative; z-index: 2; padding: 0 4rem 8rem; max-width: 1400px; margin: 0 auto; }
+    .ticket-block {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 4.5rem 5rem;
+      border: 1px solid var(--br);
+      text-decoration: none; cursor: none;
+      transition: border-color .3s, background .3s;
+      position: relative; overflow: hidden;
+    }
+    .ticket-block::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(34,211,238,.03) 0%, transparent 60%);
+      opacity: 0; transition: opacity .4s;
+    }
+    .ticket-block:hover { border-color: rgba(34,211,238,.25); }
+    .ticket-block:hover::before { opacity: 1; }
+    .ticket-left {}
+    .ticket-title { font-family: 'FCFastest', sans-serif; text-transform: uppercase; font-size: clamp(2.5rem, 5vw, 5.5rem); letter-spacing: -.02em; line-height: .92; color: #fff; }
+    .ticket-sub { font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .28em; text-transform: uppercase; color: var(--c); opacity: .6; margin-top: 1.2rem; display: block; }
+    .ticket-platform { font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.2); margin-top: .5rem; display: block; }
+    .ticket-arrow {
+      width: 76px; height: 76px; border-radius: 50%; background: var(--c);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .3s;
+      box-shadow: 0 0 40px rgba(34,211,238,.22), 0 0 80px rgba(34,211,238,.08);
+    }
+    .ticket-block:hover .ticket-arrow { transform: rotate(45deg) scale(1.08); box-shadow: 0 0 55px rgba(34,211,238,.45), 0 0 100px rgba(34,211,238,.15); }
+    .ticket-arrow svg { width: 26px; color: #000; }
+    .ticket-note { font-size: .57rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.12); margin-top: 1.5rem; text-align: center; }
+
+    /* ══════════════════════════════
+       PARTENAIRES — section complète
+    ══════════════════════════════ */
+    .partner-row { padding: 2.5rem 0; border-bottom: 1px solid var(--br); display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; }
+    .partner-row:last-child { border-bottom: none; }
+    .pt-lbl { font-family: 'DM Mono', monospace; font-size: .5rem; letter-spacing: .28em; text-transform: uppercase; color: var(--mu); width: 100px; flex-shrink: 0; }
+    .pt-logos { display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; flex: 1; }
+    .pt-logo { display: flex; align-items: center; gap: .6rem; opacity: .25; transition: opacity .3s; cursor: none; }
+    .pt-logo:hover { opacity: .65; }
+    .pt-logo img { height: 22px; width: auto; filter: brightness(0) invert(1); }
+    .pt-logo-txt { font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .1em; text-transform: uppercase; color: #fff; }
+
+    /* WHY PARTNER */
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--br); }
+    .why-i { padding: 3rem 2.5rem 3rem 0; border-right: 1px solid var(--br); }
+    .why-i:last-child { border-right: none; }
+    .why-n { font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .3em; color: var(--c); opacity: .45; margin-bottom: 1.4rem; display: block; }
+    .why-t { font-family: 'FCFastest', sans-serif; text-transform: uppercase; font-size: .95rem; margin-bottom: .9rem; }
+    .why-tx { font-size: .68rem; line-height: 1.9; color: var(--mu); }
+
+    /* ══════════════════════════════
+       FAQ
+    ══════════════════════════════ */
+    .faq-i { border-bottom: 1px solid var(--br); }
+    .faq-btn { width: 100%; background: none; border: none; cursor: none; display: flex; justify-content: space-between; align-items: center; padding: 1.75rem 0; text-align: left; }
+    .faq-q { font-family: 'Syne', sans-serif; font-size: .95rem; font-weight: 400; color: rgba(255,255,255,.78); transition: color .2s; }
+    .faq-btn:hover .faq-q { color: #fff; }
+    .faq-ic { width: 24px; height: 24px; border: 1px solid var(--br); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: .8rem; color: var(--c); transition: transform .35s, border-color .2s; }
+    .faq-btn.open .faq-ic { transform: rotate(45deg); border-color: var(--c); }
+    .faq-body { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+    .faq-body.open { max-height: 300px; }
+    .faq-body p { font-size: .7rem; line-height: 1.9; color: var(--mu); padding-bottom: 1.75rem; }
+    .faq-body a { color: var(--c); text-decoration: underline; }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    footer { position: relative; z-index: 2; border-top: 1px solid var(--br); padding: 4rem; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 4rem; border-bottom: 1px solid var(--br); gap: 4rem; flex-wrap: wrap; }
+    .footer-brand {}
+    .footer-logo-txt { font-family: 'FCFastest', sans-serif; text-transform: uppercase; font-size: 2.2rem; letter-spacing: -.01em; color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.2); line-height: 1; display: block; }
+    .footer-tagline { font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(255,255,255,.2); margin-top: 1rem; display: block; }
+    .footer-cols { display: grid; grid-template-columns: repeat(3,1fr); gap: 4rem; }
+    .fc-title { font-family: 'DM Mono', monospace; font-size: .5rem; letter-spacing: .3em; text-transform: uppercase; color: var(--mu); margin-bottom: 1.5rem; display: block; }
+    .fc ul { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+    .fc a { font-size: .68rem; color: rgba(255,255,255,.38); text-decoration: none; transition: color .2s; cursor: none; }
+    .fc a:hover { color: #fff; }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+    .f-copy { font-size: .55rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.12); }
+    .f-quote { font-size: .6rem; font-style: italic; color: rgba(255,255,255,.15); max-width: 440px; text-align: right; line-height: 1.65; }
+    #clock { font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .16em; color: rgba(255,255,255,.16); }
+
+    /* REVEAL */
+    .rev { opacity: 0; transform: translateY(24px); transition: opacity .85s cubic-bezier(.16,1,.3,1), transform .85s cubic-bezier(.16,1,.3,1); }
+    .rev.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .sec, #story, #hof, #tickets { padding-left: 2rem; padding-right: 2rem; }
+      footer { padding: 3rem 2rem; }
+      #partners-hero { padding: 1.5rem 2rem; }
+      .story-grid { grid-template-columns: 1fr 1fr; }
+      .hof-grid { grid-template-columns: 1fr 1fr; }
+      .hof-card.wide { grid-column: span 2; }
+      .pillars { grid-template-columns: 1fr 1fr; }
+      .pillar { border-right: none; border-bottom: 1px solid var(--br); padding: 2rem 0; }
+      .pillar:last-child { border-bottom: none; }
+      .why-grid { grid-template-columns: 1fr; }
+      .why-i { border-right: none; border-bottom: 1px solid var(--br); padding: 2rem 0; }
+      .why-i:last-child { border-bottom: none; }
+      .footer-cols { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      #nav { padding: 0 1.5rem; }
+      #hero-bottom { padding: 0 1.5rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; bottom: 3rem; }
+      .hero-info-right { text-align: left; }
+      .stats-row { grid-template-columns: 1fr; }
+      .stat-c { border-right: none; border-bottom: 1px solid var(--br); padding: 2.5rem 2rem; }
+      .story-grid { grid-template-columns: 1fr; }
+      .story-card { border-right: none; border-bottom: 1px solid var(--br); }
+      .hof-grid { grid-template-columns: 1fr; }
+      .hof-card.wide { grid-column: span 1; }
+      .ticket-block { flex-direction: column; padding: 3rem 2rem; gap: 2rem; align-items: flex-start; }
+      .footer-cols { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-top { flex-direction: column; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+      .f-quote { text-align: left; }
+      .nav-r a:not(.cta-nav) { display: none; }
+    }
+  </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] blue-heart-glow"></div>
+  <div id="cur"></div>
+  <div id="cur-r"></div>
+  <div id="orb"></div>
+
+  <!-- ══════════════════════════════════════════
+       NAV
+  ══════════════════════════════════════════ -->
+  <nav id="nav">
+    <a href="#" class="nav-logo" style="cursor:none;text-decoration:none;">
+      <!--
+        LOGO PRINCIPAL
+        Fichier : /assets/logo/logo-main.svg
+        Hauteur recommandée : 28–32px
+        Si le logo n'est pas encore dispo, commenter l'img et décommenter le texte
+      -->
+      <img src="/assets/logo/logo-main.svg" alt="ENJOYLIFE"
+           onerror="this.style.display='none';document.querySelector('.nav-logo-txt').style.display='block';" />
+      <span class="nav-logo-txt">Enjoylife</span>
+    </a>
+    <div class="nav-r">
+      <a href="#story">Notre histoire</a>
+      <a href="#hof">Line-up</a>
+      <a href="#faq">FAQ</a>
+      <a href="partenaires/index.html">Partenaires</a>
+      <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="cta-nav">Billets</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════
+       HERO — PLEIN ÉCRAN
+  ══════════════════════════════════════════ -->
+  <section id="hero">
+    <!--
+      VIDÉO HERO PLEIN ÉCRAN
+      Fichier : /assets/video/hero-video.mp4
+      Poster  : /assets/img/hero-poster.jpg
+      Format  : 16/9, 1920×1080 minimum
+      Important : vidéo en boucle, pas de son, filtre brightness .55
+    -->
+    <video id="hero-video"
+      src="/assets/video/hero-video.mp4"
+      poster="/assets/img/hero-poster.jpg"
+      autoplay muted loop playsinline
+      aria-label="ENJOYLIFE 2027 — vidéo hero">
+    </video>
+
+    <div id="hero-overlay"></div>
+
+    <!-- LOGO CENTRÉ -->
+    <div id="hero-logo">
+      <!--
+        LOGO HERO — version blanche grande
+        Fichier : /assets/logo/logo-white.svg (version blanche du logo)
+        Si même fichier que logo-main.svg, utiliser logo-main.svg
+      -->
+      <img src="/assets/logo/logo-white.svg" alt="ENJOYLIFE"
+           onerror="this.style.display='none';document.getElementById('hero-logo-txt').style.display='block';" />
+      <span id="hero-logo-txt">ENJOYLIFE</span>
+      <span class="hero-tagline">Techno &amp; Immersive Arts</span>
     </div>
 
-    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center backdrop-blur-md border-b border-white/5">
-        <div class="font-fastest text-2xl tracking-tighter text-glow">Enjoylife</div>
-        <div class="flex gap-8 text-[10px] font-bold tracking-[0.2em] uppercase opacity-60">
-            <a href="#experience" class="hover:opacity-100 hover:text-cyan-400 transition-all">Expérience</a>
-            <a href="#lineup" class="hover:opacity-100 hover:text-cyan-400 transition-all">Line-up</a>
-            <a href="partenaires/index.html" class="hover:opacity-100 transition-opacity underline decoration-cyan-500/50 underline-offset-4">Partenaires</a>
-        </div>
-    </nav>
+    <!-- INFOS BAS — style Coachella -->
+    <div id="hero-bottom">
+      <div class="hero-info-left">
+        <span class="place">Ambérieu-en-Bugey</span>
+        <span>Ain, France · 45° 57' N, 5° 22' E</span>
+        <span>IV<sup>ème</sup> Édition · 2027</span>
+      </div>
+      <div class="hero-info-right">
+        <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="hero-cta">
+          Obtenir mes billets <span style="font-size:1.1em;">→</span>
+        </a>
+        <p class="hero-cta-sub">Disponible sur Shotgun</p>
+      </div>
+    </div>
 
-    <main class="relative z-10 min-h-screen flex flex-col items-center justify-center pt-32 px-4">
-        <h1 class="font-fastest text-[18vw] leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-gray-600 mb-4 animate-pulse">
-            Enjoylife
-        </h1>
-        <p class="font-fastest text-cyan-400 tracking-[0.5em] text-sm mb-12 opacity-80">Techno & Immersive Arts</p>
-        
-        <div class="w-full max-w-6xl aspect-video glass-card overflow-hidden group relative shadow-2xl">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
-            <div class="absolute inset-0 bg-cyan-500/5 mix-blend-overlay group-hover:bg-transparent transition-all duration-700"></div>
-            <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-1000">
-                <source src="votre-video.mp4" type="video/mp4">
-            </video>
-            <div class="absolute bottom-8 left-8 z-20">
-                <p class="font-fastest text-xs tracking-widest opacity-50">Discover the teaser</p>
-            </div>
-        </div>
-    </main>
+    <div class="hero-scroll"></div>
+  </section>
 
-    <section id="experience" class="relative z-10 max-w-7xl mx-auto px-4 py-40">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass-card p-8 group">
-                <div class="text-cyan-400 mb-6 text-2xl font-fastest">01</div>
-                <h3 class="font-fastest text-xl mb-4">Immersive Sound</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Un système son dernière génération conçu pour une immersion totale au cœur des fréquences techno.</p>
-            </div>
-            <div class="glass-card p-8 group border-purple-500/20">
-                <div class="text-purple-400 mb-6 text-2xl font-fastest">02</div>
-                <h3 class="font-fastest text-xl mb-4">Visual Arts</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Des scénographies lumineuses et des projections mapping créées par des artistes digitaux internationaux.</p>
-            </div>
-            <div class="glass-card p-8 group border-white/20">
-                <div class="text-white mb-6 text-2xl font-fastest">03</div>
-                <h3 class="font-fastest text-xl mb-4">Community</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Plus qu'un événement, un rassemblement d'âmes libres célébrant la vie et la musique électronique.</p>
-            </div>
-        </div>
-    </section>
+  <!-- ══════════════════════════════════════════
+       PARTENAIRES MAJEURS — sous le hero, fluide
+  ══════════════════════════════════════════ -->
+  <div id="partners-hero">
+    <span class="ph-label">Partenaires majeurs</span>
+    <div class="ph-sep"></div>
+    <div class="ph-logos">
 
-    <section class="relative z-10 max-w-7xl mx-auto px-4 pb-32 grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <div class="md:col-span-2 h-[400px] glass-card p-10 flex flex-col justify-end group cursor-crosshair">
-            <span class="font-fastest text-cyan-400 text-sm tracking-widest mb-2 group-hover:translate-x-2 transition-transform">Location</span>
-            <h2 class="font-fastest text-5xl">La Plaine de l'Ain</h2>
-            <p class="text-xs text-white/30 mt-4 tracking-[0.2em]">FRANCE — 45° 52' 0" N, 5° 17' 0" E</p>
-        </div>
+      <!-- PARTENAIRE 1 : Crédit Agricole Centre Est -->
+      <!--
+        Fichier : /assets/logo/partners/credit-agricole.svg
+        Si pas de logo SVG, le texte s'affiche en fallback
+      -->
+      <div class="ph-logo">
+        <img src="/assets/logo/partners/credit-agricole.svg" alt="Crédit Agricole Centre Est"
+             onerror="this.style.display='none';" />
+        <span class="ph-logo-txt">Crédit Agricole <span style="opacity:.5;font-size:.85em;">Centre Est</span></span>
+      </div>
 
-        <div class="h-[400px] glass-card p-10 flex flex-col justify-end items-center text-center">
-            <span class="font-fastest text-purple-400 text-sm tracking-widest mb-2">Save the date</span>
-            <h2 class="font-fastest text-6xl">2026</h2>
-            <p class="text-xs text-white/30 mt-4 tracking-[0.2em]">SUMMER SOLSTICE</p>
-        </div>
+      <!-- PARTENAIRE 2 : McDonald's -->
+      <!--
+        Fichier : /assets/logo/partners/mcdonalds.svg
+      -->
+      <div class="ph-logo">
+        <img src="/assets/logo/partners/mcdonalds.svg" alt="McDonald's"
+             onerror="this.style.display='none';" />
+        <span class="ph-logo-txt">McDonald's</span>
+      </div>
 
-        <div class="md:col-span-3 h-[180px] glass-card flex items-center justify-between px-12 group cursor-pointer border-cyan-500/30 hover:bg-cyan-500/10">
-            <div>
-                <h2 class="font-fastest text-4xl mb-2">Get Your Tickets</h2>
-                <p class="text-[10px] tracking-[0.3em] text-cyan-400 opacity-60">PHASE 01 — EARLY BIRD NOW OPEN</p>
-            </div>
-            <div class="w-20 h-20 rounded-full bg-cyan-400 flex items-center justify-center text-black group-hover:scale-110 group-hover:rotate-45 transition-all duration-500 shadow-[0_0_50px_rgba(34,211,238,0.4)]">
-                <span class="text-3xl font-bold">→</span>
-            </div>
-        </div>
-    </section>
+      <!-- PARTENAIRE 3 : CER by Francine -->
+      <!--
+        Fichier : /assets/logo/partners/cer-francine.svg
+      -->
+      <div class="ph-logo">
+        <img src="/assets/logo/partners/cer-francine.svg" alt="Auto-école CER by Francine"
+             onerror="this.style.display='none';" />
+        <span class="ph-logo-txt">CER <span style="opacity:.5;font-size:.85em;">by Francine</span></span>
+      </div>
 
-    <footer class="relative z-10 py-20 text-center opacity-20 text-[10px] tracking-[0.5em] font-bold uppercase">
-        Enjoylife © 2026 — All Rights Reserved
-    </footer>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       MARQUEE
+  ══════════════════════════════════════════ -->
+  <div class="marquee-wrap">
+    <div class="marquee-t">
+      <span>ENJOYLIFE</span><span class="dot">✦</span>
+      <span>2027</span><span class="dot">✦</span>
+      <span>Ain · France</span><span class="dot">✦</span>
+      <span>Techno &amp; Immersive Arts</span><span class="dot">✦</span>
+      <span>IV Edition</span><span class="dot">✦</span>
+      <span>III / III Sold Out</span><span class="dot">✦</span>
+      <span>4000+ Festivaliers</span><span class="dot">✦</span>
+      <span>ENJOYLIFE</span><span class="dot">✦</span>
+      <span>2027</span><span class="dot">✦</span>
+      <span>Ain · France</span><span class="dot">✦</span>
+      <span>Techno &amp; Immersive Arts</span><span class="dot">✦</span>
+      <span>IV Edition</span><span class="dot">✦</span>
+      <span>III / III Sold Out</span><span class="dot">✦</span>
+      <span>4000+ Festivaliers</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       MANIFESTO
+  ══════════════════════════════════════════ -->
+  <section id="manifesto">
+    <!--
+      VIDÉO AFTERMOVIE — fond du manifesto
+      Fichier : /assets/video/aftermovie.mp4
+      Poster  : /assets/img/aftermovie-poster.jpg
+    -->
+    <video id="manifesto-video"
+      src="/assets/video/aftermovie.mp4"
+      poster="/assets/img/aftermovie-poster.jpg"
+      autoplay muted loop playsinline>
+    </video>
+
+    <div class="manifesto-content">
+      <p class="lbl rev" style="margin-bottom:2.5rem;">Manifesto</p>
+      <blockquote class="manifesto-q rev d1">
+        This is not a festival.<br/>
+        <em>This is a state of mind.</em>
+      </blockquote>
+      <p class="rev d2" style="margin-top:2.5rem;font-size:.55rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.16);">
+        — ENJOYLIFE, depuis 2016
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       STATS
+  ══════════════════════════════════════════ -->
+  <div class="sec" style="padding-bottom:0;">
+    <div class="stats-row rev">
+      <div class="stat-c">
+        <div class="stat-n">4000<span style="font-size:.42em;opacity:.42">+</span></div>
+        <p class="stat-l">Festivaliers sur 3 éditions</p>
+      </div>
+      <div class="stat-c rev d1">
+        <div class="stat-n">20<span style="font-size:.42em;opacity:.42">+</span></div>
+        <p class="stat-l">Artistes internationaux</p>
+      </div>
+      <div class="stat-c rev d2">
+        <div class="stat-n">III<span style="font-size:.36em;color:var(--c);opacity:.8;margin-left:.2em;">/III</span></div>
+        <p class="stat-l">Éditions consécutives Sold Out</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       STORYTELLING — L'HISTOIRE ENJOYLIFE
+  ══════════════════════════════════════════ -->
+  <section id="story">
+    <div class="story-header rev">
+      <p class="lbl" style="margin-bottom:1.5rem;">Notre histoire</p>
+      <h2 class="ff" style="font-size:clamp(2.5rem,5vw,4.5rem);line-height:.93;letter-spacing:-.02em;">
+        Tout a commencé<br/>dans l'Ain.
+      </h2>
+    </div>
+
+    <div class="story-grid rev d1">
+
+      <!-- ÉDITION I — 2016 -->
+      <div class="story-card">
+        <span class="story-year">2016</span>
+        <span class="story-edition">Édition I</span>
+        <p class="story-text">
+          <strong>Une première. Sans précédent.</strong> Personne ne savait ce que c'était. Quelques centaines de personnes, un son, une idée. L'Ain découvre la techno immersive.
+        </p>
+        <span class="story-sold">Sold Out</span>
+      </div>
+
+      <!-- ÉDITION II — 2017 -->
+      <div class="story-card">
+        <span class="story-year">2017</span>
+        <span class="story-edition">Édition II</span>
+        <p class="story-text">
+          <strong>Le bouche-à-oreille fait tout.</strong> Ceux qui étaient là en parlent encore. Les autres veulent y être. ENJOYLIFE n'est plus un événement — c'est une réputation.
+        </p>
+        <span class="story-sold">Sold Out</span>
+      </div>
+
+      <!-- GAP — la pause -->
+      <div class="story-card" style="background:rgba(255,255,255,.01);">
+        <span class="story-year" style="-webkit-text-stroke:1px rgba(255,255,255,.06);">—</span>
+        <span class="story-edition" style="color:rgba(255,255,255,.2);">La pause</span>
+        <p class="story-text" style="color:rgba(255,255,255,.3);">
+          Quelques années de silence. Pas d'abandon — une construction. Chaque grande histoire a ses coulisses.
+        </p>
+      </div>
+
+      <!-- ÉDITION III — 2026 -->
+      <div class="story-card">
+        <span class="story-year">2026</span>
+        <span class="story-edition">Édition III</span>
+        <p class="story-text">
+          <strong>Le retour qui confirme tout.</strong> ENJOYLIFE revient plus fort, plus grand, plus intense. Tony Romera, Odymel, Rivo, Jast — des noms qui font désormais les grandes scènes. Ils étaient là avant.
+        </p>
+        <span class="story-sold">Sold Out</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       EXPERIENCE
+  ══════════════════════════════════════════ -->
+  <section id="experience" class="sec" style="padding-top:0;">
+    <div class="rev" style="margin-bottom:5rem;">
+      <p class="lbl" style="margin-bottom:1.5rem;">L'expérience</p>
+      <h2 class="ff" style="font-size:clamp(2.2rem,4.5vw,4rem);line-height:.93;letter-spacing:-.02em;">
+        Tout est conçu<br/>pour vous perdre.
+      </h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar rev">
+        <span class="p-num">01</span>
+        <h3 class="p-title">Scénographie</h3>
+        <p class="p-text">Des structures qui transforment le site en territoire autre. Chaque scène est un monde autonome.</p>
+      </div>
+      <div class="pillar rev d1">
+        <span class="p-num">02</span>
+        <h3 class="p-title">Lumière</h3>
+        <p class="p-text">Rigs laser synchronisés avec chaque kick, chaque drop, chaque silence. La lumière n'accompagne pas — elle joue.</p>
+      </div>
+      <div class="pillar rev d2">
+        <span class="p-num">03</span>
+        <h3 class="p-title">Son</h3>
+        <p class="p-text">Un enveloppement 360° pensé pour que chaque fréquence se ressente dans les os, pas seulement dans les oreilles.</p>
+      </div>
+      <div class="pillar rev d3">
+        <span class="p-num">04</span>
+        <h3 class="p-title">Énergie</h3>
+        <p class="p-text">Pas une foule. Une communauté. Construite sur des années de confiance et d'amour du son.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       HALL OF FAME — ARTISTES PASSÉS
+  ══════════════════════════════════════════ -->
+  <section id="hof">
+    <div class="hof-header rev">
+      <div>
+        <p class="lbl" style="margin-bottom:1.5rem;">Hall of Fame</p>
+        <h2 class="ff" style="font-size:clamp(2.2rem,4.5vw,4rem);line-height:.93;letter-spacing:-.02em;">
+          Ils étaient là<br/>avant tout le monde.
+        </h2>
+        <p class="hof-intro">
+          ENJOYLIFE a toujours eu l'œil. Ces artistes ont joué sur nos scènes avant de conquérir les plus grandes. Ce n'est pas une coïncidence — c'est une philosophie.
+        </p>
+      </div>
+    </div>
+
+    <!--
+      GRILLE HALL OF FAME — style UNVRS
+      Photos : /assets/img/artists/
+      Format idéal : paysage 2400×1200px, photos live ou portrait artistique
+    -->
+    <div class="hof-grid rev d1">
+
+      <!-- TONY ROMERA — large -->
+      <div class="hof-card wide">
+        <div class="ratio-l">
+          <!--
+            PHOTO : /assets/img/artists/tony-romera.jpg
+            Format paysage 2400×900px recommandé
+          -->
+          <div class="hof-placeholder"><span class="hof-placeholder-letter">TR</span></div>
+          <img src="/assets/img/artists/tony-romera.jpg" alt="Tony Romera" loading="lazy" />
+          <div class="hof-overlay"></div>
+          <span class="hof-badge">Superstar ✦</span>
+          <div class="hof-content">
+            <span class="hof-edition">ENJOYLIFE I · II · 2016–2017</span>
+            <p class="hof-name">Tony Romera</p>
+            <span class="hof-handle">@tonyromera</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ODYMEL -->
+      <div class="hof-card">
+        <div class="ratio-l">
+          <!--
+            PHOTO : /assets/img/artists/odymel.jpg
+          -->
+          <div class="hof-placeholder"><span class="hof-placeholder-letter">OD</span></div>
+          <img src="/assets/img/artists/odymel.jpg" alt="Odymel" loading="lazy" />
+          <div class="hof-overlay"></div>
+          <span class="hof-badge">Superstar ✦</span>
+          <div class="hof-content">
+            <span class="hof-edition">ENJOYLIFE I · 2016</span>
+            <p class="hof-name">Odymel</p>
+            <span class="hof-handle">@odymel</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- JAST -->
+      <div class="hof-card">
+        <div class="ratio-l">
+          <!--
+            PHOTO : /assets/img/artists/jast.jpg
+          -->
+          <div class="hof-placeholder"><span class="hof-placeholder-letter">JA</span></div>
+          <img src="/assets/img/artists/jast.jpg" alt="Jast" loading="lazy" />
+          <div class="hof-overlay"></div>
+          <span class="hof-badge">Superstar ✦</span>
+          <div class="hof-content">
+            <span class="hof-edition">ENJOYLIFE II · 2017</span>
+            <p class="hof-name">Jast</p>
+            <span class="hof-handle">@jast</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIVO — large -->
+      <div class="hof-card wide">
+        <div class="ratio-l">
+          <!--
+            PHOTO : /assets/img/artists/rivo.jpg
+          -->
+          <div class="hof-placeholder"><span class="hof-placeholder-letter">RI</span></div>
+          <img src="/assets/img/artists/rivo.jpg" alt="Rivo" loading="lazy" />
+          <div class="hof-overlay"></div>
+          <span class="hof-badge">Superstar ✦</span>
+          <div class="hof-content">
+            <span class="hof-edition">ENJOYLIFE III · 2026</span>
+            <p class="hof-name">Rivo</p>
+            <span class="hof-handle">@rivo</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Ligne éditoriale bas -->
+    <div class="rev" style="border:1px solid var(--br);border-top:none;padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <p style="font-size:.62rem;font-style:italic;color:rgba(255,255,255,.25);max-width:600px;line-height:1.7;">
+        "ENJOYLIFE IV · 2027 — Le prochain line-up sera révélé prochainement. Une chose est sûre : on a encore l'œil."
+      </p>
+      <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener"
+         style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c);text-decoration:none;cursor:none;border-bottom:1px solid rgba(34,211,238,.3);padding-bottom:3px;">
+        Suivre les annonces →
+      </a>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       TICKETS — BLOC IMPOSSIBLE À RATER
+  ══════════════════════════════════════════ -->
+  <section id="tickets" class="sec" style="padding-top:4rem;padding-bottom:8rem;">
+    <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="ticket-block">
+      <div class="ticket-left">
+        <h2 class="ticket-title">Get Your<br/>Tickets</h2>
+        <span class="ticket-sub">Billets bientôt disponibles — Soyez prêts</span>
+        <span class="ticket-platform">Via Shotgun · shotgun.live/enjoylife-emx</span>
+      </div>
+      <div class="ticket-arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </div>
+    </a>
+    <p class="ticket-note">3 éditions consécutives sold out — la IV ne fera pas exception.</p>
+  </section>
+
+  <!-- MARQUEE 2 -->
+  <div class="marquee-wrap">
+    <div class="marquee-t" style="animation-direction:reverse;">
+      <span>Tony Romera</span><span class="dot">✦</span>
+      <span>Odymel</span><span class="dot">✦</span>
+      <span>Rivo</span><span class="dot">✦</span>
+      <span>Jast</span><span class="dot">✦</span>
+      <span>ENJOYLIFE IV · 2027</span><span class="dot">✦</span>
+      <span>Sold Out · III / III</span><span class="dot">✦</span>
+      <span>Tony Romera</span><span class="dot">✦</span>
+      <span>Odymel</span><span class="dot">✦</span>
+      <span>Rivo</span><span class="dot">✦</span>
+      <span>Jast</span><span class="dot">✦</span>
+      <span>ENJOYLIFE IV · 2027</span><span class="dot">✦</span>
+      <span>Sold Out · III / III</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PARTENAIRES — SECTION COMPLÈTE
+  ══════════════════════════════════════════ -->
+  <section id="partners" class="sec">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;flex-wrap:wrap;gap:1.5rem;" class="rev">
+      <div>
+        <p class="lbl" style="margin-bottom:1.5rem;">Partenaires</p>
+        <h2 class="ff" style="font-size:clamp(2rem,4vw,3.5rem);line-height:.93;letter-spacing:-.02em;">Ils nous font confiance.</h2>
+      </div>
+      <a href="partenaires/index.html"
+         style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c);text-decoration:none;cursor:none;border-bottom:1px solid rgba(34,211,238,.3);padding-bottom:3px;">
+        Devenir partenaire →
+      </a>
+    </div>
+
+    <div class="partner-row rev">
+      <span class="pt-lbl">Majeurs</span>
+      <div class="pt-logos">
+        <div class="pt-logo">
+          <img src="/assets/logo/partners/credit-agricole.svg" alt="Crédit Agricole Centre Est" onerror="this.style.display='none';" />
+          <span class="pt-logo-txt">Crédit Agricole Centre Est</span>
+        </div>
+        <div class="pt-logo">
+          <img src="/assets/logo/partners/mcdonalds.svg" alt="McDonald's" onerror="this.style.display='none';" />
+          <span class="pt-logo-txt">McDonald's</span>
+        </div>
+        <div class="pt-logo">
+          <img src="/assets/logo/partners/cer-francine.svg" alt="CER by Francine" onerror="this.style.display='none';" />
+          <span class="pt-logo-txt">CER by Francine</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="partner-row rev">
+      <span class="pt-lbl">Officiels</span>
+      <div class="pt-logos">
+        <div class="pt-logo"><img src="/assets/logo/partners/partner-official-1.svg" alt="Partenaire officiel 1" /><span class="pt-logo-txt">Partenaire</span></div>
+        <div class="pt-logo"><img src="/assets/logo/partners/partner-official-2.svg" alt="Partenaire officiel 2" /><span class="pt-logo-txt">Partenaire</span></div>
+        <div class="pt-logo"><img src="/assets/logo/partners/partner-official-3.svg" alt="Partenaire officiel 3" /><span class="pt-logo-txt">Partenaire</span></div>
+      </div>
+    </div>
+
+    <div class="partner-row rev">
+      <span class="pt-lbl">Institutions</span>
+      <div class="pt-logos">
+        <div class="pt-logo"><img src="/assets/logo/partners/institution-1.svg" alt="Institution 1" /><span class="pt-logo-txt">Institution</span></div>
+        <div class="pt-logo"><img src="/assets/logo/partners/institution-2.svg" alt="Institution 2" /><span class="pt-logo-txt">Institution</span></div>
+      </div>
+    </div>
+
+    <div class="partner-row rev" style="border-bottom:none;">
+      <span class="pt-lbl">Médias</span>
+      <div class="pt-logos">
+        <div class="pt-logo"><img src="/assets/logo/partners/media-1.svg" alt="Média 1" /><span class="pt-logo-txt">Média</span></div>
+        <div class="pt-logo"><img src="/assets/logo/partners/media-2.svg" alt="Média 2" /><span class="pt-logo-txt">Média</span></div>
+      </div>
+    </div>
+
+    <!-- WHY PARTNER -->
+    <div style="margin-top:6rem;">
+      <div class="rev" style="margin-bottom:4rem;">
+        <p class="lbl" style="margin-bottom:1.5rem;">Partnership</p>
+        <h2 class="ff" style="font-size:clamp(1.8rem,3.5vw,3rem);line-height:.93;letter-spacing:-.02em;">
+          Pourquoi choisir<br/>ENJOYLIFE ?
+        </h2>
+      </div>
+      <div class="why-grid rev d1">
+        <div class="why-i">
+          <span class="why-n">01</span>
+          <h3 class="why-t">Audience engagée</h3>
+          <p class="why-tx">4000+ festivaliers 18–35 ans, profil CSP+. Une communauté qui consomme, recommande et revient. Chaque édition, sans exception.</p>
+        </div>
+        <div class="why-i">
+          <span class="why-n">02</span>
+          <h3 class="why-t">Image premium</h3>
+          <p class="why-tx">S'associer à ENJOYLIFE, c'est choisir un univers de marque soigné, exigeant, reconnu. Pas un festival parmi d'autres.</p>
+        </div>
+        <div class="why-i">
+          <span class="why-n">03</span>
+          <h3 class="why-t">Résultats prouvés</h3>
+          <p class="why-tx">3 éditions. 3 sold out. 100% des partenaires ont confirmé leur retour pour 2027. Spontanément. Sans qu'on leur demande.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FAQ
+  ══════════════════════════════════════════ -->
+  <section id="faq" class="sec" style="padding-top:0;">
+    <p class="lbl rev" style="margin-bottom:4rem;">FAQ</p>
+
+    <div class="faq-i rev">
+      <button class="faq-btn" onclick="faqT(this)">
+        <span class="faq-q">Quand et où aura lieu ENJOYLIFE 2027 ?</span>
+        <span class="faq-ic">+</span>
+      </button>
+      <div class="faq-body">
+        <p>Date et lieu exacts annoncés prochainement. Les éditions précédentes se sont déroulées autour d'Ambérieu-en-Bugey et Villieu-Loyes-Mollon dans l'Ain. Suivez <strong style="color:#fff;">@enjoylife.emx</strong> et activez vos notifications Shotgun pour être parmi les premiers informés.</p>
+      </div>
+    </div>
+
+    <div class="faq-i rev">
+      <button class="faq-btn" onclick="faqT(this)">
+        <span class="faq-q">Comment obtenir des billets ?</span>
+        <span class="faq-ic">+</span>
+      </button>
+      <div class="faq-body">
+        <p>Les billets sont disponibles exclusivement sur <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank">Shotgun</a>. Compte tenu des sold out successifs, nous recommandons fortement d'activer les notifications dès maintenant pour ne pas rater l'ouverture de la billetterie.</p>
+      </div>
+    </div>
+
+    <div class="faq-i rev">
+      <button class="faq-btn" onclick="faqT(this)">
+        <span class="faq-q">Quels artistes seront au line-up 2027 ?</span>
+        <span class="faq-ic">+</span>
+      </button>
+      <div class="faq-body">
+        <p>Le line-up sera révélé progressivement. Ce qu'on peut dire : ENJOYLIFE a toujours misé sur des artistes en avance sur leur temps. Tony Romera, Odymel, Rivo, Jast y étaient avant de devenir des superstars. L'édition IV ne fera pas exception.</p>
+      </div>
+    </div>
+
+    <div class="faq-i rev">
+      <button class="faq-btn" onclick="faqT(this)">
+        <span class="faq-q">Y a-t-il un camping ou des navettes ?</span>
+        <span class="faq-ic">+</span>
+      </button>
+      <div class="faq-body">
+        <p>Les informations pratiques — camping, hébergements partenaires, navettes — seront communiquées avec l'annonce officielle. Nos éditions précédentes proposaient plusieurs formules pour faciliter votre venue.</p>
+      </div>
+    </div>
+
+    <div class="faq-i rev">
+      <button class="faq-btn" onclick="faqT(this)">
+        <span class="faq-q">Comment devenir partenaire de ENJOYLIFE ?</span>
+        <span class="faq-ic">+</span>
+      </button>
+      <div class="faq-body">
+        <p>Rendez-vous sur notre page <a href="partenaires/index.html">Partenaires</a>. 100% de nos partenaires ont confirmé leur retour pour 2027 — spontanément, sans qu'on leur demande. Les places partenaires sont limitées.</p>
+      </div>
+    </div>
+
+    <div class="faq-i rev">
+      <button class="faq-btn" onclick="faqT(this)">
+        <span class="faq-q">Puis-je venir seul(e) ?</span>
+        <span class="faq-ic">+</span>
+      </button>
+      <div class="faq-body">
+        <p>Absolument. ENJOYLIFE est construit sur une communauté inclusive et bienveillante. Beaucoup de nos festivaliers viennent seuls et repartent avec des souvenirs partagés pour toujours. L'énergie collective fait le reste.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <!-- LOGO FOOTER : /assets/logo/logo-footer.svg -->
+        <img src="/assets/logo/logo-footer.svg" alt="ENJOYLIFE"
+             style="height:40px;width:auto;margin-bottom:1rem;opacity:.5;"
+             onerror="this.style.display='none';document.getElementById('f-logo-txt').style.display='block';" />
+        <span id="f-logo-txt" class="footer-logo-txt" style="display:none;">Enjoy<br/>Life</span>
+        <span class="footer-tagline">Techno &amp; Immersive Arts · Ain, France</span>
+        <span class="footer-tagline" style="margin-top:.3rem;">IV<sup>ème</sup> Édition · 2027</span>
+      </div>
+
+      <div class="footer-cols">
+        <div class="fc">
+          <span class="fc-title">Navigation</span>
+          <ul>
+            <li><a href="#story">Notre histoire</a></li>
+            <li><a href="#hof">Hall of Fame</a></li>
+            <li><a href="#tickets">Billets</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="fc">
+          <span class="fc-title">Contact</span>
+          <ul>
+            <li><a href="partenaires/index.html" style="color:var(--c);">Partenariats</a></li>
+            <li><a href="mailto:contact@enjoylife-festival.fr">contact@enjoylife-festival.fr</a></li>
+            <li><a href="https://instagram.com/enjoylife.emx" target="_blank" rel="noopener">@enjoylife.emx</a></li>
+            <li><a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener">Shotgun</a></li>
+          </ul>
+        </div>
+        <div class="fc">
+          <span class="fc-title">Légal</span>
+          <ul>
+            <li><a href="#">Mentions légales</a></li>
+            <li><a href="#">CGV</a></li>
+            <li><a href="#">Confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="f-copy">© 2027 ENJOYLIFE — All Rights Reserved</p>
+      <p id="clock"></p>
+      <p class="f-quote">"100% des partenaires recroisés ont confirmé leur retour pour 2027. Spontanément. Sans qu'on leur demande."</p>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════
+       JS
+  ══════════════════════════════════════════ -->
+  <script>
+    // CURSOR
+    const cur = document.getElementById('cur');
+    const curR = document.getElementById('cur-r');
+    let mx=0,my=0,rx=0,ry=0;
+    document.addEventListener('mousemove',e=>{ mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+    (function loop(){ rx+=(mx-rx)*.1; ry+=(my-ry)*.1; curR.style.left=rx+'px'; curR.style.top=ry+'px'; requestAnimationFrame(loop); })();
+    document.querySelectorAll('a,button,.hof-card,.story-card,.ph-logo,.ticket-block').forEach(el=>{
+      el.addEventListener('mouseenter',()=>document.body.classList.add('h'));
+      el.addEventListener('mouseleave',()=>document.body.classList.remove('h'));
+    });
+
+    // NAV SCROLL
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>60),{passive:true});
+
+    // REVEAL
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+    },{threshold:.06,rootMargin:'0px 0px -30px 0px'});
+    document.querySelectorAll('.rev').forEach(el=>io.observe(el));
+
+    // FAQ
+    function faqT(btn){
+      const body=btn.nextElementSibling;
+      const open=btn.classList.contains('open');
+      document.querySelectorAll('.faq-btn').forEach(b=>{ b.classList.remove('open'); b.nextElementSibling.classList.remove('open'); });
+      if(!open){ btn.classList.add('open'); body.classList.add('open'); }
+    }
+
+    // CLOCK
+    const clockEl=document.getElementById('clock');
+    function tick(){
+      const n=new Date(), p=v=>String(v).padStart(2,'0');
+      clockEl.textContent=`${p(n.getHours())}:${p(n.getMinutes())}:${p(n.getSeconds())} · Europe/Paris`;
+    }
+    tick(); setInterval(tick,1000);
+  </script>
 
 </body>
 </html>
