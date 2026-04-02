@@ -6,7 +6,6 @@
     <title>ENJOYLIFE | Join the Experience</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Importation de ta typo FC Fastest */
         @font-face {
             font-family: 'FCFastest';
             src: url('FC Fastest Bold ver 1.01.otf') format('opentype');
@@ -16,7 +15,6 @@
         body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
         .font-fastest { font-family: 'FCFastest', sans-serif; text-transform: uppercase; }
 
-        /* Animation du Cœur Bleu (DA) */
         .blue-heart-glow {
             background: radial-gradient(circle, rgba(94,234,212,0.4) 0%, rgba(147,51,234,0.2) 50%, rgba(5,5,16,0) 70%);
             filter: blur(60px);
@@ -28,7 +26,6 @@
             50% { transform: scale(1.2); opacity: 0.9; }
         }
 
-        /* Effet Glassmorphism (Apple/Tomorrowland) */
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(15px);
@@ -41,6 +38,11 @@
             border-color: rgba(94,234,212,0.5);
             background: rgba(255, 255, 255, 0.06);
             transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 30px rgba(255,255,255,0.3);
         }
     </style>
 </head>
@@ -50,47 +52,81 @@
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] blue-heart-glow"></div>
     </div>
 
-    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center backdrop-blur-sm">
-        <div class="font-fastest text-2xl tracking-tighter">Enjoylife</div>
-        <div class="flex gap-8 text-xs font-medium tracking-widest uppercase opacity-60">
-            <a href="#" class="hover:opacity-100 transition-opacity">Expérience</a>
-            <a href="#" class="hover:opacity-100 transition-opacity">Line-up</a>
-           <a href="partenaires/index.html" class="hover:opacity-100 transition-opacity underline">Partenaires</a>
+    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center backdrop-blur-md border-b border-white/5">
+        <div class="font-fastest text-2xl tracking-tighter text-glow">Enjoylife</div>
+        <div class="flex gap-8 text-[10px] font-bold tracking-[0.2em] uppercase opacity-60">
+            <a href="#experience" class="hover:opacity-100 hover:text-cyan-400 transition-all">Expérience</a>
+            <a href="#lineup" class="hover:opacity-100 hover:text-cyan-400 transition-all">Line-up</a>
+            <a href="partenaires/index.html" class="hover:opacity-100 transition-opacity underline decoration-cyan-500/50 underline-offset-4">Partenaires</a>
         </div>
     </nav>
 
-    <main class="relative z-10 min-h-screen flex flex-col items-center justify-center pt-20">
-        <h1 class="font-fastest text-[15vw] leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-8">
+    <main class="relative z-10 min-h-screen flex flex-col items-center justify-center pt-32 px-4">
+        <h1 class="font-fastest text-[18vw] leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-gray-600 mb-4 animate-pulse">
             Enjoylife
         </h1>
+        <p class="font-fastest text-cyan-400 tracking-[0.5em] text-sm mb-12 opacity-80">Techno & Immersive Arts</p>
         
-        <div class="w-full max-w-5xl aspect-video glass-card overflow-hidden mx-4 group relative">
-            <div class="absolute inset-0 bg-cyan-500/10 mix-blend-overlay group-hover:bg-transparent transition-all duration-700"></div>
-            <video autoplay muted loop class="w-full h-full object-cover">
+        <div class="w-full max-w-6xl aspect-video glass-card overflow-hidden group relative shadow-2xl">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+            <div class="absolute inset-0 bg-cyan-500/5 mix-blend-overlay group-hover:bg-transparent transition-all duration-700"></div>
+            <video autoplay muted loop playsinline class="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-1000">
                 <source src="votre-video.mp4" type="video/mp4">
             </video>
+            <div class="absolute bottom-8 left-8 z-20">
+                <p class="font-fastest text-xs tracking-widest opacity-50">Discover the teaser</p>
+            </div>
         </div>
     </main>
 
-    <section class="relative z-10 max-w-7xl mx-auto px-4 py-32 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <section id="experience" class="relative z-10 max-w-7xl mx-auto px-4 py-40">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card p-8 group">
+                <div class="text-cyan-400 mb-6 text-2xl font-fastest">01</div>
+                <h3 class="font-fastest text-xl mb-4">Immersive Sound</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Un système son dernière génération conçu pour une immersion totale au cœur des fréquences techno.</p>
+            </div>
+            <div class="glass-card p-8 group border-purple-500/20">
+                <div class="text-purple-400 mb-6 text-2xl font-fastest">02</div>
+                <h3 class="font-fastest text-xl mb-4">Visual Arts</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Des scénographies lumineuses et des projections mapping créées par des artistes digitaux internationaux.</p>
+            </div>
+            <div class="glass-card p-8 group border-white/20">
+                <div class="text-white mb-6 text-2xl font-fastest">03</div>
+                <h3 class="font-fastest text-xl mb-4">Community</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Plus qu'un événement, un rassemblement d'âmes libres célébrant la vie et la musique électronique.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="relative z-10 max-w-7xl mx-auto px-4 pb-32 grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        <div class="md:col-span-2 h-[400px] glass-card p-10 flex flex-col justify-end">
-            <span class="font-fastest text-cyan-400 text-sm tracking-widest mb-2">Location</span>
+        <div class="md:col-span-2 h-[400px] glass-card p-10 flex flex-col justify-end group cursor-crosshair">
+            <span class="font-fastest text-cyan-400 text-sm tracking-widest mb-2 group-hover:translate-x-2 transition-transform">Location</span>
             <h2 class="font-fastest text-5xl">La Plaine de l'Ain</h2>
+            <p class="text-xs text-white/30 mt-4 tracking-[0.2em]">FRANCE — 45° 52' 0" N, 5° 17' 0" E</p>
         </div>
 
         <div class="h-[400px] glass-card p-10 flex flex-col justify-end items-center text-center">
             <span class="font-fastest text-purple-400 text-sm tracking-widest mb-2">Save the date</span>
-            <h2 class="font-fastest text-5xl">2026</h2>
+            <h2 class="font-fastest text-6xl">2026</h2>
+            <p class="text-xs text-white/30 mt-4 tracking-[0.2em]">SUMMER SOLSTICE</p>
         </div>
 
-        <div class="md:col-span-3 h-[200px] glass-card flex items-center justify-between px-12 group cursor-pointer border-cyan-500/30">
-            <h2 class="font-fastest text-3xl">Get Your Tickets</h2>
-            <div class="w-16 h-16 rounded-full bg-cyan-400 flex items-center justify-center text-black group-hover:scale-125 transition-transform">
-                →
+        <div class="md:col-span-3 h-[180px] glass-card flex items-center justify-between px-12 group cursor-pointer border-cyan-500/30 hover:bg-cyan-500/10">
+            <div>
+                <h2 class="font-fastest text-4xl mb-2">Get Your Tickets</h2>
+                <p class="text-[10px] tracking-[0.3em] text-cyan-400 opacity-60">PHASE 01 — EARLY BIRD NOW OPEN</p>
+            </div>
+            <div class="w-20 h-20 rounded-full bg-cyan-400 flex items-center justify-center text-black group-hover:scale-110 group-hover:rotate-45 transition-all duration-500 shadow-[0_0_50px_rgba(34,211,238,0.4)]">
+                <span class="text-3xl font-bold">→</span>
             </div>
         </div>
     </section>
+
+    <footer class="relative z-10 py-20 text-center opacity-20 text-[10px] tracking-[0.5em] font-bold uppercase">
+        Enjoylife © 2026 — All Rights Reserved
+    </footer>
 
 </body>
 </html>
