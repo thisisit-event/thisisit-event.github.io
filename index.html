@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr" class="bg-black text-white selection:bg-cyan-500">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENJOYLIFE | Join the Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Importation de ta typo FC Fastest */
+        @font-face {
+            font-family: 'FCFastest';
+            src: url('FC Fastest Bold ver 1.01.otf') format('opentype');
+            font-weight: bold;
+        }
+
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        .font-fastest { font-family: 'FCFastest', sans-serif; text-transform: uppercase; }
+
+        /* Animation du Cœur Bleu (DA) */
+        .blue-heart-glow {
+            background: radial-gradient(circle, rgba(94,234,212,0.4) 0%, rgba(147,51,234,0.2) 50%, rgba(5,5,16,0) 70%);
+            filter: blur(60px);
+            animation: pulse-heart 6s infinite ease-in-out;
+        }
+
+        @keyframes pulse-heart {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.2); opacity: 0.9; }
+        }
+
+        /* Effet Glassmorphism (Apple/Tomorrowland) */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(94,234,212,0.5);
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] blue-heart-glow"></div>
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 px-8 py-6 flex justify-between items-center backdrop-blur-sm">
+        <div class="font-fastest text-2xl tracking-tighter">Enjoylife</div>
+        <div class="flex gap-8 text-xs font-medium tracking-widest uppercase opacity-60">
+            <a href="#" class="hover:opacity-100 transition-opacity">Expérience</a>
+            <a href="#" class="hover:opacity-100 transition-opacity">Line-up</a>
+            <a href="partenaires.html" class="hover:opacity-100 transition-opacity underline">Partenaires</a>
+        </div>
+    </nav>
+
+    <main class="relative z-10 min-h-screen flex flex-col items-center justify-center pt-20">
+        <h1 class="font-fastest text-[15vw] leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 mb-8">
+            Enjoylife
+        </h1>
+        
+        <div class="w-full max-w-5xl aspect-video glass-card overflow-hidden mx-4 group relative">
+            <div class="absolute inset-0 bg-cyan-500/10 mix-blend-overlay group-hover:bg-transparent transition-all duration-700"></div>
+            <video autoplay muted loop class="w-full h-full object-cover">
+                <source src="votre-video.mp4" type="video/mp4">
+            </video>
+        </div>
+    </main>
+
+    <section class="relative z-10 max-w-7xl mx-auto px-4 py-32 grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="md:col-span-2 h-[400px] glass-card p-10 flex flex-col justify-end">
+            <span class="font-fastest text-cyan-400 text-sm tracking-widest mb-2">Location</span>
+            <h2 class="font-fastest text-5xl">La Plaine de l'Ain</h2>
+        </div>
+
+        <div class="h-[400px] glass-card p-10 flex flex-col justify-end items-center text-center">
+            <span class="font-fastest text-purple-400 text-sm tracking-widest mb-2">Save the date</span>
+            <h2 class="font-fastest text-5xl">2026</h2>
+        </div>
+
+        <div class="md:col-span-3 h-[200px] glass-card flex items-center justify-between px-12 group cursor-pointer border-cyan-500/30">
+            <h2 class="font-fastest text-3xl">Get Your Tickets</h2>
+            <div class="w-16 h-16 rounded-full bg-cyan-400 flex items-center justify-center text-black group-hover:scale-125 transition-transform">
+                →
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
