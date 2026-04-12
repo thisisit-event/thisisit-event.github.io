@@ -6,19 +6,25 @@
   <title>ENJOYLIFE 2027 — Ce n'est pas un festival.</title>
   <meta name="description" content="ENJOYLIFE 2027 — Ambérieu-en-Bugey. Techno & Immersive Arts. Billets bientôt disponibles." />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Black.otf') format('opentype'); font-weight:900; font-display:swap; }
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Bold.otf') format('opentype'); font-weight:700; font-display:swap; }
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Heavy.otf') format('opentype'); font-weight:800; font-display:swap; }
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Semibold.otf') format('opentype'); font-weight:600; font-display:swap; }
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Medium.otf') format('opentype'); font-weight:500; font-display:swap; }
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Thin.otf') format('opentype'); font-weight:200; font-display:swap; }
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Ultralight.otf') format('opentype'); font-weight:100; font-display:swap; }
+    @font-face { font-family:'SFText'; src:url('fonts/SFNSText-Bold.otf') format('opentype'); font-weight:700; font-display:swap; }
+    @font-face { font-family:'SFText'; src:url('fonts/SFNSText-Heavy.otf') format('opentype'); font-weight:800; font-display:swap; }
+    @font-face { font-family:'FCFastest'; src:url('fonts/FC-Faster.otf') format('opentype'); font-weight:bold; font-display:swap; }
+  </style>
 
   <style>
-    @font-face {
-      font-family: 'FCFastest';
-      src: url('fonts/FC-Faster.otf') format('opentype');
-      font-weight: bold;
-    }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background: #080808; color: #fff; font-family: 'DM Mono', monospace; overflow-x: hidden; }
+    body { background: #080808; color: #fff; font-family: 'SF', sans-serif; font-weight: 400; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     ::selection { background: rgba(129,140,248,.22); }
 
     :root {
@@ -53,9 +59,9 @@
     @keyframes orb { 0%,100% { opacity:.6; transform:translate(-50%,-50%) scale(1); } 50% { opacity:1; transform:translate(-50%,-50%) scale(1.07); } }
 
     /* BASE */
-    .ff { font-family: 'FCFastest', 'DM Mono', monospace; text-transform: uppercase; }
-    .mono { font-family: 'DM Mono', monospace; }
-    .lbl { font-family: 'DM Mono', monospace; font-size: .58rem; letter-spacing: .32em; text-transform: uppercase; color: var(--c); opacity: .65; }
+    .ff { font-family: 'SF', sans-serif; font-weight: 600; text-transform: none; letter-spacing: -.02em; }
+    .mono { font-family: 'SF', sans-serif; font-weight: 400; }
+    .lbl { font-family: 'SF', sans-serif; font-weight: 400; font-size: .65rem; letter-spacing: .08em; text-transform: none; color: var(--c); opacity: .7; }
     .br { height: 1px; background: var(--br); position: relative; z-index: 2; }
     .sec { position: relative; z-index: 2; padding: 8rem 4rem; max-width: 1400px; margin: 0 auto; }
 
@@ -67,19 +73,32 @@
       transition: background .5s, border-color .5s;
       border-bottom: 1px solid transparent;
     }
-    #nav.s { background: rgba(8,8,8,.88); backdrop-filter: blur(20px); border-bottom-color: var(--br); }
-    .nav-logo img { height: 28px; width: auto; }
-    /* Fallback logo texte si SVG absent */
-    .nav-logo-txt { font-family: 'DM Mono', monospace; font-weight: 400; text-transform: uppercase; font-size: 1rem; letter-spacing: .06em; color: #fff; text-decoration: none; display: none; }
-    .nav-r { display: flex; gap: 2.5rem; align-items: center; }
-    .nav-r a { font-family: 'DM Mono', monospace; font-size: .58rem; letter-spacing: .22em; text-transform: uppercase; color: var(--mu); text-decoration: none; transition: color .2s;  }
+    #nav.s { background: rgba(8,8,8,.92); backdrop-filter: blur(24px); border-bottom-color: var(--br); }
+    .nav-logo img { height: 36px; width: auto; }
+    .nav-logo-txt { font-family: 'SF', sans-serif; font-weight: 900; text-transform: uppercase; font-size: 1.05rem; letter-spacing: .06em; color: #fff; text-decoration: none; display: none; }
+    .nav-r { display: flex; gap: 2.2rem; align-items: center; }
+    .nav-r a { font-family: 'SF', sans-serif; font-weight: 700; font-size: .72rem; letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.45); text-decoration: none; transition: color .2s; }
     .nav-r a:hover { color: #fff; }
+    /* Insta icon in nav */
+    .nav-insta-icon { display: flex; align-items: center; }
+    .nav-insta-icon svg { width: 19px; height: 19px; transition: opacity .2s; opacity: .45; color: rgba(255,255,255,.8); }
+    .nav-insta-icon:hover svg { opacity: 1; }
     .nav-r a.cta-nav {
-      color: #fff; background: linear-gradient(135deg, #6366f1, #a78bfa); padding: .55rem 1.4rem; border-radius: 999px;
-      font-family: 'DM Mono', monospace; font-weight: 400; transition: box-shadow .25s, transform .2s;
-      box-shadow: 0 0 22px rgba(99,102,241,.4);
+      color: #fff;
+      background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+      border: none; padding: .65rem 1.8rem; border-radius: 999px;
+      font-family: 'SF', sans-serif; font-weight: 800; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase;
+      transition: box-shadow .3s, transform .2s, filter .3s; position: relative; overflow: hidden;
+      box-shadow: 0 0 28px rgba(99,102,241,.45), 0 4px 16px rgba(99,102,241,.3);
     }
-    .nav-r a.cta-nav:hover { box-shadow: 0 0 38px rgba(167,139,250,.55); transform: scale(1.03); }
+    .nav-r a.cta-nav::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.18) 0%, transparent 60%);
+      border-radius: 999px; opacity: 0; transition: opacity .3s;
+    }
+    .nav-r a.cta-nav:hover { box-shadow: 0 0 48px rgba(168,85,247,.7), 0 8px 24px rgba(99,102,241,.5); transform: scale(1.06) translateY(-1px); filter: brightness(1.12); }
+    .nav-r a.cta-nav:hover::before { opacity: 1; }
+    .nav-r a.cta-nav:active { transform: scale(.97); box-shadow: 0 0 20px rgba(99,102,241,.4); }
 
     /* ══════════════════════════════
        HERO — PLEIN ÉCRAN TOMORROWLAND
@@ -114,43 +133,55 @@
     }
     /* Fallback si pas de logo */
     #hero-logo-txt {
-      font-family: 'FCFastest', sans-serif; text-transform: uppercase;
-      font-size: clamp(3rem, 8vw, 7rem); letter-spacing: -.01em; line-height: 1;
-      color: #fff; display: none; /* Mettre display:block si pas de logo SVG */
+      font-family: 'FCFastest', sans-serif; text-transform: none;
+      font-size: clamp(2.2rem, 5.5vw, 4.8rem); letter-spacing: .01em; line-height: 1;
+      color: #fff; display: none;
       text-shadow: 0 2px 60px rgba(0,0,0,.8);
     }
     .hero-tagline {
-      font-family: 'DM Mono', monospace; font-size: .65rem;
-      letter-spacing: .45em; text-transform: uppercase;
-      color: rgba(255,255,255,.5);
+      font-family: 'SF', sans-serif; font-weight: 300; font-size: .72rem;
+      letter-spacing: .18em; text-transform: none;
+      color: rgba(255,255,255,.45);
     }
     /* Infos bas de hero — style Coachella */
     #hero-bottom {
-      position: absolute; bottom: 5.5rem; left: 0; right: 0; z-index: 2;
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
       display: flex; align-items: flex-end; justify-content: space-between;
-      padding: 0 3rem;
+      padding: 0 3rem 7rem;
+      background: linear-gradient(to top, rgba(8,8,8,.85) 0%, rgba(8,8,8,.4) 40%, transparent 100%);
     }
-    .hero-info-left { display: flex; flex-direction: column; gap: .5rem; }
+    .hero-info-left { display: flex; flex-direction: column; gap: .6rem; }
     .hero-info-left span {
-      font-family: 'DM Mono', monospace; font-size: .6rem;
-      letter-spacing: .28em; text-transform: uppercase;
-      color: rgba(255,255,255,.55);
+      font-family: 'SF', sans-serif; font-weight: 300; font-size: .62rem;
+      letter-spacing: .06em; text-transform: none;
+      color: rgba(255,255,255,.4);
       display: block;
     }
-    .hero-info-left span.place { font-size: .75rem; color: rgba(255,255,255,.85); letter-spacing: .15em; }
+    .hero-info-left span.place { font-weight: 800; font-size: 1.15rem; color: #fff; letter-spacing: -.01em; text-transform: none; }
     .hero-info-right { text-align: right; }
     .hero-cta {
-      font-family: 'DM Mono', monospace; font-weight: 400; text-transform: uppercase;
-      font-size: .85rem; letter-spacing: .1em;
-      color: var(--c); text-decoration: none; 
-      display: flex; align-items: center; gap: .6rem;
-      transition: opacity .2s;
+      font-family: 'SF', sans-serif; font-weight: 800; text-transform: uppercase;
+      font-size: .78rem; letter-spacing: .06em;
+      color: #fff; text-decoration: none;
+      display: inline-flex; align-items: center; gap: .7rem;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      padding: .9rem 2rem; border-radius: 999px;
+      box-shadow: 0 0 32px rgba(99,102,241,.5), 0 4px 20px rgba(99,102,241,.35);
+      transition: box-shadow .3s, transform .2s, filter .3s;
+      position: relative; overflow: hidden;
     }
-    .hero-cta:hover { opacity: .65; }
+    .hero-cta::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.15) 0%, transparent 60%);
+      border-radius: 999px; opacity: 0; transition: opacity .3s;
+    }
+    .hero-cta:hover { box-shadow: 0 0 56px rgba(168,85,247,.75), 0 8px 28px rgba(99,102,241,.5); transform: scale(1.05) translateY(-2px); filter: brightness(1.1); }
+    .hero-cta:hover::before { opacity: 1; }
+    .hero-cta:active { transform: scale(.97); }
     .hero-cta-sub {
-      font-family: 'DM Mono', monospace; font-size: .52rem;
-      letter-spacing: .25em; text-transform: uppercase;
-      color: rgba(255,255,255,.25); margin-top: .35rem;
+      font-family: 'SF', sans-serif; font-weight: 300; font-size: .55rem;
+      letter-spacing: .06em; text-transform: none;
+      color: rgba(255,255,255,.3); margin-top: .6rem;
     }
     /* Scroll bar */
     .hero-scroll {
@@ -172,37 +203,25 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       z-index: 3;
-      padding: 1.4rem 3rem;
-      display: flex; align-items: center; gap: 3rem;
-      border-top: 1px solid rgba(255,255,255,.06);
-      background: linear-gradient(to top, rgba(8,8,8,.85) 0%, rgba(8,8,8,.4) 100%);
-      backdrop-filter: blur(12px);
+      padding: 1.8rem 3rem;
+      display: flex; align-items: center; justify-content: center; gap: 5rem;
+      border-top: 1px solid rgba(255,255,255,.07);
+      background: linear-gradient(to top, rgba(8,8,8,.92) 0%, rgba(8,8,8,.4) 100%);
+      backdrop-filter: blur(14px);
     }
-    .ph-label {
-      font-family: 'DM Mono', monospace; font-size: .5rem;
-      letter-spacing: .3em; text-transform: uppercase;
-      color: rgba(255,255,255,.2); white-space: nowrap; flex-shrink: 0;
-    }
-    .ph-sep { width: 1px; height: 32px; background: var(--br2); flex-shrink: 0; }
-    .ph-logos { display: flex; align-items: center; gap: 3.5rem; flex: 1; flex-wrap: wrap; }
     .ph-logo {
-      display: flex; align-items: center; gap: .75rem;
-      opacity: .3; transition: opacity .3s; 
+      display: flex; align-items: center;
+      opacity: .8; transition: opacity .3s;
     }
-    .ph-logo:hover { opacity: .7; }
-    .ph-logo img { height: 22px; width: auto; filter: brightness(0) invert(1); }
-    /* Fallback texte si pas de logo */
-    .ph-logo-txt {
-      font-family: 'DM Mono', monospace; font-size: .62rem;
-      letter-spacing: .12em; text-transform: uppercase; color: #fff;
-    }
+    .ph-logo:hover { opacity: 1; }
+    .ph-logo img { height: 46px; width: auto; filter: brightness(0) invert(1); object-fit: contain; }
 
     /* ══════════════════════════════
        MARQUEE
     ══════════════════════════════ */
     .marquee-wrap { overflow: hidden; border-top: 1px solid var(--br); border-bottom: 1px solid var(--br); padding: 1rem 0; position: relative; z-index: 2; }
     .marquee-t { display: flex; gap: 3.5rem; animation: mq 24s linear infinite; white-space: nowrap; }
-    .marquee-t span { font-family: 'DM Mono', monospace; font-weight: 400; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.1); flex-shrink: 0; }
+    .marquee-t span { font-family: 'SF', sans-serif; font-weight: 300; font-size: .72rem; letter-spacing: .06em; text-transform: none; color: rgba(255,255,255,.1); flex-shrink: 0; }
     .marquee-t .dot { color: var(--c); opacity: .35; }
     @keyframes mq { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
 
@@ -223,8 +242,8 @@
     }
     .manifesto-content { position: relative; z-index: 2; text-align: center; padding: 2rem 4rem; max-width: 1000px; }
     .manifesto-q {
-      font-family: 'FCFastest', sans-serif; text-transform: uppercase;
-      font-size: clamp(2.2rem, 5.5vw, 5.5rem); line-height: 1.02; letter-spacing: -.01em;
+      font-family: 'SF', sans-serif; font-weight: 700; text-transform: none;
+      font-size: clamp(1.4rem, 3vw, 3rem); line-height: 1.08; letter-spacing: -.02em;
       color: #fff;
     }
     .manifesto-q em { font-style: normal; color: var(--c); }
@@ -236,12 +255,12 @@
     .stat-c { padding: 4rem 3.5rem; border-right: 1px solid var(--br); }
     .stat-c:last-child { border-right: none; }
     .stat-n {
-      font-family: 'FCFastest', sans-serif;
-      font-size: clamp(3.5rem, 7vw, 7rem); line-height: 1; letter-spacing: -.02em;
+      font-family: 'SF', sans-serif; font-weight: 800;
+      font-size: clamp(2.4rem, 4.5vw, 4.5rem); line-height: 1; letter-spacing: -.03em;
       background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,.4) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     }
-    .stat-l { font-family: 'DM Mono', monospace; font-size: .57rem; letter-spacing: .28em; text-transform: uppercase; color: var(--mu); margin-top: .75rem; }
+    .stat-l { font-family: 'SF', sans-serif; font-weight: 500; font-size: .55rem; letter-spacing: .04em; text-transform: none; color: var(--mu); margin-top: .75rem; }
 
     /* ══════════════════════════════
        STORYTELLING — TIMELINE
@@ -265,7 +284,7 @@
     }
     .story-card:hover::before { background: var(--c); }
     .story-year {
-      font-family: 'FCFastest', sans-serif; font-size: 3.5rem;
+      font-family: 'SF', sans-serif; font-weight: 800; font-size: 2.2rem;
       letter-spacing: -.03em; line-height: 1;
       color: #fff; -webkit-text-stroke: 0;
       margin-bottom: 2rem; display: block;
@@ -273,20 +292,20 @@
     }
     .story-card:hover .story-year { -webkit-text-stroke: 0; color: #a78bfa; }
     .story-edition {
-      font-family: 'DM Mono', monospace; font-size: .52rem;
-      letter-spacing: .32em; text-transform: uppercase;
-      color: var(--c); opacity: .6; margin-bottom: 1.2rem; display: block;
+      font-family: 'SF', sans-serif; font-weight: 400; font-size: .6rem;
+      letter-spacing: .04em; text-transform: none;
+      color: var(--c); opacity: .7; margin-bottom: 1.2rem; display: block;
     }
     .story-text {
-      font-family: 'DM Mono', monospace; font-size: .78rem;
-      line-height: 1.65; color: rgba(255,255,255,.6);
-      font-weight: 400;
+      font-family: 'SF', sans-serif; font-size: .8rem;
+      line-height: 1.7; color: rgba(255,255,255,.6);
+      font-weight: 300;
     }
-    .story-text strong { color: #fff; font-weight: 700; }
+    .story-text strong { color: rgba(255,255,255,.85); font-weight: 500; }
     .story-sold {
       margin-top: 1.5rem; display: inline-flex; align-items: center; gap: .5rem;
-      font-family: 'DM Mono', monospace; font-size: .52rem;
-      letter-spacing: .2em; text-transform: uppercase;
+      font-family: 'SF', sans-serif; font-size: .55rem;
+      letter-spacing: .04em; text-transform: none;
       color: var(--c); opacity: .7;
     }
     .story-sold::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--c); box-shadow: 0 0 8px var(--c); }
@@ -295,11 +314,11 @@
        EXPERIENCE PILLARS
     ══════════════════════════════ */
     .pillars { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--br); }
-    .pillar { padding: 3rem 2.5rem 3rem 0; border-right: 1px solid var(--br); }
+    .pillar { padding: 3rem 2.5rem 3rem 2.5rem; border-right: 1px solid var(--br); }
     .pillar:last-child { border-right: none; }
-    .p-num { font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .3em; color: var(--c); opacity: .5; margin-bottom: 1.8rem; display: block; }
-    .p-title { font-family: 'DM Mono', monospace; font-weight: 400; text-transform: uppercase; font-size: 1rem; margin-bottom: .9rem; letter-spacing: .04em; }
-    .p-text { font-size: .68rem; line-height: 1.95; color: var(--mu); }
+    .p-num { font-family: 'SF', sans-serif; font-weight: 400; font-size: .6rem; letter-spacing: .04em; text-transform: none; color: var(--c); opacity: .5; margin-bottom: 1.8rem; display: block; }
+    .p-title { font-family: 'SF', sans-serif; font-weight: 600; text-transform: none; font-size: 1.05rem; margin-bottom: .9rem; letter-spacing: -.01em; }
+    .p-text { font-size: .7rem; line-height: 1.95; color: var(--mu); font-weight: 300; }
 
     /* ══════════════════════════════
        HALL OF FAME — ARTISTES PASSÉS
@@ -327,13 +346,13 @@
     .hof-card:hover img { filter: grayscale(0%) brightness(.85); transform: scale(1.06); }
     .hof-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.88) 0%, transparent 55%); }
     .hof-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 2.5rem; }
-    .hof-edition { font-family: 'DM Mono', monospace; font-size: .5rem; letter-spacing: .3em; text-transform: uppercase; color: var(--c); opacity: .75; margin-bottom: .4rem; display: block; }
-    .hof-name { font-family: 'DM Mono', monospace; font-weight: 400; text-transform: uppercase; font-size: clamp(1.1rem, 2vw, 1.9rem); letter-spacing: .01em; color: #fff; line-height: 1; }
-    .hof-handle { font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .14em; color: rgba(255,255,255,.3); margin-top: .45rem; display: block; }
+    .hof-edition { font-family: 'SF', sans-serif; font-weight: 400; font-size: .55rem; letter-spacing: .04em; text-transform: none; color: var(--c); opacity: .75; margin-bottom: .4rem; display: block; }
+    .hof-name { font-family: 'SF', sans-serif; font-weight: 700; text-transform: none; font-size: clamp(1.1rem, 2vw, 1.9rem); letter-spacing: -.02em; color: #fff; line-height: 1; }
+    .hof-handle { font-family: 'SF', sans-serif; font-weight: 300; font-size: .58rem; letter-spacing: .02em; color: rgba(255,255,255,.3); margin-top: .45rem; display: block; }
     /* Superstar badge */
     .hof-badge {
       position: absolute; top: 1.5rem; right: 1.5rem;
-      font-family: 'DM Mono', monospace; font-size: .48rem; letter-spacing: .2em; text-transform: uppercase;
+      font-family: 'SF', sans-serif; font-weight: 400; font-size: .5rem; letter-spacing: .04em; text-transform: none;
       color: var(--c); border: 1px solid rgba(129,140,248,.32); padding: .3rem .7rem; border-radius: 999px;
       background: rgba(99,102,241,.08);
     }
@@ -343,7 +362,7 @@
       background: linear-gradient(135deg, #111 0%, #1c1c1c 100%);
     }
     .hof-placeholder-letter {
-      font-family: 'FCFastest', sans-serif; font-size: 5rem; color: transparent;
+      font-family: 'SF', sans-serif; font-size: 5rem; color: transparent;
       -webkit-text-stroke: 1px rgba(255,255,255,.06);
     }
 
@@ -367,9 +386,9 @@
     .ticket-block:hover { border-color: rgba(129,140,248,.28); }
     .ticket-block:hover::before { opacity: 1; }
     .ticket-left {}
-    .ticket-title { font-family: 'FCFastest', sans-serif; text-transform: uppercase; font-size: clamp(2.5rem, 5vw, 5.5rem); letter-spacing: -.02em; line-height: .92; color: #fff; }
-    .ticket-sub { font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .28em; text-transform: uppercase; color: var(--c); opacity: .6; margin-top: 1.2rem; display: block; }
-    .ticket-platform { font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.2); margin-top: .5rem; display: block; }
+    .ticket-title { font-family: 'SF', sans-serif; font-weight: 800; text-transform: uppercase; font-size: clamp(1.8rem, 3.5vw, 3.8rem); letter-spacing: -.03em; line-height: .93; color: #fff; }
+    .ticket-sub { font-family: 'SF', sans-serif; font-weight: 300; font-size: .68rem; letter-spacing: .02em; text-transform: none; color: var(--c); opacity: .7; margin-top: 1.2rem; display: block; }
+    .ticket-platform { font-family: 'SF', sans-serif; font-weight: 300; font-size: .6rem; letter-spacing: .01em; text-transform: none; color: rgba(255,255,255,.2); margin-top: .5rem; display: block; }
     .ticket-arrow {
       width: 76px; height: 76px; border-radius: 50%; background: var(--c);
       display: flex; align-items: center; justify-content: center; flex-shrink: 0;
@@ -378,89 +397,40 @@
     }
     .ticket-block:hover .ticket-arrow { transform: rotate(45deg) scale(1.08); box-shadow: 0 0 55px rgba(167,139,250,.5), 0 0 100px rgba(99,102,241,.18); }
     .ticket-arrow svg { width: 26px; color: #000; }
-    .ticket-note { font-size: .57rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.12); margin-top: 1.5rem; text-align: center; }
+    .ticket-note { font-size: .6rem; letter-spacing: .02em; text-transform: none; color: rgba(255,255,255,.12); margin-top: 1.5rem; text-align: center; font-weight: 300; }
 
     /* ══════════════════════════════
        PARTENAIRES — LOGO GRID DARK
     ══════════════════════════════ */
     .sep-line { height: 1px; background: var(--br); margin: 2rem 0; }
-    .tier-lbl { font-family:'DM Mono',monospace; font-size:.48rem; letter-spacing:.38em; text-transform:uppercase; color:rgba(255,255,255,.25); text-align:center; display:block; margin-bottom:1.5rem; }
+    .tier-lbl { font-family:'SF',sans-serif; font-weight:500; font-size:.48rem; letter-spacing: .04em; text-transform: none; color:rgba(255,255,255,.25); text-align:center; display:block; margin-bottom:1.5rem; }
 
     /* Logo card — taille fixe par tier, logo centré et contraint */
     .logo-item {
       position: relative;
-      background: rgba(255,255,255,.03);
-      border: 1px solid var(--br);
-      border-radius: 4px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 3px;
       display: flex; align-items: center; justify-content: center;
-      
-      transition: background .25s, border-color .25s;
-      overflow: hidden;
+      transition: border-color .3s, transform .35s cubic-bezier(.16,1,.3,1);
+      overflow: hidden; cursor: pointer;
     }
-    .logo-item:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.14); }
+    .logo-item:hover { border-color: rgba(255,255,255,.3); transform: scale(1.05); }
 
-    /* Tier Majeur — grande case carrée */
-    .logo-item-major {
-      height: 120px;
-    }
-    .logo-item-major img {
-      width: 60%;
-      height: 60%;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-      opacity: .5;
-      transition: opacity .25s;
-      display: block;
-    }
-    .logo-item-major:hover img { opacity: .9; }
+    .logo-item-major { height: 130px; }
+    .logo-item-major img { width: 80%; height: 72%; object-fit: contain; opacity: 1; display: block; }
 
-    /* Tier Officiel — case moyenne */
-    .logo-item-officiel {
-      height: 80px;
-    }
-    .logo-item-officiel img {
-      width: 65%;
-      height: 55%;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-      opacity: .45;
-      transition: opacity .25s;
-      display: block;
-    }
-    .logo-item-officiel:hover img { opacity: .85; }
+    .logo-item-officiel { height: 90px; }
+    .logo-item-officiel img { width: 80%; height: 68%; object-fit: contain; opacity: 1; display: block; }
 
-    /* Tier Partenaire — case plus petite */
-    .logo-item-partenaire {
-      height: 64px;
-    }
-    .logo-item-partenaire img {
-      width: 70%;
-      height: 55%;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-      opacity: .4;
-      transition: opacity .25s;
-      display: block;
-    }
-    .logo-item-partenaire:hover img { opacity: .8; }
+    .logo-item-partenaire { height: 76px; }
+    .logo-item-partenaire img { width: 82%; height: 70%; object-fit: contain; opacity: 1; display: block; }
 
-    /* Tier mini (mécènes, techniques, médias) */
-    .logo-item-mini {
-      height: 56px;
-    }
-    .logo-item-mini img {
-      width: 70%;
-      height: 55%;
-      object-fit: contain;
-      filter: brightness(0) invert(1);
-      opacity: .35;
-      transition: opacity .25s;
-      display: block;
-    }
-    .logo-item-mini:hover img { opacity: .75; }
+    .logo-item-mini { height: 64px; }
+    .logo-item-mini img { width: 82%; height: 70%; object-fit: contain; opacity: 1; display: block; }
 
     /* Fallback texte */
-    .logo-item .logo-txt { font-family:'DM Mono',monospace; font-size:.5rem; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.3); text-align:center; line-height:1.5; padding:.5rem; }
+    .logo-item .logo-txt { font-family:'SF',sans-serif; font-size:.5rem; letter-spacing:.12em; text-transform:none; color:rgba(255,255,255,.3); text-align:center; line-height:1.5; padding:.5rem; }
 
     /* Popup partenaire */
     .partner-popup { position:fixed; inset:0; z-index:2000; display:none; align-items:center; justify-content:center; }
@@ -469,17 +439,17 @@
     .partner-popup-content { position:relative; z-index:1; background:#111; border:1px solid var(--br); padding:2.5rem; max-width:480px; width:90%; border-radius:2px; }
     .pp-close { position:absolute; top:1rem; right:1rem; width:28px; height:28px; background:rgba(255,255,255,.06); border:1px solid var(--br); border-radius:50%;  display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.4); font-size:.75rem; transition:background .2s; }
     .pp-close:hover { background:rgba(255,255,255,.12); }
-    .pp-name { font-family:'FCFastest',sans-serif; text-transform:uppercase; font-size:1.4rem; letter-spacing:-.01em; color:#fff; line-height:1; margin-bottom:.5rem; }
-    .pp-tier { font-family:'DM Mono',monospace; font-size:.48rem; letter-spacing:.3em; text-transform:uppercase; color:var(--c); opacity:.6; display:block; margin-bottom:1.2rem; }
-    .pp-desc { font-size:.68rem; line-height:1.9; color:var(--mu); }
+    .pp-name { font-family:'SF',sans-serif; font-weight:700; text-transform:none; font-size:1.4rem; letter-spacing:-.02em; color:#fff; line-height:1; margin-bottom:.5rem; }
+    .pp-tier { font-family:'SF',sans-serif; font-weight:500; font-size:.48rem; letter-spacing: .02em; text-transform: none; color:var(--c); opacity:.6; display:block; margin-bottom:1.2rem; }
+    .pp-desc { font-size:.68rem; line-height:1.9; color:var(--mu); font-weight:400; }
 
     /* WHY PARTNER */
     .why-grid { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--br); }
-    .why-i { padding: 3rem 2.5rem 3rem 0; border-right: 1px solid var(--br); }
+    .why-i { padding: 3rem 2.5rem 3rem 2.5rem; border-right: 1px solid var(--br); }
     .why-i:last-child { border-right: none; }
-    .why-n { font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .3em; color: var(--c); opacity: .45; margin-bottom: 1.4rem; display: block; }
-    .why-t { font-family: 'DM Mono', monospace; font-weight: 400; text-transform: uppercase; font-size: 1rem; margin-bottom: .9rem; letter-spacing: .03em; }
-    .why-tx { font-size: .68rem; line-height: 1.9; color: var(--mu); }
+    .why-n { font-family: 'SF', sans-serif; font-weight: 400; font-size: .6rem; letter-spacing: .02em; color: var(--c); opacity: .55; margin-bottom: 1.4rem; display: block; }
+    .why-t { font-family: 'SF', sans-serif; font-weight: 600; text-transform: none; font-size: 1.05rem; margin-bottom: .9rem; letter-spacing: -.01em; }
+    .why-tx { font-size: .68rem; line-height: 1.9; color: var(--mu); font-weight: 400; }
 
 
 
@@ -488,13 +458,13 @@
     ══════════════════════════════ */
     .faq-i { border-bottom: 1px solid var(--br); }
     .faq-btn { width: 100%; background: none; border: none;  display: flex; justify-content: space-between; align-items: center; padding: 1.75rem 0; text-align: left; }
-    .faq-q { font-family: 'DM Mono', monospace; font-size: .78rem; font-weight: 400; color: rgba(255,255,255,.78); transition: color .2s; }
+    .faq-q { font-family: 'SF', sans-serif; font-size: .82rem; font-weight: 400; color: rgba(255,255,255,.78); transition: color .2s; }
     .faq-btn:hover .faq-q { color: #fff; }
     .faq-ic { width: 24px; height: 24px; border: 1px solid var(--br); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: .8rem; color: var(--c); transition: transform .35s, border-color .2s; }
     .faq-btn.open .faq-ic { transform: rotate(45deg); border-color: var(--c); }
     .faq-body { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
     .faq-body.open { max-height: 300px; }
-    .faq-body p { font-size: .7rem; line-height: 1.9; color: var(--mu); padding-bottom: 1.75rem; }
+    .faq-body p { font-size: .72rem; line-height: 1.85; color: var(--mu); font-weight: 300; padding-bottom: 1.75rem; }
     .faq-body a { color: var(--c); text-decoration: underline; }
 
     /* ══════════════════════════════
@@ -509,15 +479,15 @@
       border-bottom: 1px solid var(--br); gap: 3rem; flex-wrap: wrap;
     }
     .footer-cta-headline {
-      font-family: 'FCFastest', sans-serif; text-transform: uppercase;
-      font-size: clamp(2.5rem, 5vw, 5rem); letter-spacing: -.02em; line-height: .92;
+      font-family: 'SF', sans-serif; font-weight: 800; text-transform: none;
+      font-size: clamp(1.8rem, 3.5vw, 3.5rem); letter-spacing: -.03em; line-height: .93;
       color: #fff;
     }
     .footer-cta-headline em { font-style: normal; background: linear-gradient(135deg, #818cf8, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     .footer-cta-btn {
       display: inline-flex; align-items: center; gap: .8rem;
-      font-family: 'DM Mono', monospace; font-weight: 400; text-transform: uppercase;
-      font-size: .85rem; letter-spacing: .08em;
+      font-family: 'SF', sans-serif; font-weight: 600; text-transform: none;
+      font-size: .75rem; letter-spacing: .01em;
       color: #fff; background: linear-gradient(135deg, #6366f1, #a78bfa);
       padding: 1.1rem 2.4rem; border-radius: 999px; text-decoration: none;
       box-shadow: 0 0 40px rgba(99,102,241,.35);
@@ -535,7 +505,7 @@
     .footer-brand-col {}
     .footer-logo-img { height: 44px; width: auto; margin-bottom: 1.8rem; display: block; opacity: .85; }
     .footer-logo-txt {
-      font-family: 'DM Mono', monospace; font-weight: 400; text-transform: uppercase;
+      font-family: 'SF', sans-serif; font-weight: 400; text-transform: none;
       font-size: 2rem; letter-spacing: -.01em;
       color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.18);
       line-height: 1; margin-bottom: 1.8rem; display: none;
@@ -552,9 +522,9 @@
       transition: border-color .2s, color .2s;
     }
     .footer-social:hover { border-color: var(--c); color: var(--c); }
-    .fc-title { font-family: 'DM Mono', monospace; font-size: .48rem; letter-spacing: .35em; text-transform: uppercase; color: rgba(255,255,255,.22); margin-bottom: 1.8rem; display: block; }
+    .fc-title { font-family: 'SF', sans-serif; font-weight: 500; font-size: .48rem; letter-spacing: .02em; text-transform: none; color: rgba(255,255,255,.22); margin-bottom: 1.8rem; display: block; }
     .fc ul { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
-    .fc a { font-size: .65rem; color: rgba(255,255,255,.35); text-decoration: none; transition: color .2s; letter-spacing: .04em; }
+    .fc a { font-size: .65rem; font-weight: 400; color: rgba(255,255,255,.35); text-decoration: none; transition: color .2s; letter-spacing: .02em; }
     .fc a:hover { color: #fff; }
 
     /* Footer bottom bar */
@@ -562,11 +532,11 @@
       display: flex; justify-content: space-between; align-items: center;
       padding: 1.8rem 4rem; flex-wrap: wrap; gap: 1rem;
     }
-    .f-copy { font-size: .5rem; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.1); }
+    .f-copy { font-size: .5rem; letter-spacing: .01em; text-transform: none; color: rgba(255,255,255,.1); }
     .f-credits { display: flex; gap: 2.5rem; }
-    .f-credits a { font-size: .5rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.1); text-decoration: none; transition: color .2s; }
+    .f-credits a { font-size: .5rem; letter-spacing: .01em; text-transform: none; color: rgba(255,255,255,.1); text-decoration: none; transition: color .2s; }
     .f-credits a:hover { color: rgba(255,255,255,.35); }
-    #clock { font-family: 'DM Mono', monospace; font-size: .5rem; letter-spacing: .18em; color: rgba(255,255,255,.1); }
+    #clock { font-family: 'SF', sans-serif; font-size: .5rem; letter-spacing: .01em; color: rgba(255,255,255,.1); }
 
     /* Footer gradient line top */
     footer::before {
@@ -622,12 +592,12 @@
       padding: 2.5rem 2rem; pointer-events: none;
     }
     .vp-tag {
-      font-family: 'DM Mono', monospace; font-size: .45rem;
-      letter-spacing: .3em; text-transform: uppercase;
+      font-family: 'SF', sans-serif; font-size: .52rem;
+      letter-spacing: .01em; text-transform: none;
       color: var(--c); opacity: .8; margin-bottom: .5rem; display: block;
     }
     .vp-title {
-      font-family: 'FCFastest', sans-serif; text-transform: uppercase;
+      font-family: 'SF', sans-serif; font-weight: 800; text-transform: none;
       font-size: clamp(1rem, 2.5vw, 1.5rem); letter-spacing: -.01em;
       color: #fff; line-height: 1;
     }
@@ -686,12 +656,12 @@
       position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem 1.8rem;
     }
     .video-card-tag {
-      font-family: 'DM Mono', monospace; font-size: .48rem; letter-spacing: .3em;
-      text-transform: uppercase; color: var(--c); opacity: .8; margin-bottom: .5rem; display: block;
+      font-family: 'SF', sans-serif; font-size: .48rem; letter-spacing: .01em;
+      text-transform: none; color: var(--c); opacity: .8; margin-bottom: .5rem; display: block;
     }
     .video-card-title {
-      font-family: 'DM Mono', monospace; font-weight: 400; text-transform: uppercase;
-      font-size: 1.1rem; letter-spacing: .01em; color: #fff; line-height: 1.1;
+      font-family: 'SF', sans-serif; font-weight: 800; text-transform: none;
+      font-size: 1.1rem; letter-spacing: -.01em; color: #fff; line-height: 1.1;
     }
     .video-play-btn {
       position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -724,16 +694,16 @@
     /* Numéro séquence — coin haut gauche */
     .pc-num {
       position: absolute; top: 1rem; left: 1rem; z-index: 4;
-      font-family: 'DM Mono', monospace; font-size: .42rem;
-      letter-spacing: .3em; color: rgba(255,255,255,.25);
+      font-family: 'SF', sans-serif; font-size: .42rem;
+      letter-spacing: .01em; color: rgba(255,255,255,.25);
       transition: color .4s;
     }
     .pc:hover .pc-num { color: var(--c); }
     /* Timestamp — coin haut droit */
     .pc-time {
       position: absolute; top: 1rem; right: 1rem; z-index: 4;
-      font-family: 'DM Mono', monospace; font-size: .42rem;
-      letter-spacing: .2em; color: rgba(255,255,255,.2);
+      font-family: 'SF', sans-serif; font-size: .42rem;
+      letter-spacing: .01em; color: rgba(255,255,255,.2);
     }
     /* Ligne de scan horizontale animée */
     .pc::before {
@@ -777,19 +747,19 @@
       display: flex; align-items: flex-end; justify-content: space-between;
     }
     .pc-label {
-      font-family: 'DM Mono', monospace; font-size: .48rem;
-      letter-spacing: .18em; text-transform: uppercase;
+      font-family: 'SF', sans-serif; font-size: .48rem;
+      letter-spacing: .04em; text-transform: none;
       color: rgba(255,255,255,.55); line-height: 1.6;
     }
     .pc-label strong {
-      display: block; font-family: 'FCFastest', sans-serif;
+      display: block; font-family: 'SF', sans-serif;
       font-size: .9rem; letter-spacing: .02em;
       color: #fff; font-weight: 400; margin-bottom: .2rem;
     }
     /* Bord droit — lieu en vertical */
     .pc-loc {
-      font-family: 'DM Mono', monospace; font-size: .38rem;
-      letter-spacing: .28em; text-transform: uppercase;
+      font-family: 'SF', sans-serif; font-size: .38rem;
+      letter-spacing: .04em; text-transform: none;
       color: rgba(255,255,255,.15);
       writing-mode: vertical-rl; text-orientation: mixed;
       transform: rotate(180deg);
@@ -809,49 +779,66 @@
     }
 
     /* ══ GALERIE PHOTO ══ */
-    #gallery { position: relative; z-index: 2; padding: 8rem 4rem; max-width: 1400px; margin: 0 auto; }
-    .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; }
-    .gallery-masonry {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(3, 200px);
-      gap: 4px;
+    #gallery { position: relative; z-index: 2; padding: 8rem 0; }
+    .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; padding: 0 4rem; max-width: 1400px; margin-left: auto; margin-right: auto; }
+    /* DRAG SCROLL */
+    .gallery-strip-wrap {
+      overflow: hidden; position: relative; cursor: grab;
+      border-top: 1px solid var(--br); border-bottom: 1px solid var(--br);
+      user-select: none;
+    }
+    .gallery-strip-wrap.dragging { cursor: grabbing; }
+    .gallery-strip-wrap::before,
+    .gallery-strip-wrap::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 10; pointer-events: none;
+    }
+    .gallery-strip-wrap::before { left: 0; background: linear-gradient(to right, #080808, transparent); }
+    .gallery-strip-wrap::after  { right: 0; background: linear-gradient(to left, #080808, transparent); }
+    .gallery-strip {
+      display: flex; gap: 3px;
+      width: max-content;
+      will-change: transform;
     }
     .g-item {
-      overflow: hidden; background: #111; position: relative; cursor: pointer;
+      position: relative; overflow: hidden; flex-shrink: 0;
+      width: 280px; height: 350px;
     }
-    .g-item:nth-child(1)  { grid-column: 1 / 6;  grid-row: 1 / 3; }
-    .g-item:nth-child(2)  { grid-column: 6 / 9;  grid-row: 1 / 2; }
-    .g-item:nth-child(3)  { grid-column: 9 / 13; grid-row: 1 / 2; }
-    .g-item:nth-child(4)  { grid-column: 6 / 10; grid-row: 2 / 3; }
-    .g-item:nth-child(5)  { grid-column: 10 / 13;grid-row: 2 / 3; }
-    .g-item:nth-child(6)  { grid-column: 1 / 5;  grid-row: 3 / 4; }
-    .g-item:nth-child(7)  { grid-column: 5 / 9;  grid-row: 3 / 4; }
-    .g-item:nth-child(8)  { grid-column: 9 / 13; grid-row: 3 / 4; }
     .g-item img {
+      position: absolute; inset: 0;
       width: 100%; height: 100%; object-fit: cover;
-      filter: grayscale(40%) brightness(.75);
-      transition: filter .7s ease, transform .9s cubic-bezier(.16,1,.3,1);
+      filter: grayscale(45%) brightness(.68) contrast(1.05);
+      transition: filter 1s ease, transform 1.2s cubic-bezier(.16,1,.3,1);
+      pointer-events: none;
     }
-    .g-item:hover img { filter: grayscale(0%) brightness(.95); transform: scale(1.08); }
-    /* Placeholder coloré si pas d'image */
+    .g-item:hover img { filter: grayscale(0%) brightness(.88); transform: scale(1.04); }
     .g-placeholder {
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #0f0f1a, #1a1a2e);
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'FCFastest', sans-serif; font-size: 4rem;
-      color: transparent; -webkit-text-stroke: 1px rgba(129,140,248,.08);
+      width: 100%; height: 100%; position: absolute; inset: 0;
+      background: #0e0e0e;
     }
     .g-item .g-hover-label {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(99,102,241,.4) 0%, transparent 60%);
-      opacity: 0; transition: opacity .4s;
-      display: flex; align-items: flex-end; padding: 1.2rem;
+      background: linear-gradient(to top, rgba(0,0,0,.7) 0%, transparent 50%);
+      opacity: 0; transition: opacity .5s;
+      display: flex; align-items: flex-end; padding: 1.4rem;
+      pointer-events: none;
     }
     .g-item:hover .g-hover-label { opacity: 1; }
     .g-hover-label span {
-      font-family: 'DM Mono', monospace; font-size: .48rem;
-      letter-spacing: .28em; text-transform: uppercase; color: rgba(255,255,255,.7);
+      font-family: 'SF', sans-serif; font-size: .52rem;
+      letter-spacing: .01em; text-transform: none; color: rgba(255,255,255,.6);
+    }
+    .g-num {
+      position: absolute; top: .9rem; left: .9rem; z-index: 2;
+      font-family: 'SF', sans-serif; font-size: .38rem;
+      letter-spacing: .01em; color: rgba(255,255,255,.18);
+      pointer-events: none;
+    }
+    /* hint drag */
+    .gallery-hint {
+      text-align: center; margin-top: 1.8rem;
+      font-family: 'SF', sans-serif; font-size: .52rem;
+      letter-spacing: .01em; text-transform: none;
+      color: rgba(255,255,255,.12);
     }
 
     /* ══ TÉMOIGNAGES ══ */
@@ -859,7 +846,7 @@
     .testi-track-wrap { overflow: hidden; margin-top: 4rem; }
     .testi-track {
       display: flex; gap: 1.5rem;
-      animation: testiScroll 40s linear infinite;
+      animation: testiScroll 55s linear infinite;
       width: max-content;
     }
     .testi-track:hover { animation-play-state: paused; }
@@ -869,16 +856,16 @@
     }
     .testi-card {
       background: rgba(255,255,255,.025); border: 1px solid var(--br);
-      padding: 2.5rem 2.8rem; width: 380px; flex-shrink: 0;
+      padding: 2rem 2.8rem; width: 540px; flex-shrink: 0;
       position: relative; transition: border-color .3s, background .3s;
     }
     .testi-card:hover { border-color: rgba(129,140,248,.25); background: rgba(255,255,255,.04); }
     .testi-quote-mark {
-      font-family: 'DM Mono', monospace; font-size: 4rem; line-height: .5;
+      font-family: 'SF', sans-serif; font-size: 4rem; line-height: .5;
       color: var(--c); opacity: .25; margin-bottom: 1.2rem; display: block;
     }
     .testi-text {
-      font-family: 'DM Mono', monospace; font-size: .72rem; line-height: 1.9;
+      font-family: 'SF', sans-serif; font-size: .72rem; line-height: 1.9;
       color: rgba(255,255,255,.7); font-style: italic; margin-bottom: 1.8rem;
     }
     .testi-author { display: flex; align-items: center; gap: 1rem; }
@@ -886,11 +873,11 @@
       width: 36px; height: 36px; border-radius: 50%;
       background: linear-gradient(135deg, #6366f1, #a78bfa);
       display: flex; align-items: center; justify-content: center;
-      font-family: 'DM Mono', monospace; font-weight: 400; font-size: .65rem; color: #fff;
+      font-family: 'SF', sans-serif; font-weight: 400; font-size: .65rem; color: #fff;
       flex-shrink: 0;
     }
-    .testi-name { font-family: 'DM Mono', monospace; font-size: .58rem; letter-spacing: .12em; color: #fff; display: block; }
-    .testi-meta { font-family: 'DM Mono', monospace; font-size: .5rem; letter-spacing: .1em; color: rgba(255,255,255,.25); }
+    .testi-name { font-family: 'SF', sans-serif; font-size: .62rem; letter-spacing: .01em; color: #fff; display: block; }
+    .testi-meta { font-family: 'SF', sans-serif; font-size: .52rem; letter-spacing: .01em; color: rgba(255,255,255,.25); }
     .testi-stars { color: #818cf8; font-size: .7rem; margin-bottom: .3rem; display: block; }
 
     /* ══ LIEU MYSTÈRE ══ */
@@ -905,7 +892,7 @@
       background: radial-gradient(ellipse at 80% 50%, rgba(99,102,241,.06) 0%, transparent 60%);
     }
     .lieu-coords {
-      font-family: 'FCFastest', sans-serif; font-size: clamp(3rem, 6vw, 6rem);
+      font-family: 'SF', sans-serif; font-size: clamp(3rem, 6vw, 6rem);
       letter-spacing: -.02em; line-height: 1;
       color: transparent; -webkit-text-stroke: 1px rgba(129,140,248,.2);
       user-select: none;
@@ -913,14 +900,14 @@
     .lieu-right { max-width: 440px; }
     .lieu-badge {
       display: inline-flex; align-items: center; gap: .6rem;
-      font-family: 'DM Mono', monospace; font-size: .5rem; letter-spacing: .3em;
-      text-transform: uppercase; color: var(--c);
+      font-family: 'SF', sans-serif; font-size: .5rem; letter-spacing: .01em;
+      text-transform: none; color: var(--c);
       border: 1px solid rgba(129,140,248,.25); padding: .4rem 1rem; border-radius: 999px;
       background: rgba(99,102,241,.06); margin-bottom: 2rem;
     }
     .lieu-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--c); box-shadow: 0 0 8px var(--c); animation: blink 1.5s ease-in-out infinite; }
     @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.3;} }
-    .lieu-title { font-family: 'DM Mono', monospace; font-weight: 400; text-transform: uppercase; font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: .95; letter-spacing: -.01em; color: #fff; margin-bottom: 1.2rem; }
+    .lieu-title { font-family: 'SF', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: .95; letter-spacing: -.01em; color: #fff; margin-bottom: 1.2rem; }
     .lieu-text { font-size: .68rem; line-height: 2; color: var(--mu); }
 
     /* ══ NEWSLETTER ══ */
@@ -931,20 +918,20 @@
     }
     .newsletter-block::after {
       content: 'ENJOYLIFE'; position: absolute; right: -2rem; top: 50%; transform: translateY(-50%);
-      font-family: 'FCFastest', sans-serif; font-size: 10rem; letter-spacing: -.03em;
+      font-family: 'SF', sans-serif; font-size: 10rem; letter-spacing: -.03em;
       color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,.03);
       pointer-events: none; user-select: none; white-space: nowrap;
     }
     .nl-inner { position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; gap: 4rem; flex-wrap: wrap; }
     .nl-left {}
-    .nl-title { font-family: 'FCFastest', sans-serif; text-transform: uppercase; font-size: clamp(1.8rem, 3.5vw, 3rem); letter-spacing: -.02em; line-height: .92; color: #fff; margin-bottom: 1rem; }
+    .nl-title { font-family: 'SF', sans-serif; text-transform: uppercase; font-size: clamp(1.8rem, 3.5vw, 3rem); letter-spacing: -.02em; line-height: .92; color: #fff; margin-bottom: 1rem; }
     .nl-title em { font-style: normal; background: linear-gradient(135deg, #818cf8, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .nl-sub { font-size: .62rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.25); }
+    .nl-sub { font-size: .62rem; letter-spacing: .01em; text-transform: none; color: rgba(255,255,255,.25); }
     .nl-form { display: flex; gap: 0; flex: 1; max-width: 480px; min-width: 280px; }
     .nl-input {
       flex: 1; background: rgba(255,255,255,.04); border: 1px solid var(--br);
       border-right: none; padding: 1rem 1.4rem;
-      font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: .08em;
+      font-family: 'SF', sans-serif; font-size: .65rem; letter-spacing: .08em;
       color: #fff; outline: none; transition: border-color .2s;
     }
     .nl-input::placeholder { color: rgba(255,255,255,.2); }
@@ -952,13 +939,13 @@
     .nl-btn {
       background: linear-gradient(135deg, #6366f1, #a78bfa);
       border: none; padding: 1rem 1.8rem;
-      font-family: 'DM Mono', monospace; font-weight: 400; text-transform: uppercase;
-      font-size: .7rem; letter-spacing: .08em; color: #fff;
+      font-family: 'SF', sans-serif; font-weight: 500; text-transform: none;
+      font-size: .72rem; letter-spacing: .01em; color: #fff;
       cursor: pointer; transition: opacity .2s;
       white-space: nowrap;
     }
     .nl-btn:hover { opacity: .85; }
-    .nl-note { font-size: .5rem; letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.12); margin-top: .8rem; }
+    .nl-note { font-size: .5rem; letter-spacing: .01em; text-transform: none; color: rgba(255,255,255,.12); margin-top: .8rem; }
 
 
 
@@ -981,10 +968,10 @@
       .hof-grid { grid-template-columns: 1fr 1fr; }
       .hof-card.wide { grid-column: span 1; }
       .pillars { grid-template-columns: 1fr 1fr; }
-      .pillar { border-right: none; border-bottom: 1px solid var(--br); padding: 2rem 0; }
+      .pillar { border-right: none; border-bottom: 1px solid var(--br); padding: 2rem 1.5rem; }
       .pillar:last-child { border-bottom: none; }
       .why-grid { grid-template-columns: 1fr; }
-      .why-i { border-right: none; border-bottom: 1px solid var(--br); padding: 2rem 0; }
+      .why-i { border-right: none; border-bottom: 1px solid var(--br); padding: 2rem 1.5rem; }
       .why-i:last-child { border-bottom: none; }
 
       /* Partenaires logos */
@@ -996,7 +983,7 @@
       .video-grid { grid-template-columns: repeat(2, 1fr); }
 
       /* Galerie */
-      .gallery-masonry { grid-template-rows: repeat(3, 160px); }
+
 
       /* Lieu */
       .lieu-block { flex-direction: column; padding: 3rem 2.5rem; gap: 2rem; }
@@ -1016,7 +1003,7 @@
       #nav { padding: 0 1.2rem; height: 58px; }
       .nav-r a:not(.cta-nav) { display: none; }
       .nav-r a.cta-nav { padding: .45rem 1.1rem; font-size: .55rem; }
-      .nav-logo img { height: 22px; }
+      .nav-logo img { height: 30px; }
 
       /* Hero */
       #hero-bottom {
@@ -1050,7 +1037,7 @@
 
       /* Experience pillars */
       .pillars { grid-template-columns: 1fr; }
-      .pillar { border-right: none; border-bottom: 1px solid var(--br); padding: 1.8rem 0; }
+      .pillar { border-right: none; border-bottom: 1px solid var(--br); padding: 1.8rem 1.5rem; }
       .pillar:last-child { border-bottom: none; }
 
       /* HOF */
@@ -1069,20 +1056,10 @@
 
       /* Galerie */
       .gallery-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
-      .gallery-masonry {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: repeat(4, 160px);
-      }
-      .g-item:nth-child(1)  { grid-column: 1 / 3; grid-row: 1 / 2; }
-      .g-item:nth-child(2)  { grid-column: 1 / 2; grid-row: 2 / 3; }
-      .g-item:nth-child(3)  { grid-column: 2 / 3; grid-row: 2 / 3; }
-      .g-item:nth-child(4)  { grid-column: 1 / 2; grid-row: 3 / 4; }
-      .g-item:nth-child(5)  { grid-column: 2 / 3; grid-row: 3 / 4; }
-      .g-item:nth-child(6)  { grid-column: 1 / 3; grid-row: 4 / 5; }
-      .g-item:nth-child(7), .g-item:nth-child(8) { display: none; }
+      .g-item { width: 200px; height: 250px; }
 
       /* Témoignages */
-      .testi-card { width: 300px; padding: 1.8rem 1.5rem; }
+      .testi-card { width: 320px; padding: 1.8rem 1.5rem; }
       .testi-text { font-size: .8rem; }
       #testimonials { padding-top: 4rem; padding-bottom: 4rem; }
 
@@ -1100,14 +1077,14 @@
       #newsletter { padding-bottom: 4rem; }
 
       /* Partenaires logos */
-      .logo-item-major { height: 70px; }
-      .logo-item-officiel { height: 56px; }
-      .logo-item-partenaire { height: 48px; }
-      .logo-item-mini { height: 48px; }
+      .logo-item-major { height: 84px; }
+      .logo-item-officiel { height: 68px; }
+      .logo-item-partenaire { height: 58px; }
+      .logo-item-mini { height: 54px; }
 
       /* Why partner */
       .why-grid { grid-template-columns: 1fr; }
-      .why-i { border-right: none; border-bottom: 1px solid var(--br); padding: 1.8rem 0; }
+      .why-i { border-right: none; border-bottom: 1px solid var(--br); padding: 1.8rem 1.5rem; }
       .why-i:last-child { border-bottom: none; }
 
       /* Footer */
@@ -1126,6 +1103,230 @@
       /* Parallax désactivé sur mobile (perf) */
       #hero-logo, #hero-bottom { will-change: auto; }
     }
+
+    /* ══ TÉMOIGNAGES REDESIGN ══ */
+    .testi-card {
+      background: rgba(255,255,255,.02); border: 1px solid var(--br);
+      padding: 2rem 2.8rem; width: 540px; flex-shrink: 0;
+      position: relative; transition: border-color .3s;
+      display: flex; flex-direction: column; justify-content: space-between; gap: 1.4rem;
+    }
+    .testi-card:hover { border-color: rgba(129,140,248,.2); }
+    .testi-text { font-family: 'SF', sans-serif; font-size: .66rem; line-height: 1.85; color: rgba(255,255,255,.65); font-style: italic; }
+    .testi-author { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--br); padding-top: 1.1rem; gap: 1rem; }
+
+    /* ══ EXPERIENCE CARDS ══ */
+    .exp-card { transition: transform .4s cubic-bezier(.16,1,.3,1); cursor: default; }
+    .exp-card:hover { transform: translateY(-4px); }
+    @media (max-width: 768px) {
+      #experience > div:last-child { grid-template-columns: 1fr !important; }
+      .exp-card { min-height: 300px !important; }
+    }
+
+    /* ══ LIEU REDESIGN ══ */
+    .lieu-top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 2.5rem; border-bottom: 1px solid var(--br); flex-wrap: wrap; gap: 1rem;
+    }
+    .lieu-coords-row { display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; }
+    .lieu-coord-item { display: flex; flex-direction: column; gap: .3rem; }
+    .lieu-coord-label { font-family: 'SF', sans-serif; font-size: .42rem; letter-spacing: .04em; text-transform: none; color: rgba(255,255,255,.2); }
+    .lieu-coord-value { font-family: 'SF', sans-serif; font-size: .78rem; letter-spacing: .12em; color: rgba(255,255,255,.7); }
+    .lieu-body { display: flex; align-items: center; justify-content: space-between; padding: 3rem 2.5rem; gap: 3rem; flex-wrap: wrap; }
+    .lieu-coords-bg {
+      font-family: 'SF', sans-serif; font-size: clamp(1.6rem, 3vw, 2.5rem);
+      letter-spacing: -.01em; line-height: 1.15;
+      color: transparent; -webkit-text-stroke: 1px rgba(129,140,248,.15);
+      user-select: none; flex-shrink: 0;
+    }
+
+    /* ══ COOKIE BANNER ══ */
+    #cookie-banner {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 3000;
+      background: rgba(8,8,8,.97); backdrop-filter: blur(20px);
+      border-top: 1px solid rgba(129,140,248,.2);
+      padding: 1.6rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+      transition: transform .5s cubic-bezier(.16,1,.3,1), opacity .4s;
+    }
+    #cookie-banner.hidden { transform: translateY(110%); opacity: 0; pointer-events: none; }
+    .cookie-text { font-family: 'SF', sans-serif; font-size: .65rem; line-height: 1.8; color: rgba(255,255,255,.4); letter-spacing: .01em; max-width: 640px; }
+    .cookie-text strong { color: rgba(255,255,255,.7); }
+    .cookie-text a { color: var(--c); text-decoration: none; }
+    .cookie-btns { display: flex; gap: .75rem; flex-shrink: 0; align-items: center; }
+    .cookie-btn-refuse {
+      font-family: 'SF', sans-serif; font-weight: 400; font-size: .58rem; letter-spacing: .01em; text-transform: none;
+      color: rgba(255,255,255,.3); background: none; border: 1px solid rgba(255,255,255,.1);
+      padding: .65rem 1.4rem; cursor: pointer; transition: border-color .2s, color .2s; border-radius: 2px;
+    }
+    .cookie-btn-refuse:hover { border-color: rgba(255,255,255,.3); color: rgba(255,255,255,.6); }
+    .cookie-btn-accept {
+      font-family: 'SF', sans-serif; font-weight: 500; font-size: .58rem; letter-spacing: .01em; text-transform: none;
+      color: #fff; background: linear-gradient(135deg, #6366f1, #a78bfa);
+      border: none; padding: .65rem 1.6rem; cursor: pointer; transition: opacity .2s;
+      border-radius: 2px; box-shadow: 0 0 20px rgba(99,102,241,.3);
+    }
+    .cookie-btn-accept:hover { opacity: .85; }
+    #cookie-modal { position: fixed; inset: 0; z-index: 4000; display: none; align-items: center; justify-content: center; }
+    #cookie-modal.open { display: flex; }
+    .cookie-modal-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.8); backdrop-filter: blur(10px); }
+    .cookie-modal-box { position: relative; z-index: 1; background: #0e0e0e; border: 1px solid rgba(129,140,248,.2); padding: 3rem; max-width: 520px; width: 90%; border-radius: 2px; }
+    .cookie-modal-title { font-family: 'SF', sans-serif; font-weight: 400; text-transform: none; font-size: 1rem; letter-spacing: .01em; color: #fff; margin-bottom: 1.8rem; }
+    .cookie-toggle-row { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 0; border-bottom: 1px solid var(--br); gap: 1.5rem; }
+    .cookie-toggle-row:last-of-type { border-bottom: none; margin-bottom: 2rem; }
+    .cookie-toggle-name { font-family: 'SF', sans-serif; font-size: .65rem; letter-spacing: .1em; color: rgba(255,255,255,.8); display: block; margin-bottom: .3rem; }
+    .cookie-toggle-desc { font-family: 'SF', sans-serif; font-size: .52rem; color: rgba(255,255,255,.25); line-height: 1.6; }
+    .cookie-toggle { position: relative; width: 42px; height: 24px; flex-shrink: 0; cursor: pointer; }
+    .cookie-toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+    .cookie-toggle-slider { position: absolute; inset: 0; border-radius: 999px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); transition: background .3s, border-color .3s; }
+    .cookie-toggle-slider::before { content: ''; position: absolute; width: 16px; height: 16px; left: 3px; top: 50%; transform: translateY(-50%); border-radius: 50%; background: rgba(255,255,255,.4); transition: transform .3s, background .3s; }
+    .cookie-toggle input:checked + .cookie-toggle-slider { background: rgba(99,102,241,.4); border-color: var(--c); }
+    .cookie-toggle input:checked + .cookie-toggle-slider::before { transform: translateX(18px) translateY(-50%); background: var(--c); }
+    .cookie-toggle input:disabled + .cookie-toggle-slider { opacity: .5; cursor: not-allowed; }
+    .cookie-modal-close { position: absolute; top: 1rem; right: 1rem; width: 28px; height: 28px; background: rgba(255,255,255,.05); border: 1px solid var(--br); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.4); font-size: .75rem; cursor: pointer; transition: background .2s; }
+    .cookie-modal-close:hover { background: rgba(255,255,255,.1); }
+
+    /* ══════════════════════════════
+       PAGES LÉGALES — MODAL OVERLAY
+    ══════════════════════════════ */
+    #legal-overlay {
+      position: fixed; inset: 0; z-index: 5000;
+      background: rgba(0,0,0,.92); backdrop-filter: blur(24px);
+      display: none; align-items: flex-start; justify-content: center;
+      overflow-y: auto; padding: 4rem 1.5rem;
+      animation: legalFadeIn .35s cubic-bezier(.16,1,.3,1);
+    }
+    #legal-overlay.open { display: flex; }
+    @keyframes legalFadeIn {
+      from { opacity:0; transform: translateY(16px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+    .legal-modal {
+      width: 100%; max-width: 780px;
+      background: #0a0a0a; border: 1px solid rgba(255,255,255,.08);
+      position: relative; padding: 0;
+      animation: legalFadeIn .4s cubic-bezier(.16,1,.3,1);
+    }
+    /* Gradient line top */
+    .legal-modal::before {
+      content: ''; display: block; height: 1px;
+      background: linear-gradient(90deg, transparent, #6366f1, #a78bfa, transparent);
+    }
+    .legal-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 2rem 3rem; border-bottom: 1px solid rgba(255,255,255,.06);
+      position: sticky; top: 0; background: #0a0a0a; z-index: 10;
+    }
+    .legal-tabs {
+      display: flex; gap: 0;
+      border: 1px solid rgba(255,255,255,.08); border-radius: 2px; overflow: hidden;
+    }
+    .legal-tab {
+      font-family: 'SF', sans-serif; font-size: .58rem;
+      letter-spacing: .01em; text-transform: none;
+      color: rgba(255,255,255,.3); background: none; border: none;
+      padding: .6rem 1.2rem; cursor: pointer;
+      border-right: 1px solid rgba(255,255,255,.08);
+      transition: background .2s, color .2s;
+    }
+    .legal-tab:last-child { border-right: none; }
+    .legal-tab:hover { color: rgba(255,255,255,.65); background: rgba(255,255,255,.04); }
+    .legal-tab.active { color: #fff; background: rgba(129,140,248,.14); }
+    .legal-close {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.4); font-size: .9rem; cursor: pointer;
+      transition: background .2s, color .2s; flex-shrink: 0;
+    }
+    .legal-close:hover { background: rgba(255,255,255,.12); color: #fff; }
+    .legal-body { padding: 3rem; }
+    .legal-page { display: none; }
+    .legal-page.active { display: block; }
+    /* Typography légale */
+    .legal-kicker {
+      font-family: 'SF', sans-serif; font-size: .48rem;
+      letter-spacing: .02em; text-transform: none;
+      color: var(--c); opacity: .65; display: block; margin-bottom: 1.5rem;
+    }
+    .legal-title {
+      font-family: 'SF', sans-serif; font-weight: 800; text-transform: none;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem); letter-spacing: -.03em; line-height: .93;
+      color: #fff; margin-bottom: 2.5rem;
+    }
+    .legal-updated {
+      font-family: 'SF', sans-serif; font-size: .5rem;
+      letter-spacing: .01em; text-transform: none;
+      color: rgba(255,255,255,.2); margin-bottom: 3rem; display: block;
+      padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .legal-section { margin-bottom: 2.5rem; }
+    .legal-section-title {
+      font-family: 'SF', sans-serif; font-weight: 400; text-transform: none;
+      font-size: .72rem; letter-spacing: .12em; color: #fff;
+      margin-bottom: 1rem; display: flex; align-items: center; gap: .8rem;
+    }
+    .legal-section-title::after {
+      content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.06);
+    }
+    .legal-section-title span.ln {
+      font-family: 'SF', sans-serif; font-size: .42rem;
+      letter-spacing: .3em; color: var(--c); opacity: .5;
+    }
+    .legal-p {
+      font-family: 'SF', sans-serif; font-size: .68rem;
+      line-height: 1.95; color: rgba(255,255,255,.45);
+    }
+    .legal-p strong { color: rgba(255,255,255,.8); font-weight: 400; }
+    .legal-p a { color: var(--c); text-decoration: underline; }
+    .legal-infoblock {
+      background: rgba(129,140,248,.06); border: 1px solid rgba(129,140,248,.14);
+      padding: 1.4rem 1.8rem; margin: 1.5rem 0; border-left: 2px solid var(--c);
+    }
+    .legal-infoblock p {
+      font-family: 'SF', sans-serif; font-size: .64rem;
+      line-height: 1.85; color: rgba(255,255,255,.5);
+    }
+    .legal-infoblock strong { color: rgba(255,255,255,.85); font-weight: 400; }
+    /* Cookie toggles dans modal légale */
+    .legal-cookie-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 0; border-bottom: 1px solid rgba(255,255,255,.05); gap: 2rem;
+    }
+    .legal-cookie-row:last-of-type { border-bottom: none; }
+    .legal-cookie-label {
+      font-family: 'SF', sans-serif; font-size: .65rem;
+      letter-spacing: .06em; color: rgba(255,255,255,.75); display: block; margin-bottom: .3rem;
+    }
+    .legal-cookie-desc {
+      font-family: 'SF', sans-serif; font-size: .54rem;
+      color: rgba(255,255,255,.28); line-height: 1.6;
+    }
+    .legal-cookie-badge {
+      font-family: 'SF', sans-serif; font-size: .44rem; letter-spacing: .2em;
+      text-transform: none; padding: .25rem .7rem; border-radius: 999px;
+      flex-shrink: 0; white-space: nowrap;
+    }
+    .badge-required { color: var(--c); border: 1px solid rgba(129,140,248,.3); background: rgba(99,102,241,.08); }
+    .badge-inactive { color: rgba(255,255,255,.25); border: 1px solid rgba(255,255,255,.1); background: transparent; }
+    .legal-footer-actions {
+      display: flex; gap: .75rem; justify-content: flex-end; flex-wrap: wrap;
+      padding-top: 2rem; margin-top: 1rem; border-top: 1px solid rgba(255,255,255,.06);
+    }
+    /* Table légale */
+    .legal-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; }
+    .legal-table th {
+      font-family: 'SF', sans-serif; font-size: .48rem;
+      letter-spacing: .01em; text-transform: none; color: rgba(255,255,255,.3);
+      text-align: left; padding: .8rem 1rem; border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .legal-table td {
+      font-family: 'SF', sans-serif; font-size: .58rem;
+      color: rgba(255,255,255,.45); padding: .8rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,.04); line-height: 1.6;
+    }
+    .legal-table td strong { color: rgba(255,255,255,.75); font-weight: 400; }
 
     /* ══ TRÈS PETIT ÉCRAN 380px ══ */
     @media (max-width: 380px) {
@@ -1160,17 +1361,24 @@
       <span class="nav-logo-txt">Enjoylife</span>
     </a>
     <div class="nav-r">
-      <a href="#story">Notre histoire</a>
-      <a href="#hof">Line-up</a>
+      <a href="#story">Histoire</a>
+      <a href="#hof">Artistes</a>
+      <a href="#experience">L'experience</a>
       <a href="#faq">FAQ</a>
       <a href="partenaires/index.html">Partenaires</a>
-      <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="cta-nav">Billets</a>
+      <a href="https://instagram.com/enjoylife.emx" target="_blank" rel="noopener" class="nav-insta-icon" title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="cta-nav">Billets →</a>
     </div>
   </nav>
+
 
   <!-- ══════════════════════════════════════════
        HERO — PLEIN ÉCRAN
   ══════════════════════════════════════════ -->
+
+
   <section id="hero">
     <!--
       VIDÉO HERO PLEIN ÉCRAN
@@ -1190,15 +1398,15 @@
 
     <!-- LOGO CENTRÉ -->
     <div id="hero-logo">
-      <!--
-        LOGO HERO — version blanche grande
-        Fichier : /assets/logo/logo-white.svg (version blanche du logo)
-        Si même fichier que logo-main.svg, utiliser logo-main.svg
-      -->
-      <img src="/assets/logo/logo-white.svg" alt="ENJOYLIFE"
-           onerror="this.style.display='none';document.getElementById('hero-logo-txt').style.display='block';" />
-      <span id="hero-logo-txt">ENJOYLIFE</span>
-      <span class="hero-tagline">Techno &amp; Immersive Arts</span>
+      <span id="hero-logo-txt" style="display:block;">ENJOYLIFE</span>
+      <span class="hero-tagline">Electronic Music Xperience</span>
+      <div style="margin-top:1.2rem;display:flex;align-items:center;gap:1rem;">
+        <span style="display:inline-flex;align-items:center;gap:.5rem;font-family:'SF',sans-serif;font-weight:500;font-size:.5rem;letter-spacing:.12em;color:#fff;background:rgba(239,68,68,.18);border:1px solid rgba(239,68,68,.45);padding:.45rem 1.1rem;border-radius:999px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#ef4444;box-shadow:0 0 8px #ef4444;animation:blink 1.5s ease-in-out infinite;flex-shrink:0;"></span>
+          Sold out · Édition III 2026
+        </span>
+        <span style="font-family:'SF',sans-serif;font-weight:300;font-size:.5rem;letter-spacing:.12em;color:rgba(255,255,255,.35);">IVème édition · 2027</span>
+      </div>
     </div>
 
     <!-- INFOS BAS — style Coachella -->
@@ -1206,8 +1414,10 @@
       <div class="hero-info-left">
         <span class="place">Plaine de l'Ain</span>
         <!-- Salle des fêtes de Lagnieu 🤫 -->
-        <span>Ain, France · 45° 54' N, 5° 20' E</span>
-        <span>IV<sup>ème</sup> Édition · 2027</span>
+        <div style="display:flex;flex-direction:column;gap:.3rem;margin-top:.2rem;">
+          <span>Ain, France · 45° 54' N, 5° 20' E</span>
+          <span>IV<sup style="font-size:.5em;">ème</sup> Édition · 2027</span>
+        </div>
       </div>
       <div class="hero-info-right">
         <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="hero-cta">
@@ -1217,54 +1427,23 @@
       </div>
     </div>
 
-    <div class="hero-scroll"></div>
+    
 
   <!-- ══════════════════════════════════════════
        PARTENAIRES MAJEURS — sous le hero, fluide
   ══════════════════════════════════════════ -->
   <div id="partners-hero">
-    <span class="ph-label">Partenaires majeurs</span>
-    <div class="ph-sep"></div>
-    <div class="ph-logos">
-
-      <!-- PARTENAIRE 1 : Crédit Agricole Centre Est -->
-      <!--
-        Fichier : /assets/logo/partners/credit-agricole.svg
-        Si pas de logo SVG, le texte s'affiche en fallback
-      -->
-      <div class="ph-logo">
-        <img src="/assets/logo/partners/credit-agricole.svg" alt="Crédit Agricole Centre Est"
-             onerror="this.style.display='none';" />
-        <span class="ph-logo-txt">Crédit Agricole <span style="opacity:.5;font-size:.85em;">Centre Est</span></span>
-      </div>
-
-      <!-- PARTENAIRE 2 : McDonald's -->
-      <!--
-        Fichier : /assets/logo/partners/mcdonalds.svg
-      -->
-      <div class="ph-logo">
-        <img src="/assets/logo/partners/mcdonalds.svg" alt="McDonald's"
-             onerror="this.style.display='none';" />
-        <span class="ph-logo-txt">McDonald's</span>
-      </div>
-
-      <!-- PARTENAIRE 3 : CER by Francine -->
-      <!--
-        Fichier : /assets/logo/partners/cer-francine.svg
-      -->
-      <div class="ph-logo">
-        <img src="/assets/logo/partners/cer-francine.svg" alt="Auto-école CER by Francine"
-             onerror="this.style.display='none';" />
-        <span class="ph-logo-txt">CER <span style="opacity:.5;font-size:.85em;">by Francine</span></span>
-      </div>
-
+    <div class="ph-logo">
+      <img src="img/sponsors/cace.png" alt="Crédit Agricole Centre Est" />
+    </div>
+    <div class="ph-logo">
+      <img src="img/sponsors/mcdo.png" alt="McDonald's" />
+    </div>
+    <div class="ph-logo">
+      <img src="img/sponsors/cer.png" alt="CER by Francine" />
     </div>
   </div>
   </section>
-
-  <!-- ══════════════════════════════════════════
-       VIDÉOS PORTRAIT 4:5 — 3 moments forts
-  ══════════════════════════════════════════ -->
   <section id="videos-portrait">
 
     <div class="vp-card">
@@ -1302,469 +1481,31 @@
 
   </section>
 
+  <div class="sep-gradient"></div>
+
   <section id="manifesto">
     <!--
       VIDÉO AFTERMOVIE — fond du manifesto
       Fichier : /assets/video/aftermovie.mp4
       Poster  : /assets/img/aftermovie-poster.jpg
     -->
-    <video id="manifesto-video"
-      src="/assets/video/aftermovie.mp4"
-      poster="/assets/img/aftermovie-poster.jpg"
-      autoplay muted loop playsinline>
-    </video>
-
     <div class="manifesto-content">
-      <p class="lbl rev" style="margin-bottom:2.5rem;">Manifesto</p>
       <blockquote class="manifesto-q rev d1">
-        Ce n'est pas un festival.<br/>
-        <em>C'est un état d'esprit.</em>
+        Depuis 2016, quelque chose<br/>naît ici. Chaque nuit.<br/>
+        <em>Inexplicable.</em>
       </blockquote>
-      <p class="rev d2" style="margin-top:2.5rem;font-size:.55rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.16);">
-        — ENJOYLIFE, depuis 2016
+      <p class="rev d2" style="margin-top:2.5rem;font-size:.55rem;letter-spacing:.04em;text-transform:none;color:rgba(255,255,255,.16);">
+        ENJOYLIFE · 2016 — 2027
       </p>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       STATS
-  ══════════════════════════════════════════ -->
-
-  <!-- MARQUEE 1 -->
-  <div class="marquee-wrap">
-    <div class="marquee-t">
-      <span>ENJOYLIFE</span><span class="dot">✦</span>
-      <span>2027</span><span class="dot">✦</span>
-      <span>Ain · France</span><span class="dot">✦</span>
-      <span>Techno &amp; Immersive Arts</span><span class="dot">✦</span>
-      <span>IV Edition</span><span class="dot">✦</span>
-      <span>III / III Complets</span><span class="dot">✦</span>
-      <span>4000+ Festivaliers</span><span class="dot">✦</span>
-      <span>ENJOYLIFE</span><span class="dot">✦</span>
-      <span>2027</span><span class="dot">✦</span>
-      <span>Ain · France</span><span class="dot">✦</span>
-      <span>Techno &amp; Immersive Arts</span><span class="dot">✦</span>
-      <span>IV Edition</span><span class="dot">✦</span>
-      <span>III / III Complets</span><span class="dot">✦</span>
-      <span>4000+ Festivaliers</span><span class="dot">✦</span>
-    </div>
-  </div>
-
-  <div class="sec" style="padding-bottom:0;">
-    <div class="stats-row rev">
-      <div class="stat-c">
-        <div class="stat-n">4000<span style="font-size:.42em;opacity:.42">+</span></div>
-        <p class="stat-l">Festivaliers sur 3 éditions</p>
-      </div>
-      <div class="stat-c rev d1">
-        <div class="stat-n">20<span style="font-size:.42em;opacity:.42">+</span></div>
-        <p class="stat-l">Artistes internationaux</p>
-      </div>
-      <div class="stat-c rev d2">
-        <div class="stat-n">III<span style="font-size:.36em;color:var(--c);opacity:.8;margin-left:.2em;">/III</span></div>
-        <p class="stat-l">Éditions consécutives complètes</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════
-       STORYTELLING — L'HISTOIRE ENJOYLIFE
-  ══════════════════════════════════════════ -->
-
-<!-- ══ SÉPARATEUR ══ -->
-  <div class="sep-gradient"></div>
-
-  <section id="story">
-    <div class="story-header rev">
-      <p class="lbl" style="margin-bottom:1.5rem;">Notre histoire</p>
-      <h2 class="ff" style="font-size:clamp(2.5rem,5vw,4.5rem);line-height:.93;letter-spacing:-.02em;">
-        Tout a commencé<br/>dans l'Ain.
-      </h2>
-    </div>
-
-    <div class="story-grid rev d1">
-
-      <!-- ÉDITION I — 2016 -->
-      <div class="story-card">
-        <span class="story-year">2016</span>
-        <span class="story-edition">Édition I</span>
-        <p class="story-text">
-          <strong>Une première. Sans précédent.</strong> Personne ne savait ce que c'était. Quelques centaines de personnes, un son, une idée. L'Ain découvre la techno immersive.
-        </p>
-        <span class="story-sold">Complet</span>
-      </div>
-
-      <!-- ÉDITION II — 2017 -->
-      <div class="story-card">
-        <span class="story-year">2017</span>
-        <span class="story-edition">Édition II</span>
-        <p class="story-text">
-          <strong>Le bouche-à-oreille fait tout.</strong> Ceux qui étaient là en parlent encore. Les autres veulent y être. ENJOYLIFE n'est plus un événement — c'est une réputation.
-        </p>
-        <span class="story-sold">Complet</span>
-      </div>
-
-      <!-- GAP — la pause -->
-      <div class="story-card" style="background:rgba(255,255,255,.01);">
-        <span class="story-year" style="-webkit-text-stroke:1px rgba(255,255,255,.06);">—</span>
-        <span class="story-edition" style="color:rgba(255,255,255,.2);">La pause</span>
-        <p class="story-text" style="color:rgba(255,255,255,.3);">
-          Quelques années de silence. Pas d'abandon — une construction. Chaque grande histoire a ses coulisses.
-        </p>
-      </div>
-
-      <!-- ÉDITION III — 2026 -->
-      <div class="story-card">
-        <span class="story-year">2026</span>
-        <span class="story-edition">Édition III</span>
-        <p class="story-text">
-          <strong>Le retour qui confirme tout.</strong> ENJOYLIFE revient plus fort, plus grand, plus intense. Tony Romera, Odymel, Rivo, Jast — des noms qui font désormais les grandes scènes. Ils étaient là avant.
-        </p>
-        <span class="story-sold">Complet</span>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       EXPERIENCE
-  ══════════════════════════════════════════ -->
-
-<!-- ══ SÉPARATEUR ══ -->
-  <div class="sep-gradient"></div>
-
-  <section id="experience" class="sec" style="padding-top:0;">
-    <div class="rev" style="margin-bottom:5rem;">
-      <p class="lbl" style="margin-bottom:1.5rem;">L'expérience</p>
-      <h2 class="ff" style="font-size:clamp(2.2rem,4.5vw,4rem);line-height:.93;letter-spacing:-.02em;">
-        Tout est conçu<br/>pour vous perdre.
-      </h2>
-    </div>
-    <div class="pillars">
-      <div class="pillar rev">
-        <span class="p-num">01</span>
-        <h3 class="p-title">Scénographie</h3>
-        <p class="p-text">Des structures qui transforment le site en territoire autre. Chaque scène est un monde autonome.</p>
-      </div>
-      <div class="pillar rev d1">
-        <span class="p-num">02</span>
-        <h3 class="p-title">Lumière</h3>
-        <p class="p-text">Rigs laser synchronisés avec chaque kick, chaque drop, chaque silence. La lumière n'accompagne pas — elle joue.</p>
-      </div>
-      <div class="pillar rev d2">
-        <span class="p-num">03</span>
-        <h3 class="p-title">Son</h3>
-        <p class="p-text">Un enveloppement 360° pensé pour que chaque fréquence se ressente dans les os, pas seulement dans les oreilles.</p>
-      </div>
-      <div class="pillar rev d3">
-        <span class="p-num">04</span>
-        <h3 class="p-title">Énergie</h3>
-        <p class="p-text">Pas une foule. Une communauté. Construite sur des années de confiance et d'amour du son.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       HALL OF FAME — ARTISTES PASSÉS
-  ══════════════════════════════════════════ -->
-
-<!-- ══ SÉPARATEUR ══ -->
-  <div class="sep-gradient"></div>
-
-  <section id="testimonials">
-    <div class="rev" style="margin-bottom:0;">
-      <p class="lbl" style="margin-bottom:1.5rem;">Ils y étaient</p>
-      <h2 class="ff" style="font-size:clamp(2.2rem,4.5vw,4rem);line-height:.93;letter-spacing:-.02em;">
-        Les mots<br/>qu'on n'invente pas.
-      </h2>
-    </div>
-    <div class="testi-track-wrap rev d1">
-      <div class="testi-track">
-
-        <div class="testi-card">
-          <span class="testi-quote-mark">"</span>
-          <p class="testi-text">Je suis venu seul. Je suis reparti avec des gens que je revois encore tous les mois. ENJOYLIFE, c'est pas un festival — c'est une rencontre.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">ML</div>
-            <div>
-              <span class="testi-stars">★★★★★</span>
-              <span class="testi-name">Mathieu L.</span>
-              <span class="testi-meta">Lyon · Édition I & III</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card">
-          <span class="testi-quote-mark">"</span>
-          <p class="testi-text">Le son était d'un niveau que j'ai rarement entendu en France. Et je fais des festivals depuis 12 ans. Là c'était différent. Physiquement différent.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">SC</div>
-            <div>
-              <span class="testi-stars">★★★★★</span>
-              <span class="testi-name">Sara C.</span>
-              <span class="testi-meta">Genève · Édition III</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card">
-          <span class="testi-quote-mark">"</span>
-          <p class="testi-text">À 4h du matin, personne ne regardait son téléphone. Tout le monde était là, vraiment là. C'est rare. C'est précieux.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">RB</div>
-            <div>
-              <span class="testi-stars">★★★★★</span>
-              <span class="testi-name">Rémi B.</span>
-              <span class="testi-meta">Bourg-en-Bresse · Éditions I, II & III</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card">
-          <span class="testi-quote-mark">"</span>
-          <p class="testi-text">La scénographie m'a coupé le souffle à l'entrée. J'ai pas bougé pendant une minute, juste à regarder. Et la nuit n'avait même pas encore commencé.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">AC</div>
-            <div>
-              <span class="testi-stars">★★★★★</span>
-              <span class="testi-name">Anaïs C.</span>
-              <span class="testi-meta">Grenoble · Édition III</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card">
-          <span class="testi-quote-mark">"</span>
-          <p class="testi-text">Tony Romera sur cette scène, avec ce light show — j'ai pleuré. J'avoue. La techno peut faire ça. ENJOYLIFE me l'a rappelé.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">TM</div>
-            <div>
-              <span class="testi-stars">★★★★★</span>
-              <span class="testi-name">Thomas M.</span>
-              <span class="testi-meta">Paris · Édition III</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card">
-          <span class="testi-quote-mark">"</span>
-          <p class="testi-text">J'ai essayé d'expliquer à mes amis qui n'étaient pas là. Je n'y arrive pas. C'est le signe que c'est réel.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">JD</div>
-            <div>
-              <span class="testi-stars">★★★★★</span>
-              <span class="testi-name">Julie D.</span>
-              <span class="testi-meta">Chambéry · Éditions II & III</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Duplicate for infinite scroll -->
-        <div class="testi-card">
-          <span class="testi-quote-mark">"</span>
-          <p class="testi-text">Je suis venu seul. Je suis reparti avec des gens que je revois encore tous les mois. ENJOYLIFE, c'est pas un festival — c'est une rencontre.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">ML</div>
-            <div>
-              <span class="testi-stars">★★★★★</span>
-              <span class="testi-name">Mathieu L.</span>
-              <span class="testi-meta">Lyon · Édition I & III</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card">
-          <span class="testi-quote-mark">"</span>
-          <p class="testi-text">Le son était d'un niveau que j'ai rarement entendu en France. Et je fais des festivals depuis 12 ans. Là c'était différent. Physiquement différent.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">SC</div>
-            <div>
-              <span class="testi-stars">★★★★★</span>
-              <span class="testi-name">Sara C.</span>
-              <span class="testi-meta">Genève · Édition III</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card">
-          <span class="testi-quote-mark">"</span>
-          <p class="testi-text">À 4h du matin, personne ne regardait son téléphone. Tout le monde était là, vraiment là. C'est rare. C'est précieux.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">RB</div>
-            <div>
-              <span class="testi-stars">★★★★★</span>
-              <span class="testi-name">Rémi B.</span>
-              <span class="testi-meta">Bourg-en-Bresse · Éditions I, II & III</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card">
-          <span class="testi-quote-mark">"</span>
-          <p class="testi-text">La scénographie m'a coupé le souffle à l'entrée. J'ai pas bougé pendant une minute, juste à regarder. Et la nuit n'avait même pas encore commencé.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">AC</div>
-            <div>
-              <span class="testi-stars">★★★★★</span>
-              <span class="testi-name">Anaïs C.</span>
-              <span class="testi-meta">Grenoble · Édition III</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card">
-          <span class="testi-quote-mark">"</span>
-          <p class="testi-text">Tony Romera sur cette scène, avec ce light show — j'ai pleuré. J'avoue. La techno peut faire ça. ENJOYLIFE me l'a rappelé.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">TM</div>
-            <div>
-              <span class="testi-stars">★★★★★</span>
-              <span class="testi-name">Thomas M.</span>
-              <span class="testi-meta">Paris · Édition III</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card">
-          <span class="testi-quote-mark">"</span>
-          <p class="testi-text">J'ai essayé d'expliquer à mes amis qui n'étaient pas là. Je n'y arrive pas. C'est le signe que c'est réel.</p>
-          <div class="testi-author">
-            <div class="testi-avatar">JD</div>
-            <div>
-              <span class="testi-stars">★★★★★</span>
-              <span class="testi-name">Julie D.</span>
-              <span class="testi-meta">Chambéry · Éditions II & III</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ SÉPARATEUR ══ -->
-
-<!-- ══ SÉPARATEUR ══ -->
-  <div class="sep-gradient"></div>
-
-  <section id="hof">
-    <div class="hof-header rev">
-      <div>
-        <p class="lbl" style="margin-bottom:1.5rem;">Palmarès</p>
-        <h2 class="ff" style="font-size:clamp(2.2rem,4.5vw,4rem);line-height:.93;letter-spacing:-.02em;">
-          Ils étaient là<br/>avant tout le monde.
-        </h2>
-        <p class="hof-intro">
-          ENJOYLIFE a toujours eu l'œil. Ces artistes ont joué sur nos scènes avant de conquérir les plus grandes. Ce n'est pas une coïncidence — c'est une philosophie.
-        </p>
-      </div>
-    </div>
-
-    <!--
-      GRILLE HALL OF FAME — style UNVRS
-      Photos : /assets/img/artists/
-      Format idéal : paysage 2400×1200px, photos live ou portrait artistique
-    -->
-    <div class="hof-grid rev d1">
-
-      <!-- TONY ROMERA — large -->
-      <div class="hof-card wide">
-        <div class="ratio-l">
-          <!--
-            PHOTO : /assets/img/artists/tony-romera.jpg
-            Format paysage 2400×900px recommandé
-          -->
-          <div class="hof-placeholder"><span class="hof-placeholder-letter">TR</span></div>
-          <img src="https://enjoylife.b-cdn.net/TONYROMERA.jpg" alt="Tony Romera" loading="lazy" />
-          <div class="hof-overlay"></div>
-          <span class="hof-badge">Légende ✦</span>
-          <div class="hof-content">
-            <span class="hof-edition">ENJOYLIFE I · II · 2016–2017</span>
-            <p class="hof-name">Tony Romera</p>
-            <span class="hof-handle">@tonyromera</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ODYMEL -->
-      <div class="hof-card">
-        <div class="ratio-l">
-          <!--
-            PHOTO : /assets/img/artists/odymel.jpg
-          -->
-          <div class="hof-placeholder"><span class="hof-placeholder-letter">OD</span></div>
-          <img src="https://enjoylife.b-cdn.net/ODYMEL.jpg" alt="Odymel" loading="lazy" />
-          <div class="hof-overlay"></div>
-          <span class="hof-badge">Légende ✦</span>
-          <div class="hof-content">
-            <span class="hof-edition">ENJOYLIFE I · 2016</span>
-            <p class="hof-name">Odymel</p>
-            <span class="hof-handle">@odymel</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- JAST -->
-      <div class="hof-card">
-        <div class="ratio-l">
-          <!--
-            PHOTO : /assets/img/artists/jast.jpg
-          -->
-          <div class="hof-placeholder"><span class="hof-placeholder-letter">JA</span></div>
-          <img src="https://enjoylife.b-cdn.net/JAST.jpg" alt="Jast" loading="lazy" />
-          <div class="hof-overlay"></div>
-          <span class="hof-badge">Légende ✦</span>
-          <div class="hof-content">
-            <span class="hof-edition">ENJOYLIFE II · 2017</span>
-            <p class="hof-name">Jast</p>
-            <span class="hof-handle">@jast</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIVO — large -->
-      <div class="hof-card wide">
-        <div class="ratio-l">
-          <!--
-            PHOTO : /assets/img/artists/rivo.jpg
-          -->
-          <div class="hof-placeholder"><span class="hof-placeholder-letter">RI</span></div>
-          <img src="https://enjoylife.b-cdn.net/RIVO.jpg" alt="Rivo" loading="lazy" />
-          <div class="hof-overlay"></div>
-          <span class="hof-badge">Légende ✦</span>
-          <div class="hof-content">
-            <span class="hof-edition">ENJOYLIFE III · 2026</span>
-            <p class="hof-name">Rivo</p>
-            <span class="hof-handle">@rivo</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Ligne éditoriale bas -->
-    <div class="rev" style="border:1px solid var(--br);border-top:none;padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
-      <p style="font-size:.62rem;font-style:italic;color:rgba(255,255,255,.25);max-width:600px;line-height:1.7;">
-        "ENJOYLIFE IV · 2027 — Le prochain line-up sera révélé prochainement. Une chose est sûre : on a encore l'œil."
-      </p>
-      <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener"
-         style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c);text-decoration:none;border-bottom:1px solid rgba(129,140,248,.32);padding-bottom:3px;">
-        Suivre les annonces →
-      </a>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════
-       TICKETS — BLOC IMPOSSIBLE À RATER
-  ══════════════════════════════════════════ -->
-
-<!-- ══ SÉPARATEUR ══ -->
   <div class="sep-gradient"></div>
 
   <section id="postcards">
     <div class="postcards-header rev">
       <p class="lbl" style="margin-bottom:1.5rem;">30 secondes pour comprendre</p>
-      <h2 class="ff" style="font-size:clamp(2.2rem,4.5vw,4rem);line-height:.93;letter-spacing:-.02em;">
+      <h2 class="ff" style="font-size:clamp(2.2rem,4.5vw,4rem);line-height:.93;letter-spacing:-.02em;font-weight:600;text-transform:none;">
         Six instants.<br/>Une nuit entière.
       </h2>
     </div>
@@ -1794,7 +1535,7 @@
         <span class="pc-time">00:12</span>
         <div class="pc-content">
           <div class="pc-label">
-            <strong>L'atmosphère</strong>
+            <strong>La foule</strong>
             Plaine de l'Ain · Feb. 2026
           </div>
           <span class="pc-loc">ENJOYLIFE III</span>
@@ -1809,7 +1550,7 @@
         <span class="pc-time">01:30</span>
         <div class="pc-content">
           <div class="pc-label">
-            <strong>L'atmosphère</strong>
+            <strong>La nuit commence</strong>
             Plaine de l'Ain · Feb. 2026
           </div>
           <span class="pc-loc">ENJOYLIFE III</span>
@@ -1864,7 +1605,145 @@
     </div>
   </section>
 
-    <section id="gallery">
+  <div class="sep-gradient"></div>
+
+  <!-- ══════════════════════════════════════════
+       STATS
+  ══════════════════════════════════════════ -->
+
+  <div class="sec" style="padding-bottom:0;">
+    <div class="stats-row rev">
+      <div class="stat-c">
+        <div class="stat-n">III<span style="font-size:.4em;opacity:.3;font-family:'SF',sans-serif;-webkit-text-fill-color:rgba(255,255,255,.3);"> / III</span></div>
+        <p class="stat-l">Éditions · 100% sold out</p>
+      </div>
+      <div class="stat-c rev d1">
+        <div class="stat-n">∞</div>
+        <p class="stat-l">Nuits qui ne s'oublient pas</p>
+      </div>
+      <div class="stat-c rev d2">
+        <div class="stat-n" style="font-size:clamp(1.4rem,2.8vw,2.8rem);-webkit-text-fill-color:#fff;background:none;letter-spacing:.02em;">2027</div>
+        <p class="stat-l">La prochaine nuit · Ain, France</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       STORYTELLING — L'HISTOIRE ENJOYLIFE
+  ══════════════════════════════════════════ -->
+
+  <div class="sep-gradient"></div>
+
+  <section id="hof">
+    <div class="hof-header rev">
+      <div>
+        <p class="lbl" style="margin-bottom:1.5rem;">Avant tout le monde</p>
+        <h2 class="ff" style="font-size:clamp(2.2rem,4.5vw,4rem);line-height:.93;letter-spacing:-.02em;">
+          Ils ont joué ici<br/>avant de conquérir le monde.
+        </h2>
+        <p class="hof-intro">
+          Chaque édition, ENJOYLIFE révèle ce que les autres n'ont pas encore vu. Ces artistes étaient sur notre scène quand personne ne les connaissait encore. Aujourd'hui, ils font Berghain, Printworks, Tomorrowland. La suite ? Elle se joue en 2027.
+        </p>
+      </div>
+    </div>
+
+    <!--
+      GRILLE HALL OF FAME — style UNVRS
+      Photos : /assets/img/artists/
+      Format idéal : paysage 2400×1200px, photos live ou portrait artistique
+    -->
+    <div class="hof-grid rev d1">
+
+      <!-- TONY ROMERA — large -->
+      <div class="hof-card wide">
+        <div class="ratio-l">
+          <!--
+            PHOTO : /assets/img/artists/tony-romera.jpg
+            Format paysage 2400×900px recommandé
+          -->
+          <div class="hof-placeholder"><span class="hof-placeholder-letter">TR</span></div>
+          <img src="https://enjoylife.b-cdn.net/TONYROMERA.jpg" alt="Tony Romera" loading="lazy" />
+          <div class="hof-overlay"></div>
+          <span class="hof-badge">Légende ✦</span>
+          <div class="hof-content">
+            <span class="hof-edition">ENJOYLIFE Alumni</span>
+            <p class="hof-name">Tony Romera</p>
+            <span class="hof-handle">@tonyromera</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ODYMEL -->
+      <div class="hof-card">
+        <div class="ratio-l">
+          <!--
+            PHOTO : /assets/img/artists/odymel.jpg
+          -->
+          <div class="hof-placeholder"><span class="hof-placeholder-letter">OD</span></div>
+          <img src="https://enjoylife.b-cdn.net/ODYMEL.jpg" alt="Odymel" loading="lazy" />
+          <div class="hof-overlay"></div>
+          <span class="hof-badge">Légende ✦</span>
+          <div class="hof-content">
+            <span class="hof-edition">ENJOYLIFE Alumni</span>
+            <p class="hof-name">Odymel</p>
+            <span class="hof-handle">@odymel</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- JAST -->
+      <div class="hof-card">
+        <div class="ratio-l">
+          <!--
+            PHOTO : /assets/img/artists/jast.jpg
+          -->
+          <div class="hof-placeholder"><span class="hof-placeholder-letter">JA</span></div>
+          <img src="https://enjoylife.b-cdn.net/JAST.jpg" alt="Jast" loading="lazy" />
+          <div class="hof-overlay"></div>
+          <span class="hof-badge">Légende ✦</span>
+          <div class="hof-content">
+            <span class="hof-edition">ENJOYLIFE Alumni</span>
+            <p class="hof-name">Jast</p>
+            <span class="hof-handle">@jast</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIVO — large -->
+      <div class="hof-card wide">
+        <div class="ratio-l">
+          <!--
+            PHOTO : /assets/img/artists/rivo.jpg
+          -->
+          <div class="hof-placeholder"><span class="hof-placeholder-letter">RI</span></div>
+          <img src="https://enjoylife.b-cdn.net/RIVO.jpg" alt="Rivo" loading="lazy" />
+          <div class="hof-overlay"></div>
+          <span class="hof-badge">Légende ✦</span>
+          <div class="hof-content">
+            <span class="hof-edition">ENJOYLIFE Alumni</span>
+            <p class="hof-name">Rivo</p>
+            <span class="hof-handle">@rivo</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Ligne éditoriale bas -->
+    <div class="rev" style="border:1px solid var(--br);border-top:none;padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <p style="font-size:.62rem;font-style:italic;color:rgba(255,255,255,.25);max-width:600px;line-height:1.7;">
+        "ENJOYLIFE IV · 2027 : Le prochain line-up sera révélé prochainement. Une chose est sûre : on a encore l'œil."
+      </p>
+      <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener"
+         style="font-family:'SF',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:none;color:var(--c);text-decoration:none;border-bottom:1px solid rgba(129,140,248,.32);padding-bottom:3px;">
+        Suivre les annonces →
+      </a>
+    </div>
+  </section>
+
+  <div class="sep-gradient"></div>
+
+  <section id="gallery">
     <div class="gallery-header rev">
       <div>
         <p class="lbl" style="margin-bottom:1.5rem;">Galerie · Édition III</p>
@@ -1873,66 +1752,362 @@
         </h2>
       </div>
       <a href="https://instagram.com/enjoylife.emx" target="_blank" rel="noopener"
-         style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c);text-decoration:none;border-bottom:1px solid rgba(129,140,248,.32);padding-bottom:3px;align-self:flex-end;">
+         style="font-family:'SF',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:none;color:var(--c);text-decoration:none;border-bottom:1px solid rgba(129,140,248,.32);padding-bottom:3px;align-self:flex-end;">
         Voir sur Instagram →
       </a>
     </div>
 
-    <div class="gallery-masonry rev d1">
+    <div class="gallery-strip-wrap" id="galleryWrap">
+      <div class="gallery-strip" id="galleryStrip">
       <div class="g-item">
-        <div class="g-placeholder">01</div>
-        <img src="/assets/img/gallery/gallery-1.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
-        <div class="g-hover-label"><span>Scène principale · 02:14</span></div>
+        <div class="g-placeholder"></div>
+        <span class="g-num">01</span>
+        <img src="https://enjoylife.b-cdn.net/img/stage_gal.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
+        <div class="g-hover-label"><span>Scène principale · 23:00</span></div>
       </div>
       <div class="g-item">
-        <div class="g-placeholder">02</div>
-        <img src="/assets/img/gallery/gallery-2.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
-        <div class="g-hover-label"><span>Lasers · Nuit 1</span></div>
+        <div class="g-placeholder"></div>
+        <span class="g-num">02</span>
+        <img src="https://enjoylife.b-cdn.net/img/jast_gal.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
+        <div class="g-hover-label"><span>Jast on stage</span></div>
       </div>
       <div class="g-item">
-        <div class="g-placeholder">03</div>
-        <img src="/assets/img/gallery/gallery-3.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
-        <div class="g-hover-label"><span>La foule · 04:00</span></div>
+        <div class="g-placeholder"></div>
+        <span class="g-num">03</span>
+        <img src="https://enjoylife.b-cdn.net/img/neon_gal.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
+        <div class="g-hover-label"><span>Lumières · Nuit</span></div>
       </div>
       <div class="g-item">
-        <div class="g-placeholder">04</div>
-        <img src="/assets/img/gallery/gallery-4.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
-        <div class="g-hover-label"><span>Tony Romera on stage</span></div>
+        <div class="g-placeholder"></div>
+        <span class="g-num">04</span>
+        <img src="https://enjoylife.b-cdn.net/img/dessus_gal.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
+        <div class="g-hover-label"><span>La foule · vue aérienne</span></div>
       </div>
       <div class="g-item">
-        <div class="g-placeholder">05</div>
-        <img src="/assets/img/gallery/gallery-5.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
-        <div class="g-hover-label"><span>Scénographie · Arc</span></div>
+        <div class="g-placeholder"></div>
+        <span class="g-num">05</span>
+        <img src="https://enjoylife.b-cdn.net/img/global_gal.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
+        <div class="g-hover-label"><span>La salle · plein feu</span></div>
       </div>
       <div class="g-item">
-        <div class="g-placeholder">06</div>
-        <img src="/assets/img/gallery/gallery-6.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
-        <div class="g-hover-label"><span>Sunrise · 06:30</span></div>
+        <div class="g-placeholder"></div>
+        <span class="g-num">06</span>
+        <img src="https://enjoylife.b-cdn.net/img/leo_gal.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
+        <div class="g-hover-label"><span>On stage · ENJOYLIFE III</span></div>
       </div>
       <div class="g-item">
-        <div class="g-placeholder">07</div>
-        <img src="/assets/img/gallery/gallery-7.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
-        <div class="g-hover-label"><span>Crowd · Moment</span></div>
+        <div class="g-placeholder"></div>
+        <span class="g-num">07</span>
+        <img src="https://enjoylife.b-cdn.net/img/red_gal.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
+        <div class="g-hover-label"><span>Scénographie · Rouge</span></div>
       </div>
       <div class="g-item">
-        <div class="g-placeholder">08</div>
-        <img src="/assets/img/gallery/gallery-8.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
-        <div class="g-hover-label"><span>Odymel · Set</span></div>
+        <div class="g-placeholder"></div>
+        <span class="g-num">08</span>
+        <img src="https://enjoylife.b-cdn.net/img/laura_gal.jpg" alt="ENJOYLIFE III" loading="lazy" onerror="this.style.display='none'" />
+        <div class="g-hover-label"><span>La nuit · ENJOYLIFE III</span></div>
+      </div>
+      </div>
+    </div>
+    <p class="gallery-hint">Faites glisser</p>
+  </section>
+
+  <div class="sep-gradient"></div>
+
+  <section id="story">
+    <div class="story-header rev">
+      <p class="lbl" style="margin-bottom:1.5rem;">Notre histoire</p>
+      <h2 class="ff" style="font-size:clamp(2.5rem,5vw,4.5rem);line-height:.93;letter-spacing:-.02em;">
+        Tout a commencé<br/>dans l'Ain.
+      </h2>
+    </div>
+
+    <div class="story-grid rev d1">
+
+      <!-- ÉDITION I — 2016 -->
+      <div class="story-card">
+        <span class="story-year">2016</span>
+        <span class="story-edition">Édition I</span>
+        <p class="story-text">
+          <strong>Une première. Sans précédent.</strong> Personne ne savait ce que c'était. Quelques centaines de personnes, un son, une idée. L'Ain découvre la techno immersive.
+        </p>
+        <span class="story-sold">Complet</span>
+      </div>
+
+      <!-- ÉDITION II — 2017 -->
+      <div class="story-card">
+        <span class="story-year">2017</span>
+        <span class="story-edition">Édition II</span>
+        <p class="story-text">
+          <strong>Le bouche-à-oreille fait tout.</strong> Ceux qui étaient là en parlent encore. Les autres veulent y être. ENJOYLIFE n'est plus un événement, c'est une réputation.
+        </p>
+        <span class="story-sold">Complet</span>
+      </div>
+
+      <!-- GAP — la pause -->
+      <div class="story-card" style="background:rgba(255,255,255,.01);">
+        <span class="story-year" style="-webkit-text-stroke:1px rgba(255,255,255,.06);">—</span>
+        <span class="story-edition" style="color:rgba(255,255,255,.2);">La pause</span>
+        <p class="story-text" style="color:rgba(255,255,255,.3);">
+          Quelques années de silence. Pas d'abandon. Une construction. Chaque grande histoire a ses coulisses.
+        </p>
+      </div>
+
+      <!-- ÉDITION III — 2026 -->
+      <div class="story-card">
+        <span class="story-year">2026</span>
+        <span class="story-edition">Édition III</span>
+        <p class="story-text">
+          <strong>Le retour qui confirme tout.</strong> ENJOYLIFE revient plus fort, plus grand, plus intense. Tony Romera, Odymel, Rivo, Jast : des noms qui font désormais les grandes scènes. Ils étaient là avant.
+        </p>
+        <span class="story-sold">Complet</span>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="sep-gradient"></div>
+
+  <section id="experience" class="sec" style="padding-top:0;">
+    <div class="rev" style="margin-bottom:5rem;">
+      <p class="lbl" style="margin-bottom:1.5rem;">L'experience</p>
+      <h2 style="font-family:'SF',sans-serif;font-weight:700;text-transform:none;font-size:clamp(2rem,4vw,3.8rem);line-height:.95;letter-spacing:-.02em;color:#fff;">
+        Tout est conçu<br/>pour vous perdre.
+      </h2>
+    </div>
+
+    <!-- EXPÉRIENCE REDESIGN — Grille visuelle 2×2 avec grands blocs immersifs -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:3px;">
+
+      <!-- 01 — Scénographie — grand bloc à gauche -->
+      <div class="exp-card rev" style="position:relative;overflow:hidden;min-height:400px;background:linear-gradient(135deg,#0a0a14 0%,#0d0d1a 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3.5rem;grid-row:span 1;">
+        <!-- Background ambiance -->
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(99,102,241,.18) 0%,transparent 65%);pointer-events:none;"></div>
+        <!-- Big number bg -->
+        <span style="position:absolute;top:-1rem;right:-1rem;font-family:'SF',sans-serif;font-size:11rem;font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(129,140,248,.07);line-height:1;pointer-events:none;user-select:none;">01</span>
+        <!-- Icon -->
+        <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(99,102,241,.25),rgba(168,85,247,.12));border:1px solid rgba(99,102,241,.3);display:flex;align-items:center;justify-content:center;margin-bottom:2rem;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(129,140,248,.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 2,7 12,12 22,7"/><polyline points="2,17 12,22 22,17"/><polyline points="2,12 12,17 22,12"/></svg>
+        </div>
+        <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.12em;color:rgba(129,140,248,.7);display:block;margin-bottom:.8rem;">01 — SCÉNOGRAPHIE</span>
+        <h3 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.5vw,2.2rem);color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:1.2rem;">Des univers,<br/>pas une scène.</h3>
+        <p style="font-size:.72rem;line-height:1.85;color:rgba(255,255,255,.5);font-weight:300;max-width:380px;">Des structures qui transforment le site en territoire autre. Chaque scène est un monde autonome. On ne décore pas, on construit des univers.</p>
+        <!-- Gradient bottom line -->
+        <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#6366f1,transparent);"></div>
+      </div>
+
+      <!-- 02 — Lumière -->
+      <div class="exp-card rev d1" style="position:relative;overflow:hidden;min-height:400px;background:linear-gradient(135deg,#0d0a14 0%,#120a1a 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3.5rem;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(168,85,247,.15) 0%,transparent 65%);pointer-events:none;"></div>
+        <span style="position:absolute;top:-1rem;right:-1rem;font-family:'SF',sans-serif;font-size:11rem;font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(168,85,247,.07);line-height:1;pointer-events:none;user-select:none;">02</span>
+        <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(168,85,247,.22),rgba(99,102,241,.1));border:1px solid rgba(168,85,247,.3);display:flex;align-items:center;justify-content:center;margin-bottom:2rem;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(168,85,247,.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </div>
+        <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.12em;color:rgba(168,85,247,.7);display:block;margin-bottom:.8rem;">02 — LUMIÈRE</span>
+        <h3 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.5vw,2.2rem);color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:1.2rem;">Le laser joue<br/>avec le son.</h3>
+        <p style="font-size:.72rem;line-height:1.85;color:rgba(255,255,255,.5);font-weight:300;">Rigs laser synchronisés avec chaque kick, chaque drop, chaque silence. La lumière n'accompagne pas, elle joue avec le son.</p>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#a855f7,transparent);"></div>
+      </div>
+
+      <!-- 03 — Son -->
+      <div class="exp-card rev d2" style="position:relative;overflow:hidden;min-height:360px;background:linear-gradient(135deg,#0a0d14 0%,#0a1014 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3.5rem;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(99,102,241,.12) 0%,transparent 65%);pointer-events:none;"></div>
+        <span style="position:absolute;top:-1rem;right:-1rem;font-family:'SF',sans-serif;font-size:11rem;font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(99,102,241,.06);line-height:1;pointer-events:none;user-select:none;">03</span>
+        <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(99,102,241,.2),rgba(168,85,247,.08));border:1px solid rgba(99,102,241,.28);display:flex;align-items:center;justify-content:center;margin-bottom:2rem;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(129,140,248,.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        </div>
+        <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.12em;color:rgba(129,140,248,.7);display:block;margin-bottom:.8rem;">03 — SON</span>
+        <h3 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.5vw,2.2rem);color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:1.2rem;">360° dans<br/>les os.</h3>
+        <p style="font-size:.72rem;line-height:1.85;color:rgba(255,255,255,.5);font-weight:300;">Un enveloppement 360° pensé pour que chaque fréquence se ressente dans les os, pas seulement dans les oreilles.</p>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#818cf8,transparent);"></div>
+      </div>
+
+      <!-- 04 — Énergie -->
+      <div class="exp-card rev d3" style="position:relative;overflow:hidden;min-height:360px;background:linear-gradient(135deg,#0f0a14 0%,#130a1a 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3.5rem;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(168,85,247,.14) 0%,transparent 65%);pointer-events:none;"></div>
+        <span style="position:absolute;top:-1rem;right:-1rem;font-family:'SF',sans-serif;font-size:11rem;font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(168,85,247,.07);line-height:1;pointer-events:none;user-select:none;">04</span>
+        <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(168,85,247,.22),rgba(99,102,241,.08));border:1px solid rgba(168,85,247,.28);display:flex;align-items:center;justify-content:center;margin-bottom:2rem;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(168,85,247,.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.12em;color:rgba(168,85,247,.7);display:block;margin-bottom:.8rem;">04 — ÉNERGIE</span>
+        <h3 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.5vw,2.2rem);color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:1.2rem;">Une communauté,<br/>pas une foule.</h3>
+        <p style="font-size:.72rem;line-height:1.85;color:rgba(255,255,255,.5);font-weight:300;">Pas une foule. Une communauté. Construite sur des années de confiance et d'amour du son. Ici, les gens se reconnaissent.</p>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#a855f7,transparent);"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="sep-gradient"></div>
+
+  <section id="testimonials">
+    <div class="rev" style="margin-bottom:0;">
+      <p class="lbl" style="margin-bottom:1.5rem;">Ils y étaient</p>
+      <h2 style="font-family:'SF',sans-serif;font-weight:700;text-transform:none;font-size:clamp(2rem,4vw,3.5rem);line-height:.95;letter-spacing:-.02em;color:#fff;">
+        Les mots<br/>qu'on n'invente pas.
+      </h2>
+    </div>
+    <div class="testi-track-wrap rev d1">
+      <div class="testi-track">
+
+        <div class="testi-card">
+          <div><span class="testi-quote-mark">"</span>
+          <p class="testi-text">Je suis venu seul. Je suis reparti avec des gens que je revois encore tous les mois. ENJOYLIFE, c'est pas un festival, c'est une rencontre.</p></div>
+          <div class="testi-author">
+            <div><span class="testi-name">Mathieu L.</span><span class="testi-meta">Lyon · Edition I &amp; III</span></div>
+            <span class="testi-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div><span class="testi-quote-mark">"</span>
+          <p class="testi-text">Le son etait d'un niveau que j'ai rarement entendu en France. Et je fais des festivals depuis 12 ans. La c'etait different. Physiquement different.</p></div>
+          <div class="testi-author">
+            <div><span class="testi-name">Sara C.</span><span class="testi-meta">Geneve · Edition III</span></div>
+            <span class="testi-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div><span class="testi-quote-mark">"</span>
+          <p class="testi-text">A 02:00, personne ne regardait son telephone. Tout le monde etait la, vraiment la. C'est rare. C'est precieux.</p></div>
+          <div class="testi-author">
+            <div><span class="testi-name">Remi B.</span><span class="testi-meta">Bourg-en-Bresse · Editions I, II &amp; III</span></div>
+            <span class="testi-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div><span class="testi-quote-mark">"</span>
+          <p class="testi-text">La scenographie m'a coupe le souffle a l'entree. J'ai pas bouge pendant une minute, juste a regarder. Et la nuit n'avait meme pas encore commence.</p></div>
+          <div class="testi-author">
+            <div><span class="testi-name">Anais C.</span><span class="testi-meta">Grenoble · Edition III</span></div>
+            <span class="testi-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div><span class="testi-quote-mark">"</span>
+          <p class="testi-text">Tony Romera sur cette scene, avec ce light show, j'ai pleure. J'avoue. La techno peut faire ca. ENJOYLIFE me l'a rappele.</p></div>
+          <div class="testi-author">
+            <div><span class="testi-name">Thomas M.</span><span class="testi-meta">Paris · Edition III</span></div>
+            <span class="testi-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div><span class="testi-quote-mark">"</span>
+          <p class="testi-text">J'ai essaye d'expliquer a mes amis qui n'etaient pas la. Je n'y arrive pas. C'est le signe que c'est reel.</p></div>
+          <div class="testi-author">
+            <div><span class="testi-name">Julie D.</span><span class="testi-meta">Chambery · Editions II &amp; III</span></div>
+            <span class="testi-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <!-- Duplicate for infinite scroll -->
+        <div class="testi-card">
+          <div><span class="testi-quote-mark">"</span>
+          <p class="testi-text">Je suis venu seul. Je suis reparti avec des gens que je revois encore tous les mois. ENJOYLIFE, c'est pas un festival, c'est une rencontre.</p></div>
+          <div class="testi-author">
+            <div><span class="testi-name">Mathieu L.</span><span class="testi-meta">Lyon · Edition I &amp; III</span></div>
+            <span class="testi-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div><span class="testi-quote-mark">"</span>
+          <p class="testi-text">Le son etait d'un niveau que j'ai rarement entendu en France. Et je fais des festivals depuis 12 ans. La c'etait different. Physiquement different.</p></div>
+          <div class="testi-author">
+            <div><span class="testi-name">Sara C.</span><span class="testi-meta">Geneve · Edition III</span></div>
+            <span class="testi-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div><span class="testi-quote-mark">"</span>
+          <p class="testi-text">A 02:00, personne ne regardait son telephone. Tout le monde etait la, vraiment la. C'est rare. C'est precieux.</p></div>
+          <div class="testi-author">
+            <div><span class="testi-name">Remi B.</span><span class="testi-meta">Bourg-en-Bresse · Editions I, II &amp; III</span></div>
+            <span class="testi-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div><span class="testi-quote-mark">"</span>
+          <p class="testi-text">La scenographie m'a coupe le souffle a l'entree. J'ai pas bouge pendant une minute, juste a regarder. Et la nuit n'avait meme pas encore commence.</p></div>
+          <div class="testi-author">
+            <div><span class="testi-name">Anais C.</span><span class="testi-meta">Grenoble · Edition III</span></div>
+            <span class="testi-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div><span class="testi-quote-mark">"</span>
+          <p class="testi-text">Tony Romera sur cette scene, avec ce light show, j'ai pleure. J'avoue. La techno peut faire ca. ENJOYLIFE me l'a rappele.</p></div>
+          <div class="testi-author">
+            <div><span class="testi-name">Thomas M.</span><span class="testi-meta">Paris · Edition III</span></div>
+            <span class="testi-stars">★★★★★</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div><span class="testi-quote-mark">"</span>
+          <p class="testi-text">J'ai essaye d'expliquer a mes amis qui n'etaient pas la. Je n'y arrive pas. C'est le signe que c'est reel.</p></div>
+          <div class="testi-author">
+            <div><span class="testi-name">Julie D.</span><span class="testi-meta">Chambery · Editions II &amp; III</span></div>
+            <span class="testi-stars">★★★★★</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ══ SÉPARATEUR ══ -->
-
-<!-- ══ SÉPARATEUR ══ -->
   <div class="sep-gradient"></div>
 
-  <section id="tickets" class="sec" style="padding-top:4rem;padding-bottom:8rem;">
-    <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="ticket-block">
+  <section id="lieu">
+    <div class="lieu-block rev">
+      <div class="lieu-top">
+        <div class="lieu-coords-row">
+          <div class="lieu-coord-item">
+            <span class="lieu-coord-label">Latitude</span>
+            <span class="lieu-coord-value">45° 57' N</span>
+          </div>
+          <div style="width:1px;height:32px;background:var(--br);flex-shrink:0;"></div>
+          <div class="lieu-coord-item">
+            <span class="lieu-coord-label">Longitude</span>
+            <span class="lieu-coord-value">5° 22' E</span>
+          </div>
+          <div style="width:1px;height:32px;background:var(--br);flex-shrink:0;"></div>
+          <div class="lieu-coord-item">
+            <span class="lieu-coord-label">Departement</span>
+            <span class="lieu-coord-value">Ain · France</span>
+          </div>
+        </div>
+        <span class="lieu-badge">Lieu bientot annonce</span>
+      </div>
+      <div class="lieu-body">
+        <div class="lieu-coords-bg">Plaine<br/>de l'Ain<br/>2027</div>
+        <div class="lieu-right">
+          <h2 class="lieu-title">Le prochain lieu<br/>reste un secret.</h2>
+          <p class="lieu-text">
+            Chaque edition, un nouveau terrain. Une nouvelle architecture. Une nouvelle façon de vivre le son. ENJOYLIFE IV aura son propre territoire, annonce en temps voulu.<br/><br/>
+            Ce qu'on peut dire : il sera dans l'Ain. Il sera grand. Et il vous surprendra.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="sep-gradient"></div>
+
+  <section id="tickets" class="sec" style="padding-top:6rem;padding-bottom:8rem;">
+    <p class="lbl rev" style="margin-bottom:2rem;">Billetterie</p>
+    <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="ticket-block rev">
       <div class="ticket-left">
-        <h2 class="ticket-title">Prenez vos<br/>Billets</h2>
-        <span class="ticket-sub">Billets bientôt disponibles — Soyez prêts</span>
-        <span class="ticket-platform">Via Shotgun · shotgun.live/enjoylife-emx</span>
+        <h2 class="ticket-title">La IV<sup style="font-size:.45em;vertical-align:super;opacity:.6;">ème</sup><br/>commence ici.</h2>
+        <span class="ticket-sub">Billets disponibles sur Shotgun · III / III sold out</span>
+        <span class="ticket-platform">shotgun.live/fr/venues/enjoylife-emx</span>
       </div>
       <div class="ticket-arrow">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1940,7 +2115,7 @@
         </svg>
       </div>
     </a>
-    <p class="ticket-note">3 éditions consécutives sold out — la IV ne fera pas exception.</p>
+    <p class="ticket-note">Chaque édition s'est arrachée en quelques heures. Activez vos notifications.</p>
   </section>
   <!-- MARQUEE 2 -->
   <div class="marquee-wrap">
@@ -1960,82 +2135,6 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       PARTENAIRES — LOGO GRID
-  ══════════════════════════════════════════ -->
-
-<!-- ══ SÉPARATEUR ══ -->
-  <div class="sep-gradient"></div>
-
-  <section id="lieu">
-    <div class="lieu-block rev">
-      <div class="lieu-coords">45°57'N<br/>5°22'E</div>
-      <div class="lieu-right">
-        <span class="lieu-badge">Lieu bientôt annoncé</span>
-        <h2 class="lieu-title">Le prochain lieu<br/>reste un secret.</h2>
-        <p class="lieu-text">
-          Chaque édition, un nouveau terrain. Une nouvelle architecture. Une nouvelle façon de vivre le son. ENJOYLIFE IV aura son propre territoire — annoncé en temps voulu.<br/><br/>
-          Ce qu'on peut dire : il sera dans l'Ain. Il sera grand. Et il vous surprendra.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ SÉPARATEUR ══ -->
-
-<!-- ══ SÉPARATEUR ══ -->
-  <div class="sep-gradient"></div>
-
-  <section id="newsletter">
-    <div class="newsletter-block rev">
-      <div class="nl-inner">
-        <div class="nl-left">
-          <h2 class="nl-title">Soyez alerté<br/><em>en premier.</em></h2>
-          <p class="nl-sub">Billets · Line-up · Lieu · Surprises</p>
-        </div>
-        <div>
-          <div class="nl-form">
-            <input type="email" class="nl-input" placeholder="votre@email.com" />
-            <button class="nl-btn" onclick="nlSubmit(this)">Notifier →</button>
-          </div>
-          <p class="nl-note">Pas de spam. Juste l'essentiel, au bon moment.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-
-
-
-
-  <!-- ══════════════════════════════════════════
-       MARQUEE
-  ══════════════════════════════════════════ -->
-  <div class="marquee-wrap">
-    <div class="marquee-t">
-      <span>ENJOYLIFE</span><span class="dot">✦</span>
-      <span>2027</span><span class="dot">✦</span>
-      <span>Ain · France</span><span class="dot">✦</span>
-      <span>Techno &amp; Immersive Arts</span><span class="dot">✦</span>
-      <span>IV Edition</span><span class="dot">✦</span>
-      <span>III / III Complets</span><span class="dot">✦</span>
-      <span>4000+ Festivaliers</span><span class="dot">✦</span>
-      <span>ENJOYLIFE</span><span class="dot">✦</span>
-      <span>2027</span><span class="dot">✦</span>
-      <span>Ain · France</span><span class="dot">✦</span>
-      <span>Techno &amp; Immersive Arts</span><span class="dot">✦</span>
-      <span>IV Edition</span><span class="dot">✦</span>
-      <span>III / III Complets</span><span class="dot">✦</span>
-      <span>4000+ Festivaliers</span><span class="dot">✦</span>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════
-       MANIFESTO
-  ══════════════════════════════════════════ -->
-
-<!-- ══ SÉPARATEUR ══ -->
   <div class="sep-gradient"></div>
 
   <section id="partners" class="sec">
@@ -2047,7 +2146,7 @@
         <h2 class="ff" style="font-size:clamp(2rem,4vw,3.5rem);line-height:.93;letter-spacing:-.02em;">Ils nous font confiance.</h2>
       </div>
       <a href="partenaires/index.html"
-         style="font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c);text-decoration:none;border-bottom:1px solid rgba(129,140,248,.32);padding-bottom:3px;">
+         style="font-family:'SF',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:none;color:var(--c);text-decoration:none;border-bottom:1px solid rgba(129,140,248,.32);padding-bottom:3px;">
         Devenir partenaire →
       </a>
     </div>
@@ -2057,15 +2156,15 @@
       <span class="tier-lbl">Partenaires Majeurs</span>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;max-width:640px;margin:0 auto;">
         <div class="logo-item logo-item-major" onclick="openPartner('credit-agricole')" title="Crédit Agricole Centre Est">
-          <img src="assets/images/partners/logo-credit-agricole.png" alt="Crédit Agricole Centre Est" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
+          <img src="img/sponsors/cace.png" alt="Crédit Agricole" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
           <span class="logo-txt" style="display:none;">Crédit Agricole</span>
         </div>
         <div class="logo-item logo-item-major" onclick="openPartner('mcdonalds')" title="McDonald's">
-          <img src="assets/images/partners/logo-mcdonalds.png" alt="McDonald's" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
+          <img src="img/sponsors/mcdo.png" alt="McDonald's" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
           <span class="logo-txt" style="display:none;">McDonald's</span>
         </div>
         <div class="logo-item logo-item-major" onclick="openPartner('cer-francine')" title="CER by Francine">
-          <img src="assets/images/partners/logo-cer-francine.png" alt="CER by Francine" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
+          <img src="img/sponsors/cer.png" alt="CER by Francine" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
           <span class="logo-txt" style="display:none;">CER by Francine</span>
         </div>
       </div>
@@ -2078,27 +2177,27 @@
       <span class="tier-lbl">Partenaires Officiels</span>
       <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:.6rem;">
         <div class="logo-item logo-item-officiel" onclick="openPartner('marinelli')" title="Marinelli Automobiles">
-          <img src="assets/images/partners/logo-marinelli.png" alt="Marinelli" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
+          <img src="img/sponsors/marinelli.png" alt="Marinelli" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
           <span class="logo-txt" style="display:none;">Marinelli</span>
         </div>
         <div class="logo-item logo-item-officiel" onclick="openPartner('pixelchrom')" title="Pixel Chrom">
-          <img src="assets/images/partners/logo-pixelchrom.png" alt="Pixel Chrom" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
+          <img src="img/sponsors/pixel.png" alt="Pixel Chrom" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
           <span class="logo-txt" style="display:none;">Pixel Chrom</span>
         </div>
         <div class="logo-item logo-item-officiel" onclick="openPartner('rituel-sport')" title="Rituel Sport Club">
-          <img src="assets/images/partners/logo-rituel-sport.png" alt="Rituel Sport" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
+          <img src="img/sponsors/ritual.png" alt="Rituel Sport" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
           <span class="logo-txt" style="display:none;">Rituel Sport</span>
         </div>
         <div class="logo-item logo-item-officiel" onclick="openPartner('aux-delicatesses')" title="Aux Délicatesses">
-          <img src="assets/images/partners/logo-aux-delicatesses.png" alt="Aux Délicatesses" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
+          <img src="img/sponsors/delicatesse.png" alt="Aux Délicatesses" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
           <span class="logo-txt" style="display:none;">Aux Délicatesses</span>
         </div>
         <div class="logo-item logo-item-officiel" onclick="openPartner('siligreen')" title="Siligreen">
-          <img src="assets/images/partners/logo-siligreen.png" alt="Siligreen" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
+          <img src="img/sponsors/siligreen.png" alt="Siligreen" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
           <span class="logo-txt" style="display:none;">Siligreen</span>
         </div>
         <div class="logo-item logo-item-officiel" onclick="openPartner('night-animation')" title="Night Animation">
-          <img src="assets/images/partners/logo-night-animation.png" alt="Night Animation" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
+          <img src="img/sponsors/night.png" alt="Night Animation" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
           <span class="logo-txt" style="display:none;">Night Animation</span>
         </div>
       </div>
@@ -2114,7 +2213,7 @@
           <img src="img/sponsors/marieb.png" alt="Marie Blachère" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
           <span class="logo-txt" style="display:none;">Marie Blachère</span>
         </div>
-        <div class="logo-item logo-item-partenaire" onclick="openPartner('but')" title="BUT Ambérieu">
+        <div class="logo-item logo-item-partenaire" onclick="openPartner('but')" title="BUT">
           <img src="img/sponsors/but.png" alt="BUT" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
           <span class="logo-txt" style="display:none;">BUT</span>
         </div>
@@ -2131,11 +2230,11 @@
           <span class="logo-txt" style="display:none;">Girel</span>
         </div>
         <div class="logo-item logo-item-partenaire" onclick="openPartner('atol')" title="Atol">
-          <img src="assets/images/partners/logo-atol.png" alt="Atol" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
+          <img src="img/sponsors/atol.png" alt="Atol" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
           <span class="logo-txt" style="display:none;">Atol</span>
         </div>
         <div class="logo-item logo-item-partenaire" onclick="openPartner('sttp')" title="STTP">
-          <img src="assets/images/partners/logo-sttp.png" alt="STTP" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
+          <img src="img/sponsors/sttp.png" alt="STTP" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" />
           <span class="logo-txt" style="display:none;">STTP</span>
         </div>
       </div>
@@ -2146,16 +2245,16 @@
     <!-- MÉCÈNES + TECHNIQUES + MÉDIAS -->
     <div class="rev d2" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;margin-bottom:4rem;">
       <div>
-        <span class="tier-lbl" style="text-align:left;">Mécènes &amp; Institutions</span>
+        <span class="tier-lbl" style="text-align:left;">Mecenes &amp; Institutions</span>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;">
           <div class="logo-item logo-item-mini" onclick="openPartner('nowbrains')" title="Nowbrains">
-            <img src="assets/images/partners/logo-nowbrains.png" alt="Nowbrains" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">Nowbrains</span>
+            <img src="img/sponsors/nowbrain.png" alt="Nowbrains" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">Nowbrains</span>
           </div>
           <div class="logo-item logo-item-mini" onclick="openPartner('mairie-vlm')" title="Mairie VLM">
-            <img src="assets/images/partners/logo-mairie-vlm.png" alt="Mairie VLM" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">Mairie VLM</span>
+            <img src="img/sponsors/vlm.png" alt="Mairie VLM" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">Mairie VLM</span>
           </div>
           <div class="logo-item logo-item-mini" onclick="openPartner('ccpa')" title="CCPA">
-            <img src="assets/images/partners/logo-ccpa.png" alt="CCPA" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">CCPA</span>
+            <img src="img/sponsors/ccpa.png" alt="CCPA" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">CCPA</span>
           </div>
         </div>
       </div>
@@ -2163,30 +2262,30 @@
         <span class="tier-lbl" style="text-align:left;">Partenaires Techniques</span>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;">
           <div class="logo-item logo-item-mini" onclick="openPartner('neon-live')" title="NEON Live">
-            <img src="assets/images/partners/logo-neon-live.png" alt="NEON Live" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">NEON Live</span>
+            <img src="img/sponsors/neon.png" alt="NEON Live" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">NEON Live</span>
           </div>
           <div class="logo-item logo-item-mini" onclick="openPartner('svprod')" title="SVPROD">
-            <img src="assets/images/partners/logo-svprod.png" alt="SVPROD" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">SVPROD</span>
+            <img src="img/sponsors/svprod.png" alt="SVPROD" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">SVPROD</span>
           </div>
           <div class="logo-item logo-item-mini" onclick="openPartner('dmc')" title="DMC Animations">
-            <img src="assets/images/partners/logo-dmc-animations.png" alt="DMC" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">DMC</span>
+            <img src="img/sponsors/dmc.png" alt="DMC" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">DMC</span>
           </div>
         </div>
       </div>
       <div>
-        <span class="tier-lbl" style="text-align:left;">Partenaires Médias</span>
+        <span class="tier-lbl" style="text-align:left;">Partenaires Medias</span>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;">
           <div class="logo-item logo-item-mini" title="BEB Media">
-            <img src="assets/images/partners/logo-beb-media.png" alt="BEB Media" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">BEB</span>
+            <img src="img/sponsors/beb.png" alt="BEB Media" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">BEB</span>
           </div>
-          <div class="logo-item logo-item-mini" title="La Cotière">
-            <img src="assets/images/partners/logo-lacotiere.png" alt="La Cotière" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">La Cotière</span>
+          <div class="logo-item logo-item-mini" title="La Cotiere">
+            <img src="img/sponsors/jaime.png" alt="La Cotiere" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">La Cotiere</span>
           </div>
-          <div class="logo-item logo-item-mini" title="Cinéma l'Horloge">
-            <img src="assets/images/partners/logo-cinema-horloge.png" alt="Cinéma l'Horloge" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">Cinéma</span>
+          <div class="logo-item logo-item-mini" title="Cinema l'Horloge">
+            <img src="img/sponsors/horloge.png" alt="Cinema l'Horloge" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">Cinema</span>
           </div>
-          <div class="logo-item logo-item-mini" title="Ciné Festival">
-            <img src="assets/images/partners/logo-cine-festival.png" alt="Ciné Festival" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">Ciné Fest.</span>
+          <div class="logo-item logo-item-mini" title="Cine Festival">
+            <img src="img/sponsors/cinefest.png" alt="Cine Festival" onerror="this.style.display='none';this.parentElement.querySelector('.logo-txt').style.display='block';" /><span class="logo-txt" style="display:none;">Cine Fest.</span>
           </div>
         </div>
       </div>
@@ -2194,47 +2293,26 @@
 
     <p class="rev" style="font-size:.62rem;font-style:italic;color:rgba(255,255,255,.2);text-align:center;margin-bottom:6rem;">100% des partenaires recroisés ont confirmé leur retour pour 2027. Spontanément. Sans qu'on leur demande.</p>
 
-    <!-- WHY PARTNER -->
-    <div>
-      <div class="rev" style="margin-bottom:4rem;">
-        <p class="lbl" style="margin-bottom:1.5rem;">Partnership</p>
-        <h2 class="ff" style="font-size:clamp(1.8rem,3.5vw,3rem);line-height:.93;letter-spacing:-.02em;">
-          Pourquoi choisir<br/>ENJOYLIFE ?
-        </h2>
-      </div>
-      <div class="why-grid rev d1">
-        <div class="why-i">
-          <span class="why-n">01</span>
-          <h3 class="why-t">Audience engagée</h3>
-          <p class="why-tx">4000+ festivaliers 18–35 ans, profil CSP+. Une communauté qui consomme, recommande et revient. Chaque édition, sans exception.</p>
+    <!-- CTA PARTENAIRE -->
+    <div class="rev" style="margin-top:2rem;">
+      <a href="partenaires/index.html"
+         style="display:flex;align-items:center;justify-content:space-between;padding:4rem 5rem;border:1px solid var(--br);text-decoration:none;position:relative;overflow:hidden;transition:border-color .3s;"
+         onmouseover="this.style.borderColor='rgba(129,140,248,.3)'"
+         onmouseout="this.style.borderColor='var(--br)'">
+        <div>
+          <p style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.04em;text-transform:none;color:var(--c);opacity:.65;margin-bottom:1.2rem;">Partnership</p>
+          <h2 style="font-family:'SF',sans-serif;font-weight:400;text-transform:none;font-size:clamp(1.6rem,3vw,2.8rem);line-height:1.05;letter-spacing:.02em;color:#fff;">Votre marque,<br/>dans la legende.</h2>
+          <p style="font-family:'SF',sans-serif;font-size:.62rem;color:rgba(255,255,255,.28);margin-top:1rem;letter-spacing:.06em;">100% des partenaires confirmes pour 2027 · Places limitees</p>
         </div>
-        <div class="why-i">
-          <span class="why-n">02</span>
-          <h3 class="why-t">Image premium</h3>
-          <p class="why-tx">S'associer à ENJOYLIFE, c'est choisir un univers de marque soigné, exigeant, reconnu. Pas un festival parmi d'autres.</p>
+        <div style="width:72px;height:72px;border-radius:50%;border:1px solid rgba(129,140,248,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(129,140,248,.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
-        <div class="why-i">
-          <span class="why-n">03</span>
-          <h3 class="why-t">Résultats prouvés</h3>
-          <p class="why-tx">3 éditions. 3 sold out. 100% des partenaires ont confirmé leur retour pour 2027. Spontanément. Sans qu'on leur demande.</p>
-        </div>
-      </div>
+      </a>
     </div>
 
   </section>
 
-  <!-- Popup partenaire -->
-  <div class="partner-popup" id="partnerPopup">
-    <div class="partner-popup-overlay" onclick="closePartner()"></div>
-    <div class="partner-popup-content">
-      <button class="pp-close" onclick="closePartner()">✕</button>
-      <div id="partnerPopupContent"></div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════════════════
-       FAQ
-  ══════════════════════════════════════════ -->
+  <div class="sep-gradient"></div>
 
   <section id="faq" class="sec" style="padding-top:0;">
     <p class="lbl rev" style="margin-bottom:4rem;">FAQ</p>
@@ -2275,7 +2353,7 @@
         <span class="faq-ic">+</span>
       </button>
       <div class="faq-body">
-        <p>Les informations pratiques — camping, hébergements partenaires, navettes — seront communiquées avec l'annonce officielle. Nos éditions précédentes proposaient plusieurs formules pour faciliter votre venue.</p>
+        <p>Les informations pratiques (camping, hébergements partenaires, navettes) seront communiquées avec l'annonce officielle. Nos éditions précédentes proposaient plusieurs formules pour faciliter votre venue.</p>
       </div>
     </div>
 
@@ -2285,9 +2363,7 @@
         <span class="faq-ic">+</span>
       </button>
       <div class="faq-body">
-        <p>Rendez-vous sur notre page <a href="partenaires/index.html">Partenaires</a>. 100% de nos partenaires ont confirmé leur retour pour 2027 — spontanément, sans qu'on leur demande. Les places partenaires sont limitées.</p>
-      </div>
-    </div>
+        <p>Rendez-vous sur notre page <a href="partenaires/index.html">Partenaires</a>. 100% de nos partenaires ont confirmé leur retour pour 2027, spontanément, sans qu'on leur demande. Les places partenaires sont limitées.</p>
 
     <div class="faq-i rev">
       <button class="faq-btn" onclick="faqT(this)">
@@ -2306,12 +2382,40 @@
   ══════════════════════════════════════════ -->
   <footer>
 
-    <!-- CTA BAND -->
-    <div class="footer-cta-band">
-      <h2 class="footer-cta-headline">Soyez là<br/><em>avant tout le monde.</em></h2>
-      <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="footer-cta-btn">
-        Obtenir mes billets →
-      </a>
+    <!-- NEWSLETTER FINALE -->
+    <div style="border-bottom:1px solid var(--br);padding:7rem 4rem;position:relative;overflow:hidden;">
+      <!-- Glow ambiance -->
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(99,102,241,.12) 0%,transparent 70%);pointer-events:none;"></div>
+      <div style="position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:'SF',sans-serif;font-size:10rem;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.02);pointer-events:none;user-select:none;white-space:nowrap;">ENJOYLIFE</div>
+
+      <!-- Central Block -->
+      <div style="position:relative;z-index:1;max-width:680px;margin:0 auto;text-align:center;">
+        <p class="lbl" style="margin-bottom:1.8rem;justify-content:center;display:flex;">Alertes &amp; annonces</p>
+        <h2 style="font-family:'SF',sans-serif;font-weight:800;text-transform:none;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-.03em;line-height:.92;color:#fff;margin-bottom:.8rem;">Soyez alerté<br/><em style="font-style:normal;background:linear-gradient(135deg,#818cf8,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">en premier.</em></h2>
+        <p style="font-size:.62rem;letter-spacing:.12em;text-transform:none;color:rgba(255,255,255,.25);margin-bottom:3.5rem;">Billets · Line-up · Lieu · Surprises</p>
+
+        <!-- Email block central design -->
+        <div style="background:rgba(255,255,255,.03);border:1px solid rgba(129,140,248,.18);padding:2.5rem 3rem;position:relative;overflow:hidden;">
+          <!-- Top gradient line -->
+          <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#6366f1 30%,#a78bfa 70%,transparent);"></div>
+
+          <div style="display:flex;gap:0;align-items:stretch;margin-bottom:1.2rem;">
+            <input type="email" placeholder="votre@email.com"
+              style="flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-right:none;padding:1.1rem 1.6rem;font-family:'SF',sans-serif;font-size:.75rem;letter-spacing:.04em;color:#fff;outline:none;transition:border-color .2s;min-width:0;"
+              onfocus="this.style.borderColor='rgba(129,140,248,.5)'" onblur="this.style.borderColor='rgba(255,255,255,.1)'"
+              oninput="document.getElementById('nl-btn-main').disabled=false;"
+            />
+            <button id="nl-btn-main"
+              onclick="(function(btn){const inp=btn.previousElementSibling;if(!inp.value||!inp.value.includes('@')){inp.style.borderColor='rgba(239,68,68,.6)';setTimeout(()=>inp.style.borderColor='rgba(255,255,255,.1)',1200);return;}btn.textContent='Inscrit ✓';btn.style.background='linear-gradient(135deg,#22c55e,#16a34a)';btn.style.boxShadow='0 0 28px rgba(34,197,94,.4)';inp.disabled=true;btn.disabled=true;})(this)"
+              style="background:linear-gradient(135deg,#6366f1,#a855f7);border:none;padding:1.1rem 2.2rem;font-family:'SF',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#fff;cursor:pointer;transition:filter .2s,box-shadow .2s;white-space:nowrap;box-shadow:0 0 24px rgba(99,102,241,.4);"
+              onmouseover="this.style.filter='brightness(1.15)';this.style.boxShadow='0 0 40px rgba(99,102,241,.6)'"
+              onmouseout="this.style.filter='';this.style.boxShadow='0 0 24px rgba(99,102,241,.4)'">
+              Notifier →
+            </button>
+          </div>
+          <p style="font-size:.5rem;letter-spacing:.06em;color:rgba(255,255,255,.15);text-align:left;">Pas de spam. Juste l'essentiel, au bon moment.</p>
+        </div>
+      </div>
     </div>
 
     <!-- MAIN -->
@@ -2322,10 +2426,14 @@
         <img src="img/logo/enjoy-logo.png" alt="ENJOYLIFE" class="footer-logo-img"
              onerror="this.style.display='none';document.getElementById('f-logo-txt').style.display='block';" />
         <span id="f-logo-txt" class="footer-logo-txt">ENJOYLIFE</span>
-        <p class="footer-desc">Techno &amp; Immersive Arts<br/>Ambérieu-en-Bugey · Ain, France<br/>IV<sup>ème</sup> Édition · 2027</p>
+        <p class="footer-desc">Electronic Music Xperience<br/>Plaine de l'Ain · France<br/>IV<sup>ème</sup> Edition · 2027</p>
         <div class="footer-socials">
-          <a href="https://instagram.com/enjoylife.emx" target="_blank" rel="noopener" class="footer-social" title="Instagram">IG</a>
-          <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="footer-social" title="Shotgun">SH</a>
+          <a href="https://instagram.com/enjoylife.emx" target="_blank" rel="noopener" class="footer-social" title="Instagram" style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--br);transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(129,140,248,.4)';this.style.background='rgba(129,140,248,.08)'" onmouseout="this.style.borderColor='var(--br)';this.style.background=''">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="footer-social" title="Shotgun" style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--br);transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(129,140,248,.4)';this.style.background='rgba(129,140,248,.08)'" onmouseout="this.style.borderColor='var(--br)';this.style.background=''">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+          </a>
         </div>
       </div>
 
@@ -2335,7 +2443,7 @@
         <ul>
           <li><a href="#story">Notre histoire</a></li>
           <li><a href="#experience">L'expérience</a></li>
-          <li><a href="#hof">Palmarès</a></li>
+          <li><a href="#hof">Artistes</a></li>
           <li><a href="#tickets">Billets</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -2345,8 +2453,8 @@
       <div class="fc">
         <span class="fc-title">Contact</span>
         <ul>
-          <li><a href="partenaires/index.html" style="color:var(--c);">Partenariats</a></li>
-          <li><a href="mailto:contact@enjoylife-festival.fr">contact@enjoylife-festival.fr</a></li>
+          <li><a href="partenaires/index.html">Partenariats</a></li>
+          <li><a href="mailto:contact@enjoylife-emx.fr">contact@enjoylife-emx.fr</a></li>
           <li><a href="https://instagram.com/enjoylife.emx" target="_blank" rel="noopener">@enjoylife.emx</a></li>
           <li><a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener">Shotgun</a></li>
         </ul>
@@ -2354,34 +2462,412 @@
 
       <!-- Legal -->
       <div class="fc">
-        <span class="fc-title">Légal</span>
+        <span class="fc-title">Legal</span>
         <ul>
-          <li><a href="#">Mentions légales</a></li>
-          <li><a href="#">CGV</a></li>
-          <li><a href="#">Confidentialité</a></li>
+          <li><a href="#" onclick="openLegal('mentions');return false;">Mentions legales</a></li>
+          <li><a href="#" onclick="openLegal('cookies');return false;">Cookies</a></li>
+          <li><a href="#" onclick="openLegal('confidentialite');return false;">Confidentialite</a></li>
           <li><a href="#">Presse</a></li>
         </ul>
+        <p style="font-size:.42rem;letter-spacing:.14em;text-transform:none;color:rgba(255,255,255,.12);margin-top:2rem;line-height:1.8;">Photos &amp; videos<br/>© Riverst.media</p>
       </div>
 
     </div>
 
     <!-- BOTTOM BAR -->
     <div class="footer-bottom">
-      <p class="f-copy">© 2027 ENJOYLIFE — Tous droits réservés</p>
+      <p class="f-copy">© 2027 ENJOYLIFE · Tous droits reserves</p>
       <p id="clock"></p>
       <div class="f-credits">
-        <a href="#">Mentions légales</a>
-        <a href="#">Confidentialité</a>
-        <a href="#">CGV</a>
+        <a href="#" onclick="openLegal('mentions');return false;">Mentions legales</a>
+        <a href="#" onclick="openLegal('confidentialite');return false;">Confidentialite</a>
+        <a href="#" onclick="openLegal('cookies');return false;">Cookies</a>
       </div>
     </div>
 
   </footer>
 
+  <!-- ══ PARTNER POPUP ══ -->
+  <div class="partner-popup" id="partnerPopup">
+    <div class="partner-popup-overlay" onclick="closePartner()"></div>
+    <div class="partner-popup-content">
+      <button class="pp-close" onclick="closePartner()">×</button>
+      <div id="partnerPopupContent"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PAGES LÉGALES — MODAL OVERLAY
+  ══════════════════════════════════════════ -->
+  <div id="legal-overlay">
+    <div class="legal-modal">
+
+      <!-- Header sticky avec onglets -->
+      <div class="legal-header">
+        <div class="legal-tabs">
+          <button class="legal-tab active" onclick="legalSwitch('mentions')" id="tab-mentions">Mentions légales</button>
+          <button class="legal-tab" onclick="legalSwitch('confidentialite')" id="tab-confidentialite">Confidentialité</button>
+          <button class="legal-tab" onclick="legalSwitch('cookies')" id="tab-cookies">Cookies</button>
+        </div>
+        <button class="legal-close" onclick="closeLegal()">×</button>
+      </div>
+
+      <div class="legal-body">
+
+        <!-- ══ PAGE 1 — MENTIONS LÉGALES ══ -->
+        <div class="legal-page active" id="legal-mentions">
+          <span class="legal-kicker">Document légal</span>
+          <h2 class="legal-title">Mentions<br/>légales.</h2>
+          <span class="legal-updated">Dernière mise à jour · Avril 2025</span>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">01</span> Éditeur du site</h3>
+            <div class="legal-infoblock">
+              <p>
+                <strong>THIS IS IT EVENT</strong><br/>
+                Association loi 1901<br/>
+                7 rue Pierre Bernin<br/>
+                01800 Meximieux, France<br/><br/>
+                <strong>SIRET :</strong> 889 266 037 00023<br/>
+                <strong>Responsable de publication :</strong> Morgan Spirli<br/>
+                <strong>Contact :</strong> <a href="mailto:contact@enjoylife-emx.fr">contact@enjoylife-emx.fr</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">02</span> Hébergement</h3>
+            <div class="legal-infoblock">
+              <p>
+                <strong>Nom de domaine :</strong> Infomaniak Network SA<br/>
+                25 Eugène-Marziano, 1227 Les Acacias, Genève, Suisse<br/>
+                <a href="https://www.infomaniak.com" target="_blank" rel="noopener">infomaniak.com</a><br/><br/>
+                <strong>Code source :</strong> hébergé sur GitHub (Microsoft Corporation)<br/>
+                88 Colin P Kelly Jr Street, San Francisco, CA 94107, États-Unis<br/>
+                <a href="https://github.com" target="_blank" rel="noopener">github.com</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">03</span> Propriété intellectuelle</h3>
+            <p class="legal-p">
+              L'ensemble du contenu de ce site — textes, images, vidéos, graphismes, logo, structure — est la propriété exclusive de <strong>THIS IS IT EVENT</strong> ou de ses partenaires, et est protégé par les lois françaises et internationales relatives au droit d'auteur et à la propriété intellectuelle.<br/><br/>
+              Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation écrite préalable de THIS IS IT EVENT.<br/><br/>
+              <strong>Crédits photos & vidéos :</strong> © Riverst.media — tous droits réservés.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">04</span> Limitation de responsabilité</h3>
+            <p class="legal-p">
+              THIS IS IT EVENT s'efforce de maintenir les informations publiées sur ce site aussi précises et à jour que possible. Cependant, l'association ne peut garantir l'exactitude, la complétude ou l'actualité des informations diffusées.<br/><br/>
+              THIS IS IT EVENT décline toute responsabilité pour tout dommage direct ou indirect résultant de l'utilisation de ce site ou de l'impossibilité d'y accéder, ainsi que pour tout dommage résultant de l'utilisation de sites externes auxquels ce site renvoie.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">05</span> Droit applicable</h3>
+            <p class="legal-p">
+              Les présentes mentions légales sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.
+            </p>
+          </div>
+        </div>
+
+        <!-- ══ PAGE 2 — CONFIDENTIALITÉ ══ -->
+        <div class="legal-page" id="legal-confidentialite">
+          <span class="legal-kicker">RGPD · Données personnelles</span>
+          <h2 class="legal-title">Politique de<br/>confidentialité.</h2>
+          <span class="legal-updated">Dernière mise à jour · Avril 2025</span>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">01</span> Responsable du traitement</h3>
+            <div class="legal-infoblock">
+              <p>
+                <strong>THIS IS IT EVENT</strong><br/>
+                7 rue Pierre Bernin, 01800 Meximieux<br/>
+                SIRET : 889 266 037 00023<br/>
+                <strong>Contact :</strong> <a href="mailto:contact@enjoylife-emx.fr">contact@enjoylife-emx.fr</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">02</span> Données collectées</h3>
+            <p class="legal-p" style="margin-bottom:1.2rem;">Nous collectons uniquement les données que vous nous fournissez volontairement :</p>
+            <table class="legal-table">
+              <thead>
+                <tr>
+                  <th>Donnée</th>
+                  <th>Finalité</th>
+                  <th>Durée de conservation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Adresse e-mail</strong></td>
+                  <td>Newsletter / alertes billetterie</td>
+                  <td>Jusqu'à désinscription</td>
+                </tr>
+                <tr>
+                  <td><strong>Cookies techniques</strong></td>
+                  <td>Bon fonctionnement du site</td>
+                  <td>Session / 13 mois max</td>
+                </tr>
+                <tr>
+                  <td><strong>Préférences cookies</strong></td>
+                  <td>Mémoriser votre choix</td>
+                  <td>13 mois</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="legal-p" style="margin-top:1rem;">
+              <strong>Ce que nous ne collectons pas :</strong> nous n'utilisons actuellement aucun outil de tracking analytique tiers (Google Analytics, Meta Pixel, etc.). Si cela venait à changer, la présente politique serait mise à jour et votre consentement à nouveau sollicité.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">03</span> Base légale des traitements</h3>
+            <p class="legal-p">
+              Les traitements réalisés reposent sur les bases légales suivantes :<br/><br/>
+              · <strong>Consentement</strong> — pour l'inscription à la newsletter et les cookies non essentiels.<br/>
+              · <strong>Intérêt légitime</strong> — pour les cookies techniques strictement nécessaires au fonctionnement du site.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">04</span> Destinataires des données</h3>
+            <p class="legal-p">
+              Vos données ne sont ni vendues, ni louées, ni cédées à des tiers à des fins commerciales. Elles peuvent être transmises à des sous-traitants techniques (hébergement, envoi d'e-mails) uniquement dans le cadre de l'exécution du service et sous leur responsabilité.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">05</span> Vos droits (RGPD)</h3>
+            <p class="legal-p">
+              Conformément au Règlement Général sur la Protection des Données (RGPD — UE 2016/679) et à la loi Informatique et Libertés, vous disposez des droits suivants :<br/><br/>
+              · <strong>Droit d'accès</strong> — obtenir une copie de vos données.<br/>
+              · <strong>Droit de rectification</strong> — corriger des données inexactes.<br/>
+              · <strong>Droit à l'effacement</strong> — demander la suppression de vos données.<br/>
+              · <strong>Droit d'opposition</strong> — vous opposer à un traitement.<br/>
+              · <strong>Droit à la portabilité</strong> — recevoir vos données dans un format lisible.<br/>
+              · <strong>Droit de retirer votre consentement</strong> à tout moment.<br/><br/>
+              Pour exercer ces droits : <a href="mailto:contact@enjoylife-emx.fr">contact@enjoylife-emx.fr</a><br/>
+              En cas de réclamation non résolue, vous pouvez saisir la <strong>CNIL</strong> (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">06</span> Sécurité</h3>
+            <p class="legal-p">
+              Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, perte ou destruction. Le site est servi exclusivement en HTTPS.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">07</span> Modifications</h3>
+            <p class="legal-p">
+              Cette politique peut être mise à jour à tout moment. La date de dernière modification figure en haut du document. En cas de changement substantiel, vous serez informé(e) par un bandeau sur le site.
+            </p>
+          </div>
+        </div>
+
+        <!-- ══ PAGE 3 — COOKIES ══ -->
+        <div class="legal-page" id="legal-cookies">
+          <span class="legal-kicker">Gestion des traceurs</span>
+          <h2 class="legal-title">Politique<br/>cookies.</h2>
+          <span class="legal-updated">Dernière mise à jour · Avril 2025</span>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">01</span> Qu'est-ce qu'un cookie ?</h3>
+            <p class="legal-p">
+              Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, téléphone, tablette) lors de votre visite sur un site web. Il permet au site de mémoriser certaines informations — vos préférences, votre session, ou votre navigation — pour améliorer votre expérience.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">02</span> Cookies utilisés sur ce site</h3>
+
+            <div class="legal-cookie-row">
+              <div>
+                <span class="legal-cookie-label">Cookies essentiels</span>
+                <span class="legal-cookie-desc">Nécessaires au bon fonctionnement du site. Mémorisent vos préférences de cookies (clé <code style="color:var(--c);">ej_cookies</code>). Ne peuvent pas être désactivés.</span>
+              </div>
+              <span class="legal-cookie-badge badge-required">Obligatoire</span>
+            </div>
+
+            <div class="legal-cookie-row">
+              <div>
+                <span class="legal-cookie-label">Cookies analytiques</span>
+                <span class="legal-cookie-desc">Permettraient de mesurer l'audience du site (pages vues, sources de trafic). <strong style="color:rgba(255,255,255,.6);">Actuellement inactifs</strong> — aucun outil d'analytics tiers n'est déployé. Cette catégorie sera activée uniquement avec votre consentement préalable.</span>
+              </div>
+              <span class="legal-cookie-badge badge-inactive">Inactif</span>
+            </div>
+
+            <div class="legal-cookie-row">
+              <div>
+                <span class="legal-cookie-label">Cookies marketing</span>
+                <span class="legal-cookie-desc">Permettraient de diffuser des publicités ciblées sur les réseaux sociaux (Meta Pixel, etc.). <strong style="color:rgba(255,255,255,.6);">Actuellement inactifs</strong> — aucun pixel tiers n'est déployé. Cette catégorie sera activée uniquement avec votre consentement préalable.</span>
+              </div>
+              <span class="legal-cookie-badge badge-inactive">Inactif</span>
+            </div>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">03</span> Base légale</h3>
+            <p class="legal-p">
+              Conformément à la directive ePrivacy et aux recommandations de la CNIL, les cookies non essentiels nécessitent votre consentement explicite avant d'être déposés. Ce consentement est recueilli via le bandeau cookie affiché lors de votre première visite.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">04</span> Durée de conservation</h3>
+            <p class="legal-p">
+              Votre choix concernant les cookies est conservé pendant <strong>13 mois maximum</strong>, durée au-delà de laquelle votre consentement sera à nouveau sollicité. Vous pouvez modifier vos préférences à tout moment ci-dessous.
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">05</span> Comment gérer vos cookies ?</h3>
+            <p class="legal-p" style="margin-bottom:1.5rem;">
+              Vous pouvez modifier vos préférences à tout moment via les boutons ci-dessous, ou directement depuis les paramètres de votre navigateur.
+            </p>
+
+            <div style="display:flex;gap:.75rem;flex-wrap:wrap;">
+              <button class="cookie-btn-refuse" onclick="cookieRefuse();closeLegal();" style="font-size:.52rem;">Tout refuser</button>
+              <button class="cookie-btn-accept" onclick="cookieAccept();closeLegal();" style="font-size:.52rem;">Tout accepter</button>
+              <button class="cookie-btn-refuse" onclick="openCookies();closeLegal();" style="font-size:.52rem;color:var(--c);border-color:rgba(129,140,248,.35);">Personnaliser →</button>
+            </div>
+
+            <p class="legal-p" style="margin-top:2rem;">
+              <strong>Via votre navigateur :</strong> vous pouvez également configurer votre navigateur pour accepter, refuser ou supprimer les cookies :<br/><br/>
+              · <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a><br/>
+              · <a href="https://support.mozilla.org/fr/kb/activer-desactiver-cookies-preferences" target="_blank" rel="noopener">Mozilla Firefox</a><br/>
+              · <a href="https://support.apple.com/fr-fr/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a><br/>
+              · <a href="https://support.microsoft.com/fr-fr/windows/supprimer-et-g%C3%A9rer-les-cookies" target="_blank" rel="noopener">Microsoft Edge</a>
+            </p>
+          </div>
+
+          <div class="legal-section">
+            <h3 class="legal-section-title"><span class="ln">06</span> Contact</h3>
+            <p class="legal-p">
+              Pour toute question relative aux cookies ou à la gestion de vos données : <a href="mailto:contact@enjoylife-emx.fr">contact@enjoylife-emx.fr</a>
+            </p>
+          </div>
+        </div>
+
+      </div><!-- /legal-body -->
+    </div><!-- /legal-modal -->
+  </div><!-- /legal-overlay -->
+
+  <!-- ══ COOKIE BANNER ══ -->
+  <div id="cookie-banner">
+    <p class="cookie-text">
+      <strong>Cookies &amp; confidentialite.</strong> ENJOYLIFE utilise des cookies pour ameliorer votre experience et analyser le trafic.
+      En continuant, vous acceptez notre <a href="#">politique de confidentialite</a>.
+    </p>
+    <div class="cookie-btns">
+      <button class="cookie-btn-refuse" onclick="cookieRefuse()">Refuser</button>
+      <button class="cookie-btn-accept" onclick="cookieAccept()">Accepter</button>
+    </div>
+  </div>
+
+  <!-- ══ COOKIE MODAL ══ -->
+  <div id="cookie-modal">
+    <div class="cookie-modal-overlay" onclick="closeCookies()"></div>
+    <div class="cookie-modal-box">
+      <button class="cookie-modal-close" onclick="closeCookies()">×</button>
+      <p class="cookie-modal-title">Preferences cookies</p>
+      <div class="cookie-toggle-row">
+        <div>
+          <span class="cookie-toggle-name">Essentiels</span>
+          <span class="cookie-toggle-desc">Necessaires au fonctionnement du site. Ne peuvent pas etre desactives.</span>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" checked disabled /><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div class="cookie-toggle-row">
+        <div>
+          <span class="cookie-toggle-name">Analytiques</span>
+          <span class="cookie-toggle-desc">Nous aident a comprendre comment vous utilisez le site (trafic anonymise).</span>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" id="ck-analytics" checked /><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div class="cookie-toggle-row">
+        <div>
+          <span class="cookie-toggle-name">Marketing</span>
+          <span class="cookie-toggle-desc">Permettent d'afficher du contenu personnalise sur nos reseaux.</span>
+        </div>
+        <label class="cookie-toggle"><input type="checkbox" id="ck-marketing" /><span class="cookie-toggle-slider"></span></label>
+      </div>
+      <div style="display:flex;gap:.75rem;justify-content:flex-end;flex-wrap:wrap;margin-top:1rem;">
+        <button class="cookie-btn-refuse" onclick="cookieRefuse()">Tout refuser</button>
+        <button class="cookie-btn-accept" onclick="cookieSavePrefs()">Sauvegarder</button>
+      </div>
+    </div>
+  </div>
+
   <!-- ══════════════════════════════════════════
        JS
   ══════════════════════════════════════════ -->
   <script>
+    // LEGAL MODAL
+    function openLegal(page) {
+      const overlay = document.getElementById('legal-overlay');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      if (page) legalSwitch(page);
+      overlay.scrollTop = 0;
+    }
+    function closeLegal() {
+      document.getElementById('legal-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function legalSwitch(page) {
+      // Pages
+      document.querySelectorAll('.legal-page').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById('legal-' + page);
+      if (target) target.classList.add('active');
+      // Tabs
+      document.querySelectorAll('.legal-tab').forEach(t => t.classList.remove('active'));
+      const tabTarget = document.getElementById('tab-' + page);
+      if (tabTarget) tabTarget.classList.add('active');
+      // Scroll top
+      const overlay = document.getElementById('legal-overlay');
+      if (overlay) overlay.scrollTop = 0;
+    }
+    // Close on overlay click
+    document.getElementById('legal-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closeLegal();
+    });
+
+    // COOKIES
+    function cookieAccept() {
+      localStorage.setItem('ej_cookies', 'all');
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }
+    function cookieRefuse() {
+      localStorage.setItem('ej_cookies', 'none');
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }
+    function cookieSavePrefs() {
+      const prefs = {
+        analytics: document.getElementById('ck-analytics').checked,
+        marketing: document.getElementById('ck-marketing').checked,
+      };
+      localStorage.setItem('ej_cookies', JSON.stringify(prefs));
+      closeCookies();
+      document.getElementById('cookie-banner').classList.add('hidden');
+    }
+    function openCookies() { document.getElementById('cookie-modal').classList.add('open'); }
+    function closeCookies() { document.getElementById('cookie-modal').classList.remove('open'); }
+    document.addEventListener('keydown', e => { if(e.key==='Escape') { closePartner(); closeCookies(); closeLegal(); } });
+    // Init — cacher si déjà choisi
+    (function() {
+      if (localStorage.getItem('ej_cookies')) {
+        document.getElementById('cookie-banner').classList.add('hidden');
+      }
+    })();
+
     // PARTNER POPUP
     const partnerData = {
       'credit-agricole': { name:'Crédit Agricole Centre Est', tier:'Partenaire Majeur', desc:'Partenaire bancaire officiel d\'ENJOYLIFE depuis la première édition. Acteur majeur du financement de projets culturels dans l\'Ain et en région Auvergne-Rhône-Alpes.' },
@@ -2449,6 +2935,100 @@
       input.disabled = true;
       btn.disabled = true;
     }
+
+
+    // GALLERY DRAG SCROLL WITH INERTIA
+    (function() {
+      const wrap = document.getElementById('galleryWrap');
+      const strip = document.getElementById('galleryStrip');
+      if (!wrap || !strip) return;
+
+      let isDown = false;
+      let startX = 0;
+      let scrollLeft = 0;
+      let velX = 0;
+      let lastX = 0;
+      let lastTime = 0;
+      let rafId = null;
+
+      function clamp(val, min, max) { return Math.max(min, Math.min(max, val)); }
+
+      function getMaxScroll() {
+        return strip.scrollWidth - wrap.clientWidth;
+      }
+
+      let currentX = 0;
+
+      function applyTransform(x) {
+        currentX = clamp(x, 0, getMaxScroll());
+        strip.style.transform = 'translateX(' + (-currentX) + 'px)';
+      }
+
+      function inertia() {
+        if (Math.abs(velX) < 0.3) { velX = 0; return; }
+        velX *= 0.92;
+        applyTransform(currentX + velX);
+        rafId = requestAnimationFrame(inertia);
+      }
+
+      wrap.addEventListener('mousedown', e => {
+        isDown = true;
+        wrap.classList.add('dragging');
+        startX = e.pageX;
+        scrollLeft = currentX;
+        lastX = e.pageX;
+        lastTime = Date.now();
+        velX = 0;
+        if (rafId) cancelAnimationFrame(rafId);
+        e.preventDefault();
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!isDown) return;
+        isDown = false;
+        wrap.classList.remove('dragging');
+        rafId = requestAnimationFrame(inertia);
+      });
+
+      window.addEventListener('mousemove', e => {
+        if (!isDown) return;
+        const now = Date.now();
+        const dt = now - lastTime;
+        if (dt > 0) velX = (lastX - e.pageX) / dt * 16;
+        lastX = e.pageX;
+        lastTime = now;
+        const dx = e.pageX - startX;
+        applyTransform(scrollLeft - dx);
+      });
+
+      // Touch
+      let touchStartX = 0;
+      let touchScrollLeft = 0;
+
+      wrap.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].pageX;
+        touchScrollLeft = currentX;
+        lastX = touchStartX;
+        lastTime = Date.now();
+        velX = 0;
+        if (rafId) cancelAnimationFrame(rafId);
+      }, { passive: true });
+
+      wrap.addEventListener('touchmove', e => {
+        const now = Date.now();
+        const dt = now - lastTime;
+        const tx = e.touches[0].pageX;
+        if (dt > 0) velX = (lastX - tx) / dt * 16;
+        lastX = tx;
+        lastTime = now;
+        const dx = tx - touchStartX;
+        applyTransform(touchScrollLeft - dx);
+      }, { passive: true });
+
+      wrap.addEventListener('touchend', () => {
+        rafId = requestAnimationFrame(inertia);
+      }, { passive: true });
+    })();
 
     // CLOCK
     const clockEl=document.getElementById('clock');
