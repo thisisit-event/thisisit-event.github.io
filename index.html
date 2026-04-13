@@ -1,10 +1,82 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ENJOYLIFE 2027 — Ce n'est pas un festival.</title>
-  <meta name="description" content="ENJOYLIFE 2027 — Ambérieu-en-Bugey. Techno & Immersive Arts. Billets bientôt disponibles." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- == SEO PRIMAIRE == -->
+  <title>ENJOYLIFE 2027 · Festival Électro · Plaine de l'Ain · 4ème édition</title>
+  <meta name="description" content="ENJOYLIFE 2027 · 4ème édition du festival électro de la Plaine de l'Ain. 3 éditions sold out. Scénographies immersives, artistes de renommée mondiale. Réservez vos billets sur Shotgun." />
+  <meta name="keywords" content="ENJOYLIFE, festival electro Ain, techno Ambérieu, Electronic Music Experience, soirée techno 2027, festival immersif, Jast, Tony Romera, Odymel, Rivo, Shotgun billets" />
+  <meta name="author" content="ENJOYLIFE · THIS IS IT EVENT" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://enjoylife-emx.fr/" />
+
+  <!-- == OPEN GRAPH (Facebook / WhatsApp / LinkedIn) == -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://enjoylife-emx.fr/" />
+  <meta property="og:site_name" content="ENJOYLIFE" />
+  <meta property="og:title" content="ENJOYLIFE 2027 · Ce n'est pas un festival." />
+  <meta property="og:description" content="3 éditions. 3 sold out. La 4ème commence ici. Electronic Music Experience dans la Plaine de l'Ain · 2027." />
+  <meta property="og:image" content="https://enjoylife-emx.fr/img/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ENJOYLIFE · Electronic Music Experience 2027" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- == TWITTER CARD == -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ENJOYLIFE 2027 · Ce n'est pas un festival." />
+  <meta name="twitter:description" content="3 éditions. 3 sold out. La 4ème commence ici. Electronic Music Experience · Plaine de l'Ain." />
+  <meta name="twitter:image" content="https://enjoylife-emx.fr/img/og-image.jpg" />
+
+  <!-- == COULEUR NAVIGATEUR (Android / Safari) == -->
+  <meta name="theme-color" content="#080808" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ENJOYLIFE" />
+
+  <!-- == FAVICON == -->
+  <link rel="icon" href="img/logo/coeur.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/logo/coeur.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/logo/coeur.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/logo/coeur.png" />
+  <link rel="shortcut icon" href="img/logo/coeur.png" />
+
+  <!-- == STRUCTURED DATA (JSON-LD) == -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MusicEvent",
+    "name": "ENJOYLIFE 2027 · Édition IV",
+    "description": "Electronic Music Experience immersive dans la Plaine de l'Ain. Scénographies inédites, DJ de renommée mondiale, communauté bienveillante.",
+    "startDate": "2027",
+    "location": {
+      "@type": "Place",
+      "name": "Plaine de l'Ain",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ambérieu-en-Bugey",
+        "addressRegion": "Ain",
+        "addressCountry": "FR"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "THIS IS IT EVENT",
+      "url": "https://enjoylife-emx.fr"
+    },
+    "url": "https://enjoylife-emx.fr",
+    "image": "https://enjoylife-emx.fr/img/og-image.jpg",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://shotgun.live/fr/venues/enjoylife-emx",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2027-01-01"
+    }
+  }
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Black.otf') format('opentype'); font-weight:900; font-display:swap; }
@@ -48,7 +120,7 @@
       background-size: 150px; opacity: .025;
     }
 
-    /* ORB — très discret, juste une atmosphère */
+    /* ORB · très discret, juste une atmosphère */
     #orb {
       position: fixed; width: 800px; height: 800px; top: 50%; left: 50%;
       transform: translate(-50%,-50%);
@@ -59,7 +131,9 @@
     @keyframes orb { 0%,100% { opacity:.6; transform:translate(-50%,-50%) scale(1); } 50% { opacity:1; transform:translate(-50%,-50%) scale(1.07); } }
 
     /* BASE */
-    .ff { font-family: 'SF', sans-serif; font-weight: 600; text-transform: none; letter-spacing: -.02em; }
+    .ff { font-family: 'SF', sans-serif; font-weight: 600; text-transform: none; letter-spacing: -.02em; text-align: left; }
+    /* Section label + heading pair · uniform spacing */
+    .lbl + h2.ff, .lbl + .ff { margin-top: 0; }
     .mono { font-family: 'SF', sans-serif; font-weight: 400; }
     .lbl { font-family: 'SF', sans-serif; font-weight: 400; font-size: .65rem; letter-spacing: .08em; text-transform: none; color: var(--c); opacity: .7; }
     .br { height: 1px; background: var(--br); position: relative; z-index: 2; }
@@ -100,9 +174,9 @@
     .nav-r a.cta-nav:hover::before { opacity: 1; }
     .nav-r a.cta-nav:active { transform: scale(.97); box-shadow: 0 0 20px rgba(99,102,241,.4); }
 
-    /* ══════════════════════════════
-       HERO — PLEIN ÉCRAN TOMORROWLAND
-    ══════════════════════════════ */
+    /* ==============================
+       HERO · PLEIN ÉCRAN TOMORROWLAND
+    ============================== */
     #hero {
       position: relative; width: 100vw; height: 100vh;
       overflow: hidden; z-index: 2;
@@ -124,12 +198,17 @@
     #hero-logo {
       position: relative; z-index: 2;
       display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+      flex-shrink: 0;
+      min-width: 0;
     }
     #hero-logo img {
-      /* LOGO PRINCIPAL : /assets/logo/logo-main.svg — hauteur 80px max */
+      /* LOGO PRINCIPAL : /assets/logo/logo-main.svg · hauteur 80px max */
       height: 72px; width: auto;
       filter: brightness(0) invert(1);
       opacity: .95;
+      flex-shrink: 0;
+      min-width: 0;
+      object-fit: contain;
     }
     /* Fallback si pas de logo */
     #hero-logo-txt {
@@ -143,7 +222,7 @@
       letter-spacing: .18em; text-transform: none;
       color: rgba(255,255,255,.45);
     }
-    /* Infos bas de hero — style Coachella */
+    /* Infos bas de hero · style Coachella */
     #hero-bottom {
       position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
       display: flex; align-items: flex-end; justify-content: space-between;
@@ -196,9 +275,9 @@
       100% { opacity:0; transform: translateX(-50%) scaleY(1); transform-origin: bottom; }
     }
 
-    /* ══════════════════════════════
-       PARTENAIRES MAJEURS — Intégration fluide sous hero
-    ══════════════════════════════ */
+    /* ==============================
+       PARTENAIRES MAJEURS · Intégration fluide sous hero
+    ============================== */
     #partners-hero {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -210,24 +289,26 @@
       backdrop-filter: blur(14px);
     }
     .ph-logo {
-      display: flex; align-items: center;
+      display: flex; align-items: center; justify-content: center;
       opacity: .8; transition: opacity .3s;
     }
     .ph-logo:hover { opacity: 1; }
     .ph-logo img { height: 46px; width: auto; filter: brightness(0) invert(1); object-fit: contain; }
+    /* ph-logo wrap centering */
+    #partners-hero { flex-wrap: wrap; }
 
-    /* ══════════════════════════════
+    /* ==============================
        MARQUEE
-    ══════════════════════════════ */
+    ============================== */
     .marquee-wrap { overflow: hidden; border-top: 1px solid var(--br); border-bottom: 1px solid var(--br); padding: 1rem 0; position: relative; z-index: 2; }
     .marquee-t { display: flex; gap: 3.5rem; animation: mq 24s linear infinite; white-space: nowrap; }
     .marquee-t span { font-family: 'SF', sans-serif; font-weight: 300; font-size: .72rem; letter-spacing: .06em; text-transform: none; color: rgba(255,255,255,.1); flex-shrink: 0; }
     .marquee-t .dot { color: var(--c); opacity: .35; }
     @keyframes mq { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
 
-    /* ══════════════════════════════
+    /* ==============================
        MANIFESTO
-    ══════════════════════════════ */
+    ============================== */
     #manifesto {
       position: relative; z-index: 2; min-height: 85vh;
       display: flex; align-items: center; justify-content: center; overflow: hidden;
@@ -248,9 +329,9 @@
     }
     .manifesto-q em { font-style: normal; color: var(--c); }
 
-    /* ══════════════════════════════
+    /* ==============================
        STATS
-    ══════════════════════════════ */
+    ============================== */
     .stats-row { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--br); }
     .stat-c { padding: 4rem 3.5rem; border-right: 1px solid var(--br); }
     .stat-c:last-child { border-right: none; }
@@ -262,9 +343,9 @@
     }
     .stat-l { font-family: 'SF', sans-serif; font-weight: 500; font-size: .55rem; letter-spacing: .04em; text-transform: none; color: var(--mu); margin-top: .75rem; }
 
-    /* ══════════════════════════════
-       STORYTELLING — TIMELINE
-    ══════════════════════════════ */
+    /* ==============================
+       STORYTELLING · TIMELINE
+    ============================== */
     #story { position: relative; z-index: 2; padding: 8rem 4rem; max-width: 1400px; margin: 0 auto; }
     .story-header { margin-bottom: 6rem; }
     .story-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; border: 1px solid var(--br); }
@@ -310,9 +391,9 @@
     }
     .story-sold::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--c); box-shadow: 0 0 8px var(--c); }
 
-    /* ══════════════════════════════
+    /* ==============================
        EXPERIENCE PILLARS
-    ══════════════════════════════ */
+    ============================== */
     .pillars { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--br); }
     .pillar { padding: 3rem 2.5rem 3rem 2.5rem; border-right: 1px solid var(--br); }
     .pillar:last-child { border-right: none; }
@@ -320,14 +401,14 @@
     .p-title { font-family: 'SF', sans-serif; font-weight: 600; text-transform: none; font-size: 1.05rem; margin-bottom: .9rem; letter-spacing: -.01em; }
     .p-text { font-size: .7rem; line-height: 1.95; color: var(--mu); font-weight: 300; }
 
-    /* ══════════════════════════════
-       HALL OF FAME — ARTISTES PASSÉS
-    ══════════════════════════════ */
+    /* ==============================
+       HALL OF FAME · ARTISTES PASSÉS
+    ============================== */
     #hof { position: relative; z-index: 2; padding: 8rem 4rem; max-width: 1400px; margin: 0 auto; }
     .hof-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 1.5rem; }
     .hof-intro { max-width: 500px; font-size: .72rem; line-height: 1.9; color: var(--mu); margin-top: 1.2rem; }
 
-    /* Grille style UNVRS — paysage asymétrique */
+    /* Grille style UNVRS · paysage asymétrique */
     .hof-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--br); border: 1px solid var(--br); }
     .hof-card { position: relative; overflow: hidden;  background: #0e0e0e; }
     .hof-card.wide { grid-column: span 1; }
@@ -366,9 +447,9 @@
       -webkit-text-stroke: 1px rgba(255,255,255,.06);
     }
 
-    /* ══════════════════════════════
-       TICKETS — IMPOSSIBLE À RATER
-    ══════════════════════════════ */
+    /* ==============================
+       TICKETS · IMPOSSIBLE À RATER
+    ============================== */
     #tickets { position: relative; z-index: 2; padding: 0 4rem 8rem; max-width: 1400px; margin: 0 auto; }
     .ticket-block {
       display: flex; align-items: center; justify-content: space-between;
@@ -399,13 +480,13 @@
     .ticket-arrow svg { width: 26px; color: #000; }
     .ticket-note { font-size: .6rem; letter-spacing: .02em; text-transform: none; color: rgba(255,255,255,.12); margin-top: 1.5rem; text-align: center; font-weight: 300; }
 
-    /* ══════════════════════════════
-       PARTENAIRES — LOGO GRID DARK
-    ══════════════════════════════ */
+    /* ==============================
+       PARTENAIRES · LOGO GRID DARK
+    ============================== */
     .sep-line { height: 1px; background: var(--br); margin: 2rem 0; }
     .tier-lbl { font-family:'SF',sans-serif; font-weight:500; font-size:.48rem; letter-spacing: .04em; text-transform: none; color:rgba(255,255,255,.25); text-align:center; display:block; margin-bottom:1.5rem; }
 
-    /* Logo card — taille fixe par tier, logo centré et contraint */
+    /* Logo card · taille fixe par tier, logo centré et contraint */
     .logo-item {
       position: relative;
       background: transparent;
@@ -453,9 +534,9 @@
 
 
 
-    /* ══════════════════════════════
+    /* ==============================
        FAQ
-    ══════════════════════════════ */
+    ============================== */
     .faq-i { border-bottom: 1px solid var(--br); }
     .faq-btn { width: 100%; background: none; border: none;  display: flex; justify-content: space-between; align-items: center; padding: 1.75rem 0; text-align: left; }
     .faq-q { font-family: 'SF', sans-serif; font-size: .82rem; font-weight: 400; color: rgba(255,255,255,.78); transition: color .2s; }
@@ -467,9 +548,9 @@
     .faq-body p { font-size: .72rem; line-height: 1.85; color: var(--mu); font-weight: 300; padding-bottom: 1.75rem; }
     .faq-body a { color: var(--c); text-decoration: underline; }
 
-    /* ══════════════════════════════
+    /* ==============================
        FOOTER
-    ══════════════════════════════ */
+    ============================== */
     footer { position: relative; z-index: 2; border-top: 1px solid var(--br); }
 
     /* Footer CTA band */
@@ -546,7 +627,7 @@
 
 
 
-    /* ══ VIDÉOS PORTRAIT 4:5 — après hero ══ */
+    /* == VIDÉOS PORTRAIT 4:5 · après hero == */
     #videos-portrait {
       position: relative; z-index: 2;
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -597,19 +678,20 @@
       color: var(--c); opacity: .8; margin-bottom: .5rem; display: block;
     }
     .vp-title {
-      font-family: 'SF', sans-serif; font-weight: 800; text-transform: none;
+      font-family: 'SF', sans-serif; font-weight: 900; text-transform: none;
       font-size: clamp(1rem, 2.5vw, 1.5rem); letter-spacing: -.01em;
       color: #fff; line-height: 1;
+      text-shadow: 0 1px 12px rgba(0,0,0,.6);
     }
     @media (max-width: 768px) {
       #videos-portrait { grid-template-columns: 1fr; gap: 2px; }
       .vp-card { aspect-ratio: 4/5; }
     }
 
-    /* ══ PARALLAX HERO ══ */
+    /* == PARALLAX HERO == */
     #hero-logo, #hero-bottom { will-change: transform; }
 
-    /* ══ SECTION SEPARATORS ══ */
+    /* == SECTION SEPARATORS == */
     .sep-wave {
       position: relative; z-index: 2; height: 120px; overflow: hidden;
       display: flex; align-items: center;
@@ -622,7 +704,7 @@
       margin: 0;
     }
 
-    /* ══ VIDEO POSTCARDS ══ */
+    /* == VIDEO POSTCARDS == */
     #videos { position: relative; z-index: 2; padding: 8rem 4rem; max-width: 1400px; margin: 0 auto; }
     .video-grid {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
@@ -675,7 +757,7 @@
     .video-play-btn svg { width: 18px; color: #fff; margin-left: 3px; }
 
 
-    /* ══ POSTCARDS ══ */
+    /* == POSTCARDS == */
     #postcards { position: relative; z-index: 2; padding: 8rem 4rem; max-width: 1400px; margin: 0 auto; }
     .postcards-header { margin-bottom: 5rem; }
     .postcards-grid {
@@ -691,7 +773,7 @@
       aspect-ratio: 16/9; background: #080808;
       cursor: pointer;
     }
-    /* Numéro séquence — coin haut gauche */
+    /* Numéro séquence · coin haut gauche */
     .pc-num {
       position: absolute; top: 1rem; left: 1rem; z-index: 4;
       font-family: 'SF', sans-serif; font-size: .42rem;
@@ -699,7 +781,7 @@
       transition: color .4s;
     }
     .pc:hover .pc-num { color: var(--c); }
-    /* Timestamp — coin haut droit */
+    /* Timestamp · coin haut droit */
     .pc-time {
       position: absolute; top: 1rem; right: 1rem; z-index: 4;
       font-family: 'SF', sans-serif; font-size: .42rem;
@@ -756,7 +838,7 @@
       font-size: .9rem; letter-spacing: .02em;
       color: #fff; font-weight: 400; margin-bottom: .2rem;
     }
-    /* Bord droit — lieu en vertical */
+    /* Bord droit · lieu en vertical */
     .pc-loc {
       font-family: 'SF', sans-serif; font-size: .38rem;
       letter-spacing: .04em; text-transform: none;
@@ -778,7 +860,7 @@
       .pc::before { display: none; }
     }
 
-    /* ══ GALERIE PHOTO ══ */
+    /* == GALERIE PHOTO == */
     #gallery { position: relative; z-index: 2; padding: 8rem 0; }
     .gallery-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; padding: 0 4rem; max-width: 1400px; margin-left: auto; margin-right: auto; }
     /* DRAG SCROLL */
@@ -841,7 +923,7 @@
       color: rgba(255,255,255,.12);
     }
 
-    /* ══ TÉMOIGNAGES ══ */
+    /* == TÉMOIGNAGES == */
     #testimonials { position: relative; z-index: 2; padding: 8rem 4rem; max-width: 1400px; margin: 0 auto; overflow: hidden; }
     .testi-track-wrap { overflow: hidden; margin-top: 4rem; }
     .testi-track {
@@ -880,7 +962,7 @@
     .testi-meta { font-family: 'SF', sans-serif; font-size: .52rem; letter-spacing: .01em; color: rgba(255,255,255,.25); }
     .testi-stars { color: #818cf8; font-size: .7rem; margin-bottom: .3rem; display: block; }
 
-    /* ══ LIEU MYSTÈRE ══ */
+    /* == LIEU MYSTÈRE == */
     #lieu { position: relative; z-index: 2; padding: 8rem 4rem; max-width: 1400px; margin: 0 auto; }
     .lieu-block {
       border: 1px solid var(--br); padding: 5rem;
@@ -910,7 +992,7 @@
     .lieu-title { font-family: 'SF', sans-serif; font-weight: 400; text-transform: uppercase; font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: .95; letter-spacing: -.01em; color: #fff; margin-bottom: 1.2rem; }
     .lieu-text { font-size: .68rem; line-height: 2; color: var(--mu); }
 
-    /* ══ NEWSLETTER ══ */
+    /* == NEWSLETTER == */
     #newsletter { position: relative; z-index: 2; padding: 0 4rem 8rem; max-width: 1400px; margin: 0 auto; }
     .newsletter-block {
       padding: 5rem; border: 1px solid var(--br); position: relative; overflow: hidden;
@@ -954,16 +1036,13 @@
     .rev.in { opacity: 1; transform: none; }
     .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; } .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
 
-    /* ══════════════════════════════
-       RESPONSIVE — TABLETTE 1024px
-    ══════════════════════════════ */
+    /* ==============================
+       RESPONSIVE · TABLETTE 1024px
+    ============================== */
     @media (max-width: 1024px) {
-      /* Sections padding */
       .sec, #story, #hof, #tickets,
       #videos, #gallery, #testimonials, #lieu, #newsletter { padding-left: 2rem; padding-right: 2rem; }
       #partners-hero { padding: 1.5rem 2rem; }
-
-      /* Grilles */
       .story-grid { grid-template-columns: 1fr 1fr; }
       .hof-grid { grid-template-columns: 1fr 1fr; }
       .hof-card.wide { grid-column: span 1; }
@@ -973,157 +1052,179 @@
       .why-grid { grid-template-columns: 1fr; }
       .why-i { border-right: none; border-bottom: 1px solid var(--br); padding: 2rem 1.5rem; }
       .why-i:last-child { border-bottom: none; }
-
-      /* Partenaires logos */
       .logo-item-major { height: 96px; }
       .logo-item-officiel { height: 68px; }
       .logo-item-partenaire { height: 56px; }
-
-      /* Vidéos */
       .video-grid { grid-template-columns: repeat(2, 1fr); }
-
-      /* Galerie */
-
-
-      /* Lieu */
       .lieu-block { flex-direction: column; padding: 3rem 2.5rem; gap: 2rem; }
       .lieu-coords { font-size: clamp(2.5rem, 8vw, 4rem); }
-
-      /* Footer */
       .footer-main { grid-template-columns: 1fr 1fr; gap: 3rem; padding: 3rem 2rem; }
       .footer-cta-band { padding: 4rem 2rem; }
       .footer-bottom { padding: 1.5rem 2rem; }
+      /* Experience grille tablette → 1 col */
+      #experience > div:last-child { grid-template-columns: 1fr 1fr !important; }
     }
 
-    /* ══════════════════════════════
-       RESPONSIVE — MOBILE 768px
-    ══════════════════════════════ */
+    /* ==============================
+       RESPONSIVE · MOBILE 768px
+    ============================== */
     @media (max-width: 768px) {
-      /* Nav */
-      #nav { padding: 0 1.2rem; height: 58px; }
-      .nav-r a:not(.cta-nav) { display: none; }
-      .nav-r a.cta-nav { padding: .45rem 1.1rem; font-size: .55rem; }
-      .nav-logo img { height: 30px; }
+      /* ── Nav ── */
+      #nav { padding: 0 1.2rem; height: 56px; }
+      .nav-logo img { height: 28px; }
 
-      /* Hero */
+      /* ── Hero ── */
       #hero-bottom {
-        padding: 0 1.2rem;
+        padding: 0 1.2rem 1.8rem;
         flex-direction: column; align-items: flex-start;
-        gap: 1.2rem; bottom: 5rem;
+        gap: 1.4rem;
       }
-      .hero-info-right { text-align: left; }
-      .hero-tagline { font-size: .58rem; letter-spacing: .3em; }
+      .hero-info-right { text-align: left; width: 100%; }
+      .hero-cta { width: 100%; justify-content: center; font-size: .72rem; padding: 1rem 1.6rem; }
+      .hero-tagline { font-size: .68rem !important; letter-spacing: .18em !important; }
+      #hero-logo { gap: .8rem; }
+      #hero-logo-txt { font-size: clamp(2.6rem, 14vw, 5rem) !important; }
 
-      /* Sections padding mobile */
+      /* ── Sections padding mobile ── */
       .sec, #story, #hof, #tickets,
       #videos, #gallery, #testimonials, #lieu, #newsletter { padding-left: 1.2rem; padding-right: 1.2rem; }
       #story { padding-top: 4rem; padding-bottom: 4rem; }
-      #hof { padding-top: 4rem; padding-bottom: 2rem; }
+      #hof { padding-top: 4rem; padding-bottom: 2rem; padding-left: 1.2rem; padding-right: 1.2rem; }
       .sec { padding-top: 4rem; padding-bottom: 4rem; }
-      #partners-hero { padding: .8rem 1.2rem; gap: 1rem; flex-wrap: wrap; }
-      .ph-label { display: none; }
-      .ph-sep { display: none; }
+      #partners-hero { padding: 1rem 1.2rem; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+      .ph-logo img { height: 32px; }
 
-      /* Stats */
+      /* ── Stats ── */
       .stats-row { grid-template-columns: 1fr; }
-      .stat-c { border-right: none; border-bottom: 1px solid var(--br); padding: 2rem 1.2rem; }
+      .stat-c { border-right: none; border-bottom: 1px solid var(--br); padding: 2rem 1.5rem; }
       .stat-c:last-child { border-bottom: none; }
 
-      /* Histoire */
+      /* ── Histoire ── */
       .story-grid { grid-template-columns: 1fr; }
       .story-card { border-right: none; border-bottom: 1px solid var(--br); padding: 2.5rem 1.5rem; }
       .story-card:last-child { border-bottom: none; }
       .story-year { font-size: 2.8rem; }
 
-      /* Experience pillars */
-      .pillars { grid-template-columns: 1fr; }
-      .pillar { border-right: none; border-bottom: 1px solid var(--br); padding: 1.8rem 1.5rem; }
-      .pillar:last-child { border-bottom: none; }
+      /* ── Experience cards → 1 col ── */
+      #experience > div:last-child { grid-template-columns: 1fr !important; }
+      .exp-card { min-height: 300px !important; padding: 2.2rem 1.8rem !important; }
 
-      /* HOF */
+      /* ── HOF ── */
       .hof-grid { grid-template-columns: 1fr 1fr; }
-      .hof-card.wide { grid-column: span 1; }
+      .hof-card.wide { grid-column: span 2; }
       .hof-name { font-size: 1rem; }
 
-      /* Tickets */
+      /* ── Postcards 6 vidéos ── */
+      .postcards-grid { grid-template-columns: 1fr !important; grid-template-rows: auto !important; }
+      #postcards { padding-left: 1.2rem; padding-right: 1.2rem; padding-top: 4rem; padding-bottom: 4rem; }
+      .pc::before { display: none; }
+
+      /* ── Tickets ── */
       .ticket-block { flex-direction: column; padding: 2.5rem 1.5rem; gap: 2rem; align-items: flex-start; }
       .ticket-title { font-size: clamp(2rem, 8vw, 3.5rem); }
-      .ticket-arrow { width: 58px; height: 58px; }
+      .ticket-arrow { width: 52px; height: 52px; }
 
-      /* Vidéos */
+      /* ── Vidéos portrait ── */
+      #videos-portrait { grid-template-columns: 1fr; gap: 2px; }
+      .vp-card { aspect-ratio: 4/5; }
+
+      /* ── Video grid ── */
       .video-grid { grid-template-columns: 1fr; }
       .video-card { aspect-ratio: 16/9; }
 
-      /* Galerie */
+      /* ── Galerie ── */
       .gallery-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
       .g-item { width: 200px; height: 250px; }
 
-      /* Témoignages */
-      .testi-card { width: 320px; padding: 1.8rem 1.5rem; }
-      .testi-text { font-size: .8rem; }
-      #testimonials { padding-top: 4rem; padding-bottom: 4rem; }
+      /* ── Témoignages ── */
+      .testi-card { width: 85vw; max-width: 400px; padding: 2rem 1.6rem; gap: 1.5rem; }
+      .testi-text { font-size: .78rem; line-height: 1.9; }
+      #testimonials { padding-top: 4rem; padding-bottom: 4rem; padding-left: 0; padding-right: 0; }
 
-      /* Lieu */
-      .lieu-block { padding: 2rem 1.5rem; gap: 1.5rem; }
-      .lieu-coords { font-size: 2.2rem; }
-      #lieu { padding-top: 4rem; padding-bottom: 4rem; }
+      /* ── Lieu ── */
+      #lieu { padding: 4rem 1.2rem; }
+      .lieu-top { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.2rem 1.4rem; }
+      .lieu-coords-row { gap: 1.5rem; flex-wrap: wrap; }
+      .lieu-body > div { padding: 2.5rem 1.5rem !important; }
+      .lieu-body h2 { font-size: clamp(1.8rem, 9vw, 3rem) !important; }
 
-      /* Newsletter */
-      .newsletter-block { padding: 2rem 1.5rem; }
-      .newsletter-block::after { display: none; }
-      .nl-inner { flex-direction: column; gap: 2rem; }
-      .nl-form { width: 100%; min-width: unset; }
-      .nl-input { font-size: .6rem; }
-      #newsletter { padding-bottom: 4rem; }
+      /* ── FAQ ── */
+      #faq { padding-left: 1.2rem; padding-right: 1.2rem; padding-top: 4rem; }
+      #faq h2 { font-size: clamp(3.5rem, 18vw, 5.5rem) !important; }
+      .faq-btn { padding: 1.4rem 1.2rem !important; }
+      .faq-q { font-size: .8rem !important; }
+      .faq-body p { padding: 0 1.2rem 1.5rem !important; font-size: .72rem; }
 
-      /* Partenaires logos */
-      .logo-item-major { height: 84px; }
-      .logo-item-officiel { height: 68px; }
-      .logo-item-partenaire { height: 58px; }
-      .logo-item-mini { height: 54px; }
+      /* ── Partners ── */
+      #partners { padding-left: 1.2rem; padding-right: 1.2rem; }
+      .logo-item-major { height: 80px; }
+      .logo-item-officiel { height: 58px; }
+      .logo-item-partenaire { height: 50px; }
+      .logo-item-mini { height: 46px; }
 
-      /* Why partner */
+      /* ── Why partner ── */
       .why-grid { grid-template-columns: 1fr; }
       .why-i { border-right: none; border-bottom: 1px solid var(--br); padding: 1.8rem 1.5rem; }
       .why-i:last-child { border-bottom: none; }
 
-      /* Footer */
-      .footer-cta-band { flex-direction: column; align-items: flex-start; padding: 3rem 1.2rem; gap: 2rem; }
-      .footer-cta-headline { font-size: clamp(1.8rem, 8vw, 3rem); }
+      /* ── Footer ── */
+      .footer-cta-band { flex-direction: column; align-items: center; text-align: center; padding: 2.5rem 1.5rem; gap: 1.8rem; }
+      .footer-cta-headline { font-size: clamp(1.8rem, 8vw, 3rem); text-align: center; }
       .footer-cta-btn { width: 100%; justify-content: center; }
-      .footer-main { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2.5rem 1.2rem; }
-      .footer-brand-col { grid-column: 1 / 3; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; padding: 1.2rem; gap: .8rem; }
-      .f-credits { gap: 1.2rem; }
+      .footer-main { grid-template-columns: 1fr 1fr; gap: 0; padding: 0; }
+      .footer-brand-col { grid-column: 1 / 3; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 2.5rem 1.5rem !important; }
+      .footer-brand-col .footer-logo-img { margin-left: auto; margin-right: auto; }
+      .footer-brand-col .footer-desc { max-width: 100%; margin-left: auto; margin-right: auto; }
+      .footer-brand-col > div[style*="display:flex"][style*="gap:.75rem"] { justify-content: center; }
+      .footer-brand-col > div[style*="display:flex"][style*="flex-direction:column"] { align-items: center; }
+      .footer-bottom { flex-direction: column; align-items: center; text-align: center; padding: 1.5rem 1.2rem; gap: .8rem; }
+      .f-credits { gap: 1.2rem; justify-content: center; }
 
-      /* Manifesto */
-      .manifesto-content { padding: 2rem 1.5rem; }
+      /* ── Footer brand col centrage mobile ── */
+      #footer-brand { align-items: center; display: flex; flex-direction: column; text-align: center; }
+      #footer-brand img[alt="ENJOYLIFE"] { margin-left: auto; margin-right: auto; }
+      #footer-brand p { max-width: 100%; margin-left: auto; margin-right: auto; }
+      #footer-brand > div { align-items: center; justify-content: center; }
+
+      /* ── Manifesto ── */
+      .manifesto-content { padding: 3rem 1.5rem; }
       .manifesto-q { font-size: clamp(1.8rem, 7vw, 3rem); }
 
-      /* Parallax désactivé sur mobile (perf) */
+      /* ── Marquee ── */
+      .marquee-t span { font-size: .62rem; }
+
+      /* ── Parallax désactivé ── */
       #hero-logo, #hero-bottom { will-change: auto; }
     }
 
-    /* ══ TÉMOIGNAGES REDESIGN ══ */
-    .testi-card {
-      background: rgba(255,255,255,.02); border: 1px solid var(--br);
-      padding: 2rem 2.8rem; width: 540px; flex-shrink: 0;
-      position: relative; transition: border-color .3s;
-      display: flex; flex-direction: column; justify-content: space-between; gap: 1.4rem;
+    /* == PETIT ÉCRAN 480px == */
+    @media (max-width: 480px) {
+      .hof-grid { grid-template-columns: 1fr; }
+      .hof-card.wide { grid-column: span 1; }
+      .testi-card { width: 92vw; }
+      #partners-hero { gap: 1rem; }
+      .ph-logo img { height: 26px; }
+      .story-year { font-size: 2.4rem; }
+      /* Newsletter footer centré */
+      #faq + div, footer > div:first-child { padding-left: 1.2rem !important; padding-right: 1.2rem !important; }
     }
-    .testi-card:hover { border-color: rgba(129,140,248,.2); }
-    .testi-text { font-family: 'SF', sans-serif; font-size: .66rem; line-height: 1.85; color: rgba(255,255,255,.65); font-style: italic; }
-    .testi-author { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--br); padding-top: 1.1rem; gap: 1rem; }
 
-    /* ══ EXPERIENCE CARDS ══ */
+    /* == TÉMOIGNAGES REDESIGN == */
+    .testi-card {
+      background: rgba(255,255,255,.025); border: 1px solid var(--br);
+      padding: 2.8rem 3rem; width: 560px; flex-shrink: 0;
+      position: relative; transition: border-color .3s;
+      display: flex; flex-direction: column; justify-content: space-between; gap: 2rem;
+    }
+    .testi-card:hover { border-color: rgba(129,140,248,.22); }
+    .testi-text { font-family: 'SF', sans-serif; font-size: .82rem; line-height: 2; color: rgba(255,255,255,.72); font-style: italic; }
+    .testi-author { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--br); padding-top: 1.3rem; gap: 1rem; }
+
+    /* == EXPERIENCE CARDS == */
     .exp-card { transition: transform .4s cubic-bezier(.16,1,.3,1); cursor: default; }
     .exp-card:hover { transform: translateY(-4px); }
-    @media (max-width: 768px) {
-      #experience > div:last-child { grid-template-columns: 1fr !important; }
-      .exp-card { min-height: 300px !important; }
-    }
 
-    /* ══ LIEU REDESIGN ══ */
+    /* == LIEU REDESIGN == */
     .lieu-top {
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.4rem 2.5rem; border-bottom: 1px solid var(--br); flex-wrap: wrap; gap: 1rem;
@@ -1140,7 +1241,7 @@
       user-select: none; flex-shrink: 0;
     }
 
-    /* ══ COOKIE BANNER ══ */
+    /* == COOKIE BANNER == */
     #cookie-banner {
       position: fixed; bottom: 0; left: 0; right: 0; z-index: 3000;
       background: rgba(8,8,8,.97); backdrop-filter: blur(20px);
@@ -1187,9 +1288,9 @@
     .cookie-modal-close { position: absolute; top: 1rem; right: 1rem; width: 28px; height: 28px; background: rgba(255,255,255,.05); border: 1px solid var(--br); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.4); font-size: .75rem; cursor: pointer; transition: background .2s; }
     .cookie-modal-close:hover { background: rgba(255,255,255,.1); }
 
-    /* ══════════════════════════════
-       PAGES LÉGALES — MODAL OVERLAY
-    ══════════════════════════════ */
+    /* ==============================
+       PAGES LÉGALES · MODAL OVERLAY
+    ============================== */
     #legal-overlay {
       position: fixed; inset: 0; z-index: 5000;
       background: rgba(0,0,0,.92); backdrop-filter: blur(24px);
@@ -1328,7 +1429,44 @@
     }
     .legal-table td strong { color: rgba(255,255,255,.75); font-weight: 400; }
 
-    /* ══ TRÈS PETIT ÉCRAN 380px ══ */
+    /* == HOF HANDLE LINK == */
+    .hof-handle-link {
+      display: inline-block;
+      font-family: 'SF', sans-serif; font-size: .6rem; letter-spacing: .06em;
+      color: rgba(255,255,255,.45); text-decoration: none;
+      border-bottom: 1px solid rgba(129,140,248,.28);
+      padding-bottom: 1px;
+      transition: color .2s, border-color .2s;
+      pointer-events: all;
+    }
+    .hof-handle-link:hover { color: var(--c); border-color: var(--c); }
+
+    /* == MANIFESTO WORD ANIMATION == */
+    @keyframes coeurPulse {
+      0%,100% { transform: scale(1); filter: drop-shadow(0 0 14px rgba(129,140,248,.45)); }
+      50% { transform: scale(1.12); filter: drop-shadow(0 0 28px rgba(168,85,247,.75)); }
+    }
+    .manifesto-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(22px);
+      animation: wordReveal 0.7s cubic-bezier(.16,1,.3,1) forwards;
+    }
+    .manifesto-word-em { color: var(--c); }
+    .manifesto-anim.in .manifesto-word:nth-child(1)  { animation-delay: .05s; }
+    .manifesto-anim.in .manifesto-word:nth-child(2)  { animation-delay: .13s; }
+    .manifesto-anim.in .manifesto-word:nth-child(3)  { animation-delay: .21s; }
+    .manifesto-anim.in .manifesto-word:nth-child(4)  { animation-delay: .29s; }
+    .manifesto-anim.in .manifesto-word:nth-child(5)  { animation-delay: .42s; }
+    .manifesto-anim.in .manifesto-word:nth-child(6)  { animation-delay: .50s; }
+    .manifesto-anim.in .manifesto-word:nth-child(7)  { animation-delay: .58s; }
+    .manifesto-anim.in .manifesto-word:nth-child(8)  { animation-delay: .66s; }
+    .manifesto-anim.in .manifesto-word:nth-child(9)  { animation-delay: .82s; }
+    @keyframes wordReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* == TRÈS PETIT ÉCRAN 380px == */
     @media (max-width: 380px) {
       .hof-grid { grid-template-columns: 1fr; }
       .footer-main { grid-template-columns: 1fr; }
@@ -1336,6 +1474,276 @@
       .nl-form { flex-direction: column; }
       .nl-input { border-right: 1px solid var(--br); border-bottom: none; }
       .nl-btn { width: 100%; justify-content: center; padding: .9rem; }
+    }
+
+    /* ==============================
+       RESPONSIVE MOBILE & TABLETTE
+    ============================== */
+
+    /* NAV BURGER */
+    @media (max-width: 768px) {
+      #burger { display: flex !important; }
+      .nav-r {
+        display: none;
+        position: fixed; top: 56px; left: 0; right: 0;
+        background: rgba(8,8,8,.98); backdrop-filter: blur(28px);
+        flex-direction: column; align-items: stretch;
+        padding: 1rem 1.8rem 1.6rem; gap: 0;
+        border-bottom: 1px solid var(--br);
+        border-top: 1px solid rgba(129,140,248,.15);
+        z-index: 499;
+        transform: translateY(-8px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .22s ease, transform .22s cubic-bezier(.16,1,.3,1);
+      }
+      .nav-r.open {
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .nav-r a {
+        font-size: .78rem; padding: 1rem 0;
+        border-bottom: 1px solid rgba(255,255,255,.05);
+        color: rgba(255,255,255,.5);
+        letter-spacing: .06em;
+        transition: color .2s, padding-left .2s;
+        display: flex !important;
+        align-items: center;
+      }
+      .nav-r a:hover { color: #fff; padding-left: .4rem; }
+      .nav-r a.cta-nav {
+        margin-top: .8rem; justify-content: center;
+        padding: 1rem 1.5rem; font-size: .72rem;
+        border-bottom: none !important;
+        border-radius: 999px;
+      }
+      .nav-r a.nav-insta-icon {
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255,255,255,.05);
+        gap: .8rem;
+        font-size: .78rem; color: rgba(255,255,255,.5); letter-spacing: .06em;
+      }
+      .nav-r a.nav-insta-icon svg { width: 16px; height: 16px; flex-shrink: 0; }
+      .nav-r a.nav-insta-icon::after { content: 'Instagram'; font-family: 'SF', sans-serif; font-size: .78rem; letter-spacing: .06em; }
+      #nav { padding: 0 1.5rem; }
+    }
+
+    /* HERO MOBILE */
+    @media (max-width: 768px) {
+      #hero-bottom { padding: 0 1.5rem 6rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .hero-info-right { width: 100%; }
+      .hero-cta { width: 100%; justify-content: center; }
+      #hero-logo { gap: .8rem; padding: 0 1.5rem; text-align: center; }
+      #hero-logo img { height: 52px; }
+      .hero-tagline { font-size: .65rem !important; letter-spacing: .1em !important; text-align: center; }
+      #partners-hero { gap: 2rem; padding: 1.2rem 1.5rem; flex-wrap: wrap; justify-content: center; }
+      .ph-logo img { height: 32px; }
+    }
+
+    /* SECTION PADDING GLOBAL */
+    @media (max-width: 768px) {
+      .sec { padding: 4rem 1.5rem; }
+      #hof { padding: 4rem 1.5rem; }
+      #tickets { padding: 0 1.5rem 5rem; }
+      #gallery { padding: 4rem 0; }
+      .gallery-header { padding: 0 1.5rem; margin-bottom: 2.5rem; flex-direction: column; gap: 1rem; align-items: flex-start; }
+    }
+    @media (max-width: 1024px) {
+      .sec { padding: 5rem 2rem; }
+      #hof { padding: 5rem 2rem; }
+    }
+
+    /* STATS ROW MOBILE */
+    @media (max-width: 768px) {
+      .stats-row { grid-template-columns: 1fr; }
+      .stat-c { border-right: none; border-bottom: 1px solid var(--br); padding: 2.5rem 1.5rem; }
+      .stat-c:last-child { border-bottom: none; }
+    }
+    @media (max-width: 1024px) {
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .stat-c:nth-child(2) { border-right: none; }
+    }
+
+    /* STORY GRID MOBILE */
+    @media (max-width: 768px) {
+      .story-grid { grid-template-columns: 1fr; }
+      .story-header { padding: 0 1.5rem; }
+      #story { padding: 0; }
+    }
+    @media (max-width: 1024px) {
+      .story-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Sections principales · padding uniform */
+    #artistes { position: relative; z-index: 2; padding: 8rem 4rem; max-width: 1400px; margin: 0 auto; }
+
+    @media (max-width: 1024px) {
+      #artistes { padding: 5rem 2rem; }
+    }
+    @media (max-width: 768px) {
+      #artistes { padding: 4rem 1.5rem; }
+      /* Story header padding mobile */
+      .story-header { padding: 0 1.5rem; margin-bottom: 3rem; }
+    }
+
+    /* HOF GRID MOBILE */
+    @media (max-width: 768px) {
+      .hof-grid { grid-template-columns: 1fr 1fr; }
+      .hof-header { flex-direction: column; }
+      .hof-intro { max-width: 100%; }
+    }
+    @media (max-width: 768px) {
+      .pillars { grid-template-columns: 1fr; }
+      .pillar { border-right: none; border-bottom: 1px solid var(--br); }
+    }
+    @media (max-width: 1024px) {
+      .pillars { grid-template-columns: 1fr 1fr; }
+      .pillar:nth-child(2n) { border-right: none; }
+    }
+
+    /* WHY GRID MOBILE */
+    @media (max-width: 768px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .why-i { border-right: none; border-bottom: 1px solid var(--br); }
+    }
+
+    /* TICKET BLOCK MOBILE */
+    @media (max-width: 768px) {
+      .ticket-block { flex-direction: column; padding: 2.5rem 1.5rem; gap: 2rem; }
+      .ticket-arrow { width: 54px; height: 54px; align-self: flex-end; }
+    }
+
+    /* MANIFESTO MOBILE */
+    @media (max-width: 768px) {
+      .manifesto-content { padding: 2rem 1.5rem; }
+      .manifesto-q { font-size: clamp(1.3rem, 5vw, 2rem); }
+    }
+
+    /* FOOTER CTA BAND MOBILE */
+    @media (max-width: 768px) {
+      footer > div[style*="padding:5rem 4rem"],
+      footer > div[style*="padding:9rem 4rem"],
+      footer > div[style*="padding:5rem"] { padding: 3.5rem 1.5rem !important; }
+      .footer-cta-band { padding: 3rem 1.5rem; }
+    }
+
+    /* FOOTER MAIN GRID MOBILE */
+    @media (max-width: 768px) {
+      [style*="grid-template-columns:2.2fr 1fr 1fr 1fr"] {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+      }
+      /* brand col pleine largeur · centré */
+      [style*="grid-template-columns:2.2fr 1fr 1fr 1fr"] > div:first-child {
+        grid-column: 1 / -1;
+        border-right: none !important;
+        border-bottom: 1px solid var(--br);
+        padding: 2.5rem 1.5rem !important;
+        display: flex; flex-direction: column; align-items: center; text-align: center;
+      }
+      /* nav cols · centré */
+      [style*="grid-template-columns:2.2fr 1fr 1fr 1fr"] > div:not(:first-child) {
+        padding: 2rem 1.5rem !important;
+        text-align: center;
+      }
+      [style*="grid-template-columns:2.2fr 1fr 1fr 1fr"] > div:not(:first-child) ul {
+        align-items: center;
+      }
+      [style*="grid-template-columns:2.2fr 1fr 1fr 1fr"] > div:not(:first-child) span[style*="display:block"] {
+        text-align: center;
+      }
+    }
+    @media (max-width: 480px) {
+      [style*="grid-template-columns:2.2fr 1fr 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      [style*="grid-template-columns:2.2fr 1fr 1fr 1fr"] > div {
+        border-right: none !important;
+        border-bottom: 1px solid var(--br);
+        padding: 2rem 1.5rem !important;
+      }
+    }
+    @media (max-width: 768px) {
+      .footer-bottom,
+      [style*="justify-content:space-between"][style*="padding:1.8rem 4rem"] {
+        padding: 1.5rem 1.5rem !important;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: .6rem !important;
+      }
+    }
+
+    /* PARTENAIRES GRID MOBILE */
+    @media (max-width: 768px) {
+      /* Majeurs : 1 col */
+      #partners [style*="grid-template-columns:repeat(3,1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+        max-width: 100% !important;
+      }
+      /* Officiels : 3 par ligne au lieu de 6 */
+      #partners [style*="grid-template-columns:repeat(6,1fr)"] {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+      /* Partenaires : 3 par ligne au lieu de 7 */
+      #partners [style*="grid-template-columns:repeat(7,1fr)"] {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+      /* Mécènes / Techniques / Médias : stack vertical */
+      #partners [style*="grid-template-columns:1fr 1fr 1fr"][style*="gap:3rem"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      /* Logos plus grands sur mobile */
+      .logo-item-major { height: 100px; }
+      .logo-item-officiel { height: 80px; }
+      .logo-item-partenaire { height: 70px; }
+      .logo-item-mini { height: 60px; }
+    }
+    @media (max-width: 480px) {
+      #partners [style*="grid-template-columns:repeat(3,1fr)"] {
+        grid-template-columns: 1fr 1fr !important;
+        max-width: 100% !important;
+      }
+      #partners [style*="grid-template-columns:repeat(6,1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      #partners [style*="grid-template-columns:repeat(7,1fr)"] {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    @media (max-width: 1024px) {
+      #partners [style*="grid-template-columns:repeat(6,1fr)"] {
+        grid-template-columns: repeat(4, 1fr) !important;
+      }
+      #partners [style*="grid-template-columns:repeat(7,1fr)"] {
+        grid-template-columns: repeat(4, 1fr) !important;
+      }
+    }
+
+    /* VIDEOS PORTRAIT MOBILE */
+    @media (max-width: 768px) {
+      #videos-portrait { grid-template-columns: 1fr; }
+    }
+
+    /* TESTI TRACK MOBILE */
+    @media (max-width: 768px) {
+      .testi-card { min-width: 280px; }
+    }
+
+    /* FAQ MOBILE */
+    @media (max-width: 768px) {
+      #faq .sec { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .faq-btn { padding: 1.4rem 0 !important; }
+      .faq-body p { padding: 0 0 1.4rem !important; }
+      #faq-toggle-btn { padding: 1.4rem 0 !important; }
+    }
+
+    /* PARTENAIRE CTA MOBILE */
+    @media (max-width: 768px) {
+      #partners [style*="padding:5rem"] { padding: 2.5rem 1.5rem !important; }
     }
   </style>
 </head>
@@ -1345,38 +1753,45 @@
   
   <div id="orb"></div>
 
-  <!-- ══════════════════════════════════════════
+  <!-- ===========================================
        NAV
-  ══════════════════════════════════════════ -->
+  =========================================== -->
   <nav id="nav">
     <a href="#" class="nav-logo" style="text-decoration:none;">
-      <!--
-        LOGO PRINCIPAL
-        Fichier : /assets/logo/logo-main.svg
-        Hauteur recommandée : 28–32px
-        Si le logo n'est pas encore dispo, commenter l'img et décommenter le texte
-      -->
       <img src="img/logo/enjoy-logo.png" alt="ENJOYLIFE"
            onerror="this.style.display='none';document.querySelector('.nav-logo-txt').style.display='block';" />
       <span class="nav-logo-txt">Enjoylife</span>
     </a>
-    <div class="nav-r">
-      <a href="#story">Histoire</a>
-      <a href="#hof">Artistes</a>
-      <a href="#experience">L'experience</a>
+    <!-- Burger mobile -->
+    <button id="burger" aria-label="Menu" onclick="toggleMenu()" style="display:none;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;cursor:pointer;padding:.45rem .9rem .45rem .65rem;z-index:600;transition:background .2s,border-color .2s;">
+      <span id="burger-icon" style="display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;width:16px;">
+        <span class="burger-bar" style="width:16px;height:1.5px;background:#fff;transition:transform .3s,opacity .3s;display:block;border-radius:2px;"></span>
+        <span class="burger-bar" style="width:11px;height:1.5px;background:rgba(255,255,255,.6);transition:transform .3s,opacity .3s,width .3s;display:block;border-radius:2px;align-self:flex-start;"></span>
+        <span class="burger-bar" style="width:16px;height:1.5px;background:#fff;transition:transform .3s,opacity .3s;display:block;border-radius:2px;"></span>
+      </span>
+      <span id="burger-label" style="font-family:'SF',sans-serif;font-size:.58rem;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.7);text-transform:uppercase;display:flex;align-items:center;gap:.4rem;">
+        <img src="img/logo/coeur.png" alt="" style="height:14px;width:auto;opacity:.75;filter:brightness(0) invert(1);" onerror="this.style.display='none';" />
+        Menu
+      </span>
+    </button>
+    <div class="nav-r" id="nav-menu">
+      <a href="#artistes">Artistes</a>
+      <a href="#experience">L'expérience</a>
+      <a href="#postcards">Revivez l'édition III</a>
+      <a href="#histoire">Histoire</a>
+      <a href="#partners">Partenaires</a>
       <a href="#faq">FAQ</a>
-      <a href="partenaires/index.html">Partenaires</a>
-      <a href="https://instagram.com/enjoylife.emx" target="_blank" rel="noopener" class="nav-insta-icon" title="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="cta-nav" style="display:inline-flex;align-items:center;gap:.55rem;padding:.55rem 1.4rem;">
+        <img src="img/logo/shotgun.png" alt="Shotgun" style="height:18px;width:auto;filter:brightness(0) invert(1);opacity:.92;" onerror="this.style.display='none';" />
+        <span>Billets</span>
       </a>
-      <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="cta-nav">Billets →</a>
     </div>
   </nav>
 
 
-  <!-- ══════════════════════════════════════════
-       HERO — PLEIN ÉCRAN
-  ══════════════════════════════════════════ -->
+  <!-- ===========================================
+       HERO · PLEIN ÉCRAN
+  =========================================== -->
 
 
   <section id="hero">
@@ -1391,26 +1806,26 @@
       src="https://enjoylife.b-cdn.net/PC-CATIBA2.mp4"
       poster="/assets/img/hero-poster.jpg"
       autoplay muted loop playsinline
-      aria-label="ENJOYLIFE 2027 — vidéo hero">
+      aria-label="ENJOYLIFE 2027 · vidéo hero">
     </video>
 
     <div id="hero-overlay"></div>
 
     <!-- LOGO CENTRÉ -->
-    <div id="hero-logo">
+    <div id="hero-logo" style="margin-bottom:0;padding-bottom:0;">
       <span id="hero-logo-txt" style="display:block;">ENJOYLIFE</span>
-      <span class="hero-tagline">Electronic Music Xperience</span>
-      <div style="margin-top:1.2rem;display:flex;align-items:center;gap:1rem;">
-        <span style="display:inline-flex;align-items:center;gap:.5rem;font-family:'SF',sans-serif;font-weight:500;font-size:.5rem;letter-spacing:.12em;color:#fff;background:rgba(239,68,68,.18);border:1px solid rgba(239,68,68,.45);padding:.45rem 1.1rem;border-radius:999px;">
-          <span style="width:6px;height:6px;border-radius:50%;background:#ef4444;box-shadow:0 0 8px #ef4444;animation:blink 1.5s ease-in-out infinite;flex-shrink:0;"></span>
+      <span class="hero-tagline" style="font-size:.78rem;letter-spacing:.14em;color:rgba(255,255,255,.6);margin-top:.2rem;">Le plus grand show électro de la plaine de l'Ain</span>
+      <div style="margin-top:2.5rem;display:flex;align-items:center;gap:1rem;">
+        <span style="display:inline-flex;align-items:center;gap:.5rem;font-family:'SF',sans-serif;font-weight:600;font-size:.6rem;letter-spacing:.12em;color:#fff;background:rgba(239,68,68,.18);border:1px solid rgba(239,68,68,.45);padding:.55rem 1.3rem;border-radius:999px;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#ef4444;box-shadow:0 0 10px #ef4444;animation:blink 1.5s ease-in-out infinite;flex-shrink:0;"></span>
           Sold out · Édition III 2026
         </span>
-        <span style="font-family:'SF',sans-serif;font-weight:300;font-size:.5rem;letter-spacing:.12em;color:rgba(255,255,255,.35);">IVème édition · 2027</span>
+        <span style="font-family:'SF',sans-serif;font-weight:300;font-size:.6rem;letter-spacing:.12em;color:rgba(255,255,255,.35);">IVème édition · 2027</span>
       </div>
     </div>
 
-    <!-- INFOS BAS — style Coachella -->
-    <div id="hero-bottom">
+    <!-- INFOS BAS · style Coachella -->
+    <div id="hero-bottom" style="padding-bottom:9rem;">
       <div class="hero-info-left">
         <span class="place">Plaine de l'Ain</span>
         <!-- Salle des fêtes de Lagnieu 🤫 -->
@@ -1423,15 +1838,14 @@
         <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="hero-cta">
           Obtenir mes billets <span style="font-size:1.1em;">→</span>
         </a>
-        <p class="hero-cta-sub">Disponible sur Shotgun</p>
       </div>
     </div>
 
     
 
-  <!-- ══════════════════════════════════════════
-       PARTENAIRES MAJEURS — sous le hero, fluide
-  ══════════════════════════════════════════ -->
+  <!-- ===========================================
+       PARTENAIRES MAJEURS · sous le hero, fluide
+  =========================================== -->
   <div id="partners-hero">
     <div class="ph-logo">
       <img src="img/sponsors/cace.png" alt="Crédit Agricole Centre Est" />
@@ -1485,17 +1899,30 @@
 
   <section id="manifesto">
     <!--
-      VIDÉO AFTERMOVIE — fond du manifesto
+      VIDÉO AFTERMOVIE · fond du manifesto
       Fichier : /assets/video/aftermovie.mp4
       Poster  : /assets/img/aftermovie-poster.jpg
     -->
     <div class="manifesto-content">
-      <blockquote class="manifesto-q rev d1">
-        Depuis 2016, quelque chose<br/>naît ici. Chaque nuit.<br/>
-        <em>Inexplicable.</em>
+      <!-- Coeur ENJOYLIFE -->
+      <div class="rev" style="margin-bottom:2rem;display:flex;justify-content:center;">
+        <img src="img/logo/coeur.png" alt="♥" style="height:54px;width:auto;opacity:.85;filter:drop-shadow(0 0 18px rgba(129,140,248,.55));animation:coeurPulse 2.8s ease-in-out infinite;" onerror="this.style.display='none'" />
+      </div>
+      <blockquote class="manifesto-q rev d1 manifesto-anim">
+        <span class="manifesto-word">Depuis</span>
+        <span class="manifesto-word">2016,</span>
+        <span class="manifesto-word">quelque</span>
+        <span class="manifesto-word">chose</span>
+        <br/>
+        <span class="manifesto-word">naît</span>
+        <span class="manifesto-word">ici.</span>
+        <span class="manifesto-word">Chaque</span>
+        <span class="manifesto-word">nuit.</span>
+        <br/>
+        <em><span class="manifesto-word manifesto-word-em">Inexplicable.</span></em>
       </blockquote>
       <p class="rev d2" style="margin-top:2.5rem;font-size:.55rem;letter-spacing:.04em;text-transform:none;color:rgba(255,255,255,.16);">
-        ENJOYLIFE · 2016 — 2027
+        ENJOYLIFE · 2016 · 2027
       </p>
     </div>
   </section>
@@ -1517,7 +1944,7 @@
         <div class="pc-overlay"></div>
         <div class="pc-grain"></div>
         <span class="pc-num">01 / 06</span>
-        <span class="pc-time">23:00</span>
+        <span class="pc-time">22:00</span>
         <div class="pc-content">
           <div class="pc-label">
             <strong>L'immersion</strong>
@@ -1532,7 +1959,7 @@
         <div class="pc-overlay"></div>
         <div class="pc-grain"></div>
         <span class="pc-num">02 / 06</span>
-        <span class="pc-time">00:12</span>
+        <span class="pc-time">22:30</span>
         <div class="pc-content">
           <div class="pc-label">
             <strong>La foule</strong>
@@ -1547,7 +1974,7 @@
         <div class="pc-overlay"></div>
         <div class="pc-grain"></div>
         <span class="pc-num">03 / 06</span>
-        <span class="pc-time">01:30</span>
+        <span class="pc-time">23:00</span>
         <div class="pc-content">
           <div class="pc-label">
             <strong>La nuit commence</strong>
@@ -1562,7 +1989,7 @@
         <div class="pc-overlay"></div>
         <div class="pc-grain"></div>
         <span class="pc-num">04 / 06</span>
-        <span class="pc-time">02:45</span>
+        <span class="pc-time">00:30</span>
         <div class="pc-content">
           <div class="pc-label">
             <strong>Jast on stage</strong>
@@ -1577,7 +2004,7 @@
         <div class="pc-overlay"></div>
         <div class="pc-grain"></div>
         <span class="pc-num">05 / 06</span>
-        <span class="pc-time">04:00</span>
+        <span class="pc-time">23:30</span>
         <div class="pc-content">
           <div class="pc-label">
             <strong>Catiba</strong>
@@ -1592,7 +2019,7 @@
         <div class="pc-overlay"></div>
         <div class="pc-grain"></div>
         <span class="pc-num">06 / 06</span>
-        <span class="pc-time">05:50</span>
+        <span class="pc-time">01:45</span>
         <div class="pc-content">
           <div class="pc-label">
             <strong>La fin de nuit</strong>
@@ -1607,34 +2034,45 @@
 
   <div class="sep-gradient"></div>
 
-  <!-- ══════════════════════════════════════════
+  <!-- ===========================================
        STATS
-  ══════════════════════════════════════════ -->
+  =========================================== -->
 
   <div class="sec" style="padding-bottom:0;">
     <div class="stats-row rev">
       <div class="stat-c">
-        <div class="stat-n">III<span style="font-size:.4em;opacity:.3;font-family:'SF',sans-serif;-webkit-text-fill-color:rgba(255,255,255,.3);"> / III</span></div>
-        <p class="stat-l">Éditions · 100% sold out</p>
+        <div class="stat-n">3 <span style="font-size:.38em;opacity:.28;font-family:'SF',sans-serif;-webkit-text-fill-color:rgba(255,255,255,.28);">/ 3</span></div>
+        <p class="stat-l">Éditions sold out · Sans exception</p>
       </div>
       <div class="stat-c rev d1">
-        <div class="stat-n">∞</div>
-        <p class="stat-l">Nuits qui ne s'oublient pas</p>
+        <div class="stat-n" style="font-size:clamp(1.6rem,3.5vw,3.5rem);letter-spacing:-.02em;">+4 000</div>
+        <p class="stat-l">Festivaliers accueillis · Sur les 3 éditions</p>
       </div>
-      <div class="stat-c rev d2">
-        <div class="stat-n" style="font-size:clamp(1.4rem,2.8vw,2.8rem);-webkit-text-fill-color:#fff;background:none;letter-spacing:.02em;">2027</div>
-        <p class="stat-l">La prochaine nuit · Ain, France</p>
+      <div class="stat-c rev d2" style="position:relative;overflow:hidden;">
+        <!-- Compteur mystère 2027 -->
+        <div id="countdown-wrap" style="display:flex;flex-direction:column;gap:.5rem;">
+          <div style="display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;">
+            <span id="cnt-val" style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(2rem,3.5vw,3.8rem);line-height:1;letter-spacing:-.03em;background:linear-gradient(135deg,#818cf8,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">2027</span>
+            <span style="font-family:'SF',sans-serif;font-size:.55rem;letter-spacing:.08em;color:rgba(255,255,255,.2);" id="cnt-unit"></span>
+          </div>
+          <div style="display:flex;align-items:center;gap:.5rem;margin-top:.2rem;">
+            <span style="width:5px;height:5px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c);animation:blink 1.5s ease-in-out infinite;flex-shrink:0;"></span>
+            <span style="font-family:'SF',sans-serif;font-size:.52rem;letter-spacing:.06em;color:rgba(255,255,255,.25);" id="cnt-label">Date à révéler · Plaine de l'Ain</span>
+          </div>
+        </div>
+        <!-- Glow discret -->
+        <div style="position:absolute;right:-1rem;top:50%;transform:translateY(-50%);width:120px;height:120px;background:radial-gradient(circle,rgba(129,140,248,.08) 0%,transparent 70%);pointer-events:none;"></div>
       </div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       STORYTELLING — L'HISTOIRE ENJOYLIFE
-  ══════════════════════════════════════════ -->
+  <!-- ===========================================
+       STORYTELLING · L'HISTOIRE ENJOYLIFE
+  =========================================== -->
 
   <div class="sep-gradient"></div>
 
-  <section id="hof">
+  <section id="artistes">
     <div class="hof-header rev">
       <div>
         <p class="lbl" style="margin-bottom:1.5rem;">Avant tout le monde</p>
@@ -1642,33 +2080,28 @@
           Ils ont joué ici<br/>avant de conquérir le monde.
         </h2>
         <p class="hof-intro">
-          Chaque édition, ENJOYLIFE révèle ce que les autres n'ont pas encore vu. Ces artistes étaient sur notre scène quand personne ne les connaissait encore. Aujourd'hui, ils font Berghain, Printworks, Tomorrowland. La suite ? Elle se joue en 2027.
+          Chaque édition, ENJOYLIFE révèle ce que les autres n'ont pas encore vu. Ces artistes étaient sur notre scène avant leur explosion mondiale. Aujourd'hui, ils font les plus gros festivals de la planète : Ultra Music Festival, Tomorrowland… La suite ? Elle se joue en 2027.
         </p>
       </div>
     </div>
 
     <!--
-      GRILLE HALL OF FAME — style UNVRS
+      GRILLE HALL OF FAME · style UNVRS
       Photos : /assets/img/artists/
       Format idéal : paysage 2400×1200px, photos live ou portrait artistique
     -->
     <div class="hof-grid rev d1">
 
-      <!-- TONY ROMERA — large -->
+      <!-- TONY ROMERA · large -->
       <div class="hof-card wide">
         <div class="ratio-l">
-          <!--
-            PHOTO : /assets/img/artists/tony-romera.jpg
-            Format paysage 2400×900px recommandé
-          -->
           <div class="hof-placeholder"><span class="hof-placeholder-letter">TR</span></div>
           <img src="https://enjoylife.b-cdn.net/TONYROMERA.jpg" alt="Tony Romera" loading="lazy" />
           <div class="hof-overlay"></div>
           <span class="hof-badge">Légende ✦</span>
           <div class="hof-content">
-            <span class="hof-edition">ENJOYLIFE Alumni</span>
             <p class="hof-name">Tony Romera</p>
-            <span class="hof-handle">@tonyromera</span>
+            <a href="https://instagram.com/tonyromera" target="_blank" rel="noopener" class="hof-handle hof-handle-link">@tonyromera</a>
           </div>
         </div>
       </div>
@@ -1676,17 +2109,13 @@
       <!-- ODYMEL -->
       <div class="hof-card">
         <div class="ratio-l">
-          <!--
-            PHOTO : /assets/img/artists/odymel.jpg
-          -->
           <div class="hof-placeholder"><span class="hof-placeholder-letter">OD</span></div>
           <img src="https://enjoylife.b-cdn.net/ODYMEL.jpg" alt="Odymel" loading="lazy" />
           <div class="hof-overlay"></div>
           <span class="hof-badge">Légende ✦</span>
           <div class="hof-content">
-            <span class="hof-edition">ENJOYLIFE Alumni</span>
             <p class="hof-name">Odymel</p>
-            <span class="hof-handle">@odymel</span>
+            <a href="https://instagram.com/odymel__" target="_blank" rel="noopener" class="hof-handle hof-handle-link">@odymel__</a>
           </div>
         </div>
       </div>
@@ -1694,35 +2123,27 @@
       <!-- JAST -->
       <div class="hof-card">
         <div class="ratio-l">
-          <!--
-            PHOTO : /assets/img/artists/jast.jpg
-          -->
           <div class="hof-placeholder"><span class="hof-placeholder-letter">JA</span></div>
           <img src="https://enjoylife.b-cdn.net/JAST.jpg" alt="Jast" loading="lazy" />
           <div class="hof-overlay"></div>
           <span class="hof-badge">Légende ✦</span>
           <div class="hof-content">
-            <span class="hof-edition">ENJOYLIFE Alumni</span>
             <p class="hof-name">Jast</p>
-            <span class="hof-handle">@jast</span>
+            <a href="https://instagram.com/jastprod" target="_blank" rel="noopener" class="hof-handle hof-handle-link">@jastprod</a>
           </div>
         </div>
       </div>
 
-      <!-- RIVO — large -->
+      <!-- RIVO · large -->
       <div class="hof-card wide">
         <div class="ratio-l">
-          <!--
-            PHOTO : /assets/img/artists/rivo.jpg
-          -->
           <div class="hof-placeholder"><span class="hof-placeholder-letter">RI</span></div>
           <img src="https://enjoylife.b-cdn.net/RIVO.jpg" alt="Rivo" loading="lazy" />
           <div class="hof-overlay"></div>
           <span class="hof-badge">Légende ✦</span>
           <div class="hof-content">
-            <span class="hof-edition">ENJOYLIFE Alumni</span>
             <p class="hof-name">Rivo</p>
-            <span class="hof-handle">@rivo</span>
+            <a href="https://instagram.com/rivo" target="_blank" rel="noopener" class="hof-handle hof-handle-link">@rivo</a>
           </div>
         </div>
       </div>
@@ -1814,27 +2235,27 @@
 
   <div class="sep-gradient"></div>
 
-  <section id="story">
+  <section id="histoire">
     <div class="story-header rev">
       <p class="lbl" style="margin-bottom:1.5rem;">Notre histoire</p>
-      <h2 class="ff" style="font-size:clamp(2.5rem,5vw,4.5rem);line-height:.93;letter-spacing:-.02em;">
-        Tout a commencé<br/>dans l'Ain.
+      <h2 class="ff" style="font-size:clamp(2.2rem,4.5vw,4rem);line-height:.93;letter-spacing:-.02em;">
+        Tout a commencé<br/>dans la plaine de l'Ain.
       </h2>
     </div>
 
     <div class="story-grid rev d1">
 
-      <!-- ÉDITION I — 2016 -->
+      <!-- ÉDITION I · 2016 -->
       <div class="story-card">
         <span class="story-year">2016</span>
         <span class="story-edition">Édition I</span>
         <p class="story-text">
-          <strong>Une première. Sans précédent.</strong> Personne ne savait ce que c'était. Quelques centaines de personnes, un son, une idée. L'Ain découvre la techno immersive.
+          <strong>Une première. Sans précédent.</strong> Personne ne savait ce que c'était. Déjà plus de 1 000 personnes, un son, une idée. L'Ain découvre un show électro inédit.
         </p>
         <span class="story-sold">Complet</span>
       </div>
 
-      <!-- ÉDITION II — 2017 -->
+      <!-- ÉDITION II · 2017 -->
       <div class="story-card">
         <span class="story-year">2017</span>
         <span class="story-edition">Édition II</span>
@@ -1844,21 +2265,21 @@
         <span class="story-sold">Complet</span>
       </div>
 
-      <!-- GAP — la pause -->
+      <!-- GAP · la pause -->
       <div class="story-card" style="background:rgba(255,255,255,.01);">
-        <span class="story-year" style="-webkit-text-stroke:1px rgba(255,255,255,.06);">—</span>
+        <span class="story-year" style="-webkit-text-stroke:1px rgba(255,255,255,.06);">·</span>
         <span class="story-edition" style="color:rgba(255,255,255,.2);">La pause</span>
         <p class="story-text" style="color:rgba(255,255,255,.3);">
           Quelques années de silence. Pas d'abandon. Une construction. Chaque grande histoire a ses coulisses.
         </p>
       </div>
 
-      <!-- ÉDITION III — 2026 -->
+      <!-- ÉDITION III · 2026 -->
       <div class="story-card">
         <span class="story-year">2026</span>
         <span class="story-edition">Édition III</span>
         <p class="story-text">
-          <strong>Le retour qui confirme tout.</strong> ENJOYLIFE revient plus fort, plus grand, plus intense. Tony Romera, Odymel, Rivo, Jast : des noms qui font désormais les grandes scènes. Ils étaient là avant.
+          <strong>Le retour qui confirme tout.</strong> ENJOYLIFE revient plus fort, plus intense. Jast en tête d'affiche, complet 24h avant l'ouverture des portes.
         </p>
         <span class="story-sold">Complet</span>
       </div>
@@ -1870,68 +2291,63 @@
 
   <section id="experience" class="sec" style="padding-top:0;">
     <div class="rev" style="margin-bottom:5rem;">
-      <p class="lbl" style="margin-bottom:1.5rem;">L'experience</p>
-      <h2 style="font-family:'SF',sans-serif;font-weight:700;text-transform:none;font-size:clamp(2rem,4vw,3.8rem);line-height:.95;letter-spacing:-.02em;color:#fff;">
-        Tout est conçu<br/>pour vous perdre.
+      <p class="lbl" style="margin-bottom:1.5rem;">L'expérience</p>
+      <h2 class="ff" style="font-size:clamp(2.2rem,4.5vw,4rem);line-height:.93;letter-spacing:-.02em;">
+        Rien n'est laissé<br/>au hasard.
       </h2>
     </div>
 
-    <!-- EXPÉRIENCE REDESIGN — Grille visuelle 2×2 avec grands blocs immersifs -->
     <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:3px;">
 
-      <!-- 01 — Scénographie — grand bloc à gauche -->
+      <!-- 01 · Scénographie immersive -->
       <div class="exp-card rev" style="position:relative;overflow:hidden;min-height:400px;background:linear-gradient(135deg,#0a0a14 0%,#0d0d1a 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3.5rem;grid-row:span 1;">
-        <!-- Background ambiance -->
         <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(99,102,241,.18) 0%,transparent 65%);pointer-events:none;"></div>
-        <!-- Big number bg -->
         <span style="position:absolute;top:-1rem;right:-1rem;font-family:'SF',sans-serif;font-size:11rem;font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(129,140,248,.07);line-height:1;pointer-events:none;user-select:none;">01</span>
-        <!-- Icon -->
         <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(99,102,241,.25),rgba(168,85,247,.12));border:1px solid rgba(99,102,241,.3);display:flex;align-items:center;justify-content:center;margin-bottom:2rem;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(129,140,248,.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12,2 2,7 12,12 22,7"/><polyline points="2,17 12,22 22,17"/><polyline points="2,12 12,17 22,12"/></svg>
         </div>
-        <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.12em;color:rgba(129,140,248,.7);display:block;margin-bottom:.8rem;">01 — SCÉNOGRAPHIE</span>
-        <h3 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.5vw,2.2rem);color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:1.2rem;">Des univers,<br/>pas une scène.</h3>
-        <p style="font-size:.72rem;line-height:1.85;color:rgba(255,255,255,.5);font-weight:300;max-width:380px;">Des structures qui transforment le site en territoire autre. Chaque scène est un monde autonome. On ne décore pas, on construit des univers.</p>
-        <!-- Gradient bottom line -->
+        <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.12em;color:rgba(129,140,248,.7);display:block;margin-bottom:.8rem;">SCÉNOGRAPHIE</span>
+        <h3 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.5vw,2.2rem);color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:1.2rem;">Des univers conçus<br/>par les meilleurs.</h3>
+        <p style="font-size:.72rem;line-height:1.85;color:rgba(255,255,255,.5);font-weight:300;max-width:380px;">Scénographies inédites et immersives, pensées avec les meilleurs scénographes français. De la porte d'entrée jusqu'à la scène, chaque détail est calculé. On ne décore pas, on transforme.</p>
         <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#6366f1,transparent);"></div>
       </div>
 
-      <!-- 02 — Lumière -->
+      <!-- 02 · DJ futur têtes d'affiche -->
       <div class="exp-card rev d1" style="position:relative;overflow:hidden;min-height:400px;background:linear-gradient(135deg,#0d0a14 0%,#120a1a 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3.5rem;">
         <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(168,85,247,.15) 0%,transparent 65%);pointer-events:none;"></div>
         <span style="position:absolute;top:-1rem;right:-1rem;font-family:'SF',sans-serif;font-size:11rem;font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(168,85,247,.07);line-height:1;pointer-events:none;user-select:none;">02</span>
         <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(168,85,247,.22),rgba(99,102,241,.1));border:1px solid rgba(168,85,247,.3);display:flex;align-items:center;justify-content:center;margin-bottom:2rem;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(168,85,247,.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(168,85,247,.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
         </div>
-        <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.12em;color:rgba(168,85,247,.7);display:block;margin-bottom:.8rem;">02 — LUMIÈRE</span>
-        <h3 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.5vw,2.2rem);color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:1.2rem;">Le laser joue<br/>avec le son.</h3>
-        <p style="font-size:.72rem;line-height:1.85;color:rgba(255,255,255,.5);font-weight:300;">Rigs laser synchronisés avec chaque kick, chaque drop, chaque silence. La lumière n'accompagne pas, elle joue avec le son.</p>
+        <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.12em;color:rgba(168,85,247,.7);display:block;margin-bottom:.8rem;">LINE-UP</span>
+        <h3 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.5vw,2.2rem);color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:1.2rem;">Les stars mondiales<br/>de demain, ce soir.</h3>
+        <p style="font-size:.72rem;line-height:1.85;color:rgba(255,255,255,.5);font-weight:300;">C'est notre ADN : révéler les artistes avant leur explosion. Tony Romera, Odymel, Rivo, Jast, ils étaient sur notre scène en premiers. Aujourd'hui ils font Ultra Music Festival et Tomorrowland.</p>
         <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#a855f7,transparent);"></div>
       </div>
 
-      <!-- 03 — Son -->
+      <!-- 03 · Le détail parfait -->
       <div class="exp-card rev d2" style="position:relative;overflow:hidden;min-height:360px;background:linear-gradient(135deg,#0a0d14 0%,#0a1014 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3.5rem;">
         <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 30%,rgba(99,102,241,.12) 0%,transparent 65%);pointer-events:none;"></div>
         <span style="position:absolute;top:-1rem;right:-1rem;font-family:'SF',sans-serif;font-size:11rem;font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(99,102,241,.06);line-height:1;pointer-events:none;user-select:none;">03</span>
         <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(99,102,241,.2),rgba(168,85,247,.08));border:1px solid rgba(99,102,241,.28);display:flex;align-items:center;justify-content:center;margin-bottom:2rem;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(129,140,248,.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(129,140,248,.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
         </div>
-        <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.12em;color:rgba(129,140,248,.7);display:block;margin-bottom:.8rem;">03 — SON</span>
-        <h3 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.5vw,2.2rem);color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:1.2rem;">360° dans<br/>les os.</h3>
-        <p style="font-size:.72rem;line-height:1.85;color:rgba(255,255,255,.5);font-weight:300;">Un enveloppement 360° pensé pour que chaque fréquence se ressente dans les os, pas seulement dans les oreilles.</p>
+        <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.12em;color:rgba(129,140,248,.7);display:block;margin-bottom:.8rem;">INFRASTRUCTURE</span>
+        <h3 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.5vw,2.2rem);color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:1.2rem;">La Plaine de l'Ain<br/>au niveau mondial.</h3>
+        <p style="font-size:.72rem;line-height:1.85;color:rgba(255,255,255,.5);font-weight:300;">On transforme les salles de la Plaine de l'Ain en infrastructure digne des plus grands shows électro de Lyon. Son 360°, rigs laser synchronisés, contrôle total, dès la porte d'accès.</p>
         <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#818cf8,transparent);"></div>
       </div>
 
-      <!-- 04 — Énergie -->
+      <!-- 04 · Communauté -->
       <div class="exp-card rev d3" style="position:relative;overflow:hidden;min-height:360px;background:linear-gradient(135deg,#0f0a14 0%,#130a1a 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:3.5rem;">
         <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 70%,rgba(168,85,247,.14) 0%,transparent 65%);pointer-events:none;"></div>
         <span style="position:absolute;top:-1rem;right:-1rem;font-family:'SF',sans-serif;font-size:11rem;font-weight:900;color:transparent;-webkit-text-stroke:1px rgba(168,85,247,.07);line-height:1;pointer-events:none;user-select:none;">04</span>
         <div style="width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(168,85,247,.22),rgba(99,102,241,.08));border:1px solid rgba(168,85,247,.28);display:flex;align-items:center;justify-content:center;margin-bottom:2rem;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(168,85,247,.9)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.12em;color:rgba(168,85,247,.7);display:block;margin-bottom:.8rem;">04 — ÉNERGIE</span>
-        <h3 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.5vw,2.2rem);color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:1.2rem;">Une communauté,<br/>pas une foule.</h3>
-        <p style="font-size:.72rem;line-height:1.85;color:rgba(255,255,255,.5);font-weight:300;">Pas une foule. Une communauté. Construite sur des années de confiance et d'amour du son. Ici, les gens se reconnaissent.</p>
+        <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.12em;color:rgba(168,85,247,.7);display:block;margin-bottom:.8rem;">COMMUNAUTÉ</span>
+        <h3 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(1.4rem,2.5vw,2.2rem);color:#fff;letter-spacing:-.02em;line-height:1;margin-bottom:1.2rem;">Ultra bienveillante,<br/>30–35 ans.</h3>
+        <p style="font-size:.72rem;line-height:1.85;color:rgba(255,255,255,.5);font-weight:300;">Une communauté mature, bienveillante, avec une moyenne d'âge de 30–35 ans. Tout le monde se retrouve ici. Une sécurité rigoureuse pour garantir une ambiance exceptionnelle, dès l'entrée.</p>
         <div style="position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#a855f7,transparent);"></div>
       </div>
 
@@ -1943,7 +2359,7 @@
   <section id="testimonials">
     <div class="rev" style="margin-bottom:0;">
       <p class="lbl" style="margin-bottom:1.5rem;">Ils y étaient</p>
-      <h2 style="font-family:'SF',sans-serif;font-weight:700;text-transform:none;font-size:clamp(2rem,4vw,3.5rem);line-height:.95;letter-spacing:-.02em;color:#fff;">
+      <h2 class="ff" style="font-size:clamp(2.2rem,4.5vw,4rem);line-height:.93;letter-spacing:-.02em;">
         Les mots<br/>qu'on n'invente pas.
       </h2>
     </div>
@@ -2084,16 +2500,28 @@
             <span class="lieu-coord-value">Ain · France</span>
           </div>
         </div>
-        <span class="lieu-badge">Lieu bientot annonce</span>
+        <span class="lieu-badge">Lieu bientôt annoncé</span>
       </div>
       <div class="lieu-body">
-        <div class="lieu-coords-bg">Plaine<br/>de l'Ain<br/>2027</div>
-        <div class="lieu-right">
-          <h2 class="lieu-title">Le prochain lieu<br/>reste un secret.</h2>
-          <p class="lieu-text">
-            Chaque edition, un nouveau terrain. Une nouvelle architecture. Une nouvelle façon de vivre le son. ENJOYLIFE IV aura son propre territoire, annonce en temps voulu.<br/><br/>
-            Ce qu'on peut dire : il sera dans l'Ain. Il sera grand. Et il vous surprendra.
+        <!-- Texte géant en fond -->
+        <div style="position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;padding:4rem 3rem;overflow:hidden;min-height:280px;">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(99,102,241,.08) 0%,transparent 70%);pointer-events:none;"></div>
+          <!-- Gros texte fond -->
+          <span style="position:absolute;right:-2rem;bottom:-2rem;font-family:'SF',sans-serif;font-weight:900;font-size:clamp(5rem,14vw,12rem);color:transparent;-webkit-text-stroke:1px rgba(129,140,248,.06);line-height:1;pointer-events:none;user-select:none;white-space:nowrap;">2027</span>
+          <p style="font-family:'SF',sans-serif;font-size:.52rem;letter-spacing:.14em;color:var(--c);opacity:.7;margin-bottom:1.5rem;">ENJOYLIFE IV · 2027</p>
+          <h2 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(2rem,4.5vw,4rem);line-height:.95;letter-spacing:-.025em;color:#fff;margin-bottom:2rem;">Plaine de l'Ain.<br/>Un lieu.<br/>Une nuit.</h2>
+          <p style="font-size:.72rem;line-height:1.9;color:rgba(255,255,255,.42);max-width:420px;font-weight:300;">
+            Chaque édition, un nouveau territoire. ENJOYLIFE IV aura son propre espace, annoncé en temps voulu. Ce qu'on peut dire : il sera dans la Plaine de l'Ain. Il sera grand. Et il vous surprendra.
           </p>
+          <div style="margin-top:2.5rem;display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;">
+            <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener"
+               style="display:inline-flex;align-items:center;gap:.7rem;font-family:'SF',sans-serif;font-weight:700;font-size:.65rem;letter-spacing:.06em;color:#fff;background:linear-gradient(135deg,#6366f1,#a855f7);padding:.85rem 2rem;border-radius:999px;text-decoration:none;box-shadow:0 0 28px rgba(99,102,241,.4);transition:box-shadow .3s,transform .2s;"
+               onmouseover="this.style.boxShadow='0 0 48px rgba(99,102,241,.65)';this.style.transform='scale(1.04)'"
+               onmouseout="this.style.boxShadow='0 0 28px rgba(99,102,241,.4)';this.style.transform=''">
+              Être alerté →
+            </a>
+            <span style="font-family:'SF',sans-serif;font-size:.55rem;letter-spacing:.06em;color:rgba(255,255,255,.22);">Inscrivez-vous, annonce imminente</span>
+          </div>
         </div>
       </div>
     </div>
@@ -2105,8 +2533,12 @@
     <p class="lbl rev" style="margin-bottom:2rem;">Billetterie</p>
     <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="ticket-block rev">
       <div class="ticket-left">
-        <h2 class="ticket-title">La IV<sup style="font-size:.45em;vertical-align:super;opacity:.6;">ème</sup><br/>commence ici.</h2>
-        <span class="ticket-sub">Billets disponibles sur Shotgun · III / III sold out</span>
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.6rem;">
+          <img src="img/logo/shotgun.png" alt="Shotgun" style="height:28px;width:auto;filter:brightness(0) invert(1);opacity:.55;" onerror="this.style.display='none';" />
+          <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.1em;color:rgba(255,255,255,.3);">Billetterie officielle</span>
+        </div>
+        <h2 class="ticket-title">ENJOYLIFE 2027<br/><span style="font-size:.55em;font-weight:300;opacity:.55;letter-spacing:.04em;">4ème édition</span></h2>
+        <span class="ticket-sub">Disponible sur Shotgun · 3 éditions sold out sur 3</span>
         <span class="ticket-platform">shotgun.live/fr/venues/enjoylife-emx</span>
       </div>
       <div class="ticket-arrow">
@@ -2243,7 +2675,7 @@
     <div class="sep-line rev"></div>
 
     <!-- MÉCÈNES + TECHNIQUES + MÉDIAS -->
-    <div class="rev d2" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;margin-bottom:4rem;">
+    <div class="rev d2" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3rem;margin-bottom:4rem;justify-items:center;">
       <div>
         <span class="tier-lbl" style="text-align:left;">Mecenes &amp; Institutions</span>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem;">
@@ -2295,199 +2727,378 @@
 
     <!-- CTA PARTENAIRE -->
     <div class="rev" style="margin-top:2rem;">
-      <a href="partenaires/index.html"
-         style="display:flex;align-items:center;justify-content:space-between;padding:4rem 5rem;border:1px solid var(--br);text-decoration:none;position:relative;overflow:hidden;transition:border-color .3s;"
-         onmouseover="this.style.borderColor='rgba(129,140,248,.3)'"
-         onmouseout="this.style.borderColor='var(--br)'">
-        <div>
-          <p style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.04em;text-transform:none;color:var(--c);opacity:.65;margin-bottom:1.2rem;">Partnership</p>
-          <h2 style="font-family:'SF',sans-serif;font-weight:400;text-transform:none;font-size:clamp(1.6rem,3vw,2.8rem);line-height:1.05;letter-spacing:.02em;color:#fff;">Votre marque,<br/>dans la legende.</h2>
-          <p style="font-family:'SF',sans-serif;font-size:.62rem;color:rgba(255,255,255,.28);margin-top:1rem;letter-spacing:.06em;">100% des partenaires confirmes pour 2027 · Places limitees</p>
+      <div style="position:relative;overflow:hidden;background:linear-gradient(135deg,#0a0a14 0%,#0e0a18 60%,#130a1a 100%);border:1px solid rgba(129,140,248,.15);padding:5rem;">
+        <!-- Glow bg -->
+        <div style="position:absolute;top:0;right:0;width:420px;height:420px;background:radial-gradient(ellipse,rgba(168,85,247,.12) 0%,transparent 70%);pointer-events:none;"></div>
+        <!-- Gradient ligne haut -->
+        <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(168,85,247,.5),rgba(99,102,241,.5),transparent);"></div>
+        <!-- Big text bg -->
+        <span style="position:absolute;right:-3rem;bottom:-3rem;font-family:'SF',sans-serif;font-weight:900;font-size:14rem;color:transparent;-webkit-text-stroke:1px rgba(129,140,248,.04);line-height:1;pointer-events:none;user-select:none;white-space:nowrap;">PARTNER</span>
+
+        <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:4rem;flex-wrap:wrap;">
+          <div style="max-width:520px;">
+            <div style="display:inline-flex;align-items:center;gap:.6rem;margin-bottom:2rem;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.25);padding:.5rem 1.2rem;border-radius:999px;">
+              <span style="width:6px;height:6px;border-radius:50%;background:rgba(168,85,247,.9);box-shadow:0 0 8px rgba(168,85,247,.6);"></span>
+              <span style="font-family:'SF',sans-serif;font-size:.48rem;letter-spacing:.12em;color:rgba(168,85,247,.85);">Partenariats 2027 · Places limitées</span>
+            </div>
+            <h2 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,3rem);line-height:.95;letter-spacing:-.025em;color:#fff;margin-bottom:1.4rem;">Votre marque<br/>dans la légende.</h2>
+            <p style="font-size:.72rem;line-height:1.9;color:rgba(255,255,255,.38);font-weight:300;max-width:400px;">100% de nos partenaires ont confirmé leur retour pour 2027, spontanément, sans qu'on leur demande. Une audience engagée, premium, 30–35 ans.</p>
+          </div>
+          <a href="partenaires/index.html"
+             style="display:inline-flex;align-items:center;gap:.8rem;font-family:'SF',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.06em;color:#fff;border:1px solid rgba(168,85,247,.45);padding:1.1rem 2.4rem;text-decoration:none;transition:background .3s,border-color .3s,box-shadow .3s;white-space:nowrap;flex-shrink:0;"
+             onmouseover="this.style.background='rgba(168,85,247,.15)';this.style.borderColor='rgba(168,85,247,.7)';this.style.boxShadow='0 0 40px rgba(168,85,247,.25)'"
+             onmouseout="this.style.background='';this.style.borderColor='rgba(168,85,247,.45)';this.style.boxShadow=''">
+            Devenir partenaire
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
-        <div style="width:72px;height:72px;border-radius:50%;border:1px solid rgba(129,140,248,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(129,140,248,.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </div>
-      </a>
+      </div>
     </div>
 
   </section>
 
   <div class="sep-gradient"></div>
 
-  <section id="faq" class="sec" style="padding-top:0;">
-    <p class="lbl rev" style="margin-bottom:4rem;">FAQ</p>
-
-    <div class="faq-i rev">
-      <button class="faq-btn" onclick="faqT(this)">
-        <span class="faq-q">Quand et où aura lieu ENJOYLIFE 2027 ?</span>
-        <span class="faq-ic">+</span>
-      </button>
-      <div class="faq-body">
-        <p>Date et lieu exacts annoncés prochainement. Les éditions précédentes se sont déroulées autour d'Ambérieu-en-Bugey et Villieu-Loyes-Mollon dans l'Ain. Suivez <strong style="color:#fff;">@enjoylife.emx</strong> et activez vos notifications Shotgun pour être parmi les premiers informés.</p>
-      </div>
+  <section id="faq" class="sec" style="padding-top:6rem;">
+    <div class="rev" style="margin-bottom:5rem;">
+      <p class="lbl" style="margin-bottom:1.5rem;">Questions fréquentes</p>
+      <h2 class="ff" style="font-size:clamp(3rem,6vw,6rem);line-height:.93;letter-spacing:-.02em;">FAQ</h2>
     </div>
 
-    <div class="faq-i rev">
-      <button class="faq-btn" onclick="faqT(this)">
-        <span class="faq-q">Comment obtenir des billets ?</span>
-        <span class="faq-ic">+</span>
-      </button>
-      <div class="faq-body">
-        <p>Les billets sont disponibles exclusivement sur <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank">Shotgun</a>. Compte tenu des sold out successifs, nous recommandons fortement d'activer les notifications dès maintenant pour ne pas rater l'ouverture de la billetterie.</p>
+    <div style="border:1px solid var(--br);overflow:hidden;">
+
+      <!-- == 5 QUESTIONS PRINCIPALES toujours visibles == -->
+      <div class="faq-i rev" style="border-bottom:1px solid var(--br);border-top:none;">
+        <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+          <span class="faq-q" style="font-size:.88rem;font-weight:500;">Quand et où aura lieu ENJOYLIFE 2027 ?</span>
+          <span class="faq-ic">+</span>
+        </button>
+        <div class="faq-body">
+          <p style="padding:0 2.5rem 2rem;">Date et lieu exacts annoncés prochainement. Les éditions précédentes se sont déroulées autour d'Ambérieu-en-Bugey et Villieu-Loyes-Mollon dans l'Ain. Suivez <strong style="color:#fff;">@enjoylife.emx</strong> et activez vos notifications Shotgun pour être parmi les premiers informés.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="faq-i rev">
-      <button class="faq-btn" onclick="faqT(this)">
-        <span class="faq-q">Quels artistes seront au line-up 2027 ?</span>
-        <span class="faq-ic">+</span>
-      </button>
-      <div class="faq-body">
-        <p>Le line-up sera révélé progressivement. Ce qu'on peut dire : ENJOYLIFE a toujours misé sur des artistes en avance sur leur temps. Tony Romera, Odymel, Rivo, Jast y étaient avant de devenir des superstars. L'édition IV ne fera pas exception.</p>
+      <div class="faq-i rev" style="border-bottom:1px solid var(--br);">
+        <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+          <span class="faq-q" style="font-size:.88rem;font-weight:500;">Comment obtenir des billets ?</span>
+          <span class="faq-ic">+</span>
+        </button>
+        <div class="faq-body">
+          <p style="padding:0 2.5rem 2rem;">Les billets sont disponibles exclusivement sur <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank">Shotgun</a>. Compte tenu des sold out successifs, activez les notifications dès maintenant pour ne pas rater l'ouverture de la billetterie. Les prix sont communiqués à l'ouverture de chaque vague.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="faq-i rev">
-      <button class="faq-btn" onclick="faqT(this)">
-        <span class="faq-q">Y a-t-il un camping ou des navettes ?</span>
-        <span class="faq-ic">+</span>
-      </button>
-      <div class="faq-body">
-        <p>Les informations pratiques (camping, hébergements partenaires, navettes) seront communiquées avec l'annonce officielle. Nos éditions précédentes proposaient plusieurs formules pour faciliter votre venue.</p>
+      <div class="faq-i rev" style="border-bottom:1px solid var(--br);">
+        <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+          <span class="faq-q" style="font-size:.88rem;font-weight:500;">Quels artistes seront au line-up 2027 ?</span>
+          <span class="faq-ic">+</span>
+        </button>
+        <div class="faq-body">
+          <p style="padding:0 2.5rem 2rem;">Le line-up sera révélé progressivement. Ce qu'on peut dire : ENJOYLIFE mise toujours sur des artistes en avance sur leur temps. Tony Romera, Odymel, Rivo, Jast y étaient avant de devenir des superstars mondiales. L'édition IV ne fera pas exception.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="faq-i rev">
-      <button class="faq-btn" onclick="faqT(this)">
-        <span class="faq-q">Comment devenir partenaire de ENJOYLIFE ?</span>
-        <span class="faq-ic">+</span>
-      </button>
-      <div class="faq-body">
-        <p>Rendez-vous sur notre page <a href="partenaires/index.html">Partenaires</a>. 100% de nos partenaires ont confirmé leur retour pour 2027, spontanément, sans qu'on leur demande. Les places partenaires sont limitées.</p>
-
-    <div class="faq-i rev">
-      <button class="faq-btn" onclick="faqT(this)">
-        <span class="faq-q">Puis-je venir seul(e) ?</span>
-        <span class="faq-ic">+</span>
-      </button>
-      <div class="faq-body">
-        <p>Absolument. ENJOYLIFE est construit sur une communauté inclusive et bienveillante. Beaucoup de nos festivaliers viennent seuls et repartent avec des souvenirs partagés pour toujours. L'énergie collective fait le reste.</p>
+      <div class="faq-i rev" style="border-bottom:1px solid var(--br);">
+        <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+          <span class="faq-q" style="font-size:.88rem;font-weight:500;">Y a-t-il une politique de sécurité et de prévention ?</span>
+          <span class="faq-ic">+</span>
+        </button>
+        <div class="faq-body">
+          <p style="padding:0 2.5rem 2rem;">Oui, et c'est non négociable. Un dispositif de sécurité complet est en place à chaque édition : fouilles à l'entrée, objets interdits classiques (bouteilles en verre, objets dangereux, etc.). Une association de prévention est présente sur place. Tolérance zéro pour les comportements irrespectueux, la violence ou le harcèlement. ENJOYLIFE, c'est une fête, pas un terrain de jeu sans règles.</p>
+        </div>
       </div>
-    </div>
 
+      <div class="faq-i rev" style="border-bottom:1px solid var(--br);">
+        <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+          <span class="faq-q" style="font-size:.88rem;font-weight:500;">Je ne peux plus venir, puis-je revendre mon billet ?</span>
+          <span class="faq-ic">+</span>
+        </button>
+        <div class="faq-body">
+          <p style="padding:0 2.5rem 2rem;">Oui. La revente se fait directement via <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank">Shotgun</a>, la plateforme officielle de billetterie. C'est sécurisé, simple, et ça permet à quelqu'un d'autre de vivre l'expérience à votre place. Les billets ENJOYLIFE se revendent vite.</p>
+        </div>
+      </div>
+
+      <!-- == QUESTIONS SUPPLÉMENTAIRES masquées par défaut == -->
+      <div id="faq-more" style="display:none;">
+
+        <div class="faq-i rev" style="border-bottom:1px solid var(--br);">
+          <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+            <span class="faq-q" style="font-size:.88rem;font-weight:500;">Comment venir ? Y a-t-il des options de transport ?</span>
+            <span class="faq-ic">+</span>
+          </button>
+          <div class="faq-body">
+            <p style="padding:0 2.5rem 2rem;">L'événement se déroule dans la Plaine de l'Ain, accessible en voiture depuis Lyon (40 min), Bourg-en-Bresse (20 min) ou Ambérieu-en-Bugey. Des options de covoiturage et des parkings dédiés sont organisés à chaque édition. Les informations pratiques complètes sont communiquées avec l'annonce officielle du lieu. Pensez à planifier votre retour en avance.</p>
+          </div>
+        </div>
+
+        <div class="faq-i rev" style="border-bottom:1px solid var(--br);">
+          <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+            <span class="faq-q" style="font-size:.88rem;font-weight:500;">Quelle est l'ambiance et le dress code ?</span>
+            <span class="faq-ic">+</span>
+          </button>
+          <div class="faq-body">
+            <p style="padding:0 2.5rem 2rem;">ENJOYLIFE, c'est une communauté mature, bienveillante, 30-35 ans en moyenne. L'ambiance est premium, pas guindée. Pas de dress code imposé, mais les gens s'habillent, se préparent, vivent l'événement comme un moment à part. Venez comme vous êtes, mais venez avec l'envie d'être là vraiment.</p>
+          </div>
+        </div>
+
+        <div class="faq-i rev" style="border-bottom:1px solid var(--br);">
+          <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+            <span class="faq-q" style="font-size:.88rem;font-weight:500;">Qu'est-ce qu'il y a à manger et à boire sur place ?</span>
+            <span class="faq-ic">+</span>
+          </button>
+          <div class="faq-body">
+            <p style="padding:0 2.5rem 2rem;">En 2026, on a collaboré avec deux food trucks locaux et gourmands, sélectionnés pour leur qualité. Côté boissons, un partenariat inédit avec <strong style="color:#fff;">NINKASI</strong> pour les bars. Pour 2027, on vise encore mieux. L'expérience culinaire fait partie de l'expérience ENJOYLIFE.</p>
+          </div>
+        </div>
+
+        <div class="faq-i rev" style="border-bottom:1px solid var(--br);">
+          <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+            <span class="faq-q" style="font-size:.88rem;font-weight:500;">Puis-je venir seul(e) ?</span>
+            <span class="faq-ic">+</span>
+          </button>
+          <div class="faq-body">
+            <p style="padding:0 2.5rem 2rem;">Absolument. ENJOYLIFE est construit sur une communauté inclusive et bienveillante. Beaucoup de nos festivaliers viennent seuls et repartent avec des souvenirs partagés pour toujours. Notre moyenne d'âge est de 34 ans, l'énergie collective fait le reste.</p>
+          </div>
+        </div>
+
+        <div class="faq-i rev" style="border-bottom:1px solid var(--br);">
+          <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+            <span class="faq-q" style="font-size:.88rem;font-weight:500;">C'est un événement réservé aux jeunes ?</span>
+            <span class="faq-ic">+</span>
+          </button>
+          <div class="faq-body">
+            <p style="padding:0 2.5rem 2rem;">Pas du tout. Notre moyenne d'âge en 2026 était de 34 ans. ENJOYLIFE attire une communauté mature, passionnée de musique électronique, qui vient vivre une vraie expérience. Venez sans complexe, quelle que soit votre génération. La seule condition : être majeur (18+).</p>
+          </div>
+        </div>
+
+        <div class="faq-i rev" style="border-bottom:1px solid var(--br);">
+          <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+            <span class="faq-q" style="font-size:.88rem;font-weight:500;">Quelle est votre politique sur le respect et la tolérance ?</span>
+            <span class="faq-ic">+</span>
+          </button>
+          <div class="faq-body">
+            <p style="padding:0 2.5rem 2rem;">Ultra stricte. ENJOYLIFE est un espace où tout le monde doit se sentir en sécurité et respecté, sans exception. Tout comportement violent, discriminatoire ou harcelant entraîne une exclusion immédiate et définitive. Venez pour la musique, la rencontre et le partage.</p>
+          </div>
+        </div>
+
+        <div class="faq-i rev" style="border-bottom:1px solid var(--br);">
+          <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+            <span class="faq-q" style="font-size:.88rem;font-weight:500;">Y a-t-il un accès PMR (personnes à mobilité réduite) ?</span>
+            <span class="faq-ic">+</span>
+          </button>
+          <div class="faq-body">
+            <p style="padding:0 2.5rem 2rem;">Nous faisons de notre mieux pour rendre l'événement accessible à tous. Si vous avez des besoins spécifiques, contactez-nous directement avant l'événement à <a href="mailto:contact@enjoylife-emx.fr">contact@enjoylife-emx.fr</a>, nous ferons le nécessaire pour vous accueillir dans les meilleures conditions.</p>
+          </div>
+        </div>
+
+        <div class="faq-i rev" style="border-bottom:1px solid var(--br);">
+          <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+            <span class="faq-q" style="font-size:.88rem;font-weight:500;">Y aura-t-il une offre VIP ?</span>
+            <span class="faq-ic">+</span>
+          </button>
+          <div class="faq-body">
+            <p style="padding:0 2.5rem 2rem;">On y travaille. Une offre VIP front stage est en réflexion pour 2027 : accès privilégié, vue imprenable sur la scène, expérience exclusive. Rien de confirmé pour l'instant, restez connectés sur nos réseaux.</p>
+          </div>
+        </div>
+
+        <div class="faq-i rev" style="border-bottom:1px solid var(--br);">
+          <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+            <span class="faq-q" style="font-size:.88rem;font-weight:500;">Comment devenir partenaire de ENJOYLIFE ?</span>
+            <span class="faq-ic">+</span>
+          </button>
+          <div class="faq-body">
+            <p style="padding:0 2.5rem 2rem;">Rendez-vous sur notre page <a href="partenaires/index.html">Partenaires</a>. 100% de nos partenaires ont confirmé leur retour pour 2027, spontanément. Les places partenaires sont limitées.</p>
+          </div>
+        </div>
+
+        <div class="faq-i rev">
+          <button class="faq-btn" onclick="faqT(this)" style="padding:2rem 2.5rem;">
+            <span class="faq-q" style="font-size:.88rem;font-weight:500;">Je suis DJ, comment postuler pour jouer à ENJOYLIFE ?</span>
+            <span class="faq-ic">+</span>
+          </button>
+          <div class="faq-body">
+            <p style="padding:0 2.5rem 2rem;">Envoyez-nous vos liens (SoundCloud, Mix, réseaux) à <a href="mailto:contact@enjoylife-emx.fr">contact@enjoylife-emx.fr</a> avec le sujet "Candidature DJ". On écoute tout, sérieusement. La sélection est exigeante et les places sont rares, mais sans candidature, aucune chance.</p>
+          </div>
+        </div>
+
+      </div><!-- /faq-more -->
+
+      <!-- == BOUTON VOIR + == -->
+      <div id="faq-toggle-wrap" style="border-top:1px solid var(--br);">
+        <button id="faq-toggle-btn" onclick="toggleFaqMore()"
+          style="width:100%;background:none;border:none;padding:1.8rem 2.5rem;display:flex;align-items:center;justify-content:center;gap:.8rem;cursor:pointer;transition:background .2s;"
+          onmouseover="this.style.background='rgba(255,255,255,.02)'" onmouseout="this.style.background=''">
+          <span id="faq-toggle-label" style="font-family:'SF',sans-serif;font-size:.65rem;font-weight:600;letter-spacing:.1em;color:var(--c);">Voir toutes les questions (10)</span>
+          <span id="faq-toggle-icon" style="width:22px;height:22px;border:1px solid rgba(129,140,248,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--c);transition:transform .35s;">+</span>
+        </button>
+      </div>
+
+    </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
+  <!-- ===========================================
        FOOTER
-  ══════════════════════════════════════════ -->
+  =========================================== -->
   <footer>
 
-    <!-- NEWSLETTER FINALE -->
-    <div style="border-bottom:1px solid var(--br);padding:7rem 4rem;position:relative;overflow:hidden;">
-      <!-- Glow ambiance -->
-      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(99,102,241,.12) 0%,transparent 70%);pointer-events:none;"></div>
-      <div style="position:absolute;right:-2rem;top:50%;transform:translateY(-50%);font-family:'SF',sans-serif;font-size:10rem;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.02);pointer-events:none;user-select:none;white-space:nowrap;">ENJOYLIFE</div>
+    <!-- GRADIENT LINE TOP · signature visuelle -->
+    <div style="height:1px;background:linear-gradient(90deg,transparent 0%,#6366f1 25%,#a78bfa 50%,#6366f1 75%,transparent 100%);"></div>
 
-      <!-- Central Block -->
-      <div style="position:relative;z-index:1;max-width:680px;margin:0 auto;text-align:center;">
-        <p class="lbl" style="margin-bottom:1.8rem;justify-content:center;display:flex;">Alertes &amp; annonces</p>
-        <h2 style="font-family:'SF',sans-serif;font-weight:800;text-transform:none;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-.03em;line-height:.92;color:#fff;margin-bottom:.8rem;">Soyez alerté<br/><em style="font-style:normal;background:linear-gradient(135deg,#818cf8,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">en premier.</em></h2>
-        <p style="font-size:.62rem;letter-spacing:.12em;text-transform:none;color:rgba(255,255,255,.25);margin-bottom:3.5rem;">Billets · Line-up · Lieu · Surprises</p>
+    <!-- == CTA FINALE · grande accroche avant le footer == -->
+    <div style="position:relative;overflow:hidden;background:linear-gradient(135deg,#06060f 0%,#0a0814 50%,#080610 100%);border-bottom:1px solid var(--br);padding:3rem 4rem;">
+      <!-- Glow -->
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(99,102,241,.14) 0%,transparent 70%);pointer-events:none;"></div>
+      <!-- Watermark -->
+      <div style="position:absolute;right:-4rem;top:50%;transform:translateY(-50%);font-family:'SF',sans-serif;font-size:clamp(4rem,12vw,14rem);letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.02);pointer-events:none;user-select:none;white-space:nowrap;font-style:italic;">ENJOYLIFE</div>
 
-        <!-- Email block central design -->
-        <div style="background:rgba(255,255,255,.03);border:1px solid rgba(129,140,248,.18);padding:2.5rem 3rem;position:relative;overflow:hidden;">
-          <!-- Top gradient line -->
-          <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#6366f1 30%,#a78bfa 70%,transparent);"></div>
+      <div style="position:relative;z-index:1;max-width:740px;margin:0 auto;text-align:center;">
+        <div style="display:inline-flex;align-items:center;gap:.6rem;margin-bottom:2.5rem;background:rgba(99,102,241,.1);border:1px solid rgba(99,102,241,.28);padding:.5rem 1.4rem;border-radius:999px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c);animation:blink 1.5s ease-in-out infinite;"></span>
+          <span style="font-family:'SF',sans-serif;font-size:.48rem;letter-spacing:.12em;color:var(--c);">Alertes &amp; annonces</span>
+        </div>
+        <h2 style="font-family:'SF',sans-serif;font-weight:800;font-size:clamp(2.2rem,5vw,4.5rem);letter-spacing:-.03em;line-height:.9;color:#fff;margin-bottom:1rem;">Soyez alerté<br/><em style="font-style:normal;background:linear-gradient(135deg,#818cf8,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">en premier.</em></h2>
+        <p style="font-size:.62rem;letter-spacing:.08em;color:rgba(255,255,255,.22);margin-bottom:3.5rem;">Billets · Line-up · Lieu · Surprises</p>
 
-          <div style="display:flex;gap:0;align-items:stretch;margin-bottom:1.2rem;">
-            <input type="email" placeholder="votre@email.com"
-              style="flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-right:none;padding:1.1rem 1.6rem;font-family:'SF',sans-serif;font-size:.75rem;letter-spacing:.04em;color:#fff;outline:none;transition:border-color .2s;min-width:0;"
-              onfocus="this.style.borderColor='rgba(129,140,248,.5)'" onblur="this.style.borderColor='rgba(255,255,255,.1)'"
-              oninput="document.getElementById('nl-btn-main').disabled=false;"
-            />
-            <button id="nl-btn-main"
-              onclick="(function(btn){const inp=btn.previousElementSibling;if(!inp.value||!inp.value.includes('@')){inp.style.borderColor='rgba(239,68,68,.6)';setTimeout(()=>inp.style.borderColor='rgba(255,255,255,.1)',1200);return;}btn.textContent='Inscrit ✓';btn.style.background='linear-gradient(135deg,#22c55e,#16a34a)';btn.style.boxShadow='0 0 28px rgba(34,197,94,.4)';inp.disabled=true;btn.disabled=true;})(this)"
-              style="background:linear-gradient(135deg,#6366f1,#a855f7);border:none;padding:1.1rem 2.2rem;font-family:'SF',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:#fff;cursor:pointer;transition:filter .2s,box-shadow .2s;white-space:nowrap;box-shadow:0 0 24px rgba(99,102,241,.4);"
-              onmouseover="this.style.filter='brightness(1.15)';this.style.boxShadow='0 0 40px rgba(99,102,241,.6)'"
-              onmouseout="this.style.filter='';this.style.boxShadow='0 0 24px rgba(99,102,241,.4)'">
-              Notifier →
-            </button>
+        <!-- CTA double : Shotgun + Instagram + Facebook -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:1.8rem;">
+          <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener"
+             style="display:inline-flex;align-items:center;gap:1rem;background:linear-gradient(135deg,#6366f1,#a855f7);padding:1.2rem 2.8rem;border-radius:999px;text-decoration:none;font-family:'SF',sans-serif;font-weight:800;font-size:.78rem;letter-spacing:.06em;color:#fff;box-shadow:0 0 40px rgba(99,102,241,.45);transition:box-shadow .3s,transform .2s;"
+             onmouseover="this.style.boxShadow='0 0 64px rgba(168,85,247,.7)';this.style.transform='scale(1.04) translateY(-2px)'"
+             onmouseout="this.style.boxShadow='0 0 40px rgba(99,102,241,.45)';this.style.transform=''">
+            <img src="img/logo/shotgun.png" alt="Shotgun" style="height:18px;width:auto;filter:brightness(0) invert(1);opacity:.92;" onerror="this.style.display='none';" />
+            Activer les notifications Shotgun
+          </a>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div style="height:1px;width:60px;background:rgba(255,255,255,.08);"></div>
+            <span style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.12em;color:rgba(255,255,255,.2);">ou nous suivre</span>
+            <div style="height:1px;width:60px;background:rgba(255,255,255,.08);"></div>
           </div>
-          <p style="font-size:.5rem;letter-spacing:.06em;color:rgba(255,255,255,.15);text-align:left;">Pas de spam. Juste l'essentiel, au bon moment.</p>
+          <div style="display:flex;gap:1rem;">
+            <a href="https://instagram.com/enjoylife.emx" target="_blank" rel="noopener"
+               style="display:inline-flex;align-items:center;gap:.7rem;padding:.9rem 1.8rem;border:1px solid rgba(255,255,255,.12);border-radius:999px;text-decoration:none;font-family:'SF',sans-serif;font-weight:600;font-size:.65rem;letter-spacing:.04em;color:rgba(255,255,255,.55);transition:border-color .25s,color .25s,background .25s;"
+               onmouseover="this.style.borderColor='rgba(129,140,248,.5)';this.style.color='#fff';this.style.background='rgba(129,140,248,.07)'"
+               onmouseout="this.style.borderColor='rgba(255,255,255,.12)';this.style.color='rgba(255,255,255,.55)';this.style.background=''">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              Instagram
+            </a>
+            <a href="https://www.facebook.com/enjoylife.emx" target="_blank" rel="noopener"
+               style="display:inline-flex;align-items:center;gap:.7rem;padding:.9rem 1.8rem;border:1px solid rgba(255,255,255,.12);border-radius:999px;text-decoration:none;font-family:'SF',sans-serif;font-weight:600;font-size:.65rem;letter-spacing:.04em;color:rgba(255,255,255,.55);transition:border-color .25s,color .25s,background .25s;"
+               onmouseover="this.style.borderColor='rgba(129,140,248,.5)';this.style.color='#fff';this.style.background='rgba(129,140,248,.07)'"
+               onmouseout="this.style.borderColor='rgba(255,255,255,.12)';this.style.color='rgba(255,255,255,.55)';this.style.background=''">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              Facebook
+            </a>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- MAIN -->
-    <div class="footer-main">
+    <!-- == FOOTER MAIN == -->
+    <div style="display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:0;border-bottom:1px solid var(--br);">
 
-      <!-- Brand -->
-      <div class="footer-brand-col">
-        <img src="img/logo/enjoy-logo.png" alt="ENJOYLIFE" class="footer-logo-img"
+      <!-- Brand col -->
+      <div id="footer-brand" style="padding:2rem 3rem;border-right:1px solid var(--br);">
+        <img src="img/logo/enjoy-logo.png" alt="ENJOYLIFE" style="height:44px;width:auto;margin-bottom:2rem;display:block;opacity:.9;"
              onerror="this.style.display='none';document.getElementById('f-logo-txt').style.display='block';" />
-        <span id="f-logo-txt" class="footer-logo-txt">ENJOYLIFE</span>
-        <p class="footer-desc">Electronic Music Xperience<br/>Plaine de l'Ain · France<br/>IV<sup>ème</sup> Edition · 2027</p>
-        <div class="footer-socials">
-          <a href="https://instagram.com/enjoylife.emx" target="_blank" rel="noopener" class="footer-social" title="Instagram" style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--br);transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(129,140,248,.4)';this.style.background='rgba(129,140,248,.08)'" onmouseout="this.style.borderColor='var(--br)';this.style.background=''">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <span id="f-logo-txt" style="display:none;font-family:'SF',sans-serif;font-weight:400;font-size:2rem;letter-spacing:-.01em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.18);line-height:1;margin-bottom:2rem;display:none;">ENJOYLIFE</span>
+        <p style="font-size:.65rem;line-height:2.1;color:rgba(255,255,255,.25);max-width:240px;margin-bottom:1.5rem;">Electronic Music Xperience<br/>Plaine de l'Ain · France<br/>IV<sup>ème</sup> Édition · 2027<br/>3 éditions · 3 sold out.</p>
+        <!-- Produit par This is it Event -->
+        <div style="margin-bottom:2.5rem;padding:1.2rem 1.4rem;border:1px solid rgba(255,255,255,.06);display:inline-flex;align-items:center;gap:1rem;">
+          <span style="font-family:'SF',sans-serif;font-size:.42rem;letter-spacing:.1em;color:rgba(255,255,255,.2);white-space:nowrap;">Produit par</span>
+          <img src="img/logo/thisisit-enjoylife.png" alt="This is it Event" style="height:22px;width:auto;opacity:.45;filter:brightness(0) invert(1);transition:opacity .2s;"
+               onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='.45'"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+          <span style="display:none;font-family:'SF',sans-serif;font-size:.52rem;letter-spacing:.06em;color:rgba(255,255,255,.3);">THIS IS IT EVENT</span>
+        </div>
+        <!-- Socials -->
+        <div style="display:flex;gap:.75rem;margin-bottom:2.5rem;">
+          <!-- Instagram -->
+          <a href="https://instagram.com/enjoylife.emx" target="_blank" rel="noopener" title="Instagram ENJOYLIFE"
+             style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s;"
+             onmouseover="this.style.borderColor='rgba(129,140,248,.5)';this.style.background='rgba(129,140,248,.08)'"
+             onmouseout="this.style.borderColor='rgba(255,255,255,.1)';this.style.background=''">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
-          <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" class="footer-social" title="Shotgun" style="display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--br);transition:border-color .2s,background .2s;" onmouseover="this.style.borderColor='rgba(129,140,248,.4)';this.style.background='rgba(129,140,248,.08)'" onmouseout="this.style.borderColor='var(--br)';this.style.background=''">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/enjoylife.emx" target="_blank" rel="noopener" title="Facebook ENJOYLIFE"
+             style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:border-color .2s,background .2s;"
+             onmouseover="this.style.borderColor='rgba(129,140,248,.5)';this.style.background='rgba(129,140,248,.08)'"
+             onmouseout="this.style.borderColor='rgba(255,255,255,.1)';this.style.background=''">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
+          <!-- Shotgun -->
+          <a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" title="ENJOYLIFE sur Shotgun"
+             style="width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;overflow:hidden;transition:border-color .2s,background .2s;"
+             onmouseover="this.style.borderColor='rgba(129,140,248,.5)';this.style.background='rgba(129,140,248,.08)'"
+             onmouseout="this.style.borderColor='rgba(255,255,255,.1)';this.style.background=''">
+            <img src="img/favicon/shotgun-favicon.png" alt="Shotgun"
+                 style="width:20px;height:20px;object-fit:contain;filter:brightness(0) invert(1);opacity:.55;"
+                 onerror="this.style.display='none';this.parentElement.innerHTML+='<svg width=\'16\' height=\'16\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'rgba(255,255,255,.55)\' stroke-width=\'1.5\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18\'/></svg>';" />
+          </a>
+        </div>
+        <!-- Award badges -->
+        <div style="display:flex;flex-direction:column;gap:.6rem;">
+          <div style="display:inline-flex;align-items:center;gap:.6rem;padding:.4rem 1rem;border:1px solid rgba(255,255,255,.07);width:fit-content;">
+            <span style="font-size:.42rem;letter-spacing:.14em;color:rgba(255,255,255,.2);">✦ 3 / 3 SOLD OUT</span>
+          </div>
+          <div style="display:inline-flex;align-items:center;gap:.6rem;padding:.4rem 1rem;border:1px solid rgba(255,255,255,.07);width:fit-content;">
+            <span style="font-size:.42rem;letter-spacing:.14em;color:rgba(255,255,255,.2);">✦ +4 000 FESTIVALIERS</span>
+          </div>
+          <div style="display:inline-flex;align-items:center;gap:.6rem;padding:.4rem 1rem;border:1px solid rgba(129,140,248,.18);width:fit-content;background:rgba(99,102,241,.05);">
+            <span style="font-size:.42rem;letter-spacing:.14em;color:rgba(129,140,248,.55);">✦ ÉDITION IV · 2027</span>
+          </div>
         </div>
       </div>
 
-      <!-- Nav -->
-      <div class="fc">
-        <span class="fc-title">Festival</span>
-        <ul>
-          <li><a href="#story">Notre histoire</a></li>
-          <li><a href="#experience">L'expérience</a></li>
-          <li><a href="#hof">Artistes</a></li>
-          <li><a href="#tickets">Billets</a></li>
-          <li><a href="#faq">FAQ</a></li>
+      <!-- Festival nav -->
+      <div style="padding:2rem 2rem;border-right:1px solid var(--br);">
+        <span style="font-family:'SF',sans-serif;font-weight:500;font-size:.44rem;letter-spacing:.14em;text-transform:none;color:rgba(255,255,255,.2);display:block;margin-bottom:2rem;">Festival</span>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:1.1rem;">
+          <li><a href="#histoire" style="font-size:.65rem;font-weight:400;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;letter-spacing:.02em;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Notre histoire</a></li>
+          <li><a href="#experience" style="font-size:.65rem;font-weight:400;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;letter-spacing:.02em;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.35)'">L'expérience</a></li>
+          <li><a href="#artistes" style="font-size:.65rem;font-weight:400;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;letter-spacing:.02em;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Artistes</a></li>
+          <li><a href="#partners" style="font-size:.65rem;font-weight:400;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;letter-spacing:.02em;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Partenaires</a></li>
+          <li><a href="#gallery" style="font-size:.65rem;font-weight:400;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;letter-spacing:.02em;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Galerie</a></li>
+          <li><a href="#faq" style="font-size:.65rem;font-weight:400;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;letter-spacing:.02em;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.35)'">FAQ</a></li>
         </ul>
       </div>
 
-      <!-- Contact -->
-      <div class="fc">
-        <span class="fc-title">Contact</span>
-        <ul>
-          <li><a href="partenaires/index.html">Partenariats</a></li>
-          <li><a href="mailto:contact@enjoylife-emx.fr">contact@enjoylife-emx.fr</a></li>
-          <li><a href="https://instagram.com/enjoylife.emx" target="_blank" rel="noopener">@enjoylife.emx</a></li>
-          <li><a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener">Shotgun</a></li>
+      <!-- Billetterie / Contact -->
+      <div style="padding:2rem 2rem;border-right:1px solid var(--br);">
+        <span style="font-family:'SF',sans-serif;font-weight:500;font-size:.44rem;letter-spacing:.14em;text-transform:none;color:rgba(255,255,255,.2);display:block;margin-bottom:2rem;">Billetterie</span>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:1.1rem;margin-bottom:2rem;">
+          <li><a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" style="font-size:.65rem;font-weight:400;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Obtenir mes billets →</a></li>
+          <li><a href="partenaires/index.html" style="font-size:.65rem;font-weight:400;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Partenariats 2027</a></li>
+        </ul>
+        <span style="font-family:'SF',sans-serif;font-weight:500;font-size:.44rem;letter-spacing:.14em;text-transform:none;color:rgba(255,255,255,.2);display:block;margin-bottom:2rem;">Contact</span>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:1.1rem;">
+          <li><a href="mailto:contact@enjoylife-emx.fr" style="font-size:.65rem;font-weight:400;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.35)'">contact@enjoylife-emx.fr</a></li>
         </ul>
       </div>
 
-      <!-- Legal -->
-      <div class="fc">
-        <span class="fc-title">Legal</span>
-        <ul>
-          <li><a href="#" onclick="openLegal('mentions');return false;">Mentions legales</a></li>
-          <li><a href="#" onclick="openLegal('cookies');return false;">Cookies</a></li>
-          <li><a href="#" onclick="openLegal('confidentialite');return false;">Confidentialite</a></li>
-          <li><a href="#">Presse</a></li>
+      <!-- Légal -->
+      <div style="padding:2rem 2rem;">
+        <span style="font-family:'SF',sans-serif;font-weight:500;font-size:.44rem;letter-spacing:.14em;text-transform:none;color:rgba(255,255,255,.2);display:block;margin-bottom:2rem;">Légal</span>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:1.1rem;margin-bottom:3rem;">
+          <li><a href="#" onclick="openLegal('mentions');return false;" style="font-size:.65rem;font-weight:400;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Mentions légales</a></li>
+          <li><a href="#" onclick="openLegal('confidentialite');return false;" style="font-size:.65rem;font-weight:400;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Confidentialité</a></li>
+          <li><a href="#" onclick="openLegal('cookies');return false;" style="font-size:.65rem;font-weight:400;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Cookies</a></li>
+          <li><a href="mailto:contact@enjoylife-emx.fr?subject=Demande%20presse" style="font-size:.65rem;font-weight:400;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.35)'">Presse</a></li>
         </ul>
-        <p style="font-size:.42rem;letter-spacing:.14em;text-transform:none;color:rgba(255,255,255,.12);margin-top:2rem;line-height:1.8;">Photos &amp; videos<br/>© Riverst.media</p>
       </div>
 
     </div>
 
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom">
-      <p class="f-copy">© 2027 ENJOYLIFE · Tous droits reserves</p>
-      <p id="clock"></p>
-      <div class="f-credits">
-        <a href="#" onclick="openLegal('mentions');return false;">Mentions legales</a>
-        <a href="#" onclick="openLegal('confidentialite');return false;">Confidentialite</a>
-        <a href="#" onclick="openLegal('cookies');return false;">Cookies</a>
-      </div>
+    <!-- == BOTTOM BAR == -->
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:1.8rem 4rem;flex-wrap:wrap;gap:1rem;border-top:none;">
+      <p style="font-size:.5rem;letter-spacing:.06em;color:rgba(255,255,255,.1);">© 2027 ENJOYLIFE · THIS IS IT EVENT · Tous droits réservés</p>
+      <p id="clock" style="font-family:'SF',sans-serif;font-size:.5rem;letter-spacing:.06em;color:rgba(255,255,255,.1);"></p>
+      <p style="font-size:.5rem;letter-spacing:.06em;color:rgba(255,255,255,.08);">Crédits photos &amp; vidéos · © Riverst.media</p>
     </div>
 
   </footer>
 
-  <!-- ══ PARTNER POPUP ══ -->
+  <!-- == PARTNER POPUP == -->
   <div class="partner-popup" id="partnerPopup">
     <div class="partner-popup-overlay" onclick="closePartner()"></div>
     <div class="partner-popup-content">
@@ -2496,9 +3107,9 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       PAGES LÉGALES — MODAL OVERLAY
-  ══════════════════════════════════════════ -->
+  <!-- ===========================================
+       PAGES LÉGALES · MODAL OVERLAY
+  =========================================== -->
   <div id="legal-overlay">
     <div class="legal-modal">
 
@@ -2514,7 +3125,7 @@
 
       <div class="legal-body">
 
-        <!-- ══ PAGE 1 — MENTIONS LÉGALES ══ -->
+        <!-- == PAGE 1 · MENTIONS LÉGALES == -->
         <div class="legal-page active" id="legal-mentions">
           <span class="legal-kicker">Document légal</span>
           <h2 class="legal-title">Mentions<br/>légales.</h2>
@@ -2552,9 +3163,9 @@
           <div class="legal-section">
             <h3 class="legal-section-title"><span class="ln">03</span> Propriété intellectuelle</h3>
             <p class="legal-p">
-              L'ensemble du contenu de ce site — textes, images, vidéos, graphismes, logo, structure — est la propriété exclusive de <strong>THIS IS IT EVENT</strong> ou de ses partenaires, et est protégé par les lois françaises et internationales relatives au droit d'auteur et à la propriété intellectuelle.<br/><br/>
+              L'ensemble du contenu de ce site · textes, images, vidéos, graphismes, logo, structure · est la propriété exclusive de <strong>THIS IS IT EVENT</strong> ou de ses partenaires, et est protégé par les lois françaises et internationales relatives au droit d'auteur et à la propriété intellectuelle.<br/><br/>
               Toute reproduction, représentation, modification, publication ou adaptation de tout ou partie des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans l'autorisation écrite préalable de THIS IS IT EVENT.<br/><br/>
-              <strong>Crédits photos & vidéos :</strong> © Riverst.media — tous droits réservés.
+              <strong>Crédits photos & vidéos :</strong> © Riverst.media · tous droits réservés.
             </p>
           </div>
 
@@ -2574,7 +3185,7 @@
           </div>
         </div>
 
-        <!-- ══ PAGE 2 — CONFIDENTIALITÉ ══ -->
+        <!-- == PAGE 2 · CONFIDENTIALITÉ == -->
         <div class="legal-page" id="legal-confidentialite">
           <span class="legal-kicker">RGPD · Données personnelles</span>
           <h2 class="legal-title">Politique de<br/>confidentialité.</h2>
@@ -2630,8 +3241,8 @@
             <h3 class="legal-section-title"><span class="ln">03</span> Base légale des traitements</h3>
             <p class="legal-p">
               Les traitements réalisés reposent sur les bases légales suivantes :<br/><br/>
-              · <strong>Consentement</strong> — pour l'inscription à la newsletter et les cookies non essentiels.<br/>
-              · <strong>Intérêt légitime</strong> — pour les cookies techniques strictement nécessaires au fonctionnement du site.
+              · <strong>Consentement</strong> · pour l'inscription à la newsletter et les cookies non essentiels.<br/>
+              · <strong>Intérêt légitime</strong> · pour les cookies techniques strictement nécessaires au fonctionnement du site.
             </p>
           </div>
 
@@ -2645,12 +3256,12 @@
           <div class="legal-section">
             <h3 class="legal-section-title"><span class="ln">05</span> Vos droits (RGPD)</h3>
             <p class="legal-p">
-              Conformément au Règlement Général sur la Protection des Données (RGPD — UE 2016/679) et à la loi Informatique et Libertés, vous disposez des droits suivants :<br/><br/>
-              · <strong>Droit d'accès</strong> — obtenir une copie de vos données.<br/>
-              · <strong>Droit de rectification</strong> — corriger des données inexactes.<br/>
-              · <strong>Droit à l'effacement</strong> — demander la suppression de vos données.<br/>
-              · <strong>Droit d'opposition</strong> — vous opposer à un traitement.<br/>
-              · <strong>Droit à la portabilité</strong> — recevoir vos données dans un format lisible.<br/>
+              Conformément au Règlement Général sur la Protection des Données (RGPD · UE 2016/679) et à la loi Informatique et Libertés, vous disposez des droits suivants :<br/><br/>
+              · <strong>Droit d'accès</strong> · obtenir une copie de vos données.<br/>
+              · <strong>Droit de rectification</strong> · corriger des données inexactes.<br/>
+              · <strong>Droit à l'effacement</strong> · demander la suppression de vos données.<br/>
+              · <strong>Droit d'opposition</strong> · vous opposer à un traitement.<br/>
+              · <strong>Droit à la portabilité</strong> · recevoir vos données dans un format lisible.<br/>
               · <strong>Droit de retirer votre consentement</strong> à tout moment.<br/><br/>
               Pour exercer ces droits : <a href="mailto:contact@enjoylife-emx.fr">contact@enjoylife-emx.fr</a><br/>
               En cas de réclamation non résolue, vous pouvez saisir la <strong>CNIL</strong> (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).
@@ -2672,7 +3283,7 @@
           </div>
         </div>
 
-        <!-- ══ PAGE 3 — COOKIES ══ -->
+        <!-- == PAGE 3 · COOKIES == -->
         <div class="legal-page" id="legal-cookies">
           <span class="legal-kicker">Gestion des traceurs</span>
           <h2 class="legal-title">Politique<br/>cookies.</h2>
@@ -2681,7 +3292,7 @@
           <div class="legal-section">
             <h3 class="legal-section-title"><span class="ln">01</span> Qu'est-ce qu'un cookie ?</h3>
             <p class="legal-p">
-              Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, téléphone, tablette) lors de votre visite sur un site web. Il permet au site de mémoriser certaines informations — vos préférences, votre session, ou votre navigation — pour améliorer votre expérience.
+              Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, téléphone, tablette) lors de votre visite sur un site web. Il permet au site de mémoriser certaines informations · vos préférences, votre session, ou votre navigation · pour améliorer votre expérience.
             </p>
           </div>
 
@@ -2699,7 +3310,7 @@
             <div class="legal-cookie-row">
               <div>
                 <span class="legal-cookie-label">Cookies analytiques</span>
-                <span class="legal-cookie-desc">Permettraient de mesurer l'audience du site (pages vues, sources de trafic). <strong style="color:rgba(255,255,255,.6);">Actuellement inactifs</strong> — aucun outil d'analytics tiers n'est déployé. Cette catégorie sera activée uniquement avec votre consentement préalable.</span>
+                <span class="legal-cookie-desc">Permettraient de mesurer l'audience du site (pages vues, sources de trafic). <strong style="color:rgba(255,255,255,.6);">Actuellement inactifs</strong> · aucun outil d'analytics tiers n'est déployé. Cette catégorie sera activée uniquement avec votre consentement préalable.</span>
               </div>
               <span class="legal-cookie-badge badge-inactive">Inactif</span>
             </div>
@@ -2707,7 +3318,7 @@
             <div class="legal-cookie-row">
               <div>
                 <span class="legal-cookie-label">Cookies marketing</span>
-                <span class="legal-cookie-desc">Permettraient de diffuser des publicités ciblées sur les réseaux sociaux (Meta Pixel, etc.). <strong style="color:rgba(255,255,255,.6);">Actuellement inactifs</strong> — aucun pixel tiers n'est déployé. Cette catégorie sera activée uniquement avec votre consentement préalable.</span>
+                <span class="legal-cookie-desc">Permettraient de diffuser des publicités ciblées sur les réseaux sociaux (Meta Pixel, etc.). <strong style="color:rgba(255,255,255,.6);">Actuellement inactifs</strong> · aucun pixel tiers n'est déployé. Cette catégorie sera activée uniquement avec votre consentement préalable.</span>
               </div>
               <span class="legal-cookie-badge badge-inactive">Inactif</span>
             </div>
@@ -2760,7 +3371,7 @@
     </div><!-- /legal-modal -->
   </div><!-- /legal-overlay -->
 
-  <!-- ══ COOKIE BANNER ══ -->
+  <!-- == COOKIE BANNER == -->
   <div id="cookie-banner">
     <p class="cookie-text">
       <strong>Cookies &amp; confidentialite.</strong> ENJOYLIFE utilise des cookies pour ameliorer votre experience et analyser le trafic.
@@ -2772,7 +3383,7 @@
     </div>
   </div>
 
-  <!-- ══ COOKIE MODAL ══ -->
+  <!-- == COOKIE MODAL == -->
   <div id="cookie-modal">
     <div class="cookie-modal-overlay" onclick="closeCookies()"></div>
     <div class="cookie-modal-box">
@@ -2788,14 +3399,14 @@
       <div class="cookie-toggle-row">
         <div>
           <span class="cookie-toggle-name">Analytiques</span>
-          <span class="cookie-toggle-desc">Nous aident a comprendre comment vous utilisez le site (trafic anonymise).</span>
+          <span class="cookie-toggle-desc">Nous aident à comprendre comment vous utilisez le site (trafic anonymisé).</span>
         </div>
         <label class="cookie-toggle"><input type="checkbox" id="ck-analytics" checked /><span class="cookie-toggle-slider"></span></label>
       </div>
       <div class="cookie-toggle-row">
         <div>
           <span class="cookie-toggle-name">Marketing</span>
-          <span class="cookie-toggle-desc">Permettent d'afficher du contenu personnalise sur nos reseaux.</span>
+          <span class="cookie-toggle-desc">Permettent d'afficher du contenu personnalisé sur nos réseaux.</span>
         </div>
         <label class="cookie-toggle"><input type="checkbox" id="ck-marketing" /><span class="cookie-toggle-slider"></span></label>
       </div>
@@ -2806,9 +3417,9 @@
     </div>
   </div>
 
-  <!-- ══════════════════════════════════════════
+  <!-- ===========================================
        JS
-  ══════════════════════════════════════════ -->
+  =========================================== -->
   <script>
     // LEGAL MODAL
     function openLegal(page) {
@@ -2861,7 +3472,7 @@
     function openCookies() { document.getElementById('cookie-modal').classList.add('open'); }
     function closeCookies() { document.getElementById('cookie-modal').classList.remove('open'); }
     document.addEventListener('keydown', e => { if(e.key==='Escape') { closePartner(); closeCookies(); closeLegal(); } });
-    // Init — cacher si déjà choisi
+    // Init · cacher si déjà choisi
     (function() {
       if (localStorage.getItem('ej_cookies')) {
         document.getElementById('cookie-banner').classList.add('hidden');
@@ -2895,10 +3506,60 @@
     const nav=document.getElementById('nav');
     window.addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>60),{passive:true});
 
+    // NAV ACTIVE SECTION HIGHLIGHT
+    (function() {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-r a:not(.cta-nav):not(.nav-insta-icon)');
+      function updateActive() {
+        let cur = '';
+        sections.forEach(s => {
+          if (window.scrollY >= s.offsetTop - 120) cur = s.id;
+        });
+        navLinks.forEach(a => {
+          const href = a.getAttribute('href');
+          const isActive = href === '#' + cur || (href && href.endsWith('#' + cur));
+          a.style.color = isActive ? '#fff' : '';
+          a.style.borderBottom = isActive ? '1px solid rgba(129,140,248,.6)' : '';
+          a.style.paddingBottom = isActive ? '2px' : '';
+        });
+      }
+      window.addEventListener('scroll', updateActive, { passive: true });
+      updateActive();
+    })();
+
     // REVEAL
     const io=new IntersectionObserver(entries=>{
       entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
     },{threshold:.06,rootMargin:'0px 0px -30px 0px'});
+    // NAV BURGER MENU
+    function toggleMenu() {
+      const menu = document.getElementById('nav-menu');
+      const bars = document.querySelectorAll('.burger-bar');
+      const label = document.getElementById('burger-label');
+      const open = menu.classList.toggle('open');
+      if (open) {
+        menu.style.display = 'flex';
+        requestAnimationFrame(() => menu.classList.add('open'));
+      } else {
+        menu.classList.remove('open');
+      }
+      bars[0].style.transform = open ? 'translateY(5.5px) rotate(45deg)' : '';
+      bars[1].style.opacity = open ? '0' : '1';
+      bars[1].style.width = open ? '0' : '';
+      bars[2].style.transform = open ? 'translateY(-5.5px) rotate(-45deg)' : '';
+      if (label) label.textContent = open ? 'Fermer' : 'Menu';
+    }
+    // Fermer le menu au clic sur un lien
+    document.querySelectorAll('#nav-menu a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.getElementById('nav-menu').classList.remove('open');
+        const bars = document.querySelectorAll('.burger-bar');
+        bars.forEach(b => { b.style.transform = ''; b.style.opacity = ''; b.style.width = ''; });
+        const label = document.getElementById('burger-label');
+        if (label) label.textContent = 'Menu';
+      });
+    });
+
     document.querySelectorAll('.rev').forEach(el=>io.observe(el));
 
     // FAQ
@@ -2909,7 +3570,19 @@
       if(!open){ btn.classList.add('open'); body.classList.add('open'); }
     }
 
-    // PARALLAX HERO — désactivé sur mobile
+    // FAQ VOIR +
+    function toggleFaqMore() {
+      const more = document.getElementById('faq-more');
+      const label = document.getElementById('faq-toggle-label');
+      const icon = document.getElementById('faq-toggle-icon');
+      const isHidden = more.style.display === 'none';
+      more.style.display = isHidden ? 'block' : 'none';
+      label.textContent = isHidden ? 'Voir moins' : 'Voir toutes les questions (10)';
+      icon.textContent = isHidden ? '−' : '+';
+      icon.style.transform = isHidden ? 'rotate(180deg)' : '';
+    }
+
+    // PARALLAX HERO · désactivé sur mobile
     if (window.innerWidth > 768) {
       window.addEventListener('scroll', () => {
         const y = window.scrollY;
@@ -2920,7 +3593,7 @@
       }, { passive: true });
     }
 
-    // Vidéos en autoplay loop muted — pas de JS nécessaire
+    // Vidéos en autoplay loop muted · pas de JS nécessaire
 
     // NEWSLETTER
     function nlSubmit(btn) {
@@ -3037,6 +3710,30 @@
       clockEl.textContent=`${p(n.getHours())}:${p(n.getMinutes())}:${p(n.getSeconds())} · Europe/Paris`;
     }
     tick(); setInterval(tick,1000);
+
+    // COMPTEUR MYSTERE 2027
+    // Pas de date exacte : on affiche les jours restants avant le 1er jan 2027
+    // avec un message "mystère" incitant à suivre les annonces
+    (function() {
+      const target = new Date('2027-01-01T00:00:00');
+      const val = document.getElementById('cnt-val');
+      const unit = document.getElementById('cnt-unit');
+      const label = document.getElementById('cnt-label');
+      if (!val) return;
+
+      function updateCountdown() {
+        const now = new Date();
+        const diff = target - now;
+        if (diff <= 0) { val.textContent = '2027'; unit.textContent = ''; return; }
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        val.textContent = days;
+        unit.textContent = days > 1 ? 'jours' : 'jour';
+        label.textContent = 'avant 2027 · Date à révéler';
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 60000);
+    })();
   </script>
 
 </body>
