@@ -300,11 +300,12 @@
     /* ==============================
        MARQUEE
     ============================== */
-    .marquee-wrap { overflow: hidden; border-top: 1px solid var(--br); border-bottom: 1px solid var(--br); padding: 1rem 0; position: relative; z-index: 2; }
-    .marquee-t { display: flex; gap: 3.5rem; animation: mq 24s linear infinite; white-space: nowrap; }
+    .marquee-wrap { overflow-x: scroll; overflow-y: hidden; border-top: 1px solid var(--br); border-bottom: 1px solid var(--br); padding: 1rem 0; position: relative; z-index: 2; cursor: grab; scrollbar-width: none; }
+    .marquee-wrap::-webkit-scrollbar { display: none; }
+    .marquee-wrap:active { cursor: grabbing; }
+    .marquee-t { display: flex; gap: 3.5rem; white-space: nowrap; width: max-content; }
     .marquee-t span { font-family: 'SF', sans-serif; font-weight: 300; font-size: .72rem; letter-spacing: .06em; text-transform: none; color: rgba(255,255,255,.1); flex-shrink: 0; }
     .marquee-t .dot { color: var(--c); opacity: .35; }
-    @keyframes mq { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
 
     /* ==============================
        MANIFESTO
@@ -2551,7 +2552,7 @@
   </section>
   <!-- MARQUEE 2 -->
   <div class="marquee-wrap">
-    <div class="marquee-t" style="animation-direction:reverse;">
+    <div class="marquee-t" data-reverse="1">
       <span>Tony Romera</span><span class="dot">✦</span>
       <span>Odymel</span><span class="dot">✦</span>
       <span>Rivo</span><span class="dot">✦</span>
@@ -3749,6 +3750,34 @@
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
       history.replaceState(null, '', window.location.pathname);
+    });
+  </script>
+
+  <script>
+    // Marquee : auto-scroll + drag manuel
+    document.querySelectorAll('.marquee-wrap').forEach(wrap => {
+      const track = wrap.querySelector('.marquee-t');
+      const reverse = track && track.dataset.reverse === '1';
+      let paused = false, isDown = false, startX = 0, scrollStart = 0;
+      const speed = 0.6;
+
+      function step() {
+        if (!paused) {
+          wrap.scrollLeft += reverse ? -speed : speed;
+          const half = track.scrollWidth / 2;
+          if (wrap.scrollLeft >= half) wrap.scrollLeft -= half;
+          if (wrap.scrollLeft <= 0 && reverse) wrap.scrollLeft += half;
+        }
+        requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+
+      wrap.addEventListener('mousedown', e => { isDown = true; paused = true; startX = e.pageX; scrollStart = wrap.scrollLeft; wrap.style.cursor = 'grabbing'; });
+      document.addEventListener('mouseup', () => { isDown = false; paused = false; wrap.style.cursor = 'grab'; });
+      wrap.addEventListener('mousemove', e => { if (!isDown) return; wrap.scrollLeft = scrollStart - (e.pageX - startX); });
+      wrap.addEventListener('touchstart', e => { paused = true; startX = e.touches[0].pageX; scrollStart = wrap.scrollLeft; }, { passive: true });
+      wrap.addEventListener('touchend', () => { paused = false; });
+      wrap.addEventListener('touchmove', e => { wrap.scrollLeft = scrollStart - (e.touches[0].pageX - startX); }, { passive: true });
     });
   </script>
 
