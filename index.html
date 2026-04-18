@@ -1683,19 +1683,23 @@
       #partners [style*="grid-template-columns:repeat(3,1fr)"] {
         grid-template-columns: repeat(2, 1fr) !important;
         max-width: 100% !important;
+        justify-items: center;
       }
       /* Officiels : 3 par ligne au lieu de 6 */
       #partners [style*="grid-template-columns:repeat(6,1fr)"] {
         grid-template-columns: repeat(3, 1fr) !important;
+        justify-items: center;
       }
       /* Partenaires : 3 par ligne au lieu de 7 */
       #partners [style*="grid-template-columns:repeat(7,1fr)"] {
         grid-template-columns: repeat(3, 1fr) !important;
+        justify-items: center;
       }
       /* Mécènes / Techniques / Médias : stack vertical */
       #partners [style*="grid-template-columns:1fr 1fr 1fr"][style*="gap:3rem"] {
         grid-template-columns: 1fr !important;
         gap: 2rem !important;
+        justify-items: center;
       }
       /* Logos plus grands sur mobile */
       .logo-item-major { height: 100px; }
