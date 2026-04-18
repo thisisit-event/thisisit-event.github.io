@@ -2994,10 +2994,11 @@
     </div>
 
     <!-- == FOOTER MAIN == -->
-    <div style="display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:0;border-bottom:1px solid var(--br);">
+    <div style="display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:0;border-bottom:1px solid var(--br);position:relative;background:url('https://enjoylife.b-cdn.net/img/footer-enjoylife.jpg') center top / cover no-repeat;">
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,0.72);pointer-events:none;z-index:0;"></div>
 
       <!-- Brand col -->
-      <div id="footer-brand" style="padding:2rem 3rem;border-right:1px solid var(--br);">
+      <div id="footer-brand" style="padding:2rem 3rem;border-right:1px solid var(--br);position:relative;z-index:1;">
         <img src="img/logo/enjoy-logo.png" alt="ENJOYLIFE" style="height:44px;width:auto;margin-bottom:2rem;display:block;opacity:.9;"
              onerror="this.style.display='none';document.getElementById('f-logo-txt').style.display='block';" />
         <span id="f-logo-txt" style="display:none;font-family:'SF',sans-serif;font-weight:400;font-size:2rem;letter-spacing:-.01em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.18);line-height:1;margin-bottom:2rem;display:none;">ENJOYLIFE</span>
@@ -3051,7 +3052,7 @@
       </div>
 
       <!-- Festival nav -->
-      <div style="padding:2rem 2rem;border-right:1px solid var(--br);">
+      <div style="padding:2rem 2rem;border-right:1px solid var(--br);position:relative;z-index:1;">
         <span style="font-family:'SF',sans-serif;font-weight:500;font-size:.7rem;letter-spacing:.14em;text-transform:none;color:rgba(255,255,255,.5);display:block;margin-bottom:2rem;">Festival</span>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:1.1rem;">
           <li><a href="#histoire" style="font-size:.82rem;font-weight:400;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s;letter-spacing:.02em;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Notre histoire</a></li>
@@ -3064,7 +3065,7 @@
       </div>
 
       <!-- Billetterie / Contact -->
-      <div style="padding:2rem 2rem;border-right:1px solid var(--br);">
+      <div style="padding:2rem 2rem;border-right:1px solid var(--br);position:relative;z-index:1;">
         <span style="font-family:'SF',sans-serif;font-weight:500;font-size:.7rem;letter-spacing:.14em;text-transform:none;color:rgba(255,255,255,.5);display:block;margin-bottom:2rem;">Billetterie</span>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:1.1rem;margin-bottom:2rem;">
           <li><a href="https://shotgun.live/fr/venues/enjoylife-emx" target="_blank" rel="noopener" style="font-size:.82rem;font-weight:400;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Obtenir mes billets →</a></li>
@@ -3077,7 +3078,7 @@
       </div>
 
       <!-- Légal -->
-      <div style="padding:2rem 2rem;">
+      <div style="padding:2rem 2rem;position:relative;z-index:1;">
         <span style="font-family:'SF',sans-serif;font-weight:500;font-size:.7rem;letter-spacing:.14em;text-transform:none;color:rgba(255,255,255,.5);display:block;margin-bottom:2rem;">Légal</span>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:1.1rem;margin-bottom:3rem;">
           <li><a href="#" onclick="openLegal('mentions');return false;" style="font-size:.82rem;font-weight:400;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Mentions légales</a></li>
@@ -3087,12 +3088,6 @@
         </ul>
       </div>
 
-    </div>
-
-    <!-- IMAGE FOOTER -->
-    <div style="position:relative;width:100%;">
-      <img src="https://enjoylife.b-cdn.net/img/footer-enjoylife.jpg" alt="Enjoylife" style="width:100%;height:auto;display:block;">
-      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 0%,transparent 50%,rgba(0,0,0,0.6) 80%,#000 100%);"></div>
     </div>
 
     <!-- == BOTTOM BAR == -->
