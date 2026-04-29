@@ -47,33 +47,163 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "MusicEvent",
-    "name": "ENJOYLIFE 2027 · Édition IV",
-    "description": "Electronic Music Experience immersive dans la Plaine de l'Ain. Scénographies inédites, DJ de renommée mondiale, communauté bienveillante.",
-    "startDate": "2027",
-    "location": {
-      "@type": "Place",
-      "name": "Plaine de l'Ain",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Ambérieu-en-Bugey",
-        "addressRegion": "Ain",
-        "addressCountry": "FR"
+    "@graph": [
+      {
+        "@type": ["MusicEvent", "Festival"],
+        "@id": "https://enjoylife-emx.fr/#event",
+        "name": "ENJOYLIFE 2027 · Édition IV",
+        "alternateName": ["Enjoylife Festival 2027", "Enjoylife EMX 2027", "Electronic Music Experience 2027"],
+        "description": "4ème édition du festival électro Enjoylife dans la Plaine de l'Ain. Electronic Music Experience immersive, scénographies inédites, DJ de renommée mondiale, communauté bienveillante. À 40 min de Lyon, 20 min de Bourg-en-Bresse.",
+        "startDate": "2027",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "inLanguage": "fr-FR",
+        "isAccessibleForFree": false,
+        "typicalAgeRange": "18-",
+        "keywords": "festival électro, festival electro, festival techno, festival house, electronic music festival, festival immersif, festival open-air, scénographie, Plaine de l'Ain, Ambérieu-en-Bugey, Ain, Lyon, Bourg-en-Bresse, région lyonnaise, Auvergne-Rhône-Alpes, festival 2027, billetterie Shotgun",
+        "location": {
+          "@type": "Place",
+          "name": "Plaine de l'Ain",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ambérieu-en-Bugey",
+            "addressRegion": "Ain",
+            "postalCode": "01500",
+            "addressCountry": "FR"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 45.9568,
+            "longitude": 5.3568
+          }
+        },
+        "organizer": { "@id": "https://enjoylife-emx.fr/#organization" },
+        "url": "https://enjoylife-emx.fr",
+        "image": [
+          "https://enjoylife-emx.fr/img/og-image.jpg",
+          "https://enjoylife.b-cdn.net/JAST.jpg",
+          "https://enjoylife.b-cdn.net/TONYROMERA.jpg"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "url": "https://shotgun.live/fr/venues/enjoylife-emx",
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "EUR",
+          "validFrom": "2027-01-01",
+          "category": "primary"
+        },
+        "subjectOf": {
+          "@type": "WebPage",
+          "url": "https://enjoylife-emx.fr"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://enjoylife-emx.fr/#organization",
+        "name": "MG Entertainment",
+        "alternateName": "MGE",
+        "description": "Association organisatrice du festival Enjoylife · Electronic Music Experience.",
+        "url": "https://enjoylife-emx.fr",
+        "email": "contact@enjoylife-emx.fr",
+        "logo": "https://enjoylife.b-cdn.net/Enjoylife%20Partenaire/img/mge-logo-couleur.png",
+        "sameAs": [
+          "https://instagram.com/enjoylife.emx",
+          "https://www.facebook.com/enjoylife.emx",
+          "https://www.linkedin.com/company/mgentertainment/",
+          "https://shotgun.live/fr/venues/enjoylife-emx"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://enjoylife-emx.fr/#website",
+        "url": "https://enjoylife-emx.fr",
+        "name": "ENJOYLIFE",
+        "description": "Festival électro · Electronic Music Experience · Plaine de l'Ain",
+        "publisher": { "@id": "https://enjoylife-emx.fr/#organization" },
+        "inLanguage": "fr-FR"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://enjoylife-emx.fr/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quand et où aura lieu ENJOYLIFE 2027 ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Date et lieu exacts annoncés prochainement. Les éditions précédentes se sont déroulées autour d'Ambérieu-en-Bugey et Villieu-Loyes-Mollon dans l'Ain. Suivez @enjoylife.emx et activez vos notifications Shotgun pour être parmi les premiers informés." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment obtenir des billets ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Les billets sont disponibles exclusivement sur Shotgun. Compte tenu des sold out successifs, activez les notifications dès maintenant pour ne pas rater l'ouverture de la billetterie. Les prix sont communiqués à l'ouverture de chaque vague." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels artistes seront au line-up 2027 ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le line-up sera révélé progressivement. ENJOYLIFE mise toujours sur des artistes en avance sur leur temps. Tony Romera, Odymel, Rivo, Jast y étaient avant de devenir des superstars mondiales. L'édition IV ne fera pas exception." }
+          },
+          {
+            "@type": "Question",
+            "name": "Y a-t-il une politique de sécurité et de prévention ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui, et c'est non négociable. Un dispositif de sécurité complet est en place à chaque édition : fouilles à l'entrée, objets interdits classiques. Une association de prévention est présente sur place. Tolérance zéro pour les comportements irrespectueux, la violence ou le harcèlement." }
+          },
+          {
+            "@type": "Question",
+            "name": "Je ne peux plus venir, puis-je revendre mon billet ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui. La revente se fait directement via Shotgun, la plateforme officielle de billetterie. C'est sécurisé, simple, et ça permet à quelqu'un d'autre de vivre l'expérience à votre place. Les billets ENJOYLIFE se revendent vite." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment venir ? Y a-t-il des options de transport ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "L'événement se déroule dans la Plaine de l'Ain, accessible en voiture depuis Lyon (40 min), Bourg-en-Bresse (20 min) ou Ambérieu-en-Bugey. Des options de covoiturage et des parkings dédiés sont organisés à chaque édition." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle est l'ambiance et le dress code ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "ENJOYLIFE, c'est une communauté mature, bienveillante, 30-35 ans en moyenne. L'ambiance est premium, pas guindée. Pas de dress code imposé." }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce qu'il y a à manger et à boire sur place ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En 2026, collaboration avec deux food trucks locaux et gourmands. Côté boissons, partenariat avec NINKASI pour les bars. Pour 2027, on vise encore mieux." }
+          },
+          {
+            "@type": "Question",
+            "name": "Puis-je venir seul(e) ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Absolument. ENJOYLIFE est construit sur une communauté inclusive et bienveillante. Beaucoup de festivaliers viennent seuls et repartent avec des souvenirs partagés. Moyenne d'âge 34 ans." }
+          },
+          {
+            "@type": "Question",
+            "name": "C'est un événement réservé aux jeunes ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pas du tout. Moyenne d'âge en 2026 : 34 ans. ENJOYLIFE attire une communauté mature passionnée de musique électronique. La seule condition : être majeur (18+)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle est votre politique sur le respect et la tolérance ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ultra stricte. Tout comportement violent, discriminatoire ou harcelant entraîne une exclusion immédiate et définitive. Venez pour la musique, la rencontre et le partage." }
+          },
+          {
+            "@type": "Question",
+            "name": "Y a-t-il un accès PMR (personnes à mobilité réduite) ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Nous faisons de notre mieux pour rendre l'événement accessible à tous. Pour des besoins spécifiques, contactez contact@enjoylife-emx.fr avant l'événement." }
+          },
+          {
+            "@type": "Question",
+            "name": "Y aura-t-il une offre VIP ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Une offre VIP front stage est en réflexion pour 2027 : accès privilégié, vue imprenable sur la scène, expérience exclusive. Restez connectés sur nos réseaux." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment devenir partenaire de ENJOYLIFE ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Rendez-vous sur la page Partenaires. 100% de nos partenaires ont confirmé leur retour pour 2027, spontanément. Les places partenaires sont limitées." }
+          },
+          {
+            "@type": "Question",
+            "name": "Je suis DJ, comment postuler pour jouer à ENJOYLIFE ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Envoyez vos liens (SoundCloud, Mix, réseaux) à contact@enjoylife-emx.fr avec le sujet 'Candidature DJ'. La sélection est exigeante et les places sont rares." }
+          }
+        ]
       }
-    },
-    "organizer": {
-      "@type": "Organization",
-      "name": "MG Entertainment",
-      "url": "https://enjoylife-emx.fr"
-    },
-    "url": "https://enjoylife-emx.fr",
-    "image": "https://enjoylife-emx.fr/img/og-image.jpg",
-    "offers": {
-      "@type": "Offer",
-      "url": "https://shotgun.live/fr/venues/enjoylife-emx",
-      "availability": "https://schema.org/InStock",
-      "validFrom": "2027-01-01"
-    }
+    ]
   }
   </script>
 
@@ -91,6 +221,7 @@
     @font-face { font-family:'SFText'; src:url('fonts/SFNSText-Bold.otf') format('opentype'); font-weight:700; font-display:swap; }
     @font-face { font-family:'SFText'; src:url('fonts/SFNSText-Heavy.otf') format('opentype'); font-weight:800; font-display:swap; }
     @font-face { font-family:'FCFastest'; src:url('fonts/FC-Faster.otf') format('opentype'); font-weight:bold; font-display:swap; }
+    .sr-only { position:absolute !important; width:1px !important; height:1px !important; padding:0 !important; margin:-1px !important; overflow:hidden !important; clip:rect(0,0,0,0) !important; white-space:nowrap !important; border:0 !important; }
   </style>
 
   <style>
@@ -1753,6 +1884,7 @@
   </style>
 </head>
 <body>
+  <h1 class="sr-only">ENJOYLIFE 2027 · Festival Électro · Electronic Music Experience · 4ème édition · Plaine de l'Ain · Ambérieu-en-Bugey · proche Lyon et Bourg-en-Bresse</h1>
 
   
   
