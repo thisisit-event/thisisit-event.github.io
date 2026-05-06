@@ -764,11 +764,8 @@
                             <th>Notes</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr><td>20:00 – 21:30</td><td><em>À confirmer</em></td><td>Opening / warm-up</td><td>—</td><td>—</td></tr>
-                        <tr><td>21:30 – 23:00</td><td><em>À confirmer</em></td><td>Build-up</td><td>—</td><td>—</td></tr>
-                        <tr><td>23:00 – 00:30</td><td><em>À confirmer</em></td><td>Peak time</td><td>—</td><td>—</td></tr>
-                        <tr><td>00:30 – 02:00</td><td><em>À confirmer</em></td><td>Closing</td><td>—</td><td>—</td></tr>
+                    <tbody data-timetable="N1">
+                        <tr><td colspan="5" class="text-sm text-zinc-400 italic text-center py-4">Chargement…</td></tr>
                     </tbody>
                 </table>
                 </div>
@@ -787,11 +784,8 @@
                             <th>Notes</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr><td>20:00 – 21:30</td><td><em>À confirmer</em></td><td>Opening / warm-up</td><td>—</td><td>—</td></tr>
-                        <tr><td>21:30 – 23:00</td><td><em>À confirmer</em></td><td>Build-up</td><td>—</td><td>—</td></tr>
-                        <tr><td>23:00 – 00:30</td><td><em>À confirmer</em></td><td>Peak time</td><td>—</td><td>—</td></tr>
-                        <tr><td>00:30 – 02:00</td><td><em>À confirmer</em></td><td>Closing</td><td>—</td><td>—</td></tr>
+                    <tbody data-timetable="N2">
+                        <tr><td colspan="5" class="text-sm text-zinc-400 italic text-center py-4">Chargement…</td></tr>
                     </tbody>
                 </table>
                 </div>
@@ -847,72 +841,53 @@
             </div>
             <p class="section-lead">Affectations par poste, à compléter dès confirmation. Chaque poste a un référent.</p>
 
-            <div class="grid-2">
-                <div class="card">
-                    <div class="card-h"><i class="fa-solid fa-martini-glass"></i>Bar · grande salle &amp; bar 100 pax<span class="badge badge-mute">À pourvoir</span></div>
-                    <p class="text-xs text-zinc-500 mb-3">Référent : <em>à désigner</em></p>
-                    <div class="people">
-                        <div class="person person-empty">+ ajouter un bénévole</div>
-                        <div class="person person-empty">+ ajouter un bénévole</div>
-                    </div>
+            <div class="grid-2" data-benevoles-grid>
+                <div class="card" data-poste="Bar">
+                    <div class="card-h"><i class="fa-solid fa-martini-glass"></i>Bar · grande salle &amp; bar 100 pax<span class="badge badge-mute" data-poste-status>—</span></div>
+                    <p class="text-xs text-zinc-500 mb-3" data-poste-referent>Référent : <em>à désigner</em></p>
+                    <div class="people" data-people></div>
                 </div>
 
-                <div class="card">
-                    <div class="card-h"><i class="fa-solid fa-door-open"></i>Accueil · billetterie · contrôle<span class="badge badge-mute">À pourvoir</span></div>
-                    <p class="text-xs text-zinc-500 mb-3">Référent : <em>à désigner</em></p>
-                    <div class="people">
-                        <div class="person person-empty">+ ajouter un bénévole</div>
-                        <div class="person person-empty">+ ajouter un bénévole</div>
-                    </div>
+                <div class="card" data-poste="Accueil">
+                    <div class="card-h"><i class="fa-solid fa-door-open"></i>Accueil · billetterie · contrôle<span class="badge badge-mute" data-poste-status>—</span></div>
+                    <p class="text-xs text-zinc-500 mb-3" data-poste-referent>Référent : <em>à désigner</em></p>
+                    <div class="people" data-people></div>
                 </div>
 
-                <div class="card">
-                    <div class="card-h"><i class="fa-solid fa-coat-rack"></i>Vestiaire<span class="badge badge-mute">À pourvoir</span></div>
-                    <p class="text-xs text-zinc-500 mb-3">Référent : <em>à désigner</em></p>
-                    <div class="people">
-                        <div class="person person-empty">+ ajouter un bénévole</div>
-                    </div>
+                <div class="card" data-poste="Vestiaire">
+                    <div class="card-h"><i class="fa-solid fa-coat-rack"></i>Vestiaire<span class="badge badge-mute" data-poste-status>—</span></div>
+                    <p class="text-xs text-zinc-500 mb-3" data-poste-referent>Référent : <em>à désigner</em></p>
+                    <div class="people" data-people></div>
                 </div>
 
-                <div class="card">
-                    <div class="card-h"><i class="fa-solid fa-running"></i>Runners · loges · DJ<span class="badge badge-mute">À pourvoir</span></div>
-                    <p class="text-xs text-zinc-500 mb-3">Référent : <em>à désigner</em></p>
-                    <div class="people">
-                        <div class="person person-empty">+ ajouter un bénévole</div>
-                    </div>
+                <div class="card" data-poste="Runners">
+                    <div class="card-h"><i class="fa-solid fa-running"></i>Runners · loges · DJ<span class="badge badge-mute" data-poste-status>—</span></div>
+                    <p class="text-xs text-zinc-500 mb-3" data-poste-referent>Référent : <em>à désigner</em></p>
+                    <div class="people" data-people></div>
                 </div>
 
-                <div class="card">
-                    <div class="card-h"><i class="fa-solid fa-square-parking"></i>Parking · dispatch véhicules<span class="badge badge-mute">À pourvoir</span></div>
-                    <p class="text-xs text-zinc-500 mb-3">Référent : <em>à désigner</em></p>
-                    <div class="people">
-                        <div class="person person-empty">+ ajouter un bénévole</div>
-                        <div class="person person-empty">+ ajouter un bénévole</div>
-                    </div>
+                <div class="card" data-poste="Parking">
+                    <div class="card-h"><i class="fa-solid fa-square-parking"></i>Parking · dispatch véhicules<span class="badge badge-mute" data-poste-status>—</span></div>
+                    <p class="text-xs text-zinc-500 mb-3" data-poste-referent>Référent : <em>à désigner</em></p>
+                    <div class="people" data-people></div>
                 </div>
 
-                <div class="card">
-                    <div class="card-h"><i class="fa-solid fa-smoking"></i>Zone fumeur · contrôle PMR<span class="badge badge-mute">À pourvoir</span></div>
-                    <p class="text-xs text-zinc-500 mb-3">Référent : <em>à désigner</em></p>
-                    <div class="people">
-                        <div class="person person-empty">+ ajouter un bénévole</div>
-                    </div>
+                <div class="card" data-poste="Fumeur">
+                    <div class="card-h"><i class="fa-solid fa-smoking"></i>Zone fumeur · contrôle PMR<span class="badge badge-mute" data-poste-status>—</span></div>
+                    <p class="text-xs text-zinc-500 mb-3" data-poste-referent>Référent : <em>à désigner</em></p>
+                    <div class="people" data-people></div>
                 </div>
 
-                <div class="card">
-                    <div class="card-h"><i class="fa-solid fa-shield-halved"></i>Sécu staff (non SSIAP)<span class="badge badge-mute">À pourvoir</span></div>
-                    <p class="text-xs text-zinc-500 mb-3">Référent : <em>à désigner</em></p>
-                    <div class="people">
-                        <div class="person person-empty">+ ajouter un bénévole</div>
-                    </div>
+                <div class="card" data-poste="Sécu staff">
+                    <div class="card-h"><i class="fa-solid fa-shield-halved"></i>Sécu staff (non SSIAP)<span class="badge badge-mute" data-poste-status>—</span></div>
+                    <p class="text-xs text-zinc-500 mb-3" data-poste-referent>Référent : <em>à désigner</em></p>
+                    <div class="people" data-people></div>
                 </div>
 
-                <div class="card">
-                    <div class="card-h"><i class="fa-solid fa-broom"></i>Clean &amp; autolaveuse<span class="badge badge-mute">À pourvoir</span></div>
-                    <p class="text-xs text-zinc-500 mb-3">Bénévole formé autolaveuse à identifier. Référent : <em>à désigner</em></p>
-                    <div class="people">
-                        <div class="person person-empty">+ ajouter un bénévole</div>
-                    </div>
+                <div class="card" data-poste="Clean">
+                    <div class="card-h"><i class="fa-solid fa-broom"></i>Clean &amp; autolaveuse<span class="badge badge-mute" data-poste-status>—</span></div>
+                    <p class="text-xs text-zinc-500 mb-3" data-poste-referent>Bénévole formé autolaveuse à identifier. Référent : <em>à désigner</em></p>
+                    <div class="people" data-people></div>
                 </div>
             </div>
         </section>
@@ -928,26 +903,7 @@
             </div>
             <p class="section-lead">Qui fait quoi côté production. Référents postes opérationnels.</p>
 
-            <div class="people">
-                <div class="person">
-                    <div class="person-avatar">MS</div>
-                    <div class="person-meta">
-                        <div class="person-name">Morgan Spirli</div>
-                        <div class="person-role">Direction · MG Entertainment</div>
-                    </div>
-                </div>
-                <div class="person">
-                    <div class="person-avatar">LD</div>
-                    <div class="person-meta">
-                        <div class="person-name">Laurie Daussy</div>
-                        <div class="person-role">Co-direction · MG Entertainment</div>
-                    </div>
-                </div>
-                <div class="person person-empty">+ référent bar</div>
-                <div class="person person-empty">+ référent accueil</div>
-                <div class="person person-empty">+ référent caisse</div>
-                <div class="person person-empty">+ référent runners</div>
-            </div>
+            <div class="people" data-production-list></div>
         </section>
 
         <!-- ============ 06 RÉGIE TECHNIQUE ============ -->
@@ -962,37 +918,29 @@
             <p class="section-lead">Partenaire technique son · lumière · vidéo. Direction technique assurée par Kevin Calard.</p>
 
             <div class="grid-2">
-                <div class="card">
+                <div class="card" data-tech-role="DT">
                     <div class="card-h"><i class="fa-solid fa-user-tie"></i>Direction technique</div>
-                    <div class="people">
-                        <div class="person">
-                            <div class="person-avatar">KC</div>
-                            <div class="person-meta">
-                                <div class="person-name">Kevin Calard</div>
-                                <div class="person-role">DT Enjoylife 2027 · Night Animation</div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="people" data-tech-list><div class="person person-empty">DT à confirmer</div></div>
                 </div>
-                <div class="card">
+                <div class="card" data-tech-role="Son">
                     <div class="card-h"><i class="fa-solid fa-volume-high"></i>Son · FOH</div>
-                    <p class="text-sm text-zinc-500">Régisseur façade à confirmer.</p>
+                    <div class="people" data-tech-list><div class="person person-empty">Régisseur façade à confirmer</div></div>
                 </div>
-                <div class="card">
+                <div class="card" data-tech-role="Lumière">
                     <div class="card-h"><i class="fa-solid fa-lightbulb"></i>Lumière</div>
-                    <p class="text-sm text-zinc-500">Régisseur lumière à confirmer.</p>
+                    <div class="people" data-tech-list><div class="person person-empty">Régisseur lumière à confirmer</div></div>
                 </div>
-                <div class="card">
+                <div class="card" data-tech-role="Vidéo">
                     <div class="card-h"><i class="fa-solid fa-video"></i>Vidéo</div>
-                    <p class="text-sm text-zinc-500">Régisseur vidéo à confirmer.</p>
+                    <div class="people" data-tech-list><div class="person person-empty">Régisseur vidéo à confirmer</div></div>
                 </div>
-                <div class="card">
+                <div class="card" data-tech-role="Plateau">
                     <div class="card-h"><i class="fa-solid fa-warehouse"></i>Plateau</div>
-                    <p class="text-sm text-zinc-500">Régisseur plateau à confirmer.</p>
+                    <div class="people" data-tech-list><div class="person person-empty">Régisseur plateau à confirmer</div></div>
                 </div>
-                <div class="card">
+                <div class="card" data-tech-role="FX">
                     <div class="card-h"><i class="fa-solid fa-fire"></i>FX · pyrotechnie</div>
-                    <p class="text-sm text-zinc-500">Pyrotechnicien certifié à identifier (sous réserve validation ERP flammes).</p>
+                    <div class="people" data-tech-list><div class="person person-empty">Pyrotechnicien à identifier</div></div>
                 </div>
             </div>
         </section>
@@ -1292,47 +1240,12 @@
 
             <div class="card mt-4">
                 <div class="card-h"><i class="fa-solid fa-address-book"></i>Référents événement</div>
-                <div class="urgence-grid">
+                <div class="urgence-grid" data-urgences-list>
                     <div class="urgence-item">
-                        <div class="urgence-icon"><i class="fa-solid fa-user-tie"></i></div>
+                        <div class="urgence-icon"><i class="fa-solid fa-circle-notch fa-spin"></i></div>
                         <div class="urgence-meta">
-                            <div class="l">Direction prod · Morgan Spirli</div>
-                            <div class="v"><em class="text-zinc-400 not-italic font-normal text-sm">à insérer</em></div>
-                        </div>
-                    </div>
-                    <div class="urgence-item">
-                        <div class="urgence-icon"><i class="fa-solid fa-user-tie"></i></div>
-                        <div class="urgence-meta">
-                            <div class="l">Co-direction · Laurie Daussy</div>
-                            <div class="v"><em class="text-zinc-400 not-italic font-normal text-sm">à insérer</em></div>
-                        </div>
-                    </div>
-                    <div class="urgence-item">
-                        <div class="urgence-icon"><i class="fa-solid fa-sliders"></i></div>
-                        <div class="urgence-meta">
-                            <div class="l">DT · Kevin Calard</div>
-                            <div class="v"><em class="text-zinc-400 not-italic font-normal text-sm">à insérer</em></div>
-                        </div>
-                    </div>
-                    <div class="urgence-item">
-                        <div class="urgence-icon"><i class="fa-solid fa-building-columns"></i></div>
-                        <div class="urgence-meta">
-                            <div class="l">Régie salle · Sébastien Murtin</div>
-                            <div class="v"><em class="text-zinc-400 not-italic font-normal text-sm">à insérer</em></div>
-                        </div>
-                    </div>
-                    <div class="urgence-item">
-                        <div class="urgence-icon"><i class="fa-solid fa-shield"></i></div>
-                        <div class="urgence-meta">
-                            <div class="l">Chef SSIAP de service</div>
-                            <div class="v"><em class="text-zinc-400 not-italic font-normal text-sm">à insérer</em></div>
-                        </div>
-                    </div>
-                    <div class="urgence-item">
-                        <div class="urgence-icon"><i class="fa-solid fa-stethoscope"></i></div>
-                        <div class="urgence-meta">
-                            <div class="l">Médecin / poste de secours</div>
-                            <div class="v"><em class="text-zinc-400 not-italic font-normal text-sm">à insérer</em></div>
+                            <div class="l">Chargement…</div>
+                            <div class="v text-sm text-zinc-400">Synchronisation Google Sheets</div>
                         </div>
                     </div>
                 </div>
@@ -1346,6 +1259,19 @@
                 </div>
             </div>
         </section>
+
+        <!-- SYNC INDICATOR -->
+        <div id="sync-bar" class="changelog" style="padding-top:1.5rem;padding-bottom:0;border-top:none;">
+            <div class="flex items-center gap-3 flex-wrap">
+                <span id="sync-status" class="badge badge-info inline-flex"><i class="fa-solid fa-circle-notch fa-spin"></i>Synchronisation Google Sheets…</span>
+                <button id="sync-refresh" type="button" class="text-xs font-medium text-zinc-700 bg-white border border-zinc-200 px-3 py-1.5 rounded-full hover:bg-zinc-50 transition" style="display:none;">
+                    <i class="fa-solid fa-arrows-rotate mr-1"></i>Actualiser
+                </button>
+                <a href="https://docs.google.com/spreadsheets/d/1_1l33hW0wFfEMY1LaDbQmSfsiYkBgqAs_cDWvTdsNME/edit" target="_blank" rel="noopener" class="text-xs font-medium text-zinc-500 hover:text-zinc-900 transition ml-auto">
+                    <i class="fa-solid fa-pen-to-square mr-1"></i>Modifier les données dans Google Sheets
+                </a>
+            </div>
+        </div>
 
         <!-- CHANGELOG -->
         <div class="changelog">
@@ -1366,6 +1292,9 @@
     </main>
 
     <script>
+        // ========================================
+        //   NAVIGATION (active link, where, progress)
+        // ========================================
         const sections = document.querySelectorAll('section[id][data-cat]');
         const links = document.querySelectorAll('.sidebar-link');
         const where = document.getElementById('where');
@@ -1382,19 +1311,14 @@
             });
         });
 
-        function sync() {
+        function syncNav() {
             const scrollY = window.scrollY;
             const docH = document.documentElement.scrollHeight - window.innerHeight;
             progress.style.width = Math.min(100, Math.max(0, (scrollY / docH) * 100)) + '%';
-
             const probe = scrollY + 120;
             let current = null;
             sections.forEach(s => { if (probe >= s.offsetTop) current = s; });
-
-            links.forEach(l => {
-                l.classList.toggle('active', current && l.getAttribute('href') === '#' + current.id);
-            });
-
+            links.forEach(l => l.classList.toggle('active', current && l.getAttribute('href') === '#' + current.id));
             if (current) {
                 where.dataset.cat = current.dataset.cat;
                 where.querySelector('.cat').textContent = current.dataset.catLabel;
@@ -1404,9 +1328,213 @@
                 where.classList.remove('show');
             }
         }
-        window.addEventListener('scroll', sync, { passive: true });
-        window.addEventListener('resize', sync, { passive: true });
-        sync();
+        window.addEventListener('scroll', syncNav, { passive: true });
+        window.addEventListener('resize', syncNav, { passive: true });
+        syncNav();
+
+        // ========================================
+        //   GOOGLE SHEETS LIVE DATA
+        // ========================================
+        const SHEET_ID = '1_1l33hW0wFfEMY1LaDbQmSfsiYkBgqAs_cDWvTdsNME';
+        const csvUrl = (name) => `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(name)}&t=${Date.now()}`;
+
+        function parseCSV(text) {
+            const rows = [];
+            let row = [], cell = '', inQuotes = false;
+            for (let i = 0; i < text.length; i++) {
+                const c = text[i];
+                if (inQuotes) {
+                    if (c === '"' && text[i+1] === '"') { cell += '"'; i++; }
+                    else if (c === '"') inQuotes = false;
+                    else cell += c;
+                } else {
+                    if (c === '"') inQuotes = true;
+                    else if (c === ',') { row.push(cell); cell = ''; }
+                    else if (c === '\n' || c === '\r') {
+                        if (cell !== '' || row.length) { row.push(cell); rows.push(row); }
+                        row = []; cell = '';
+                        if (c === '\r' && text[i+1] === '\n') i++;
+                    } else cell += c;
+                }
+            }
+            if (cell !== '' || row.length) { row.push(cell); rows.push(row); }
+            if (rows.length < 2) return [];
+            const headers = rows[0].map(h => h.trim());
+            return rows.slice(1)
+                .filter(r => r.some(c => c && c.trim()))
+                .map(r => Object.fromEntries(headers.map((h, i) => [h, (r[i] || '').trim()])));
+        }
+
+        async function fetchSheet(name) {
+            const res = await fetch(csvUrl(name), { cache: 'no-store' });
+            if (!res.ok) throw new Error(`Sheet ${name} : HTTP ${res.status}`);
+            const text = await res.text();
+            return parseCSV(text);
+        }
+
+        // Helpers
+        const initials = (p) => {
+            const a = (p.Prenom || '').trim();
+            const b = (p.Nom || '').trim();
+            if (a && b) return (a[0] + b[0]).toUpperCase();
+            const single = (a || b || '?').replace(/\s+/g, '');
+            return single.slice(0, 2).toUpperCase();
+        };
+        const fullName = (p) => [p.Prenom, p.Nom].filter(Boolean).join(' ').trim() || p.Nom || '—';
+        const isYes = (v) => /^(oui|yes|y|o|true|1|✓|x)$/i.test((v || '').trim());
+        const telLink = (tel) => {
+            if (!tel) return '';
+            const clean = tel.replace(/[^0-9+]/g, '');
+            return `<a href="tel:${clean}" class="text-zinc-900 hover:underline">${tel}</a>`;
+        };
+        const personHTML = (p, opts = {}) => {
+            const name = fullName(p);
+            const role = opts.role || p.Role || p.Poste || '';
+            const tel = p.Telephone || '';
+            const referent = isYes(p.Referent);
+            return `
+                <div class="person">
+                    <div class="person-avatar">${initials(p)}</div>
+                    <div class="person-meta">
+                        <div class="person-name">${name}${referent ? ' <span class="badge badge-info ml-1" style="font-size:0.55rem;padding:0.1rem 0.4rem;">Réf.</span>' : ''}</div>
+                        <div class="person-role">${[role, tel ? telLink(tel) : ''].filter(Boolean).join(' · ')}</div>
+                    </div>
+                </div>
+            `;
+        };
+
+        // Renderers
+        function renderBenevoles(rows) {
+            document.querySelectorAll('[data-poste]').forEach(card => {
+                const poste = card.dataset.poste;
+                const list = rows.filter(r => (r.Poste || '').trim().toLowerCase() === poste.toLowerCase());
+                const target = card.querySelector('[data-people]');
+                const status = card.querySelector('[data-poste-status]');
+                const refLine = card.querySelector('[data-poste-referent]');
+
+                if (!list.length) {
+                    target.innerHTML = '<div class="person person-empty">Aucun bénévole encore inscrit</div>';
+                    status.textContent = 'À pourvoir';
+                    status.className = 'badge badge-mute';
+                    refLine.innerHTML = 'Référent : <em>à désigner</em>';
+                    return;
+                }
+                const ref = list.find(p => isYes(p.Referent));
+                target.innerHTML = list.map(p => personHTML(p)).join('');
+                status.innerHTML = `<i class="fa-solid fa-check"></i>${list.length} ${list.length > 1 ? 'pers.' : 'pers.'}`;
+                status.className = 'badge badge-ok';
+                refLine.innerHTML = ref ? `Référent : <strong>${fullName(ref)}</strong>${ref.Telephone ? ' · ' + telLink(ref.Telephone) : ''}` : 'Référent : <em>à désigner</em>';
+            });
+        }
+
+        function renderProduction(rows) {
+            const target = document.querySelector('[data-production-list]');
+            if (!target) return;
+            if (!rows.length) {
+                target.innerHTML = '<div class="person person-empty">Liste production à compléter dans Google Sheets</div>';
+                return;
+            }
+            target.innerHTML = rows.map(p => personHTML(p)).join('');
+        }
+
+        function renderRegieTech(rows) {
+            document.querySelectorAll('[data-tech-role]').forEach(card => {
+                const role = card.dataset.techRole;
+                const list = rows.filter(r => (r.Role || '').trim().toLowerCase() === role.toLowerCase());
+                const target = card.querySelector('[data-tech-list]');
+                if (!list.length) return; // garde le placeholder existant
+                target.innerHTML = list.map(p => personHTML(p, { role: '' })).join('');
+            });
+        }
+
+        function renderTimetable(rows, version) {
+            const tbody = document.querySelector(`[data-timetable="${version}"]`);
+            if (!tbody) return;
+            if (!rows.length) {
+                tbody.innerHTML = '<tr><td colspan="5" class="text-sm text-zinc-400 italic text-center py-4">Slots à remplir dans Google Sheets</td></tr>';
+                return;
+            }
+            tbody.innerHTML = rows.map(r => `
+                <tr>
+                    <td>${r.Slot || '—'}</td>
+                    <td>${r.Artiste || '<em class="text-zinc-400">à confirmer</em>'}</td>
+                    <td>${r.Format || '—'}</td>
+                    <td>${r.ArriveeLoge || '—'}</td>
+                    <td>${r.Notes || '—'}</td>
+                </tr>
+            `).join('');
+        }
+
+        const URGENCE_ICONS = {
+            'direction prod':   'fa-user-tie',
+            'co-direction':     'fa-user-tie',
+            'dt':               'fa-sliders',
+            'régie salle':      'fa-building-columns',
+            'regie salle':      'fa-building-columns',
+            'chef ssiap':       'fa-shield',
+            'ssiap':            'fa-shield',
+            'médecin':          'fa-stethoscope',
+            'medecin':          'fa-stethoscope',
+        };
+        function renderUrgences(rows) {
+            const target = document.querySelector('[data-urgences-list]');
+            if (!target) return;
+            if (!rows.length) {
+                target.innerHTML = '<div class="urgence-item"><div class="urgence-icon"><i class="fa-solid fa-circle-info"></i></div><div class="urgence-meta"><div class="l">Référents</div><div class="v text-sm text-zinc-400">À compléter dans Google Sheets</div></div></div>';
+                return;
+            }
+            target.innerHTML = rows.map(r => {
+                const role = (r.Role || '').trim();
+                const icon = URGENCE_ICONS[role.toLowerCase()] || 'fa-user';
+                const tel = r.Telephone || '';
+                return `
+                    <a href="${tel ? 'tel:' + tel.replace(/[^0-9+]/g, '') : '#'}" class="urgence-item" ${tel ? '' : 'aria-disabled="true" onclick="return false;"'}>
+                        <div class="urgence-icon"><i class="fa-solid ${icon}"></i></div>
+                        <div class="urgence-meta">
+                            <div class="l">${role}${r.Nom ? ' · ' + r.Nom : ''}</div>
+                            <div class="v">${tel || '<em class="text-zinc-400 not-italic font-normal text-sm">à insérer</em>'}</div>
+                        </div>
+                    </a>
+                `;
+            }).join('');
+        }
+
+        // Sync orchestration
+        const statusEl  = document.getElementById('sync-status');
+        const refreshEl = document.getElementById('sync-refresh');
+
+        async function loadAll() {
+            statusEl.className = 'badge badge-info inline-flex';
+            statusEl.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i>Synchronisation Google Sheets…';
+            refreshEl.style.display = 'none';
+
+            const sheets = ['Benevoles', 'Production', 'RegieTech', 'TimetableN1', 'TimetableN2', 'Urgences'];
+            try {
+                const [benevoles, production, regieTech, ttN1, ttN2, urgences] =
+                    await Promise.all(sheets.map(fetchSheet));
+                renderBenevoles(benevoles);
+                renderProduction(production);
+                renderRegieTech(regieTech);
+                renderTimetable(ttN1, 'N1');
+                renderTimetable(ttN2, 'N2');
+                renderUrgences(urgences);
+
+                const t = new Date();
+                const hh = String(t.getHours()).padStart(2, '0');
+                const mm = String(t.getMinutes()).padStart(2, '0');
+                statusEl.className = 'badge badge-ok inline-flex';
+                statusEl.innerHTML = `<i class="fa-solid fa-circle-check"></i>Données synchronisées · ${hh}:${mm}`;
+                refreshEl.style.display = 'inline-flex';
+            } catch (err) {
+                console.error(err);
+                statusEl.className = 'badge badge-warn inline-flex';
+                statusEl.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i>Erreur de synchronisation — vérifier le partage du sheet`;
+                refreshEl.style.display = 'inline-flex';
+            }
+        }
+
+        refreshEl.addEventListener('click', loadAll);
+        loadAll();
     </script>
 
 </body>
