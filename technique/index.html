@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enjoylife 2027 · Brief Technique · Salle Polyvalente Lagnieu</title>
+    <meta name="description" content="Document de travail technique pour Enjoylife 2027 — Salle Polyvalente de Lagnieu. Usage interne MGE / Régie / Mairie / Partenaires.">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Enjoylife%20Partenaire/img/enjoy-favicon.png">
+    <link rel="apple-touch-icon" href="https://enjoylife.b-cdn.net/Enjoylife%20Partenaire/img/enjoy-favicon.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cream': '#FBFBFD',
+                        'ink': '#0a0a0a',
+                    },
+                    fontFamily: {
+                        'geist': ['Geist', 'system-ui', 'sans-serif'],
+                        'bebas': ['Bebas Neue', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'card': '0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.04)',
+                        'card-hover': '0 2px 4px rgba(0,0,0,0.06), 0 12px 32px rgba(0,0,0,0.06)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --cream: #FBFBFD;
+            --section-alt: #F5F5F7;
+            --zinc-900: #18181b;
+            --zinc-700: #3f3f46;
+            --zinc-500: #71717a;
+            --zinc-400: #a1a1aa;
+            --zinc-300: #d4d4d8;
+            --zinc-200: #e4e4e7;
+            --zinc-100: #f4f4f5;
+            --warn: #d97706;
+            --warn-bg: #fffbeb;
+            --warn-border: #fde68a;
+            --danger: #dc2626;
+            --danger-bg: #fef2f2;
+            --danger-border: #fecaca;
+            --ok: #059669;
+            --ok-bg: #ecfdf5;
+            --ok-border: #a7f3d0;
+            --info: #2563eb;
+            --info-bg: #eff6ff;
+            --info-border: #bfdbfe;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Geist', system-ui, sans-serif;
+            background: var(--cream);
+            color: var(--zinc-900);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.55;
+        }
+
+        /* ── SIDEBAR ── */
+        #sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 260px;
+            background: #0a0a0a;
+            border-right: 1px solid rgba(255,255,255,0.08);
+            z-index: 800;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .sidebar-head {
+            padding: 1.5rem 1.25rem 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .sidebar-head .brand {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4rem;
+            color: #fff;
+            letter-spacing: 0.05em;
+            line-height: 1;
+        }
+        .sidebar-head .sub {
+            font-size: 0.68rem;
+            color: rgba(255,255,255,0.55);
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            margin-top: 0.4rem;
+            font-weight: 500;
+        }
+        #sidebar-scroll {
+            flex: 1;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(255,255,255,0.2) transparent;
+            padding: 0.5rem 0 1.5rem;
+        }
+        #sidebar-scroll::-webkit-scrollbar { width: 4px; }
+        #sidebar-scroll::-webkit-scrollbar-track { background: transparent; }
+        #sidebar-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 0.55rem 1.25rem;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            border-left: 2px solid transparent;
+            transition: all 0.15s ease;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .sidebar-link i {
+            width: 14px;
+            font-size: 0.78rem;
+            opacity: 0.7;
+        }
+        .sidebar-link:hover {
+            color: #fff;
+            background: rgba(255,255,255,0.05);
+            border-left-color: rgba(255,255,255,0.3);
+        }
+        .sidebar-link.active {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border-left-color: #fbbf24;
+            font-weight: 600;
+        }
+        .sidebar-link.active i { opacity: 1; color: #fbbf24; }
+
+        .sidebar-section-label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            padding: 1rem 1.25rem 0.4rem;
+        }
+
+        .sidebar-foot {
+            padding: 1rem 1.25rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.4);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 1023px) {
+            #sidebar { display: none; }
+        }
+        @media (min-width: 1024px) {
+            main { margin-left: 260px; }
+        }
+
+        /* ── MOBILE NAV ── */
+        #mobile-bar {
+            position: sticky;
+            top: 0;
+            background: rgba(251,251,253,0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--zinc-200);
+            padding: 0.75rem 1rem;
+            z-index: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        @media (min-width: 1024px) { #mobile-bar { display: none; } }
+
+        /* ── SECTIONS ── */
+        .section {
+            padding: 4rem 3rem;
+            max-width: 1100px;
+        }
+        .section + .section { border-top: 1px solid var(--zinc-200); }
+
+        @media (max-width: 768px) {
+            .section { padding: 2.5rem 1.25rem; }
+        }
+
+        .section-eyebrow {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--zinc-500);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+        }
+        .section-lead {
+            font-size: 1rem;
+            color: var(--zinc-500);
+            max-width: 720px;
+            margin-bottom: 2rem;
+        }
+
+        /* ── CARDS ── */
+        .card {
+            background: #fff;
+            border: 1px solid var(--zinc-200);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--card);
+        }
+        .card + .card { margin-top: 1rem; }
+
+        .card-h {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card-h i {
+            font-size: 0.85rem;
+            color: var(--zinc-500);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+        }
+
+        /* ── KEY-VALUE LISTS ── */
+        .kv {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 0.5rem 1rem;
+            font-size: 0.88rem;
+        }
+        .kv dt {
+            color: var(--zinc-500);
+            font-weight: 500;
+        }
+        .kv dd {
+            color: var(--zinc-900);
+            font-weight: 500;
+        }
+        @media (max-width: 540px) {
+            .kv { grid-template-columns: 1fr; gap: 0.15rem 0; }
+            .kv dt { margin-top: 0.5rem; }
+        }
+
+        /* ── BADGES ── */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .badge-ok    { background: var(--ok-bg);     color: var(--ok);     border: 1px solid var(--ok-border); }
+        .badge-warn  { background: var(--warn-bg);   color: var(--warn);   border: 1px solid var(--warn-border); }
+        .badge-danger{ background: var(--danger-bg); color: var(--danger); border: 1px solid var(--danger-border); }
+        .badge-info  { background: var(--info-bg);   color: var(--info);   border: 1px solid var(--info-border); }
+        .badge-mute  { background: var(--zinc-100);  color: var(--zinc-700); border: 1px solid var(--zinc-200); }
+
+        /* ── ALERTS ── */
+        .alert {
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            display: flex;
+            gap: 0.85rem;
+            align-items: flex-start;
+            font-size: 0.88rem;
+            line-height: 1.55;
+            margin-top: 1rem;
+        }
+        .alert i { font-size: 1rem; flex-shrink: 0; margin-top: 0.15rem; }
+        .alert strong { font-weight: 600; display: block; margin-bottom: 0.2rem; }
+
+        .alert-warn   { background: var(--warn-bg);   border: 1px solid var(--warn-border); color: var(--warn); }
+        .alert-warn strong { color: #92400e; }
+        .alert-warn p { color: #78350f; }
+
+        .alert-danger { background: var(--danger-bg); border: 1px solid var(--danger-border); color: var(--danger); }
+        .alert-danger strong { color: #7f1d1d; }
+        .alert-danger p { color: #991b1b; }
+
+        .alert-info   { background: var(--info-bg);   border: 1px solid var(--info-border); color: var(--info); }
+        .alert-info strong { color: #1e3a8a; }
+        .alert-info p { color: #1e40af; }
+
+        .alert-ok     { background: var(--ok-bg);     border: 1px solid var(--ok-border); color: var(--ok); }
+        .alert-ok strong { color: #064e3b; }
+        .alert-ok p { color: #065f46; }
+
+        /* ── LISTS ── */
+        ul.dot { list-style: none; padding: 0; }
+        ul.dot li {
+            position: relative;
+            padding-left: 1.1rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+        }
+        ul.dot li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0.55rem;
+            width: 5px; height: 5px;
+            border-radius: 50%;
+            background: var(--zinc-400);
+        }
+
+        ul.check { list-style: none; padding: 0; }
+        ul.check li {
+            position: relative;
+            padding-left: 1.6rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        ul.check li::before {
+            content: '\f111';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 400;
+            position: absolute;
+            left: 0; top: 0.05rem;
+            color: var(--zinc-300);
+            font-size: 0.95rem;
+        }
+        ul.check li.done::before {
+            content: '\f058';
+            font-weight: 900;
+            color: var(--ok);
+        }
+        ul.check li.todo::before {
+            content: '\f111';
+            font-weight: 400;
+            color: var(--warn);
+        }
+
+        /* ── TABLE ── */
+        .tbl {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+        .tbl th, .tbl td {
+            text-align: left;
+            padding: 0.65rem 0.85rem;
+            border-bottom: 1px solid var(--zinc-200);
+        }
+        .tbl th {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--zinc-500);
+            font-weight: 600;
+            background: var(--zinc-100);
+        }
+        .tbl tr:last-child td { border-bottom: none; }
+        .tbl .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+        .tbl tfoot td { font-weight: 700; background: var(--zinc-100); border-top: 2px solid var(--zinc-300); }
+
+        /* ── HERO ── */
+        .hero {
+            padding: 5rem 3rem 4rem;
+            max-width: 1100px;
+        }
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-weight: 600;
+            color: var(--zinc-500);
+            background: #fff;
+            border: 1px solid var(--zinc-200);
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            margin-bottom: 1.5rem;
+        }
+        .hero-title {
+            font-size: clamp(2.2rem, 5vw, 3.4rem);
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.05;
+            margin-bottom: 1rem;
+        }
+        .hero-title em {
+            font-style: normal;
+            background: linear-gradient(135deg, #f59e0b 0%, #dc2626 60%, #7c2d12 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--zinc-500);
+            max-width: 720px;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 768px) {
+            .hero { padding: 2.5rem 1.25rem 2rem; }
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+        .hero-stat {
+            background: #fff;
+            border: 1px solid var(--zinc-200);
+            border-radius: 14px;
+            padding: 1rem 1.1rem;
+            box-shadow: var(--card);
+        }
+        .hero-stat .v {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            line-height: 1;
+            color: var(--zinc-900);
+            letter-spacing: 0.02em;
+        }
+        .hero-stat .l {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--zinc-500);
+            margin-top: 0.4rem;
+            font-weight: 500;
+        }
+
+        /* ── ANCRES ── */
+        section[id] { scroll-margin-top: 1.5rem; }
+
+        /* ── PRINT ── */
+        @media print {
+            #sidebar, #mobile-bar { display: none; }
+            main { margin-left: 0; }
+            .section { padding: 1.5rem 0; page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ SIDEBAR ============ -->
+    <aside id="sidebar">
+        <div class="sidebar-head">
+            <div class="brand">ENJOYLIFE</div>
+            <div class="sub">Brief Technique · 2027</div>
+        </div>
+        <div id="sidebar-scroll">
+            <div class="sidebar-section-label">Cadrage</div>
+            <a href="#intro" class="sidebar-link"><i class="fa-solid fa-circle-info"></i>Vue d'ensemble</a>
+            <a href="#historique" class="sidebar-link"><i class="fa-regular fa-calendar"></i>Historique repérages</a>
+            <a href="#contacts" class="sidebar-link"><i class="fa-regular fa-address-book"></i>Contacts</a>
+            <a href="#planning" class="sidebar-link"><i class="fa-regular fa-clock"></i>Planning &amp; dates</a>
+
+            <div class="sidebar-section-label">Lieu</div>
+            <a href="#espaces" class="sidebar-link"><i class="fa-solid fa-vector-square"></i>Espaces</a>
+            <a href="#plateau" class="sidebar-link"><i class="fa-solid fa-music"></i>Plateau &amp; scène</a>
+            <a href="#lumiere-son" class="sidebar-link"><i class="fa-solid fa-lightbulb"></i>Lumière / Son / FX</a>
+            <a href="#elec-reseau" class="sidebar-link"><i class="fa-solid fa-bolt"></i>Élec &amp; réseau</a>
+
+            <div class="sidebar-section-label">Opérations</div>
+            <a href="#logistique" class="sidebar-link"><i class="fa-solid fa-truck"></i>Logistique &amp; accès</a>
+            <a href="#mobilier" class="sidebar-link"><i class="fa-solid fa-chair"></i>Mobilier &amp; inventaire</a>
+            <a href="#sanitaires" class="sidebar-link"><i class="fa-solid fa-restroom"></i>Sanitaires &amp; loges</a>
+            <a href="#nettoyage" class="sidebar-link"><i class="fa-solid fa-broom"></i>Nettoyage &amp; sortie</a>
+
+            <div class="sidebar-section-label">Cadre</div>
+            <a href="#tarifs" class="sidebar-link"><i class="fa-solid fa-euro-sign"></i>Tarifs &amp; devis</a>
+            <a href="#partenariats" class="sidebar-link"><i class="fa-solid fa-handshake"></i>Partenariats</a>
+            <a href="#questions" class="sidebar-link"><i class="fa-solid fa-circle-question"></i>Questions ouvertes</a>
+        </div>
+        <div class="sidebar-foot">
+            Document interne MGE<br>
+            Confidentiel · Ne pas diffuser
+        </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <main>
+
+        <!-- Mobile nav -->
+        <div id="mobile-bar">
+            <div>
+                <div class="font-bebas text-lg leading-none">ENJOYLIFE</div>
+                <div class="text-[0.6rem] uppercase tracking-widest text-zinc-500 mt-0.5 font-medium">Brief Technique 2027</div>
+            </div>
+            <a href="#questions" class="text-xs font-semibold text-zinc-700 bg-zinc-100 px-3 py-1.5 rounded-full">Questions</a>
+        </div>
+
+        <!-- ============ HERO ============ -->
+        <section class="hero">
+            <div class="hero-eyebrow">
+                <i class="fa-solid fa-lock text-[0.6rem]"></i>
+                Document de travail · Confidentiel
+            </div>
+            <h1 class="hero-title">Brief technique <em>Eternal Summer</em><br>Salle Polyvalente de Lagnieu.</h1>
+            <p class="hero-sub">
+                Document de travail consolidant les relevés terrain, les contraintes de la salle, les questions ouvertes et les demandes formulées à la mairie. Cette page est un outil collaboratif partagé entre la production MGE, la régie de la salle et les partenaires opérationnels.
+            </p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="v">800</div>
+                    <div class="l">Pax max (700+100)</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="v">2</div>
+                    <div class="l">Nuits événement</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="v">93,77 m²</div>
+                    <div class="l">Surface scène</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="v">~3 137 €</div>
+                    <div class="l">Devis indicatif salle</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ VUE D'ENSEMBLE ============ -->
+        <section id="intro" class="section">
+            <div class="section-eyebrow">01 · Cadrage</div>
+            <h2 class="section-title">Vue d'ensemble</h2>
+            <p class="section-lead">Lieu, organisateur, format de l'événement et structure du document.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-location-dot"></i>Lieu</div>
+                    <dl class="kv">
+                        <dt>Salle</dt><dd>Salle Polyvalente de Lagnieu</dd>
+                        <dt>Adresse</dt><dd>All. Guy de la Verpillière, 01150 Lagnieu</dd>
+                        <dt>Type</dt><dd>ERP municipal · grande salle + petite salle</dd>
+                        <dt>Jauge totale</dt><dd>800 pax (700 + 100, deux salles ouvertes)</dd>
+                    </dl>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-calendar-days"></i>Événement</div>
+                    <dl class="kv">
+                        <dt>Édition</dt><dd>Enjoylife 2027 · Eternal Summer</dd>
+                        <dt>Producteur</dt><dd>MG Entertainment (asso)</dd>
+                        <dt>Format</dt><dd>2 nuits événement + montage J-1</dd>
+                        <dt>Statut date</dt><dd><span class="badge badge-warn">À confirmer</span></dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <i class="fa-solid fa-circle-info"></i>
+                <div>
+                    <strong>Comment lire ce document.</strong>
+                    <p>Chaque section regroupe les relevés terrain, les contraintes identifiées et les points à valider. Les sections <em>Tarifs</em>, <em>Questions ouvertes</em> et <em>Demandes mairie</em> servent de check-list opérationnelle pour les prochains échanges avec Sébastien Murtin et Alexandra Plet.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ HISTORIQUE ============ -->
+        <section id="historique" class="section">
+            <div class="section-eyebrow">02 · Cadrage</div>
+            <h2 class="section-title">Historique des repérages</h2>
+            <p class="section-lead">Traçabilité des points de contact terrain avec la salle et les acteurs locaux.</p>
+
+            <div class="card">
+                <div class="flex items-start justify-between mb-3 flex-wrap gap-2">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-zinc-500 font-semibold">Repérage #1</div>
+                        <div class="text-lg font-semibold mt-0.5">Mercredi 6 mai 2026 · 15h–17h</div>
+                        <div class="text-sm text-zinc-500">Salle Polyvalente de Lagnieu</div>
+                    </div>
+                    <span class="badge badge-ok"><i class="fa-solid fa-check"></i>Effectué</span>
+                </div>
+                <div class="text-sm text-zinc-700 mb-2 font-semibold">Présents</div>
+                <ul class="dot text-zinc-700">
+                    <li><strong>Sébastien Murtin</strong> — Régisseur de la salle</li>
+                    <li><strong>Alexandra Plet</strong> — Adjointe Culture, animation culturelle, patrimoine et tourisme · Mairie de Lagnieu</li>
+                    <li><strong>Kevin Calard &amp; Elisabeth Calard</strong> — Night Animation</li>
+                    <li><strong>Morgan Spirli &amp; Laurie Daussy</strong> — MG Entertainment</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ CONTACTS ============ -->
+        <section id="contacts" class="section">
+            <div class="section-eyebrow">03 · Cadrage</div>
+            <h2 class="section-title">Contacts</h2>
+            <p class="section-lead">Référents opérationnels pour le projet 2027.</p>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-user-tie"></i>Sébastien Murtin</div>
+                    <div class="text-xs text-zinc-500 mb-2">Régisseur · Salle Polyvalente</div>
+                    <a href="mailto:vieassociative@mairie-lagnieu.fr" class="text-sm font-medium text-zinc-900 hover:underline break-all">vieassociative@mairie-lagnieu.fr</a>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-user-tie"></i>Kevin Calard</div>
+                    <div class="text-xs text-zinc-500 mb-2">Night Animation · en copie</div>
+                    <a href="mailto:contact@nightanimation.fr" class="text-sm font-medium text-zinc-900 hover:underline break-all">contact@nightanimation.fr</a>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-user-tie"></i>Alexandra Plet</div>
+                    <div class="text-xs text-zinc-500 mb-2">Adjointe Culture · Mairie de Lagnieu</div>
+                    <span class="badge badge-warn"><i class="fa-solid fa-triangle-exclamation"></i>Mail à fournir</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PLANNING ============ -->
+        <section id="planning" class="section">
+            <div class="section-eyebrow">04 · Cadrage</div>
+            <h2 class="section-title">Planning &amp; dates</h2>
+            <p class="section-lead">Option en cours de validation. Trois jours d'occupation de la salle, du jeudi 25/03 au samedi 27/03 (dimanche matin à éviter).</p>
+
+            <div class="card">
+                <div class="card-h"><i class="fa-regular fa-calendar"></i>Calendrier opérationnel · Option à confirmer</div>
+                <table class="tbl">
+                    <thead>
+                        <tr>
+                            <th>Jour</th>
+                            <th>Date</th>
+                            <th>Phase</th>
+                            <th>Horaires</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jeudi</td>
+                            <td>25 mars 2027</td>
+                            <td>Montage</td>
+                            <td>Journée complète</td>
+                        </tr>
+                        <tr>
+                            <td>Vendredi</td>
+                            <td>26 mars 2027</td>
+                            <td>Nuit 1 · Public</td>
+                            <td>20h–02h public · clean / sortie 4h max</td>
+                        </tr>
+                        <tr>
+                            <td>Samedi</td>
+                            <td>27 mars 2027</td>
+                            <td>Nuit 2 · Public + démontage</td>
+                            <td>20h–02h public · démontage 2h–4h</td>
+                        </tr>
+                        <tr>
+                            <td>Dimanche</td>
+                            <td>28 mars 2027</td>
+                            <td>Fin démontage (alt.)</td>
+                            <td>Matinée · à éviter / négocier</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="alert alert-danger">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                    <strong>Changement d'heure dans la nuit 2 — point bloquant.</strong>
+                    <p>Le passage à l'heure d'été a lieu dans la nuit du <strong>27 au 28 mars 2027</strong>. À 2h00 il devient 3h00. Conséquences à clarifier avec la régie&nbsp;: la fenêtre de clean prévue 2h–4h tombe mécaniquement à <strong>1h utile en heure légale</strong> ; la fin public à 2h doit être tranchée (heure légale ou heure horloge réelle, perte d'1h d'événement) ; la facturation horaire <em>« forfait nuit »</em> 65 €/h doit clarifier le décompte de cette heure fantôme.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ESPACES ============ -->
+        <section id="espaces" class="section">
+            <div class="section-eyebrow">05 · Lieu</div>
+            <h2 class="section-title">Espaces utilisés</h2>
+            <p class="section-lead">L'événement utilise l'intégralité du bâtiment&nbsp;: les deux salles, le hall, les loges, les offices, plus une zone fumeur extérieure aménagée.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-vector-square"></i>Grande salle</div>
+                    <dl class="kv">
+                        <dt>Jauge</dt><dd>700 pax</dd>
+                        <dt>Usage</dt><dd>Scène, public, régie au fond</dd>
+                        <dt>Régie</dt><dd>Fond de salle, devant escalier vers salle bar</dd>
+                    </dl>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-martini-glass"></i>Petite salle (bar)</div>
+                    <dl class="kv">
+                        <dt>Jauge</dt><dd>100 pax</dd>
+                        <dt>Surface</dt><dd>~100 m²</dd>
+                        <dt>Usage</dt><dd>Bar / chill — accessible escalier depuis grande salle</dd>
+                    </dl>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-door-open"></i>Hall principal</div>
+                    <ul class="dot">
+                        <li>Entrée principale sous porche</li>
+                        <li>Toilettes public à recompter</li>
+                        <li>Tente blanche 3×3 à installer en entrée</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-smoking"></i>Zone fumeur extérieure</div>
+                    <ul class="dot">
+                        <li>Petite entrée du hall, balisée barrières Vauban</li>
+                        <li>Bar extérieur + foodtruck</li>
+                        <li>Cendriers + poubelles à prévoir</li>
+                        <li>Tente blanche 3×3</li>
+                        <li>Accès PMR via cette zone (ouverture barrière au cas par cas)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-arrows-up-down"></i>Balcon · VIP sponsors</div>
+                    <p class="text-sm text-zinc-700">Souhait d'ouvrir le balcon en zone VIP encadrée pour sponsors et chefs d'entreprise. Le balcon est habituellement fermé au public.</p>
+                    <div class="alert alert-warn">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <div>
+                            <strong>Point ERP à cadrer formellement.</strong>
+                            <p>Si le balcon est fermé au public c'est probablement pour une raison de jauge / dégagements. Pour une ouverture VIP encadrée&nbsp;: effectif compté (liste fermée), 1 staff dédié minimum, vérification issue de secours, validation écrite Sébastien + commission de sécurité.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-utensils"></i>Offices traiteur &amp; bars</div>
+                    <p class="text-sm text-zinc-700">Tous les bars de la salle sont reliés à un <strong>office centralisé</strong>. Logistique de réassort très favorable.</p>
+                    <span class="badge badge-ok mt-2 inline-flex"><i class="fa-solid fa-check"></i>Atout</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PLATEAU & SCÈNE ============ -->
+        <section id="plateau" class="section">
+            <div class="section-eyebrow">06 · Lieu</div>
+            <h2 class="section-title">Plateau &amp; scène</h2>
+            <p class="section-lead">Dimensions, mobilier scénique disponible et contraintes d'accroche.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-ruler-combined"></i>Dimensions scène</div>
+                    <dl class="kv">
+                        <dt>Largeur</dt><dd>12,503 m</dd>
+                        <dt>Profondeur</dt><dd>7,5 m</dd>
+                        <dt>Hauteur sous plafond</dt><dd>4,19 m</dd>
+                        <dt>Hauteur plateau / sol public</dt><dd>1,020 m</dd>
+                        <dt>Surface totale</dt><dd>≈ 93,77 m²</dd>
+                    </dl>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-cubes"></i>Praticables disponibles</div>
+                    <dl class="kv">
+                        <dt>Quantité</dt><dd>36 unités</dd>
+                        <dt>Format</dt><dd>1 m × 2 m</dd>
+                        <dt>Surface max praticables</dt><dd>72 m²</dd>
+                        <dt>Montage / démontage</dt><dd>Facturé · 12 € × 36 = 432 €</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="alert alert-warn">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                    <strong>Cohérence à clarifier — scène fixe vs praticables.</strong>
+                    <p>La surface scène mesurée (93,77 m²) dépasse la surface couverte par les 36 praticables (72 m²). Hypothèse à confirmer auprès de Sébastien&nbsp;: existence d'une scène fixe avec praticables en extension, ou débord non praticable inclus dans la mesure. Critique pour le calepinage scénique et le placement backline.</p>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-h"><i class="fa-solid fa-link"></i>Accroches structure</div>
+                <p class="text-sm text-zinc-700 mb-2">Objectif&nbsp;: installer 2 moteurs structure sur poutres (comme la poutre face scène qui en porte déjà 2), et confirmer la possibilité d'installer <strong>2 truss avec lights au-dessus du public</strong>.</p>
+                <ul class="dot">
+                    <li>Mairie + Sébastien doivent fournir l'historique structure / note de calcul du bâtiment</li>
+                    <li>Hauteur sous plafond limitée (4,19 m) — accroche à ~4 m laisse 3–3,5 m sous truss</li>
+                    <li>Location <strong>nacelle mobile pour le week-end</strong> à prévoir si accroche poutres confirmée</li>
+                </ul>
+                <div class="alert alert-danger">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <div>
+                        <strong>Truss au-dessus du public — exigence ERP.</strong>
+                        <p>Cette configuration impose une note de calcul charpente signée et la validation de la commission de sécurité. Si la mairie n'a pas de note officielle exploitable, prévoir un BET structure (~500–1500 €) ou repenser l'accroche (totems, sol, truss ground-supported). À traiter en priorité.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ LUMIÈRE / SON / FX ============ -->
+        <section id="lumiere-son" class="section">
+            <div class="section-eyebrow">07 · Lieu</div>
+            <h2 class="section-title">Lumière · Son · Effets spéciaux</h2>
+            <p class="section-lead">Contraintes acoustiques et environnementales de la salle, opportunités FX confirmées en repérage.</p>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-volume-high"></i>Limiteur son</div>
+                    <span class="badge badge-ok"><i class="fa-solid fa-check"></i>Pas de limiteur</span>
+                    <p class="text-sm text-zinc-700 mt-2">Aucun limiteur installé en salle&nbsp;: pas de bridage automatique du système.</p>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-cloud"></i>Brouillard / fumée</div>
+                    <span class="badge badge-ok"><i class="fa-solid fa-check"></i>Compatible</span>
+                    <p class="text-sm text-zinc-700 mt-2">Pas de détecteur de fumée en salle. Brouillard / hazer / fumigènes possibles sans risque de déclenchement intempestif.</p>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-fire"></i>Flammes</div>
+                    <span class="badge badge-warn"><i class="fa-solid fa-triangle-exclamation"></i>À cadrer</span>
+                    <p class="text-sm text-zinc-700 mt-2">Sébastien <em>semble OK</em> pour intégrer des flammes encadrées par professionnels, idéalement <strong>entre poutres et scène</strong> pour bénéficier de la hauteur maximale.</p>
+                </div>
+            </div>
+
+            <div class="alert alert-danger">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                    <strong>Flammes — accord verbal ≠ autorisation.</strong>
+                    <p>Pour intégrer un effet pyrotechnique en ERP&nbsp;: pyrotechnicien certifié (catégorie F4 ou T2 selon configuration), déclaration préfectorale (CERFA), accord écrit de la commission de sécurité, et plan de sécurité incendie spécifique. À transformer en validation formelle <strong>avant</strong> toute communication publique sur l'effet.</p>
+                </div>
+            </div>
+
+            <div class="alert alert-warn">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                    <strong>Pas de limiteur ≠ liberté totale sur le SPL.</strong>
+                    <p>Le voisinage peut faire intervenir la gendarmerie sur arrêté préfectoral bruit, indépendamment du limiteur de salle. À vérifier&nbsp;: la salle dispose-t-elle d'une dérogation événementielle ? Mesures dB à la façade existantes ? Plages horaires nocturnes encadrées ?</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ÉLEC & RÉSEAU ============ -->
+        <section id="elec-reseau" class="section">
+            <div class="section-eyebrow">08 · Lieu</div>
+            <h2 class="section-title">Électricité &amp; réseau</h2>
+            <p class="section-lead">Tableaux électriques, connectivité internet pour billetterie et TPE.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-bolt"></i>Tableaux électriques</div>
+                    <ul class="dot">
+                        <li>Tableau intérieur dispo</li>
+                        <li>Tableau extérieur dispo (zone fumeur / foodtruck)</li>
+                        <li>Branchement avec rallonges sans souci</li>
+                    </ul>
+                    <span class="badge badge-ok mt-3 inline-flex"><i class="fa-solid fa-check"></i>Configuration favorable</span>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-temperature-half"></i>Climatisation / Chauffage</div>
+                    <span class="badge badge-ok"><i class="fa-solid fa-check"></i>RAS</span>
+                    <p class="text-sm text-zinc-700 mt-2">Système fonctionnel, pas de point particulier remonté en repérage.</p>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-tower-cell"></i>Couverture mobile · 5G</div>
+                    <p class="text-sm text-zinc-700 mb-2">Speed test iPhone effectué milieu de salle, près scène&nbsp;:</p>
+                    <dl class="kv">
+                        <dt>Download</dt><dd>350 Mbit/s</dd>
+                        <dt>Upload</dt><dd>59,7 Mbit/s</dd>
+                    </dl>
+                    <p class="text-xs text-zinc-500 mt-2">Backup solide — utilisable en partage de connexion si wifi salle indisponible ou saturé.</p>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-wifi"></i>Wifi salle</div>
+                    <span class="badge badge-warn mb-2 inline-flex"><i class="fa-solid fa-triangle-exclamation"></i>À documenter</span>
+                    <p class="text-sm text-zinc-700">Questions à clarifier avec Sébastien&nbsp;:</p>
+                    <ul class="dot mt-1">
+                        <li>Type de connexion (fibre / ADSL / autre)</li>
+                        <li>Débit montant et descendant</li>
+                        <li>Couverture toutes zones (grande salle, hall, bar 100 m², loges, ext.)</li>
+                        <li>SSID + mot de passe sécurisé</li>
+                        <li>Réseau dédié événement séparé du réseau muni ?</li>
+                        <li>Compatible TPE / billetterie en simultané ?</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ LOGISTIQUE & ACCÈS ============ -->
+        <section id="logistique" class="section">
+            <div class="section-eyebrow">09 · Opérations</div>
+            <h2 class="section-title">Logistique &amp; accès</h2>
+            <p class="section-lead">Flux camions, parkings, livraisons fournisseurs et stationnement public.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-truck"></i>Backstage · déchargement</div>
+                    <ul class="dot">
+                        <li>Zone backstage dédiée pour déchargement camions</li>
+                        <li>Accès montage facile&nbsp;: backstage → scène en direct</li>
+                        <li>⚠️ <strong>Demander la clé</strong> qui ouvre la barrière backstage</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-box"></i>Retours fournisseurs · lundi matin</div>
+                    <p class="text-sm text-zinc-700">Possibilité de retours fournisseurs lundi matin (ex&nbsp;: bière / fûts vides Night Animation).</p>
+                    <span class="badge badge-warn mt-2 inline-flex"><i class="fa-solid fa-triangle-exclamation"></i>À confirmer</span>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-square-parking"></i>Parkings</div>
+                    <ul class="dot">
+                        <li>Demander <strong>ouverture du parking de l'esplanade JO Nallet</strong></li>
+                        <li>Parking <strong>staff / production</strong> dédié</li>
+                        <li>Parking <strong>VIP</strong> (sponsors + élus mairie)</li>
+                        <li>Dispatch via barrières Vauban + bénévoles · les 2 soirs</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-traffic-light"></i>Stationnement public</div>
+                    <p class="text-sm text-zinc-700">Deux options à arbitrer avec la mairie&nbsp;:</p>
+                    <ul class="dot mt-1">
+                        <li><strong>Arrêté municipal de stationnement</strong> les 2 soirs (formel)</li>
+                        <li>OU panneaux dissuasifs (informel · backup)</li>
+                    </ul>
+                    <p class="text-xs text-zinc-500 mt-2">L'arrêté est plus solide juridiquement, et libère de la place pour un dispatch maîtrisé.</p>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-h"><i class="fa-solid fa-tents"></i>Aménagements extérieurs à demander</div>
+                <ul class="dot">
+                    <li>Tente blanche <strong>3 m × 3 m</strong> · entrée principale (sous porche)</li>
+                    <li>Tente blanche <strong>3 m × 3 m</strong> · zone fumeur</li>
+                    <li>Barrières <strong>Vauban</strong> (idéalement avec installation par équipes municipales)</li>
+                    <li>Barrières <strong>Heras</strong> en complément</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ MOBILIER & INVENTAIRE ============ -->
+        <section id="mobilier" class="section">
+            <div class="section-eyebrow">10 · Opérations</div>
+            <h2 class="section-title">Mobilier &amp; inventaire salle</h2>
+            <p class="section-lead">Ressources mobiliser disponibles à la salle, à intégrer au plan d'implantation.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-chair"></i>Chaises</div>
+                    <div class="text-3xl font-bebas mt-1">645</div>
+                    <p class="text-sm text-zinc-500 mt-1">Largement suffisant pour assoir 800 pax si besoin scénographique.</p>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-table-cells-large"></i>Tables légères</div>
+                    <div class="text-3xl font-bebas mt-1">25 <span class="text-base text-zinc-500">· 180 × 75 cm</span></div>
+                    <p class="text-sm text-zinc-500 mt-1">Probablement les tables blanches légères. <strong>Obligation d'utiliser ces tables</strong> (consigne salle&nbsp;: pas de manutention lourde).</p>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-shield-halved"></i>Plaques de protection sol</div>
+                    <p class="text-sm text-zinc-700">Plaques de projection / protection sol disponibles pour <strong>charges lourdes</strong>. À mobiliser pour le matériel scénique et les bars.</p>
+                    <span class="badge badge-ok mt-3 inline-flex"><i class="fa-solid fa-check"></i>Disponible</span>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-broom"></i>Autolaveuse</div>
+                    <p class="text-sm text-zinc-700">Autolaveuse présente sur site. <strong>Demande&nbsp;:</strong> utilisation par un bénévole expert pour gérer la transition vendredi → samedi.</p>
+                    <span class="badge badge-info mt-2 inline-flex"><i class="fa-solid fa-handshake"></i>Voir section nettoyage</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ SANITAIRES & LOGES ============ -->
+        <section id="sanitaires" class="section">
+            <div class="section-eyebrow">11 · Opérations</div>
+            <h2 class="section-title">Sanitaires &amp; loges</h2>
+            <p class="section-lead">Espaces dédiés artistes, production, public et bénévoles.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-restroom"></i>Sanitaires</div>
+                    <ul class="dot">
+                        <li><strong>Public</strong> · hall (à recompter exactement)</li>
+                        <li><strong>Backstage</strong> · pour artistes et production</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-door-closed"></i>Loges</div>
+                    <ul class="dot">
+                        <li><strong>2 loges</strong> · 1 production · 1 artistes</li>
+                        <li><strong>2 salles d'eau</strong> · douche + lavabo</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-people-group"></i>Espace bénévoles</div>
+                    <span class="badge badge-warn mb-2 inline-flex"><i class="fa-solid fa-triangle-exclamation"></i>À prévoir</span>
+                    <p class="text-sm text-zinc-700">Aucun lieu dédié aux bénévoles n'a été identifié en repérage. À demander à Sébastien&nbsp;: pièce dédiée pour briefing, pause, vestiaire.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ NETTOYAGE & SORTIE ============ -->
+        <section id="nettoyage" class="section">
+            <div class="section-eyebrow">12 · Opérations</div>
+            <h2 class="section-title">Nettoyage &amp; sortie</h2>
+            <p class="section-lead">Protocole de propreté et proposition de deal opérationnel avec la mairie.</p>
+
+            <div class="card">
+                <div class="card-h"><i class="fa-solid fa-handshake"></i>Deal autolaveuse + clean complet · proposition</div>
+                <p class="text-sm text-zinc-700 mb-3">Modèle déjà éprouvé et validé sur l'événement <strong>Villieu 2026</strong>&nbsp;:</p>
+                <ul class="dot">
+                    <li>Utilisation de l'autolaveuse de la salle par <strong>1 bénévole formé</strong> (production MGE)</li>
+                    <li>Permet de gérer la <strong>transition propre</strong> entre la nuit 1 (vendredi) et la nuit 2 (samedi)</li>
+                    <li>En contrepartie&nbsp;: notre équipe assure le <strong>clean complet de la salle</strong> en sortie</li>
+                    <li>Bénéfice mairie&nbsp;: les équipes municipales n'ont <strong>aucun travail le lundi matin</strong></li>
+                </ul>
+                <span class="badge badge-info mt-3 inline-flex"><i class="fa-solid fa-circle-info"></i>À pitcher formellement à Sébastien</span>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-h"><i class="fa-solid fa-trash"></i>Évacuation déchets</div>
+                <p class="text-sm text-zinc-700">À confirmer avec la salle&nbsp;: dispositif de <strong>benne / grosse poubelle</strong> disponible pour évacuer l'ensemble des déchets en fin d'événement.</p>
+                <span class="badge badge-warn mt-2 inline-flex"><i class="fa-solid fa-triangle-exclamation"></i>À demander</span>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-h"><i class="fa-regular fa-image"></i>État des lieux</div>
+                <p class="text-sm text-zinc-700">Le jour du montage, prévoir une session photo complète de tous les espaces avant intervention (référence pour l'état des lieux de sortie).</p>
+            </div>
+        </section>
+
+        <!-- ============ TARIFS ============ -->
+        <section id="tarifs" class="section">
+            <div class="section-eyebrow">13 · Cadre</div>
+            <h2 class="section-title">Tarifs &amp; devis</h2>
+            <p class="section-lead">Tarif <strong>indicatif</strong> communiqué en repérage, hors préparation et hors négociation tarif associatif. À confirmer par devis officiel.</p>
+
+            <div class="card">
+                <div class="card-h"><i class="fa-solid fa-receipt"></i>Détail des postes · indicatif</div>
+                <table class="tbl">
+                    <thead>
+                        <tr>
+                            <th>Poste</th>
+                            <th>Détail</th>
+                            <th class="num">Montant</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Location grande salle</td>
+                            <td>Forfait</td>
+                            <td class="num">1 430,00 €</td>
+                        </tr>
+                        <tr>
+                            <td>Installation podium</td>
+                            <td>12 € × 36 praticables</td>
+                            <td class="num">432,00 €</td>
+                        </tr>
+                        <tr>
+                            <td>Forfait nuit</td>
+                            <td>65 €/h × 8 h (à partir de minuit)</td>
+                            <td class="num">520,00 €</td>
+                        </tr>
+                        <tr>
+                            <td>Petite salle + bar</td>
+                            <td>Forfait</td>
+                            <td class="num">605,00 €</td>
+                        </tr>
+                        <tr>
+                            <td>Nettoyage</td>
+                            <td>Forfait</td>
+                            <td class="num">150,00 €</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">Total indicatif</td>
+                            <td class="num">3 137,00 €</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div class="alert alert-warn">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                    <strong>Points à creuser en négociation.</strong>
+                    <p>
+                        — Tarif <strong>associatif</strong> appliqué&nbsp;? MG Entertainment est une association ; les salles municipales appliquent généralement une grille préférentielle (parfois jusqu'à -30/-50 %) pour les associations, avec sous-distinction <em>asso commune</em> vs <em>asso hors commune</em>.<br>
+                        — <strong>« Forfait nuit »</strong> 65 €/h × 8 h = 520 €&nbsp;: ce n'est pas un forfait dégressif, c'est du tarif horaire. Demander un véritable forfait événement.<br>
+                        — <strong>Petite salle + bar 605 €</strong>&nbsp;: poste lourd pour des annexes, mais sans bar pas d'événement. À cadrer comme bloc indissociable de la grande salle.<br>
+                        — Possibilité d'un <strong>forfait week-end</strong> englobant montage + 2 nuits + démontage + clean&nbsp;?
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ PARTENARIATS ============ -->
+        <section id="partenariats" class="section">
+            <div class="section-eyebrow">14 · Cadre</div>
+            <h2 class="section-title">Partenariats opérationnels</h2>
+            <p class="section-lead">Acteurs locaux à activer pour mutualiser ressources et budget.</p>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-handshake"></i>BPS Lagnieu · structure Layher</div>
+                    <p class="text-sm text-zinc-700">Contact à prendre pour partenariat structure (échafaudage / scaffolding Layher). Acteur local&nbsp;: visibilité possible en échange de prêt ou tarif partenaire.</p>
+                    <span class="badge badge-info mt-3 inline-flex"><i class="fa-solid fa-circle-info"></i>À contacter</span>
+                </div>
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-music"></i>Night Animation</div>
+                    <p class="text-sm text-zinc-700">Partenaire boissons confirmé · Kevin et Elisabeth Calard présents en repérage. Voir mail copie sur tous les échanges techniques.</p>
+                    <span class="badge badge-ok mt-3 inline-flex"><i class="fa-solid fa-check"></i>Engagé</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ QUESTIONS OUVERTES ============ -->
+        <section id="questions" class="section">
+            <div class="section-eyebrow">15 · Cadre</div>
+            <h2 class="section-title">Questions ouvertes &amp; demandes consolidées</h2>
+            <p class="section-lead">Check-list opérationnelle pour les prochains échanges. À traiter en priorité avec Sébastien Murtin (régie) et Alexandra Plet (mairie).</p>
+
+            <div class="card">
+                <div class="card-h"><i class="fa-solid fa-list-check"></i>Demandes à formuler à la Mairie</div>
+                <ul class="check">
+                    <li class="todo">Confirmation des dates option · 25–27 mars 2027</li>
+                    <li class="todo">Tarif <strong>asso locale</strong> (commune / hors commune) — grille à fournir</li>
+                    <li class="todo">Forfait événement / week-end englobant montage + 2 nuits + démontage</li>
+                    <li class="todo">Mail Alexandra Plet</li>
+                    <li class="todo">Arrêté municipal de stationnement les 2 soirs</li>
+                    <li class="todo">Ouverture du parking de l'esplanade JO Nallet</li>
+                    <li class="todo">Prêt + installation barrières Vauban par équipes municipales</li>
+                    <li class="todo">Barrières Heras complémentaires</li>
+                    <li class="todo">Tente blanche 3×3 · entrée + zone fumeur</li>
+                </ul>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-h"><i class="fa-solid fa-screwdriver-wrench"></i>Questions Régie · Sébastien Murtin</div>
+                <ul class="check">
+                    <li class="todo">Heure max légale de débit d'alcool · 1h ou 2h&nbsp;?</li>
+                    <li class="todo">Wifi salle · type, débit, couverture, SSID, mdp, compatibilité TPE</li>
+                    <li class="todo">Clé barrière backstage · qui détient, comment récupérer</li>
+                    <li class="todo">Retours fournisseurs lundi matin · à confirmer</li>
+                    <li class="todo">Benne / grosse poubelle disponible en sortie</li>
+                    <li class="todo">Inventaire toilettes public dans le hall · recomptage</li>
+                    <li class="todo">Espace dédié pour les bénévoles</li>
+                    <li class="todo">Validation deal autolaveuse + clean complet (modèle Villieu 2026)</li>
+                    <li class="todo">Cohérence dimensions scène (93,77 m²) vs surface praticables (72 m²)</li>
+                    <li class="todo">Guirlandes de Noël · à cacher proprement ou retirer</li>
+                </ul>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-h"><i class="fa-solid fa-shield-halved"></i>Sécurité &amp; ERP — points bloquants</div>
+                <ul class="check">
+                    <li class="todo"><strong>Charge poutres</strong> · historique structure / note de calcul du bâtiment (objectif 2 truss + lights au-dessus du public)</li>
+                    <li class="todo"><strong>Flammes</strong> · pyrotechnicien certifié + déclaration préfecture (CERFA) + accord écrit commission sécurité</li>
+                    <li class="todo"><strong>Balcon VIP</strong> · validation écrite ouverture encadrée (effectif compté, dégagement, staff dédié)</li>
+                    <li class="todo"><strong>Changement d'heure nuit 2</strong> · décompte horaire et facturation</li>
+                    <li class="todo"><strong>Bruit / SPL</strong> · dérogation événementielle, plages horaires, mesures dB façade</li>
+                </ul>
+            </div>
+
+            <div class="alert alert-info mt-6">
+                <i class="fa-solid fa-circle-info"></i>
+                <div>
+                    <strong>Phase 2 — Réponses régie en ligne.</strong>
+                    <p>Cette page sera enrichie d'un module de saisie permettant à Sébastien et à la mairie d'apporter leurs réponses directement en ligne (envoi par mail à la production). À ouvrir dès que la structure de questions est stabilisée.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-xs text-zinc-400 py-10 border-t border-zinc-200">
+            Document de travail — MG Entertainment · Enjoylife 2027<br>
+            <span class="opacity-60">Mis à jour 6 mai 2026 · ne pas diffuser hors cercle production / régie / mairie</span>
+        </footer>
+
+    </main>
+
+    <script>
+        // Active link sur scroll
+        const sections = document.querySelectorAll('section[id]');
+        const links = document.querySelectorAll('.sidebar-link');
+        function syncActive() {
+            const scrollY = window.scrollY + 100;
+            let current = null;
+            sections.forEach(s => {
+                if (scrollY >= s.offsetTop) current = s.id;
+            });
+            links.forEach(l => {
+                l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+            });
+        }
+        window.addEventListener('scroll', syncActive, { passive: true });
+        syncActive();
+    </script>
+
+</body>
+</html>
