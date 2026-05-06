@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enjoylife 2027 · Brief Technique · Salle Polyvalente Lagnieu</title>
     <meta name="description" content="Document de travail technique pour Enjoylife 2027 — Salle Polyvalente de Lagnieu. Outil partagé Production · Régie · Mairie.">
-    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-    <meta name="googlebot" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+    <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet">
+    <meta name="referrer" content="no-referrer">
     <meta name="theme-color" content="#0a0a0a">
 
     <link rel="icon" type="image/png" href="https://enjoylife.b-cdn.net/Enjoylife%20Partenaire/img/enjoy-favicon.png">
@@ -298,6 +300,8 @@
                 padding: 0 0 0.4rem 0;
             }
             .section-num::after { display: none; }
+            .section-cat { font-size: 0.62rem; flex-wrap: wrap; }
+            .section-cat .step { margin-left: 0.3rem; padding-left: 0.4rem; }
         }
 
         .section-title {
@@ -464,8 +468,15 @@
         }
 
         /* ── TABLE ── */
+        .tbl-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 0 -0.5rem;
+            padding: 0 0.5rem;
+        }
         .tbl {
             width: 100%;
+            min-width: 480px;
             border-collapse: collapse;
             font-size: 0.88rem;
         }
@@ -687,6 +698,16 @@
         }
         .qa input::placeholder, .qa textarea::placeholder { color: var(--zinc-400); }
 
+        /* iOS — éviter le zoom au focus sur les inputs (font-size minimum 16px) */
+        @media (max-width: 768px) {
+            .qa input[type="text"],
+            .qa input[type="email"],
+            .qa input[type="tel"],
+            .qa input[type="date"],
+            .qa textarea,
+            .field input { font-size: 16px; }
+        }
+
         .form-block { margin-bottom: 0.5rem; }
         .form-block-title {
             font-size: 0.78rem;
@@ -773,6 +794,11 @@
             gap: 1rem;
             flex-wrap: wrap;
             margin-top: 1rem;
+        }
+        @media (max-width: 640px) {
+            .form-actions { flex-direction: column; align-items: stretch; }
+            .btn-submit { justify-content: center; padding: 1rem; font-size: 1rem; }
+            .form-foot { text-align: center; justify-content: center; }
         }
         .btn-submit {
             display: inline-flex;
@@ -1017,6 +1043,7 @@
 
             <div class="card">
                 <div class="card-h"><i class="fa-regular fa-calendar"></i>Calendrier opérationnel · Option à confirmer</div>
+                <div class="tbl-wrap">
                 <table class="tbl">
                     <thead>
                         <tr>
@@ -1053,6 +1080,7 @@
                         </tr>
                     </tbody>
                 </table>
+                </div>
             </div>
 
             <div class="alert alert-warn">
