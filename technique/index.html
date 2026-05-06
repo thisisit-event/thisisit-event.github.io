@@ -832,6 +832,53 @@
         .form-foot i { color: var(--zinc-400); }
 
         /* ── PRINT ── */
+        /* ── CHANGELOG ── */
+        .changelog {
+            max-width: 1100px;
+            padding: 3rem 3rem 1rem;
+            border-top: 1px solid var(--zinc-200);
+        }
+        @media (max-width: 768px) { .changelog { padding: 2rem 1.25rem 0.5rem; } }
+        .changelog-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--zinc-500);
+            font-weight: 600;
+            margin-bottom: 0.85rem;
+        }
+        .changelog-eyebrow i { font-size: 0.7rem; }
+        .changelog-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+        .changelog-list li {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 1rem;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: var(--zinc-700);
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed var(--zinc-200);
+        }
+        .changelog-list li:last-child { border-bottom: none; }
+        .changelog-list .date {
+            font-variant-numeric: tabular-nums;
+            font-weight: 600;
+            color: var(--zinc-900);
+        }
+        @media (max-width: 540px) {
+            .changelog-list li { grid-template-columns: 1fr; gap: 0.1rem; }
+            .changelog-list .date { font-size: 0.78rem; color: var(--zinc-500); }
+        }
+
         @media print {
             #sidebar, #mobile-bar { display: none; }
             main { margin-left: 0; }
@@ -1711,9 +1758,20 @@
             </div>
         </section>
 
-        <footer class="text-center text-xs text-zinc-400 py-10 border-t border-zinc-200">
+        <!-- ============ CHANGELOG ============ -->
+        <div class="changelog">
+            <div class="changelog-eyebrow"><i class="fa-solid fa-clock-rotate-left"></i>Historique des mises à jour</div>
+            <ul class="changelog-list">
+                <li>
+                    <span class="date">06 mai 2026</span>
+                    <span>Création du document suite au repérage initial du 6 mai 2026 (Sébastien Murtin, Alexandra Plet, Kevin &amp; Elisabeth Calard, Morgan Spirli, Laurie Daussy). Consolidation des relevés terrain, des contraintes ERP identifiées et ouverture du formulaire de réponses en ligne.</span>
+                </li>
+            </ul>
+        </div>
+
+        <footer class="text-center text-xs text-zinc-400 py-10 border-t border-zinc-200 mt-6">
             Document de travail — MG Entertainment · Enjoylife 2027<br>
-            <span class="opacity-60">Mis à jour 6 mai 2026 · ne pas diffuser hors cercle production / régie / mairie</span>
+            <span class="opacity-60">Dernière mise à jour 6 mai 2026 · ne pas diffuser hors cercle production / régie / mairie</span>
         </footer>
 
     </main>
