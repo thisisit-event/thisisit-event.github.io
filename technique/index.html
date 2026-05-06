@@ -1776,6 +1776,18 @@
         const where = document.getElementById('where');
         const progress = document.getElementById('progress');
 
+        // Scroll vers section sans laisser le # dans l'URL
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', (e) => {
+                const id = a.getAttribute('href').slice(1);
+                const target = document.getElementById(id);
+                if (!target) return;
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                history.replaceState(null, '', location.pathname + location.search);
+            });
+        });
+
         function sync() {
             const scrollY = window.scrollY;
             const docH = document.documentElement.scrollHeight - window.innerHeight;
