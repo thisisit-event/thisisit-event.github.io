@@ -631,6 +631,64 @@
         @media (min-width: 1024px) { #progress { left: 260px; } }
 
         /* ── FORM ── */
+        .qa {
+            padding: 1rem 0;
+            border-top: 1px solid var(--zinc-200);
+        }
+        .qa:first-of-type { border-top: none; padding-top: 1.25rem; }
+        .qa-q {
+            font-size: 0.92rem;
+            color: var(--zinc-900);
+            line-height: 1.5;
+            margin-bottom: 0.65rem;
+            display: flex;
+            gap: 0.7rem;
+            align-items: flex-start;
+        }
+        .qa-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 30px; height: 30px;
+            border-radius: 8px;
+            background: var(--zinc-100);
+            border: 1px solid var(--zinc-200);
+            color: var(--zinc-700);
+            font-size: 0.72rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            flex-shrink: 0;
+            margin-top: -0.1rem;
+        }
+        .qa input[type="text"],
+        .qa input[type="email"],
+        .qa input[type="tel"],
+        .qa textarea {
+            width: 100%;
+            font-family: 'Geist', system-ui, sans-serif;
+            font-size: 0.9rem;
+            color: var(--zinc-900);
+            background: #fafafa;
+            border: 1px solid var(--zinc-200);
+            border-radius: 10px;
+            padding: 0.65rem 0.85rem;
+            transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .qa textarea {
+            resize: vertical;
+            min-height: 70px;
+            line-height: 1.5;
+        }
+        .qa input:focus, .qa textarea:focus {
+            outline: none;
+            background: #fff;
+            border-color: var(--zinc-900);
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+        }
+        .qa input::placeholder, .qa textarea::placeholder { color: var(--zinc-400); }
+
         .form-block { margin-bottom: 0.5rem; }
         .form-block-title {
             font-size: 0.78rem;
@@ -1497,180 +1555,212 @@
             </div>
             <p class="section-lead">Check-list opérationnelle pour les prochains échanges. À traiter en priorité avec Sébastien Murtin (régie) et Alexandra Plet (mairie).</p>
 
-            <div class="card">
-                <div class="card-h"><i class="fa-solid fa-list-check"></i>Demandes à formuler à la Mairie</div>
-                <ul class="check">
-                    <li class="todo">Confirmation des dates option · 25–27 mars 2027</li>
-                    <li class="todo">Tarif <strong>asso locale</strong> (commune / hors commune) — grille à fournir</li>
-                    <li class="todo">Forfait événement / week-end englobant montage + 2 nuits + démontage</li>
-                    <li class="todo">Mail Alexandra Plet</li>
-                    <li class="todo">Arrêté municipal de stationnement les 2 soirs</li>
-                    <li class="todo">Ouverture du parking de l'esplanade JO Nallet</li>
-                    <li class="todo">Prêt + installation barrières Vauban par équipes municipales</li>
-                    <li class="todo">Barrières Heras complémentaires</li>
-                    <li class="todo">Tente blanche 3×3 · entrée + zone fumeur</li>
-                </ul>
-            </div>
-
-            <div class="card mt-4">
-                <div class="card-h"><i class="fa-solid fa-screwdriver-wrench"></i>Questions Régie · Sébastien Murtin</div>
-                <ul class="check">
-                    <li class="todo">Heure max légale de débit d'alcool · 1h ou 2h&nbsp;?</li>
-                    <li class="todo">Wifi salle · type, débit, couverture, SSID, mdp, compatibilité TPE</li>
-                    <li class="todo">Clé barrière backstage · qui détient, comment récupérer</li>
-                    <li class="todo">Retours fournisseurs lundi matin · à confirmer</li>
-                    <li class="todo">Benne / grosse poubelle disponible en sortie</li>
-                    <li class="todo">Inventaire toilettes public dans le hall · recomptage</li>
-                    <li class="todo">Espace dédié pour les bénévoles</li>
-                    <li class="todo">Validation deal autolaveuse + clean complet (modèle Villieu 2026)</li>
-                    <li class="todo">Cohérence dimensions scène (93,77 m²) vs surface praticables (72 m²)</li>
-                    <li class="todo">Guirlandes de Noël · à cacher proprement ou retirer</li>
-                </ul>
-            </div>
-
-            <div class="card mt-4">
-                <div class="card-h"><i class="fa-solid fa-shield-halved"></i>Sécurité &amp; ERP — points bloquants</div>
-                <ul class="check">
-                    <li class="todo"><strong>Charge poutres</strong> · historique structure / note de calcul du bâtiment (objectif 2 truss + lights au-dessus du public)</li>
-                    <li class="todo"><strong>Flammes</strong> · pyrotechnicien certifié + déclaration préfecture (CERFA) + accord écrit commission sécurité</li>
-                    <li class="todo"><strong>Balcon VIP</strong> · validation écrite ouverture encadrée (effectif compté, dégagement, staff dédié)</li>
-                    <li class="todo"><strong>Changement d'heure nuit 2</strong> · décompte horaire et facturation</li>
-                    <li class="todo"><strong>Bruit / SPL</strong> · dérogation événementielle, plages horaires, mesures dB façade</li>
-                </ul>
-            </div>
-
-            <div class="alert alert-info mt-6">
+            <div class="alert alert-info">
                 <i class="fa-solid fa-circle-info"></i>
                 <div>
-                    <strong>Vous pouvez répondre directement en ligne.</strong>
-                    <p>Le formulaire ci-dessous permet à la régie et à la mairie d'apporter leurs réponses sans rien installer. À l'envoi, l'ensemble des réponses arrive par mail à la production MGE.</p>
+                    <strong>Répondez directement en ligne, question par question.</strong>
+                    <p>Tous les champs sont optionnels — vous pouvez ne répondre qu'à ce que vous connaissez. À l'envoi, vos réponses arrivent par mail à la production MGE.</p>
                 </div>
             </div>
 
             <!-- ===== FORMULAIRE RÉPONSES ===== -->
-            <div id="form-wrap" class="mt-6">
-                <form id="answer-form"
-                      action="https://formsubmit.co/contact@mgentertainment.fr"
-                      method="POST"
-                      class="card"
-                      style="padding:1.75rem;">
+            <form id="answer-form"
+                  action="https://formsubmit.co/contact@mgentertainment.fr"
+                  method="POST"
+                  class="mt-6">
 
-                    <!-- Configuration Formsubmit -->
-                    <input type="hidden" name="_subject" value="🏛️ Réponses Brief Technique · Lagnieu 2027">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://enjoylife-emx.fr/technique/?envoye=1">
-                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                <input type="hidden" name="_subject" value="🏛️ Réponses Brief Technique · Lagnieu 2027">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://enjoylife-emx.fr/technique/?envoye=1">
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-                    <div class="card-h" style="margin-bottom:0.4rem;">
+                <!-- Identification -->
+                <div class="card">
+                    <div class="card-h"><i class="fa-solid fa-user"></i>Vous êtes</div>
+                    <div class="form-grid-3">
+                        <label class="field"><span>Nom complet</span>
+                            <input type="text" name="Nom" placeholder="Prénom Nom"></label>
+                        <label class="field"><span>Rôle / Fonction</span>
+                            <input type="text" name="Role" placeholder="Régisseur, adjoint…"></label>
+                        <label class="field"><span>Structure</span>
+                            <input type="text" name="Structure" placeholder="Mairie, salle, prestataire…"></label>
+                        <label class="field"><span>Mail</span>
+                            <input type="email" name="Email" placeholder="vous@exemple.fr"></label>
+                        <label class="field"><span>Téléphone</span>
+                            <input type="tel" name="Telephone" placeholder="06 XX XX XX XX"></label>
+                        <label class="field"><span>Date des réponses</span>
+                            <input type="date" name="Date_reponse"></label>
+                    </div>
+                </div>
+
+                <!-- ============ BLOC MAIRIE ============ -->
+                <div class="card mt-4">
+                    <div class="card-h">
+                        <span class="form-pill" style="--pill:var(--cat-cadre);">Mairie</span>
+                        Demandes adressées à la Mairie de Lagnieu
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">01</span>Confirmez-vous l'option de dates <strong>25–27 mars 2027</strong> (montage jeudi, nuit 1 vendredi, nuit 2 samedi) ?</div>
+                        <input type="text" name="Q01_Dates_2027" placeholder="Réponse — confirmation, alternative, contraintes…">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">02</span>Quelle est la <strong>grille tarifaire associative</strong> applicable (asso commune vs hors commune) ?</div>
+                        <textarea name="Q02_Tarif_asso" rows="3" placeholder="Détail de la grille, tarifs précis ou document à joindre par mail."></textarea>
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">03</span>Possibilité d'un <strong>forfait week-end</strong> (montage + 2 nuits + démontage + clean) plutôt que cumul à la carte ?</div>
+                        <input type="text" name="Q03_Forfait_weekend" placeholder="Réponse">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">04</span>Mail direct d'<strong>Alexandra Plet</strong> ?</div>
+                        <input type="email" name="Q04_Mail_Alexandra" placeholder="alexandra.plet@…">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">05</span>Arrêté municipal de <strong>stationnement</strong> les 2 soirs — possible ? Conditions ?</div>
+                        <input type="text" name="Q05_Arrete_stationnement" placeholder="Réponse">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">06</span>Ouverture du <strong>parking de l'esplanade JO Nallet</strong> les 2 soirs ?</div>
+                        <input type="text" name="Q06_Parking_JO_Nallet" placeholder="Réponse">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">07</span>Prêt + <strong>installation barrières Vauban</strong> par les équipes municipales ?</div>
+                        <input type="text" name="Q07_Vauban" placeholder="Quantité dispo, conditions, installation par équipes muni ou non">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">08</span>Barrières <strong>Heras</strong> complémentaires disponibles ?</div>
+                        <input type="text" name="Q08_Heras" placeholder="Réponse">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">09</span>Mise à disposition de <strong>2 tentes blanches 3×3 m</strong> (entrée principale + zone fumeur) ?</div>
+                        <input type="text" name="Q09_Tentes_3x3" placeholder="Réponse">
+                    </div>
+                </div>
+
+                <!-- ============ BLOC RÉGIE ============ -->
+                <div class="card mt-4">
+                    <div class="card-h">
+                        <span class="form-pill" style="--pill:var(--cat-operations);">Régie</span>
+                        Questions à la régie · Sébastien Murtin
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">10</span><strong>Heure max légale de débit d'alcool</strong> sur l'événement — 1h, 2h ou autre ?</div>
+                        <input type="text" name="Q10_Heure_alcool" placeholder="Heure légale + texte de référence si possible">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">11</span><strong>Wifi salle</strong> — type (fibre/ADSL), débit, couverture toutes zones, SSID, mot de passe, compatibilité TPE et billetterie en simultané ?</div>
+                        <textarea name="Q11_Wifi_salle" rows="4" placeholder="Détaillez : type de connexion, débit, zones couvertes, SSID, mdp, capacité…"></textarea>
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">12</span><strong>Clé barrière backstage</strong> — qui la détient et comment on la récupère pour le montage ?</div>
+                        <input type="text" name="Q12_Cle_backstage" placeholder="Détenteur, récupération, horaires">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">13</span>Confirmez-vous la possibilité de <strong>retours fournisseurs lundi matin</strong> (ex&nbsp;: fûts vides) ?</div>
+                        <input type="text" name="Q13_Retours_lundi" placeholder="Réponse">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">14</span><strong>Benne / grosse poubelle</strong> disponible en sortie d'événement ? Capacité ?</div>
+                        <input type="text" name="Q14_Benne_sortie" placeholder="Réponse">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">15</span><strong>Décompte exact des toilettes public</strong> dans le hall (nombre, hommes/femmes/PMR) ?</div>
+                        <input type="text" name="Q15_Toilettes_hall" placeholder="Ex : 4 H + 4 F + 1 PMR">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">16</span>Pièce / espace dédié pour les <strong>bénévoles</strong> (briefing, pause, vestiaire) ?</div>
+                        <input type="text" name="Q16_Espace_benevoles" placeholder="Réponse">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">17</span>Validation du <strong>deal autolaveuse + clean complet</strong> (modèle Villieu 2026) — utilisation par bénévole formé en échange du clean intégral salle ?</div>
+                        <input type="text" name="Q17_Deal_autolaveuse" placeholder="Réponse">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">18</span>Cohérence <strong>dimensions scène (93,77 m²) vs praticables (72 m²)</strong> — y a-t-il une scène fixe + extension praticables, ou autre configuration ?</div>
+                        <textarea name="Q18_Scene_vs_praticables" rows="3" placeholder="Détail de la configuration scénique"></textarea>
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">19</span><strong>Guirlandes de Noël</strong> — à cacher proprement, à retirer, autre ?</div>
+                        <input type="text" name="Q19_Guirlandes" placeholder="Réponse">
+                    </div>
+                </div>
+
+                <!-- ============ BLOC SÉCURITÉ ERP ============ -->
+                <div class="card mt-4">
+                    <div class="card-h">
+                        <span class="form-pill" style="--pill:var(--cat-lieu);">Sécurité ERP</span>
+                        Points bloquants sécurité &amp; ERP
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">20</span><strong>Charges des poutres</strong> — historique structure ou note de calcul disponible pour confirmer la possibilité de <strong>2 truss + lights au-dessus du public</strong> ?</div>
+                        <textarea name="Q20_Charges_poutres" rows="3" placeholder="Document, charge admissible, ou orientation BET structure"></textarea>
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">21</span><strong>Flammes</strong> — accord formel commission de sécurité, exigences pyrotechnicien certifié, dépôt CERFA préfecture ?</div>
+                        <textarea name="Q21_Flammes" rows="3" placeholder="Accord écrit, conditions, démarches à enclencher"></textarea>
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">22</span><strong>Balcon VIP</strong> — ouverture encadrée possible (effectif compté, dégagement issue de secours, staff dédié) ? Conditions formelles ?</div>
+                        <textarea name="Q22_Balcon_VIP" rows="3" placeholder="Conditions ERP pour ouverture VIP encadrée"></textarea>
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">23</span><strong>Changement d'heure nuit 2</strong> — décompte horaire et facturation (heure légale ou réelle, gestion clean 2h–4h qui devient 3h–4h) ?</div>
+                        <textarea name="Q23_Changement_heure" rows="3" placeholder="Mode de décompte appliqué par la salle"></textarea>
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">24</span><strong>Bruit / SPL</strong> — la salle dispose-t-elle d'une dérogation événementielle ? Plages horaires nocturnes encadrées ? Mesures dB existantes en façade ?</div>
+                        <textarea name="Q24_Bruit_SPL" rows="3" placeholder="Réponse"></textarea>
+                    </div>
+                </div>
+
+                <!-- ============ AUTRES ============ -->
+                <div class="card mt-4">
+                    <div class="card-h"><i class="fa-solid fa-comment-dots"></i>Autres remarques · documents à transmettre</div>
+                    <textarea name="Autres_remarques" rows="4" placeholder="Tout point non couvert, document à fournir par mail séparé (note de calcul, plans, devis…), précisions…"></textarea>
+                </div>
+
+                <div class="form-actions mt-5">
+                    <button type="submit" class="btn-submit">
                         <i class="fa-solid fa-paper-plane"></i>
-                        Vos réponses · envoi à la production MGE
-                    </div>
-                    <p class="text-sm text-zinc-500 mb-5">Tous les champs sont optionnels. Répondez uniquement à ce que vous connaissez — l'envoi reste possible avec un seul bloc rempli.</p>
+                        Envoyer mes réponses
+                    </button>
+                    <span class="form-foot">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        Envoi par mail à <strong>contact@mgentertainment.fr</strong>. Aucune donnée stockée sur ce site.
+                    </span>
+                </div>
+            </form>
 
-                    <!-- Identification -->
-                    <div class="form-block">
-                        <div class="form-block-title">Vous êtes</div>
-                        <div class="form-grid-3">
-                            <label class="field">
-                                <span>Nom complet</span>
-                                <input type="text" name="Nom" placeholder="Prénom Nom">
-                            </label>
-                            <label class="field">
-                                <span>Rôle / Fonction</span>
-                                <input type="text" name="Role" placeholder="Régisseur, adjoint, …">
-                            </label>
-                            <label class="field">
-                                <span>Structure</span>
-                                <input type="text" name="Structure" placeholder="Mairie, salle, prestataire…">
-                            </label>
-                            <label class="field">
-                                <span>Mail</span>
-                                <input type="email" name="Email" placeholder="vous@exemple.fr">
-                            </label>
-                            <label class="field">
-                                <span>Téléphone (optionnel)</span>
-                                <input type="tel" name="Telephone" placeholder="06 XX XX XX XX">
-                            </label>
-                            <label class="field">
-                                <span>Date des réponses</span>
-                                <input type="date" name="Date_reponse">
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-divider"></div>
-
-                    <!-- Bloc 1 : Mairie -->
-                    <div class="form-block">
-                        <div class="form-block-title">
-                            <span class="form-pill" style="--pill:var(--cat-cadre);">Mairie</span>
-                            Demandes adressées à la Mairie de Lagnieu
-                        </div>
-                        <p class="form-help">
-                            Confirmation des dates, tarif asso, forfait week-end, mail Alexandra Plet, arrêté stationnement, parking JO Nallet, prêt barrières Vauban &amp; Heras, tentes 3×3 entrée + zone fumeur.
-                        </p>
-                        <textarea name="Reponses_Mairie" rows="6" placeholder="Vos réponses, point par point ou en texte libre…"></textarea>
-                    </div>
-
-                    <div class="form-divider"></div>
-
-                    <!-- Bloc 2 : Régie -->
-                    <div class="form-block">
-                        <div class="form-block-title">
-                            <span class="form-pill" style="--pill:var(--cat-operations);">Régie</span>
-                            Questions à la régie · Sébastien Murtin
-                        </div>
-                        <p class="form-help">
-                            Heure max débit alcool · wifi salle (type, débit, couverture, SSID, mdp, compatibilité TPE) · clé barrière backstage · retours fournisseurs lundi · benne sortie · recomptage toilettes hall · espace bénévoles · validation deal autolaveuse · cohérence dimensions scène vs praticables · guirlandes Noël.
-                        </p>
-                        <textarea name="Reponses_Regie" rows="7" placeholder="Vos réponses, point par point ou en texte libre…"></textarea>
-                    </div>
-
-                    <div class="form-divider"></div>
-
-                    <!-- Bloc 3 : Sécurité ERP -->
-                    <div class="form-block">
-                        <div class="form-block-title">
-                            <span class="form-pill" style="--pill:var(--cat-lieu);">Sécurité ERP</span>
-                            Points bloquants sécurité &amp; ERP
-                        </div>
-                        <p class="form-help">
-                            Charge poutres &amp; note de calcul (truss + lights public) · flammes &amp; pyrotechnicien certifié · balcon VIP encadré · décompte horaire changement d'heure nuit 2 · dérogation bruit / SPL / mesures dB façade.
-                        </p>
-                        <textarea name="Reponses_Securite_ERP" rows="6" placeholder="Vos réponses, point par point ou en texte libre…"></textarea>
-                    </div>
-
-                    <div class="form-divider"></div>
-
-                    <!-- Bloc 4 : Autres -->
-                    <div class="form-block">
-                        <div class="form-block-title">Autres remarques · documents à transmettre</div>
-                        <p class="form-help">
-                            Tout point non couvert ci-dessus, pièces à envoyer en pièce jointe par mail séparé (notes de calcul, plans, devis…), demandes de précision.
-                        </p>
-                        <textarea name="Autres_remarques" rows="4" placeholder="Texte libre…"></textarea>
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="submit" class="btn-submit">
-                            <i class="fa-solid fa-paper-plane"></i>
-                            Envoyer mes réponses
-                        </button>
-                        <span class="form-foot">
-                            <i class="fa-solid fa-shield-halved"></i>
-                            Vos réponses sont envoyées par mail à <strong>contact@mgentertainment.fr</strong>. Aucune donnée n'est stockée sur ce site.
-                        </span>
-                    </div>
-                </form>
-
-                <!-- Confirmation post-envoi -->
-                <div id="form-success" class="alert alert-ok mt-4" style="display:none;">
-                    <i class="fa-solid fa-circle-check"></i>
-                    <div>
-                        <strong>Merci, vos réponses ont bien été transmises.</strong>
-                        <p>L'équipe production MGE revient vers vous rapidement. Vous pouvez fermer cet onglet ou continuer à consulter le brief.</p>
-                    </div>
+            <div id="form-success" class="alert alert-ok mt-4" style="display:none;">
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                    <strong>Merci, vos réponses ont bien été transmises.</strong>
+                    <p>L'équipe production MGE revient vers vous rapidement.</p>
                 </div>
             </div>
         </section>
