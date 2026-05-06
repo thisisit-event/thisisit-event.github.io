@@ -576,6 +576,109 @@
         /* ── ANCRES ── */
         section[id] { scroll-margin-top: 1.5rem; }
 
+        /* ── HERO CTA ── */
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: #0a0a0a;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.95rem 1.5rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 1.75rem;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+        }
+        .hero-cta:hover {
+            background: #1f1f1f;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+        }
+        .hero-cta-meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.8rem;
+            color: var(--zinc-500);
+            margin-left: 0.85rem;
+            font-weight: 500;
+        }
+        @media (max-width: 540px) {
+            .hero-cta { width: 100%; justify-content: center; padding: 1rem; font-size: 1rem; }
+            .hero-cta-meta { display: flex; margin: 0.6rem 0 0 0; justify-content: center; }
+        }
+
+        /* ── FLOATING ANSWER BUTTON ── */
+        #float-cta {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 700;
+            background: #0a0a0a;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.8rem 1.2rem 0.8rem 1.05rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            box-shadow: 0 6px 22px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.08);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.25s, transform 0.25s, background 0.15s;
+            pointer-events: none;
+        }
+        #float-cta.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+        #float-cta:hover { background: #1f1f1f; }
+        #float-cta i { font-size: 0.95rem; }
+        @media (max-width: 540px) {
+            #float-cta { bottom: 1rem; right: 1rem; padding: 0.7rem 1rem 0.7rem 0.95rem; font-size: 0.85rem; }
+        }
+
+        /* ── SUMMARY GRID (section 15) ── */
+        .qa-summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.7rem;
+            margin: 1.5rem 0;
+        }
+        @media (max-width: 768px) { .qa-summary { grid-template-columns: repeat(2, 1fr); } }
+        .qa-summary-item {
+            background: #fff;
+            border: 1px solid var(--zinc-200);
+            border-radius: 12px;
+            padding: 0.85rem 0.95rem;
+            border-left: 3px solid var(--qa-c, var(--zinc-300));
+        }
+        .qa-summary-item .l {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--qa-c, var(--zinc-500));
+            font-weight: 700;
+        }
+        .qa-summary-item .v {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.6rem;
+            line-height: 1;
+            color: var(--zinc-900);
+            margin-top: 0.2rem;
+        }
+        .qa-summary-item .lbl {
+            font-size: 0.78rem;
+            color: var(--zinc-700);
+            margin-top: 0.1rem;
+        }
+
         /* ── STICKY POSITION INDICATOR (desktop) ── */
         #where {
             position: fixed;
@@ -934,6 +1037,12 @@
         <span class="step">01<span class="opacity-50"> / 15</span></span>
     </div>
 
+    <!-- Floating answer button -->
+    <a id="float-cta" href="#questions" aria-label="Aller au questionnaire">
+        <i class="fa-solid fa-paper-plane"></i>
+        Répondre au questionnaire
+    </a>
+
     <!-- ============ MAIN ============ -->
     <main>
 
@@ -974,6 +1083,17 @@
                     <div class="v">Mars 2027</div>
                     <div class="l">Édition Eternal Summer</div>
                 </div>
+            </div>
+
+            <div class="flex items-center flex-wrap gap-y-1">
+                <a href="#questions" class="hero-cta">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Répondre au questionnaire en ligne
+                </a>
+                <span class="hero-cta-meta">
+                    <i class="fa-regular fa-clock"></i>
+                    24 questions · ~10–15 min · tous les champs sont optionnels
+                </span>
             </div>
         </section>
 
@@ -1590,10 +1710,33 @@
                 <div class="section-num">15</div>
                 <div class="section-meta">
                     <span class="section-cat"><i class="fa-solid fa-scale-balanced"></i>Cadre<span class="step">15 / 15</span></span>
-                    <h2 class="section-title">Questions ouvertes &amp; demandes consolidées</h2>
+                    <h2 class="section-title">Vos réponses &amp; questions ouvertes</h2>
                 </div>
             </div>
-            <p class="section-lead">Check-list opérationnelle pour les prochains échanges. À traiter en priorité avec Sébastien Murtin (régie) et Alexandra Plet (mairie).</p>
+            <p class="section-lead">Merci de prendre le temps de répondre — vos réponses arrivent par mail à la production MGE et alimentent directement les prochains échanges. <strong>Tous les champs sont optionnels</strong>, vous pouvez ne renseigner que les blocs qui vous concernent.</p>
+
+            <div class="qa-summary">
+                <div class="qa-summary-item" style="--qa-c: var(--cat-cadre);">
+                    <div class="l">Mairie</div>
+                    <div class="v">9</div>
+                    <div class="lbl">demandes</div>
+                </div>
+                <div class="qa-summary-item" style="--qa-c: var(--cat-operations);">
+                    <div class="l">Régie salle</div>
+                    <div class="v">10</div>
+                    <div class="lbl">questions</div>
+                </div>
+                <div class="qa-summary-item" style="--qa-c: var(--cat-lieu);">
+                    <div class="l">Sécurité ERP</div>
+                    <div class="v">5</div>
+                    <div class="lbl">points</div>
+                </div>
+                <div class="qa-summary-item" style="--qa-c: var(--zinc-400);">
+                    <div class="l">Identité &amp; libre</div>
+                    <div class="v">+</div>
+                    <div class="lbl">vous &amp; remarques</div>
+                </div>
+            </div>
 
             <div class="alert alert-info">
                 <i class="fa-solid fa-circle-info"></i>
@@ -1877,6 +2020,19 @@
                 where.classList.remove('show');
             }
         }
+        // Floating CTA visibility (visible après hero, caché sur la section questions)
+        const floatCta = document.getElementById('float-cta');
+        const questionsSection = document.getElementById('questions');
+        function syncFloatCta() {
+            const qTop = questionsSection.getBoundingClientRect().top;
+            const inQuestionsZone = qTop < window.innerHeight * 0.7;
+            const shouldShow = window.scrollY > 600 && !inQuestionsZone;
+            floatCta.classList.toggle('show', shouldShow);
+        }
+        window.addEventListener('scroll', syncFloatCta, { passive: true });
+        window.addEventListener('resize', syncFloatCta, { passive: true });
+        syncFloatCta();
+
         window.addEventListener('scroll', sync, { passive: true });
         window.addEventListener('resize', sync, { passive: true });
         sync();
