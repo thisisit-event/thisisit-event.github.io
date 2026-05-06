@@ -59,7 +59,19 @@
             --info: #2563eb;
             --info-bg: #eff6ff;
             --info-border: #bfdbfe;
+
+            /* Couleurs par catégorie de section */
+            --cat-cadrage:    #2563eb; --cat-cadrage-soft:    #dbeafe; --cat-cadrage-bg:    #eff6ff;
+            --cat-lieu:       #d97706; --cat-lieu-soft:       #fef3c7; --cat-lieu-bg:       #fffbeb;
+            --cat-operations: #7c3aed; --cat-operations-soft: #ede9fe; --cat-operations-bg: #f5f3ff;
+            --cat-cadre:      #059669; --cat-cadre-soft:      #d1fae5; --cat-cadre-bg:      #ecfdf5;
         }
+
+        /* Variable couleur dynamique par section */
+        section[data-cat="cadrage"]    { --cur: var(--cat-cadrage);    --cur-soft: var(--cat-cadrage-soft);    --cur-bg: var(--cat-cadrage-bg); }
+        section[data-cat="lieu"]       { --cur: var(--cat-lieu);       --cur-soft: var(--cat-lieu-soft);       --cur-bg: var(--cat-lieu-bg); }
+        section[data-cat="operations"] { --cur: var(--cat-operations); --cur-soft: var(--cat-operations-soft); --cur-bg: var(--cat-operations-bg); }
+        section[data-cat="cadre"]      { --cur: var(--cat-cadre);      --cur-soft: var(--cat-cadre-soft);      --cur-bg: var(--cat-cadre-bg); }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
@@ -142,10 +154,14 @@
         .sidebar-link.active {
             color: #fff;
             background: rgba(255,255,255,0.08);
-            border-left-color: #fbbf24;
+            border-left-color: var(--act, #fbbf24);
             font-weight: 600;
         }
-        .sidebar-link.active i { opacity: 1; color: #fbbf24; }
+        .sidebar-link.active i { opacity: 1; color: var(--act, #fbbf24); }
+        .sidebar-link[data-cat="cadrage"].active    { --act: #60a5fa; }
+        .sidebar-link[data-cat="lieu"].active       { --act: #fbbf24; }
+        .sidebar-link[data-cat="operations"].active { --act: #a78bfa; }
+        .sidebar-link[data-cat="cadre"].active      { --act: #34d399; }
 
         .sidebar-section-label {
             font-size: 0.6rem;
@@ -154,7 +170,21 @@
             text-transform: uppercase;
             letter-spacing: 0.16em;
             padding: 1rem 1.25rem 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
         }
+        .sidebar-section-label::before {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--lbl-color, rgba(255,255,255,0.4));
+            box-shadow: 0 0 8px var(--lbl-color, transparent);
+        }
+        .sidebar-section-label[data-cat="cadrage"]    { --lbl-color: #60a5fa; }
+        .sidebar-section-label[data-cat="lieu"]       { --lbl-color: #fbbf24; }
+        .sidebar-section-label[data-cat="operations"] { --lbl-color: #a78bfa; }
+        .sidebar-section-label[data-cat="cadre"]      { --lbl-color: #34d399; }
 
         .sidebar-foot {
             padding: 1rem 1.25rem;
@@ -206,6 +236,72 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
+
+        /* ── SECTION OPENER (chapter style) ── */
+        .section-opener {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+            align-items: stretch;
+            margin-bottom: 1.75rem;
+        }
+        .section-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 5.5rem;
+            line-height: 0.85;
+            color: var(--cur, var(--zinc-900));
+            letter-spacing: 0.02em;
+            position: relative;
+            padding-right: 1.5rem;
+            border-right: 4px solid var(--cur, var(--zinc-900));
+        }
+        .section-num::after {
+            content: '';
+            position: absolute;
+            top: 0; right: -4px;
+            height: 18px; width: 4px;
+            background: var(--cur, var(--zinc-900));
+        }
+        .section-meta {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.55rem;
+        }
+        .section-cat {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--cur-bg, var(--zinc-100));
+            border: 1px solid var(--cur-soft, var(--zinc-200));
+            color: var(--cur, var(--zinc-700));
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            width: fit-content;
+        }
+        .section-cat i { font-size: 0.7rem; }
+        .section-cat .step {
+            margin-left: 0.4rem;
+            padding-left: 0.5rem;
+            border-left: 1px solid currentColor;
+            opacity: 0.6;
+            font-variant-numeric: tabular-nums;
+        }
+        @media (max-width: 640px) {
+            .section-opener { grid-template-columns: 1fr; gap: 0.75rem; }
+            .section-num {
+                font-size: 4rem;
+                border-right: none;
+                border-bottom: 4px solid var(--cur);
+                padding: 0 0 0.4rem 0;
+            }
+            .section-num::after { display: none; }
+        }
+
         .section-title {
             font-size: 2rem;
             font-weight: 700;
@@ -471,6 +567,69 @@
         /* ── ANCRES ── */
         section[id] { scroll-margin-top: 1.5rem; }
 
+        /* ── STICKY POSITION INDICATOR (desktop) ── */
+        #where {
+            position: fixed;
+            top: 1.25rem;
+            right: 1.5rem;
+            z-index: 600;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--zinc-200);
+            border-radius: 999px;
+            padding: 0.45rem 0.85rem 0.45rem 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            opacity: 0;
+            transform: translateY(-6px);
+            transition: opacity 0.25s, transform 0.25s;
+            pointer-events: none;
+        }
+        #where.show { opacity: 1; transform: translateY(0); }
+        #where .dot {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: var(--w-color, var(--zinc-400));
+            box-shadow: 0 0 10px var(--w-color, transparent);
+            flex-shrink: 0;
+        }
+        #where .cat {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--w-color, var(--zinc-700));
+        }
+        #where .step {
+            color: var(--zinc-500);
+            font-variant-numeric: tabular-nums;
+            font-weight: 500;
+            padding-left: 0.55rem;
+            border-left: 1px solid var(--zinc-200);
+        }
+        #where[data-cat="cadrage"]    { --w-color: var(--cat-cadrage); }
+        #where[data-cat="lieu"]       { --w-color: var(--cat-lieu); }
+        #where[data-cat="operations"] { --w-color: var(--cat-operations); }
+        #where[data-cat="cadre"]      { --w-color: var(--cat-cadre); }
+
+        @media (max-width: 1023px) { #where { display: none; } }
+
+        /* ── PROGRESS BAR ── */
+        #progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--cat-cadrage), var(--cat-lieu), var(--cat-operations), var(--cat-cadre));
+            z-index: 900;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+        @media (min-width: 1024px) { #progress { left: 260px; } }
+
         /* ── PRINT ── */
         @media print {
             #sidebar, #mobile-bar { display: none; }
@@ -488,34 +647,42 @@
             <div class="sub">Brief Technique · 2027</div>
         </div>
         <div id="sidebar-scroll">
-            <div class="sidebar-section-label">Cadrage</div>
-            <a href="#intro" class="sidebar-link"><i class="fa-solid fa-circle-info"></i>Vue d'ensemble</a>
-            <a href="#historique" class="sidebar-link"><i class="fa-regular fa-calendar"></i>Historique repérages</a>
-            <a href="#contacts" class="sidebar-link"><i class="fa-regular fa-address-book"></i>Contacts</a>
-            <a href="#planning" class="sidebar-link"><i class="fa-regular fa-clock"></i>Planning &amp; dates</a>
+            <div class="sidebar-section-label" data-cat="cadrage">Cadrage</div>
+            <a href="#intro" class="sidebar-link" data-cat="cadrage"><i class="fa-solid fa-circle-info"></i>Vue d'ensemble</a>
+            <a href="#historique" class="sidebar-link" data-cat="cadrage"><i class="fa-regular fa-calendar"></i>Historique repérages</a>
+            <a href="#contacts" class="sidebar-link" data-cat="cadrage"><i class="fa-regular fa-address-book"></i>Contacts</a>
+            <a href="#planning" class="sidebar-link" data-cat="cadrage"><i class="fa-regular fa-clock"></i>Planning &amp; dates</a>
 
-            <div class="sidebar-section-label">Lieu</div>
-            <a href="#espaces" class="sidebar-link"><i class="fa-solid fa-vector-square"></i>Espaces</a>
-            <a href="#plateau" class="sidebar-link"><i class="fa-solid fa-music"></i>Plateau &amp; scène</a>
-            <a href="#lumiere-son" class="sidebar-link"><i class="fa-solid fa-lightbulb"></i>Lumière / Son / FX</a>
-            <a href="#elec-reseau" class="sidebar-link"><i class="fa-solid fa-bolt"></i>Élec &amp; réseau</a>
+            <div class="sidebar-section-label" data-cat="lieu">Lieu</div>
+            <a href="#espaces" class="sidebar-link" data-cat="lieu"><i class="fa-solid fa-vector-square"></i>Espaces</a>
+            <a href="#plateau" class="sidebar-link" data-cat="lieu"><i class="fa-solid fa-music"></i>Plateau &amp; scène</a>
+            <a href="#lumiere-son" class="sidebar-link" data-cat="lieu"><i class="fa-solid fa-lightbulb"></i>Lumière / Son / FX</a>
+            <a href="#elec-reseau" class="sidebar-link" data-cat="lieu"><i class="fa-solid fa-bolt"></i>Élec &amp; réseau</a>
 
-            <div class="sidebar-section-label">Opérations</div>
-            <a href="#logistique" class="sidebar-link"><i class="fa-solid fa-truck"></i>Logistique &amp; accès</a>
-            <a href="#mobilier" class="sidebar-link"><i class="fa-solid fa-chair"></i>Mobilier &amp; inventaire</a>
-            <a href="#sanitaires" class="sidebar-link"><i class="fa-solid fa-restroom"></i>Sanitaires &amp; loges</a>
-            <a href="#nettoyage" class="sidebar-link"><i class="fa-solid fa-broom"></i>Nettoyage &amp; sortie</a>
+            <div class="sidebar-section-label" data-cat="operations">Opérations</div>
+            <a href="#logistique" class="sidebar-link" data-cat="operations"><i class="fa-solid fa-truck"></i>Logistique &amp; accès</a>
+            <a href="#mobilier" class="sidebar-link" data-cat="operations"><i class="fa-solid fa-chair"></i>Mobilier &amp; inventaire</a>
+            <a href="#sanitaires" class="sidebar-link" data-cat="operations"><i class="fa-solid fa-restroom"></i>Sanitaires &amp; loges</a>
+            <a href="#nettoyage" class="sidebar-link" data-cat="operations"><i class="fa-solid fa-broom"></i>Nettoyage &amp; sortie</a>
 
-            <div class="sidebar-section-label">Cadre</div>
-            <a href="#tarifs" class="sidebar-link"><i class="fa-solid fa-euro-sign"></i>Tarifs &amp; devis</a>
-            <a href="#partenariats" class="sidebar-link"><i class="fa-solid fa-handshake"></i>Partenariats</a>
-            <a href="#questions" class="sidebar-link"><i class="fa-solid fa-circle-question"></i>Questions ouvertes</a>
+            <div class="sidebar-section-label" data-cat="cadre">Cadre</div>
+            <a href="#tarifs" class="sidebar-link" data-cat="cadre"><i class="fa-solid fa-euro-sign"></i>Tarifs &amp; devis</a>
+            <a href="#partenariats" class="sidebar-link" data-cat="cadre"><i class="fa-solid fa-handshake"></i>Partenariats</a>
+            <a href="#questions" class="sidebar-link" data-cat="cadre"><i class="fa-solid fa-circle-question"></i>Questions ouvertes</a>
         </div>
         <div class="sidebar-foot">
             Document interne MGE<br>
             Confidentiel · Ne pas diffuser
         </div>
     </aside>
+
+    <!-- ============ INDICATEURS ============ -->
+    <div id="progress"></div>
+    <div id="where" data-cat="cadrage" aria-hidden="true">
+        <span class="dot"></span>
+        <span class="cat">Cadrage</span>
+        <span class="step">01<span class="opacity-50"> / 15</span></span>
+    </div>
 
     <!-- ============ MAIN ============ -->
     <main>
@@ -561,9 +728,14 @@
         </section>
 
         <!-- ============ VUE D'ENSEMBLE ============ -->
-        <section id="intro" class="section">
-            <div class="section-eyebrow">01 · Cadrage</div>
-            <h2 class="section-title">Vue d'ensemble</h2>
+        <section id="intro" class="section" data-cat="cadrage" data-num="01" data-cat-label="Cadrage">
+            <div class="section-opener">
+                <div class="section-num">01</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-compass"></i>Cadrage<span class="step">01 / 15</span></span>
+                    <h2 class="section-title">Vue d'ensemble</h2>
+                </div>
+            </div>
             <p class="section-lead">Lieu, organisateur, format de l'événement et structure du document.</p>
 
             <div class="grid-2">
@@ -597,9 +769,14 @@
         </section>
 
         <!-- ============ HISTORIQUE ============ -->
-        <section id="historique" class="section">
-            <div class="section-eyebrow">02 · Cadrage</div>
-            <h2 class="section-title">Historique des repérages</h2>
+        <section id="historique" class="section" data-cat="cadrage" data-num="02" data-cat-label="Cadrage">
+            <div class="section-opener">
+                <div class="section-num">02</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-compass"></i>Cadrage<span class="step">02 / 15</span></span>
+                    <h2 class="section-title">Historique des repérages</h2>
+                </div>
+            </div>
             <p class="section-lead">Traçabilité des points de contact terrain avec la salle et les acteurs locaux.</p>
 
             <div class="card">
@@ -622,9 +799,14 @@
         </section>
 
         <!-- ============ CONTACTS ============ -->
-        <section id="contacts" class="section">
-            <div class="section-eyebrow">03 · Cadrage</div>
-            <h2 class="section-title">Contacts</h2>
+        <section id="contacts" class="section" data-cat="cadrage" data-num="03" data-cat-label="Cadrage">
+            <div class="section-opener">
+                <div class="section-num">03</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-compass"></i>Cadrage<span class="step">03 / 15</span></span>
+                    <h2 class="section-title">Contacts</h2>
+                </div>
+            </div>
             <p class="section-lead">Référents opérationnels pour le projet 2027.</p>
 
             <div class="grid-3">
@@ -647,9 +829,14 @@
         </section>
 
         <!-- ============ PLANNING ============ -->
-        <section id="planning" class="section">
-            <div class="section-eyebrow">04 · Cadrage</div>
-            <h2 class="section-title">Planning &amp; dates</h2>
+        <section id="planning" class="section" data-cat="cadrage" data-num="04" data-cat-label="Cadrage">
+            <div class="section-opener">
+                <div class="section-num">04</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-compass"></i>Cadrage<span class="step">04 / 15</span></span>
+                    <h2 class="section-title">Planning &amp; dates</h2>
+                </div>
+            </div>
             <p class="section-lead">Option en cours de validation. Trois jours d'occupation de la salle, du jeudi 25/03 au samedi 27/03 (dimanche matin à éviter).</p>
 
             <div class="card">
@@ -702,9 +889,14 @@
         </section>
 
         <!-- ============ ESPACES ============ -->
-        <section id="espaces" class="section">
-            <div class="section-eyebrow">05 · Lieu</div>
-            <h2 class="section-title">Espaces utilisés</h2>
+        <section id="espaces" class="section" data-cat="lieu" data-num="05" data-cat-label="Lieu">
+            <div class="section-opener">
+                <div class="section-num">05</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-map-location-dot"></i>Lieu<span class="step">05 / 15</span></span>
+                    <h2 class="section-title">Espaces utilisés</h2>
+                </div>
+            </div>
             <p class="section-lead">L'événement utilise l'intégralité du bâtiment&nbsp;: les deux salles, le hall, les loges, les offices, plus une zone fumeur extérieure aménagée.</p>
 
             <div class="grid-2">
@@ -762,9 +954,14 @@
         </section>
 
         <!-- ============ PLATEAU & SCÈNE ============ -->
-        <section id="plateau" class="section">
-            <div class="section-eyebrow">06 · Lieu</div>
-            <h2 class="section-title">Plateau &amp; scène</h2>
+        <section id="plateau" class="section" data-cat="lieu" data-num="06" data-cat-label="Lieu">
+            <div class="section-opener">
+                <div class="section-num">06</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-map-location-dot"></i>Lieu<span class="step">06 / 15</span></span>
+                    <h2 class="section-title">Plateau &amp; scène</h2>
+                </div>
+            </div>
             <p class="section-lead">Dimensions, mobilier scénique disponible et contraintes d'accroche.</p>
 
             <div class="grid-2">
@@ -816,9 +1013,14 @@
         </section>
 
         <!-- ============ LUMIÈRE / SON / FX ============ -->
-        <section id="lumiere-son" class="section">
-            <div class="section-eyebrow">07 · Lieu</div>
-            <h2 class="section-title">Lumière · Son · Effets spéciaux</h2>
+        <section id="lumiere-son" class="section" data-cat="lieu" data-num="07" data-cat-label="Lieu">
+            <div class="section-opener">
+                <div class="section-num">07</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-map-location-dot"></i>Lieu<span class="step">07 / 15</span></span>
+                    <h2 class="section-title">Lumière · Son · Effets spéciaux</h2>
+                </div>
+            </div>
             <p class="section-lead">Contraintes acoustiques et environnementales de la salle, opportunités FX confirmées en repérage.</p>
 
             <div class="grid-3">
@@ -857,9 +1059,14 @@
         </section>
 
         <!-- ============ ÉLEC & RÉSEAU ============ -->
-        <section id="elec-reseau" class="section">
-            <div class="section-eyebrow">08 · Lieu</div>
-            <h2 class="section-title">Électricité &amp; réseau</h2>
+        <section id="elec-reseau" class="section" data-cat="lieu" data-num="08" data-cat-label="Lieu">
+            <div class="section-opener">
+                <div class="section-num">08</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-map-location-dot"></i>Lieu<span class="step">08 / 15</span></span>
+                    <h2 class="section-title">Électricité &amp; réseau</h2>
+                </div>
+            </div>
             <p class="section-lead">Tableaux électriques, connectivité internet pour billetterie et TPE.</p>
 
             <div class="grid-2">
@@ -903,9 +1110,14 @@
         </section>
 
         <!-- ============ LOGISTIQUE & ACCÈS ============ -->
-        <section id="logistique" class="section">
-            <div class="section-eyebrow">09 · Opérations</div>
-            <h2 class="section-title">Logistique &amp; accès</h2>
+        <section id="logistique" class="section" data-cat="operations" data-num="09" data-cat-label="Opérations">
+            <div class="section-opener">
+                <div class="section-num">09</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-gears"></i>Opérations<span class="step">09 / 15</span></span>
+                    <h2 class="section-title">Logistique &amp; accès</h2>
+                </div>
+            </div>
             <p class="section-lead">Flux camions, parkings, livraisons fournisseurs et stationnement public.</p>
 
             <div class="grid-2">
@@ -954,9 +1166,14 @@
         </section>
 
         <!-- ============ MOBILIER & INVENTAIRE ============ -->
-        <section id="mobilier" class="section">
-            <div class="section-eyebrow">10 · Opérations</div>
-            <h2 class="section-title">Mobilier &amp; inventaire salle</h2>
+        <section id="mobilier" class="section" data-cat="operations" data-num="10" data-cat-label="Opérations">
+            <div class="section-opener">
+                <div class="section-num">10</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-gears"></i>Opérations<span class="step">10 / 15</span></span>
+                    <h2 class="section-title">Mobilier &amp; inventaire salle</h2>
+                </div>
+            </div>
             <p class="section-lead">Ressources mobiliser disponibles à la salle, à intégrer au plan d'implantation.</p>
 
             <div class="grid-2">
@@ -984,9 +1201,14 @@
         </section>
 
         <!-- ============ SANITAIRES & LOGES ============ -->
-        <section id="sanitaires" class="section">
-            <div class="section-eyebrow">11 · Opérations</div>
-            <h2 class="section-title">Sanitaires &amp; loges</h2>
+        <section id="sanitaires" class="section" data-cat="operations" data-num="11" data-cat-label="Opérations">
+            <div class="section-opener">
+                <div class="section-num">11</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-gears"></i>Opérations<span class="step">11 / 15</span></span>
+                    <h2 class="section-title">Sanitaires &amp; loges</h2>
+                </div>
+            </div>
             <p class="section-lead">Espaces dédiés artistes, production, public et bénévoles.</p>
 
             <div class="grid-2">
@@ -1013,9 +1235,14 @@
         </section>
 
         <!-- ============ NETTOYAGE & SORTIE ============ -->
-        <section id="nettoyage" class="section">
-            <div class="section-eyebrow">12 · Opérations</div>
-            <h2 class="section-title">Nettoyage &amp; sortie</h2>
+        <section id="nettoyage" class="section" data-cat="operations" data-num="12" data-cat-label="Opérations">
+            <div class="section-opener">
+                <div class="section-num">12</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-gears"></i>Opérations<span class="step">12 / 15</span></span>
+                    <h2 class="section-title">Nettoyage &amp; sortie</h2>
+                </div>
+            </div>
             <p class="section-lead">Protocole de propreté et proposition de deal opérationnel avec la mairie.</p>
 
             <div class="card">
@@ -1043,9 +1270,14 @@
         </section>
 
         <!-- ============ TARIFS ============ -->
-        <section id="tarifs" class="section">
-            <div class="section-eyebrow">13 · Cadre</div>
-            <h2 class="section-title">Tarifs &amp; devis</h2>
+        <section id="tarifs" class="section" data-cat="cadre" data-num="13" data-cat-label="Cadre">
+            <div class="section-opener">
+                <div class="section-num">13</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-scale-balanced"></i>Cadre<span class="step">13 / 15</span></span>
+                    <h2 class="section-title">Tarifs &amp; devis</h2>
+                </div>
+            </div>
             <p class="section-lead">Tarif <strong>indicatif</strong> communiqué en repérage, hors préparation et hors négociation tarif associatif. À confirmer par devis officiel.</p>
 
             <div class="card">
@@ -1109,9 +1341,14 @@
         </section>
 
         <!-- ============ PARTENARIATS ============ -->
-        <section id="partenariats" class="section">
-            <div class="section-eyebrow">14 · Cadre</div>
-            <h2 class="section-title">Partenariats opérationnels</h2>
+        <section id="partenariats" class="section" data-cat="cadre" data-num="14" data-cat-label="Cadre">
+            <div class="section-opener">
+                <div class="section-num">14</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-scale-balanced"></i>Cadre<span class="step">14 / 15</span></span>
+                    <h2 class="section-title">Partenariats opérationnels</h2>
+                </div>
+            </div>
             <p class="section-lead">Acteurs locaux à activer pour mutualiser ressources et budget.</p>
 
             <div class="grid-2">
@@ -1129,9 +1366,14 @@
         </section>
 
         <!-- ============ QUESTIONS OUVERTES ============ -->
-        <section id="questions" class="section">
-            <div class="section-eyebrow">15 · Cadre</div>
-            <h2 class="section-title">Questions ouvertes &amp; demandes consolidées</h2>
+        <section id="questions" class="section" data-cat="cadre" data-num="15" data-cat-label="Cadre">
+            <div class="section-opener">
+                <div class="section-num">15</div>
+                <div class="section-meta">
+                    <span class="section-cat"><i class="fa-solid fa-scale-balanced"></i>Cadre<span class="step">15 / 15</span></span>
+                    <h2 class="section-title">Questions ouvertes &amp; demandes consolidées</h2>
+                </div>
+            </div>
             <p class="section-lead">Check-list opérationnelle pour les prochains échanges. À traiter en priorité avec Sébastien Murtin (régie) et Alexandra Plet (mairie).</p>
 
             <div class="card">
@@ -1193,21 +1435,36 @@
     </main>
 
     <script>
-        // Active link sur scroll
-        const sections = document.querySelectorAll('section[id]');
+        const sections = document.querySelectorAll('section[id][data-cat]');
         const links = document.querySelectorAll('.sidebar-link');
-        function syncActive() {
-            const scrollY = window.scrollY + 100;
+        const where = document.getElementById('where');
+        const progress = document.getElementById('progress');
+
+        function sync() {
+            const scrollY = window.scrollY;
+            const docH = document.documentElement.scrollHeight - window.innerHeight;
+            progress.style.width = Math.min(100, Math.max(0, (scrollY / docH) * 100)) + '%';
+
+            const probe = scrollY + 120;
             let current = null;
-            sections.forEach(s => {
-                if (scrollY >= s.offsetTop) current = s.id;
-            });
+            sections.forEach(s => { if (probe >= s.offsetTop) current = s; });
+
             links.forEach(l => {
-                l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+                l.classList.toggle('active', current && l.getAttribute('href') === '#' + current.id);
             });
+
+            if (current) {
+                where.dataset.cat = current.dataset.cat;
+                where.querySelector('.cat').textContent = current.dataset.catLabel;
+                where.querySelector('.step').innerHTML = current.dataset.num + '<span class="opacity-50"> / 15</span>';
+                where.classList.toggle('show', scrollY > 240);
+            } else {
+                where.classList.remove('show');
+            }
         }
-        window.addEventListener('scroll', syncActive, { passive: true });
-        syncActive();
+        window.addEventListener('scroll', sync, { passive: true });
+        window.addEventListener('resize', sync, { passive: true });
+        sync();
     </script>
 
 </body>
