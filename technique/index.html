@@ -630,6 +630,125 @@
         }
         @media (min-width: 1024px) { #progress { left: 260px; } }
 
+        /* ── FORM ── */
+        .form-block { margin-bottom: 0.5rem; }
+        .form-block-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--zinc-900);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .form-help {
+            font-size: 0.82rem;
+            color: var(--zinc-500);
+            line-height: 1.5;
+            margin-bottom: 0.7rem;
+        }
+        .form-pill {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.62rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #fff;
+            background: var(--pill, var(--zinc-900));
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+        }
+        .form-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.85rem;
+        }
+        @media (max-width: 768px) {
+            .form-grid-3 { grid-template-columns: 1fr; }
+        }
+        .field { display: flex; flex-direction: column; gap: 0.3rem; }
+        .field span {
+            font-size: 0.72rem;
+            color: var(--zinc-500);
+            font-weight: 500;
+        }
+        .field input,
+        .form-block textarea {
+            width: 100%;
+            font-family: 'Geist', system-ui, sans-serif;
+            font-size: 0.9rem;
+            color: var(--zinc-900);
+            background: #fff;
+            border: 1px solid var(--zinc-200);
+            border-radius: 10px;
+            padding: 0.65rem 0.85rem;
+            transition: border-color 0.15s, box-shadow 0.15s;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .form-block textarea {
+            resize: vertical;
+            min-height: 100px;
+            line-height: 1.5;
+        }
+        .field input:focus,
+        .form-block textarea:focus {
+            outline: none;
+            border-color: var(--zinc-900);
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+        }
+        .field input::placeholder,
+        .form-block textarea::placeholder {
+            color: var(--zinc-400);
+        }
+        .form-divider {
+            height: 1px;
+            background: var(--zinc-200);
+            margin: 1.4rem 0;
+        }
+        .form-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .btn-submit {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: #0a0a0a;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.92rem;
+            padding: 0.85rem 1.4rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+        }
+        .btn-submit:hover {
+            background: #1f1f1f;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+        }
+        .btn-submit:active { transform: translateY(0); }
+        .form-foot {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.72rem;
+            color: var(--zinc-500);
+            line-height: 1.4;
+        }
+        .form-foot i { color: var(--zinc-400); }
+
         /* ── PRINT ── */
         @media print {
             #sidebar, #mobile-bar { display: none; }
@@ -1423,8 +1542,135 @@
             <div class="alert alert-info mt-6">
                 <i class="fa-solid fa-circle-info"></i>
                 <div>
-                    <strong>Phase 2 — Réponses régie en ligne.</strong>
-                    <p>Cette page sera enrichie d'un module de saisie permettant à Sébastien et à la mairie d'apporter leurs réponses directement en ligne (envoi par mail à la production). À ouvrir dès que la structure de questions est stabilisée.</p>
+                    <strong>Vous pouvez répondre directement en ligne.</strong>
+                    <p>Le formulaire ci-dessous permet à la régie et à la mairie d'apporter leurs réponses sans rien installer. À l'envoi, l'ensemble des réponses arrive par mail à la production MGE.</p>
+                </div>
+            </div>
+
+            <!-- ===== FORMULAIRE RÉPONSES ===== -->
+            <div id="form-wrap" class="mt-6">
+                <form id="answer-form"
+                      action="https://formsubmit.co/contact@mgentertainment.fr"
+                      method="POST"
+                      class="card"
+                      style="padding:1.75rem;">
+
+                    <!-- Configuration Formsubmit -->
+                    <input type="hidden" name="_subject" value="🏛️ Réponses Brief Technique · Lagnieu 2027">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://enjoylife-emx.fr/technique/?envoye=1">
+                    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+                    <div class="card-h" style="margin-bottom:0.4rem;">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Vos réponses · envoi à la production MGE
+                    </div>
+                    <p class="text-sm text-zinc-500 mb-5">Tous les champs sont optionnels. Répondez uniquement à ce que vous connaissez — l'envoi reste possible avec un seul bloc rempli.</p>
+
+                    <!-- Identification -->
+                    <div class="form-block">
+                        <div class="form-block-title">Vous êtes</div>
+                        <div class="form-grid-3">
+                            <label class="field">
+                                <span>Nom complet</span>
+                                <input type="text" name="Nom" placeholder="Prénom Nom">
+                            </label>
+                            <label class="field">
+                                <span>Rôle / Fonction</span>
+                                <input type="text" name="Role" placeholder="Régisseur, adjoint, …">
+                            </label>
+                            <label class="field">
+                                <span>Structure</span>
+                                <input type="text" name="Structure" placeholder="Mairie, salle, prestataire…">
+                            </label>
+                            <label class="field">
+                                <span>Mail</span>
+                                <input type="email" name="Email" placeholder="vous@exemple.fr">
+                            </label>
+                            <label class="field">
+                                <span>Téléphone (optionnel)</span>
+                                <input type="tel" name="Telephone" placeholder="06 XX XX XX XX">
+                            </label>
+                            <label class="field">
+                                <span>Date des réponses</span>
+                                <input type="date" name="Date_reponse">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-divider"></div>
+
+                    <!-- Bloc 1 : Mairie -->
+                    <div class="form-block">
+                        <div class="form-block-title">
+                            <span class="form-pill" style="--pill:var(--cat-cadre);">Mairie</span>
+                            Demandes adressées à la Mairie de Lagnieu
+                        </div>
+                        <p class="form-help">
+                            Confirmation des dates, tarif asso, forfait week-end, mail Alexandra Plet, arrêté stationnement, parking JO Nallet, prêt barrières Vauban &amp; Heras, tentes 3×3 entrée + zone fumeur.
+                        </p>
+                        <textarea name="Reponses_Mairie" rows="6" placeholder="Vos réponses, point par point ou en texte libre…"></textarea>
+                    </div>
+
+                    <div class="form-divider"></div>
+
+                    <!-- Bloc 2 : Régie -->
+                    <div class="form-block">
+                        <div class="form-block-title">
+                            <span class="form-pill" style="--pill:var(--cat-operations);">Régie</span>
+                            Questions à la régie · Sébastien Murtin
+                        </div>
+                        <p class="form-help">
+                            Heure max débit alcool · wifi salle (type, débit, couverture, SSID, mdp, compatibilité TPE) · clé barrière backstage · retours fournisseurs lundi · benne sortie · recomptage toilettes hall · espace bénévoles · validation deal autolaveuse · cohérence dimensions scène vs praticables · guirlandes Noël.
+                        </p>
+                        <textarea name="Reponses_Regie" rows="7" placeholder="Vos réponses, point par point ou en texte libre…"></textarea>
+                    </div>
+
+                    <div class="form-divider"></div>
+
+                    <!-- Bloc 3 : Sécurité ERP -->
+                    <div class="form-block">
+                        <div class="form-block-title">
+                            <span class="form-pill" style="--pill:var(--cat-lieu);">Sécurité ERP</span>
+                            Points bloquants sécurité &amp; ERP
+                        </div>
+                        <p class="form-help">
+                            Charge poutres &amp; note de calcul (truss + lights public) · flammes &amp; pyrotechnicien certifié · balcon VIP encadré · décompte horaire changement d'heure nuit 2 · dérogation bruit / SPL / mesures dB façade.
+                        </p>
+                        <textarea name="Reponses_Securite_ERP" rows="6" placeholder="Vos réponses, point par point ou en texte libre…"></textarea>
+                    </div>
+
+                    <div class="form-divider"></div>
+
+                    <!-- Bloc 4 : Autres -->
+                    <div class="form-block">
+                        <div class="form-block-title">Autres remarques · documents à transmettre</div>
+                        <p class="form-help">
+                            Tout point non couvert ci-dessus, pièces à envoyer en pièce jointe par mail séparé (notes de calcul, plans, devis…), demandes de précision.
+                        </p>
+                        <textarea name="Autres_remarques" rows="4" placeholder="Texte libre…"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            Envoyer mes réponses
+                        </button>
+                        <span class="form-foot">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Vos réponses sont envoyées par mail à <strong>contact@mgentertainment.fr</strong>. Aucune donnée n'est stockée sur ce site.
+                        </span>
+                    </div>
+                </form>
+
+                <!-- Confirmation post-envoi -->
+                <div id="form-success" class="alert alert-ok mt-4" style="display:none;">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <div>
+                        <strong>Merci, vos réponses ont bien été transmises.</strong>
+                        <p>L'équipe production MGE revient vers vous rapidement. Vous pouvez fermer cet onglet ou continuer à consulter le brief.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1467,6 +1713,17 @@
         window.addEventListener('scroll', sync, { passive: true });
         window.addEventListener('resize', sync, { passive: true });
         sync();
+
+        // Confirmation post-envoi du formulaire (Formsubmit redirige avec ?envoye=1)
+        if (new URLSearchParams(location.search).get('envoye') === '1') {
+            const f  = document.getElementById('answer-form');
+            const ok = document.getElementById('form-success');
+            if (f)  f.style.display = 'none';
+            if (ok) {
+                ok.style.display = 'flex';
+                setTimeout(() => ok.scrollIntoView({ behavior: 'smooth', block: 'center' }), 200);
+            }
+        }
     </script>
 
 </body>
