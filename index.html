@@ -402,6 +402,47 @@
       letter-spacing: .06em; text-transform: none;
       color: rgba(255,255,255,.3); margin-top: .6rem;
     }
+
+    /* Badge +18 ans · hero */
+    .age-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .45rem .8rem .45rem .55rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-family: 'SF', sans-serif;
+      font-size: .65rem; font-weight: 500;
+      letter-spacing: .04em;
+      color: rgba(255,255,255,.75);
+      width: fit-content;
+      margin-top: .8rem;
+      transition: background .3s, border-color .3s;
+    }
+    .age-badge:hover {
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.2);
+    }
+    .age-badge .age-pill {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 26px; height: 22px;
+      padding: 0 .35rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #6366f1, #a855f7);
+      color: #fff;
+      font-family: 'SF', sans-serif;
+      font-weight: 800;
+      font-size: .68rem;
+      letter-spacing: 0;
+      box-shadow: 0 0 12px rgba(99,102,241,.35);
+    }
+    .age-badge .age-text {
+      color: rgba(255,255,255,.7);
+      text-transform: none;
+      font-weight: 400;
+    }
+    .age-badge .age-text strong { color: #fff; font-weight: 600; }
     /* Scroll bar */
     .hero-scroll {
       position: absolute; bottom: 4rem; left: 50%; transform: translateX(-50%);
@@ -1981,6 +2022,10 @@
         <div style="display:flex;flex-direction:column;gap:.3rem;margin-top:.2rem;">
           <span>Ain, France · 45° 54' N, 5° 20' E</span>
           <span>IV<sup style="font-size:.5em;">ème</sup> Édition · 2027</span>
+        </div>
+        <div class="age-badge" aria-label="Événement réservé aux personnes majeures">
+          <span class="age-pill">18+</span>
+          <span class="age-text"><strong>Réservé aux majeurs</strong> · Pièce d'identité demandée à l'entrée</span>
         </div>
       </div>
       <div class="hero-info-right">
