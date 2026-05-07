@@ -783,7 +783,7 @@
 
         /* ── FORM ── */
         .qa {
-            padding: 1rem 0;
+            padding: 1.1rem 0;
             border-top: 1px solid var(--zinc-200);
         }
         .qa:first-of-type { border-top: none; padding-top: 1.25rem; }
@@ -791,10 +791,11 @@
             font-size: 0.92rem;
             color: var(--zinc-900);
             line-height: 1.5;
-            margin-bottom: 0.65rem;
+            margin-bottom: 0.7rem;
             display: flex;
-            gap: 0.7rem;
+            gap: 0.75rem;
             align-items: flex-start;
+            font-weight: 500;
         }
         .qa-num {
             display: inline-flex;
@@ -802,14 +803,14 @@
             justify-content: center;
             min-width: 30px; height: 30px;
             border-radius: 8px;
-            background: var(--zinc-100);
-            border: 1px solid var(--zinc-200);
-            color: var(--zinc-700);
-            font-size: 0.72rem;
+            background: var(--zinc-900);
+            color: #fff;
+            font-size: 0.7rem;
             font-weight: 700;
             font-variant-numeric: tabular-nums;
             flex-shrink: 0;
-            margin-top: -0.1rem;
+            margin-top: -0.05rem;
+            letter-spacing: 0.02em;
         }
         .qa input[type="text"],
         .qa input[type="email"],
@@ -817,28 +818,73 @@
         .qa textarea {
             width: 100%;
             font-family: 'Geist', system-ui, sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: var(--zinc-900);
-            background: #fafafa;
-            border: 1px solid var(--zinc-200);
+            background: #f4f4f5;
+            border: 1.5px solid var(--zinc-300);
             border-radius: 10px;
-            padding: 0.65rem 0.85rem;
+            padding: 0.75rem 0.9rem;
             transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
             -webkit-appearance: none;
             appearance: none;
         }
         .qa textarea {
             resize: vertical;
-            min-height: 70px;
-            line-height: 1.5;
+            min-height: 78px;
+            line-height: 1.55;
+        }
+        .qa input:hover, .qa textarea:hover {
+            border-color: var(--zinc-400);
+            background: #ebebed;
         }
         .qa input:focus, .qa textarea:focus {
             outline: none;
             background: #fff;
             border-color: var(--zinc-900);
-            box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
         }
-        .qa input::placeholder, .qa textarea::placeholder { color: var(--zinc-400); }
+        .qa input::placeholder, .qa textarea::placeholder { color: var(--zinc-500); }
+        /* Card des questions — fond légèrement teinté pour contraste avec inputs blancs sur focus */
+        .qa-block {
+            background: #fcfcfd;
+            border: 1px solid var(--zinc-200);
+            border-radius: 16px;
+            padding: 1.25rem 1.5rem 0.5rem;
+            box-shadow: var(--card);
+        }
+        .qa-block + .qa-block { margin-top: 1rem; }
+        .qa-block-h {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            padding-bottom: 0.85rem;
+            border-bottom: 1px solid var(--zinc-200);
+        }
+        .qa-block-h .icon-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px; height: 32px;
+            border-radius: 9px;
+            background: var(--qa-c-bg, var(--zinc-100));
+            color: var(--qa-c, var(--zinc-700));
+            font-size: 0.85rem;
+        }
+        .qa-block-h .count {
+            margin-left: auto;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--qa-c, var(--zinc-500));
+            background: var(--qa-c-bg, var(--zinc-100));
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
 
         /* iOS — éviter le zoom au focus sur les inputs (font-size minimum 16px) */
         @media (max-width: 768px) {
@@ -1250,7 +1296,7 @@
             <p class="welcome-text">
                 Vous arrivez sur le <strong>dossier technique d'Enjoylife 2027</strong>.
                 Si vous êtes <strong>Sébastien</strong> (régie de la salle) ou <strong>Alexandra</strong> (mairie),
-                <strong>24 questions</strong> vous attendent — vous pouvez y répondre directement en ligne.
+                <strong>26 questions</strong> vous attendent — vous pouvez y répondre directement en ligne.
             </p>
             <div class="welcome-meta">
                 <div class="welcome-meta-item"><i class="fa-regular fa-clock"></i><strong>~10–15 min</strong></div>
@@ -1334,7 +1380,7 @@
                 </a>
                 <span class="hero-cta-meta">
                     <i class="fa-regular fa-clock"></i>
-                    24 questions · ~10–15 min · tous les champs sont optionnels
+                    26 questions · ~10–15 min · tous les champs sont optionnels
                 </span>
             </div>
         </section>
@@ -1959,27 +2005,28 @@
             <p class="section-lead">Merci de prendre le temps de répondre — vos réponses arrivent par mail à la production MGE et alimentent directement les prochains échanges. <strong>Tous les champs sont optionnels</strong>, vous pouvez ne renseigner que les blocs qui vous concernent.</p>
 
             <div class="qa-summary">
+                <div class="qa-summary-item" style="--qa-c: var(--cat-cadrage);">
+                    <div class="l">Dates &amp; planning</div>
+                    <div class="v">3</div>
+                    <div class="lbl">questions</div>
+                </div>
                 <div class="qa-summary-item" style="--qa-c: var(--cat-cadre);">
-                    <div class="l">Mairie</div>
-                    <div class="v">9</div>
-                    <div class="lbl">demandes</div>
+                    <div class="l">Démarches mairie</div>
+                    <div class="v">8</div>
+                    <div class="lbl">questions</div>
                 </div>
                 <div class="qa-summary-item" style="--qa-c: var(--cat-operations);">
-                    <div class="l">Régie salle</div>
-                    <div class="v">10</div>
+                    <div class="l">Salle &amp; pratique</div>
+                    <div class="v">11</div>
                     <div class="lbl">questions</div>
                 </div>
                 <div class="qa-summary-item" style="--qa-c: var(--cat-lieu);">
                     <div class="l">Sécurité ERP</div>
-                    <div class="v">5</div>
-                    <div class="lbl">points</div>
-                </div>
-                <div class="qa-summary-item" style="--qa-c: var(--zinc-400);">
-                    <div class="l">Identité &amp; libre</div>
-                    <div class="v">+</div>
-                    <div class="lbl">vous &amp; remarques</div>
+                    <div class="v">4</div>
+                    <div class="lbl">questions</div>
                 </div>
             </div>
+            <p class="text-xs text-zinc-500 mt-3 mb-1"><i class="fa-solid fa-circle-info"></i> Chacun répond aux questions qu'il connaît — pas de répartition figée par interlocuteur.</p>
 
             <div class="alert alert-info">
                 <i class="fa-solid fa-circle-info"></i>
@@ -2028,11 +2075,12 @@
                     </div>
                 </div>
 
-                <!-- ============ BLOC MAIRIE ============ -->
-                <div class="card mt-4">
-                    <div class="card-h">
-                        <span class="form-pill" style="--pill:var(--cat-cadre);">Mairie</span>
-                        Demandes adressées à la Mairie de Lagnieu
+                <!-- ============ BLOC 1 · DATES & PLANNING ============ -->
+                <div class="qa-block mt-4" style="--qa-c: var(--cat-cadrage); --qa-c-bg: var(--cat-cadrage-bg);">
+                    <div class="qa-block-h">
+                        <span class="icon-pill"><i class="fa-regular fa-calendar"></i></span>
+                        Dates &amp; Planning
+                        <span class="count">3 questions</span>
                     </div>
 
                     <div class="qa">
@@ -2041,143 +2089,154 @@
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">02</span>Quelle est la <strong>grille tarifaire associative</strong> applicable (asso commune vs hors commune) ?</div>
-                        <textarea name="Q02_Tarif_asso" rows="3" placeholder="Détail de la grille, tarifs précis ou document à joindre par mail."></textarea>
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">03</span>Existe-t-il une formule <strong>forfait week-end</strong> englobant montage + 2 nuits + démontage + clean ?</div>
+                        <div class="qa-q"><span class="qa-num">02</span>Existe-t-il une formule <strong>forfait week-end</strong> englobant montage + 2 nuits + démontage + clean ?</div>
                         <input type="text" name="Q03_Forfait_weekend" placeholder="Réponse">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">04</span>Mail direct d'<strong>Alexandra Plet</strong> ?</div>
+                        <div class="qa-q"><span class="qa-num">03</span><strong>Changement d'heure nuit 2</strong> — décompte horaire et facturation (heure légale ou réelle, gestion clean 2h–4h qui devient 3h–4h) ?</div>
+                        <textarea name="Q23_Changement_heure" rows="3" placeholder="Mode de décompte appliqué par la salle"></textarea>
+                    </div>
+                </div>
+
+                <!-- ============ BLOC 2 · DÉMARCHES MAIRIE ============ -->
+                <div class="qa-block mt-4" style="--qa-c: var(--cat-cadre); --qa-c-bg: var(--cat-cadre-bg);">
+                    <div class="qa-block-h">
+                        <span class="icon-pill"><i class="fa-solid fa-building-columns"></i></span>
+                        Démarches &amp; Mairie
+                        <span class="count">8 questions</span>
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">04</span>Quelle est la <strong>grille tarifaire associative</strong> applicable (asso commune vs hors commune) ?</div>
+                        <textarea name="Q02_Tarif_asso" rows="3" placeholder="Détail de la grille, tarifs précis ou document à joindre par mail."></textarea>
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">05</span>Mail direct d'<strong>Alexandra Plet</strong> ?</div>
                         <input type="email" name="Q04_Mail_Alexandra" placeholder="alexandra.plet@…">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">05</span>Arrêté municipal de <strong>stationnement</strong> les 2 soirs — possible ? Conditions ?</div>
+                        <div class="qa-q"><span class="qa-num">06</span>Arrêté municipal de <strong>stationnement</strong> les 2 soirs — possible ? Conditions ?</div>
                         <input type="text" name="Q05_Arrete_stationnement" placeholder="Réponse">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">06</span>Ouverture du <strong>parking de l'esplanade JO Nallet</strong> les 2 soirs ?</div>
+                        <div class="qa-q"><span class="qa-num">07</span>Ouverture du <strong>parking de l'esplanade JO Nallet</strong> les 2 soirs ?</div>
                         <input type="text" name="Q06_Parking_JO_Nallet" placeholder="Réponse">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">07</span>Prêt + <strong>installation barrières Vauban</strong> par les équipes municipales ?</div>
+                        <div class="qa-q"><span class="qa-num">08</span>Prêt + <strong>installation barrières Vauban</strong> par les équipes municipales ?</div>
                         <input type="text" name="Q07_Vauban" placeholder="Quantité dispo, conditions, installation par équipes muni ou non">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">08</span>Barrières <strong>Heras</strong> complémentaires disponibles ?</div>
+                        <div class="qa-q"><span class="qa-num">09</span>Barrières <strong>Heras</strong> complémentaires disponibles ?</div>
                         <input type="text" name="Q08_Heras" placeholder="Réponse">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">09</span>Mise à disposition de <strong>2 tentes blanches 3×3 m</strong> (entrée principale + zone fumeur) ?</div>
+                        <div class="qa-q"><span class="qa-num">10</span>Mise à disposition de <strong>2 tentes blanches 3×3 m</strong> (entrée principale + zone fumeur) ?</div>
                         <input type="text" name="Q09_Tentes_3x3" placeholder="Réponse">
+                    </div>
+
+                    <div class="qa">
+                        <div class="qa-q"><span class="qa-num">11</span><strong>Heure max légale de débit d'alcool</strong> sur l'événement — 1h, 2h ou autre ?</div>
+                        <input type="text" name="Q10_Heure_alcool" placeholder="Heure légale + texte de référence si possible">
                     </div>
                 </div>
 
-                <!-- ============ BLOC RÉGIE ============ -->
-                <div class="card mt-4">
-                    <div class="card-h">
-                        <span class="form-pill" style="--pill:var(--cat-operations);">Régie</span>
-                        Questions à la régie · Sébastien Murtin
+                <!-- ============ BLOC 3 · SALLE & PRATIQUE ============ -->
+                <div class="qa-block mt-4" style="--qa-c: var(--cat-operations); --qa-c-bg: var(--cat-operations-bg);">
+                    <div class="qa-block-h">
+                        <span class="icon-pill"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                        Salle &amp; Pratique
+                        <span class="count">11 questions</span>
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">10</span><strong>Heure max légale de débit d'alcool</strong> sur l'événement — 1h, 2h ou autre ?</div>
-                        <input type="text" name="Q10_Heure_alcool" placeholder="Heure légale + texte de référence si possible">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">11</span><strong>Wifi salle</strong> — type (fibre/ADSL), débit, couverture toutes zones, SSID, mot de passe, compatibilité TPE et billetterie en simultané ?</div>
+                        <div class="qa-q"><span class="qa-num">12</span><strong>Wifi salle</strong> — type (fibre/ADSL), débit, couverture toutes zones, SSID, mot de passe, compatibilité TPE et billetterie en simultané ?</div>
                         <textarea name="Q11_Wifi_salle" rows="4" placeholder="Détaillez : type de connexion, débit, zones couvertes, SSID, mdp, capacité…"></textarea>
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">12</span><strong>Clé barrière backstage</strong> — qui la détient et comment on la récupère pour le montage ?</div>
+                        <div class="qa-q"><span class="qa-num">13</span><strong>Clé barrière backstage</strong> — qui la détient et comment on la récupère pour le montage ?</div>
                         <input type="text" name="Q12_Cle_backstage" placeholder="Détenteur, récupération, horaires">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">13</span>Confirmez-vous la possibilité de <strong>retours fournisseurs lundi matin</strong> (ex&nbsp;: fûts vides) ?</div>
+                        <div class="qa-q"><span class="qa-num">14</span>Confirmez-vous la possibilité de <strong>retours fournisseurs lundi matin</strong> (ex&nbsp;: fûts vides) ?</div>
                         <input type="text" name="Q13_Retours_lundi" placeholder="Réponse">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">14</span><strong>Benne / grosse poubelle</strong> disponible en sortie d'événement ? Capacité ?</div>
+                        <div class="qa-q"><span class="qa-num">15</span><strong>Benne / grosse poubelle</strong> disponible en sortie d'événement ? Capacité ?</div>
                         <input type="text" name="Q14_Benne_sortie" placeholder="Réponse">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">15</span><strong>Décompte exact des toilettes public</strong> dans le hall (nombre, hommes/femmes/PMR) ?</div>
+                        <div class="qa-q"><span class="qa-num">16</span><strong>Décompte exact des toilettes public</strong> dans le hall (nombre, hommes/femmes/PMR) ?</div>
                         <input type="text" name="Q15_Toilettes_hall" placeholder="Ex : 4 H + 4 F + 1 PMR">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">16</span>Pièce / espace dédié pour les <strong>bénévoles</strong> (briefing, pause, vestiaire) ?</div>
+                        <div class="qa-q"><span class="qa-num">17</span>Pièce / espace dédié pour les <strong>bénévoles</strong> (briefing, pause, vestiaire) ?</div>
                         <input type="text" name="Q16_Espace_benevoles" placeholder="Réponse">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">17</span>Validation du <strong>deal autolaveuse + clean complet</strong> (modèle Villieu 2026) — utilisation par bénévole formé en échange du clean intégral salle ?</div>
+                        <div class="qa-q"><span class="qa-num">18</span>Validation du <strong>deal autolaveuse + clean complet</strong> (modèle Villieu 2026) — utilisation par bénévole formé en échange du clean intégral salle ?</div>
                         <input type="text" name="Q17_Deal_autolaveuse" placeholder="Réponse">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">18</span>Cohérence <strong>dimensions scène (93,77 m²) vs praticables (72 m²)</strong> — y a-t-il une scène fixe + extension praticables, ou autre configuration ?</div>
+                        <div class="qa-q"><span class="qa-num">19</span>Cohérence <strong>dimensions scène (93,77 m²) vs praticables (72 m²)</strong> — y a-t-il une scène fixe + extension praticables, ou autre configuration ?</div>
                         <textarea name="Q18_Scene_vs_praticables" rows="3" placeholder="Détail de la configuration scénique"></textarea>
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">19</span><strong>Guirlandes de Noël</strong> — à cacher proprement, à retirer, autre ?</div>
+                        <div class="qa-q"><span class="qa-num">20</span><strong>Guirlandes de Noël</strong> — à cacher proprement, à retirer, autre ?</div>
                         <input type="text" name="Q19_Guirlandes" placeholder="Réponse">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">19b</span><strong>Hauteur sous plafond zone public</strong> exacte — au-dessus de la zone public principale (les 4,19 m relevés correspondent uniquement au bloc scène) ?</div>
+                        <div class="qa-q"><span class="qa-num">21</span><strong>Hauteur sous plafond zone public</strong> exacte — au-dessus de la zone public principale (les 4,19 m relevés correspondent uniquement au bloc scène) ?</div>
                         <input type="text" name="Q19b_Hauteur_public" placeholder="Hauteur sous plafond ou sous charpente, à la verticale de la zone public">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">19c</span><strong>Dimensions exactes des 4 grandes fenêtres latérales</strong> (largeur × hauteur, hauteur d'allège, vitrage simple/double, dépoli ou clair) ?</div>
+                        <div class="qa-q"><span class="qa-num">22</span><strong>Dimensions exactes des 4 grandes fenêtres latérales</strong> (largeur × hauteur, hauteur d'allège, vitrage simple/double, dépoli ou clair) ?</div>
                         <textarea name="Q19c_Fenetres" rows="3" placeholder="Dimensions précises, type de verre, hauteur d'allège, possibilité de tendre des voiles devant"></textarea>
                     </div>
                 </div>
 
-                <!-- ============ BLOC SÉCURITÉ ERP ============ -->
-                <div class="card mt-4">
-                    <div class="card-h">
-                        <span class="form-pill" style="--pill:var(--cat-lieu);">Sécurité ERP</span>
-                        Points bloquants sécurité &amp; ERP
+                <!-- ============ BLOC 4 · SÉCURITÉ ERP ============ -->
+                <div class="qa-block mt-4" style="--qa-c: var(--cat-lieu); --qa-c-bg: var(--cat-lieu-bg);">
+                    <div class="qa-block-h">
+                        <span class="icon-pill"><i class="fa-solid fa-shield-halved"></i></span>
+                        Sécurité &amp; ERP
+                        <span class="count">4 questions</span>
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">20</span><strong>Charges des poutres</strong> — historique structure ou note de calcul disponible pour confirmer la possibilité de <strong>2 truss + lights au-dessus du public</strong> ?</div>
+                        <div class="qa-q"><span class="qa-num">23</span><strong>Charges des poutres</strong> — historique structure ou note de calcul disponible pour confirmer la possibilité de <strong>2 truss + lights au-dessus du public</strong> ?</div>
                         <textarea name="Q20_Charges_poutres" rows="3" placeholder="Document, charge admissible, ou orientation BET structure"></textarea>
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">21</span><strong>Flammes</strong> — accord formel commission de sécurité, exigences pyrotechnicien certifié, dépôt CERFA préfecture ?</div>
+                        <div class="qa-q"><span class="qa-num">24</span><strong>Flammes</strong> — accord formel commission de sécurité, exigences pyrotechnicien certifié, dépôt CERFA préfecture ?</div>
                         <textarea name="Q21_Flammes" rows="3" placeholder="Accord écrit, conditions, démarches à enclencher"></textarea>
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">22</span><strong>Balcon VIP</strong> — ouverture encadrée possible (effectif compté, dégagement issue de secours, staff dédié) ? Conditions formelles ?</div>
+                        <div class="qa-q"><span class="qa-num">25</span><strong>Balcon VIP</strong> — ouverture encadrée possible (effectif compté, dégagement issue de secours, staff dédié) ? Conditions formelles ?</div>
                         <textarea name="Q22_Balcon_VIP" rows="3" placeholder="Conditions ERP pour ouverture VIP encadrée"></textarea>
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">23</span><strong>Changement d'heure nuit 2</strong> — décompte horaire et facturation (heure légale ou réelle, gestion clean 2h–4h qui devient 3h–4h) ?</div>
-                        <textarea name="Q23_Changement_heure" rows="3" placeholder="Mode de décompte appliqué par la salle"></textarea>
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">24</span><strong>Bruit / SPL</strong> — la salle dispose-t-elle d'une dérogation événementielle ? Plages horaires nocturnes encadrées ? Mesures dB existantes en façade ?</div>
+                        <div class="qa-q"><span class="qa-num">26</span><strong>Bruit / SPL</strong> — la salle dispose-t-elle d'une dérogation événementielle ? Plages horaires nocturnes encadrées ? Mesures dB existantes en façade ?</div>
                         <textarea name="Q24_Bruit_SPL" rows="3" placeholder="Réponse"></textarea>
                     </div>
                 </div>
@@ -2216,7 +2275,11 @@
             <ul class="changelog-list">
                 <li>
                     <span class="date">07 mai 2026</span>
-                    <span>Ajout d'un <strong>modal d'accueil</strong> à l'arrivée sur la page : recentre l'attention de Sébastien et Alexandra sur le questionnaire (24 questions · ~10-15 min) avec choix « Répondre maintenant » ou « Lire le contexte d'abord ». Mémorisé en localStorage pour ne pas réapparaître aux retours.</span>
+                    <span>Refonte du formulaire de réponses : <strong>regroupement par thème</strong> (Dates &amp; Planning · Démarches mairie · Salle &amp; pratique · Sécurité ERP) au lieu de la répartition par destinataire. Chacun répond aux questions qu'il connaît, sans étiquette figée. Contraste des champs amélioré (fond gris, bordures plus visibles, numéros en pastilles noires). 26 questions au total.</span>
+                </li>
+                <li>
+                    <span class="date">07 mai 2026</span>
+                    <span>Ajout d'un <strong>modal d'accueil</strong> à l'arrivée sur la page : recentre l'attention de Sébastien et Alexandra sur le questionnaire (~10-15 min) avec choix « Répondre maintenant » ou « Lire le contexte d'abord ». Mémorisé en localStorage pour ne pas réapparaître aux retours.</span>
                 </li>
                 <li>
                     <span class="date">07 mai 2026</span>
