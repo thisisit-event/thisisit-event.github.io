@@ -302,6 +302,12 @@
             .section-num::after { display: none; }
             .section-cat { font-size: 0.62rem; flex-wrap: wrap; }
             .section-cat .step { margin-left: 0.3rem; padding-left: 0.4rem; }
+            .section-title { font-size: 1.65rem; }
+            .section-lead { font-size: 0.92rem; }
+        }
+        @media (max-width: 480px) {
+            .section-num { font-size: 3.2rem; }
+            .section-title { font-size: 1.45rem; }
         }
 
         .section-title {
@@ -611,6 +617,14 @@
             margin-top: 0.15rem;
             line-height: 1.4;
         }
+        /* Mobile fin · 1 colonne pour ne pas écraser les textes */
+        @media (max-width: 480px) {
+            .hero-stats { grid-template-columns: 1fr; gap: 0.6rem; margin-top: 1.5rem; }
+            .hero-stats-overview .hero-stat { padding: 0.85rem 0.95rem; }
+            .hero-stats-overview .hs-icon { width: 34px; height: 34px; font-size: 0.85rem; }
+            .hero-stats-overview .hs-v { font-size: 1rem; }
+            .hero-stats-overview .hs-sub { font-size: 0.72rem; }
+        }
 
         /* ── ANCRES ── */
         section[id] { scroll-margin-top: 1.5rem; }
@@ -690,7 +704,8 @@
             gap: 0.7rem;
             margin: 1.5rem 0;
         }
-        @media (max-width: 768px) { .qa-summary { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .qa-summary { grid-template-columns: repeat(3, 1fr) !important; gap: 0.5rem; } .qa-summary-item { padding: 0.65rem 0.7rem; } .qa-summary-item .v { font-size: 1.4rem; } }
+        @media (max-width: 480px) { .qa-summary { grid-template-columns: 1fr !important; } }
         .qa-summary-item {
             background: #fff;
             border: 1px solid var(--zinc-200);
@@ -1434,7 +1449,10 @@
                 <img src="https://enjoylife.b-cdn.net/Enjoylife%20Partenaire/img/enjoy-logo.png" alt="Enjoylife" style="height:24px;width:auto;display:block;">
                 <div class="text-[0.6rem] uppercase tracking-widest text-zinc-500 font-medium border-l border-zinc-300 pl-2.5">Dossier Technique<br>2027</div>
             </div>
-            <a href="#questions" class="text-xs font-semibold text-zinc-700 bg-zinc-100 px-3 py-1.5 rounded-full">Questions</a>
+            <a href="#questions" class="text-xs font-semibold text-white bg-zinc-900 px-3.5 py-2 rounded-full inline-flex items-center gap-1.5 shadow-sm">
+                <i class="fa-solid fa-paper-plane text-[0.65rem]"></i>
+                Répondre
+            </a>
         </div>
 
         <!-- ============ HERO ============ -->
