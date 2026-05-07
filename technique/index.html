@@ -1384,8 +1384,8 @@
     <!-- ============ REMINDER TOAST ============ -->
     <div id="reminder-toast" role="status" aria-live="polite">
         <div class="toast-emoji">👋</div>
-        <div class="toast-title">25 questions vous attendent</div>
-        <div class="toast-text">~10–15 min · Réponses envoyées par mail à la production</div>
+        <div class="toast-title">7 questions vous attendent</div>
+        <div class="toast-text">~5 min · Réponses envoyées par mail à la production</div>
         <div class="toast-actions">
             <a href="#questions" class="toast-btn" data-toast-action="answer">
                 <i class="fa-solid fa-paper-plane" style="font-size:.7rem;"></i>
@@ -1406,10 +1406,10 @@
             <p class="welcome-text">
                 Vous arrivez sur le <strong>dossier technique d'Enjoylife 2027</strong>.
                 Si vous êtes <strong>Sébastien</strong> (régie de la salle) ou <strong>Alexandra</strong> (mairie),
-                <strong>25 questions</strong> vous attendent · vous pouvez y répondre directement en ligne.
+                <strong>7 questions</strong> vous attendent · vous pouvez y répondre directement en ligne.
             </p>
             <div class="welcome-meta">
-                <div class="welcome-meta-item"><i class="fa-regular fa-clock"></i><strong>~10–15 min</strong></div>
+                <div class="welcome-meta-item"><i class="fa-regular fa-clock"></i><strong>~5 min</strong></div>
                 <div class="welcome-meta-item"><i class="fa-solid fa-circle-check"></i>Tous les champs <strong>optionnels</strong></div>
                 <div class="welcome-meta-item"><i class="fa-solid fa-paper-plane"></i>Envoi <strong>par mail</strong></div>
             </div>
@@ -1490,7 +1490,7 @@
                 </a>
                 <span class="hero-cta-meta">
                     <i class="fa-regular fa-clock"></i>
-                    25 questions · ~10–15 min · tous les champs sont optionnels
+                    7 questions · ~5 min · tous les champs sont optionnels
                 </span>
             </div>
         </section>
@@ -2112,31 +2112,26 @@
                     <h2 class="section-title">Vos réponses &amp; questions ouvertes</h2>
                 </div>
             </div>
-            <p class="section-lead">Merci de prendre le temps de répondre · vos réponses arrivent par mail à la production MGE et alimentent directement les prochains échanges. <strong>Tous les champs sont optionnels</strong>, vous pouvez ne renseigner que les blocs qui vous concernent.</p>
+            <p class="section-lead">Merci de prendre le temps de répondre. Vos réponses arrivent par mail à la production MGE et alimentent directement les prochains échanges. <strong>Tous les champs sont optionnels</strong>.</p>
 
-            <div class="qa-summary">
+            <div class="qa-summary" style="grid-template-columns: repeat(3, 1fr);">
                 <div class="qa-summary-item" style="--qa-c: var(--cat-cadrage);">
-                    <div class="l">Dates &amp; planning</div>
-                    <div class="v">3</div>
-                    <div class="lbl">questions</div>
-                </div>
-                <div class="qa-summary-item" style="--qa-c: var(--cat-cadre);">
-                    <div class="l">Démarches mairie</div>
+                    <div class="l">Questions ciblées</div>
                     <div class="v">7</div>
-                    <div class="lbl">questions</div>
+                    <div class="lbl">à répondre directement</div>
                 </div>
                 <div class="qa-summary-item" style="--qa-c: var(--cat-operations);">
-                    <div class="l">Salle &amp; pratique</div>
-                    <div class="v">11</div>
-                    <div class="lbl">questions</div>
+                    <div class="l">Durée estimée</div>
+                    <div class="v">~5</div>
+                    <div class="lbl">minutes</div>
                 </div>
                 <div class="qa-summary-item" style="--qa-c: var(--cat-lieu);">
-                    <div class="l">Sécurité ERP</div>
-                    <div class="v">4</div>
-                    <div class="lbl">questions</div>
+                    <div class="l">Reste du dossier</div>
+                    <div class="v">∼20</div>
+                    <div class="lbl">notes &amp; réflexions</div>
                 </div>
             </div>
-            <p class="text-xs text-zinc-500 mt-3 mb-1"><i class="fa-solid fa-circle-info"></i> Chacun répond aux questions qu'il connaît · pas de répartition figée par interlocuteur.</p>
+            <p class="text-xs text-zinc-500 mt-3 mb-1"><i class="fa-solid fa-circle-info"></i> Le formulaire ne contient que <strong>7 questions ciblées</strong> qui appellent une vraie réponse. Le reste des points (logistique, démarches, mobilier, etc.) est consigné en <strong>notes et réflexions</strong> directement dans les sections du dossier.</p>
 
             <div class="alert alert-info">
                 <i class="fa-solid fa-circle-info"></i>
@@ -2184,169 +2179,51 @@
                             <input type="date" name="Date_reponse"></label>
                     </div>
                 </div>
-
-                <!-- ============ BLOC 1 · DATES & PLANNING ============ -->
+                <!-- ============ QUESTIONS CIBLÉES ============ -->
                 <div class="qa-block mt-4" style="--qa-c: var(--cat-cadrage); --qa-c-bg: var(--cat-cadrage-bg);">
                     <div class="qa-block-h">
-                        <span class="icon-pill"><i class="fa-regular fa-calendar"></i></span>
-                        Dates &amp; Planning
-                        <span class="count">3 questions</span>
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">01</span>Confirmez-vous l'option de dates <strong>25–27 mars 2027</strong> (montage jeudi, nuit 1 vendredi, nuit 2 samedi) ?</div>
-                        <input type="text" name="Q01_Dates_2027" placeholder="Réponse · confirmation, alternative, contraintes…">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">02</span>Existe-t-il une formule <strong>forfait week-end</strong> englobant montage + 2 nuits + démontage + clean ?</div>
-                        <input type="text" name="Q03_Forfait_weekend" placeholder="Réponse">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">03</span><strong>Changement d'heure nuit 2</strong> · décompte horaire et facturation (heure légale ou réelle, gestion clean 2h–4h qui devient 3h–4h) ?</div>
-                        <textarea name="Q23_Changement_heure" rows="3" placeholder="Mode de décompte appliqué par la salle"></textarea>
-                    </div>
-                </div>
-
-                <!-- ============ BLOC 2 · DÉMARCHES MAIRIE ============ -->
-                <div class="qa-block mt-4" style="--qa-c: var(--cat-cadre); --qa-c-bg: var(--cat-cadre-bg);">
-                    <div class="qa-block-h">
-                        <span class="icon-pill"><i class="fa-solid fa-building-columns"></i></span>
-                        Démarches &amp; Mairie
+                        <span class="icon-pill"><i class="fa-solid fa-circle-question"></i></span>
+                        Questions ciblées
                         <span class="count">7 questions</span>
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">04</span>Quelle est la <strong>grille tarifaire associative</strong> applicable (asso commune vs hors commune) ?</div>
-                        <textarea name="Q02_Tarif_asso" rows="3" placeholder="Détail de la grille, tarifs précis ou document à joindre par mail."></textarea>
+                        <div class="qa-q"><span class="qa-num">01</span>Confirmez-vous l'option de dates <strong>25·27 mars 2027</strong> (montage jeudi, nuit 1 vendredi, nuit 2 samedi) ?</div>
+                        <input type="text" name="Q01_Dates_2027" placeholder="Réponse · confirmation, alternative, contraintes…">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">05</span>Arrêté municipal de <strong>stationnement</strong> les 2 soirs · possible ? Conditions ?</div>
-                        <input type="text" name="Q05_Arrete_stationnement" placeholder="Réponse">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">06</span>Ouverture du <strong>parking de l'esplanade JO Nallet</strong> les 2 soirs ?</div>
-                        <input type="text" name="Q06_Parking_JO_Nallet" placeholder="Réponse">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">07</span>Prêt + <strong>installation barrières Vauban</strong> par les équipes municipales ?</div>
-                        <input type="text" name="Q07_Vauban" placeholder="Quantité dispo, conditions, installation par équipes muni ou non">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">08</span>Barrières <strong>Heras</strong> complémentaires disponibles ?</div>
-                        <input type="text" name="Q08_Heras" placeholder="Réponse">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">09</span>Mise à disposition de <strong>2 tentes blanches 3×3 m</strong> (entrée principale + zone fumeur) ?</div>
-                        <input type="text" name="Q09_Tentes_3x3" placeholder="Réponse">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">10</span><strong>Heure max légale de débit d'alcool</strong> sur l'événement · 1h, 2h ou autre ?</div>
+                        <div class="qa-q"><span class="qa-num">02</span><strong>Heure max légale de débit d'alcool</strong> sur l'événement · 1h, 2h ou autre ?</div>
                         <input type="text" name="Q10_Heure_alcool" placeholder="Heure légale + texte de référence si possible">
                     </div>
-                </div>
-
-                <!-- ============ BLOC 3 · SALLE & PRATIQUE ============ -->
-                <div class="qa-block mt-4" style="--qa-c: var(--cat-operations); --qa-c-bg: var(--cat-operations-bg);">
-                    <div class="qa-block-h">
-                        <span class="icon-pill"><i class="fa-solid fa-screwdriver-wrench"></i></span>
-                        Salle &amp; Pratique
-                        <span class="count">11 questions</span>
-                    </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">11</span><strong>Wifi salle</strong> · type (fibre/ADSL), débit, couverture toutes zones, SSID, mot de passe, compatibilité TPE et billetterie en simultané ?</div>
+                        <div class="qa-q"><span class="qa-num">03</span><strong>Wifi salle</strong> · type (fibre/ADSL), débit, couverture toutes zones, SSID, mot de passe, compatibilité TPE et billetterie en simultané ?</div>
                         <textarea name="Q11_Wifi_salle" rows="4" placeholder="Détaillez : type de connexion, débit, zones couvertes, SSID, mdp, capacité…"></textarea>
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">12</span><strong>Clé barrière backstage</strong> · qui la détient et comment on la récupère pour le montage ?</div>
+                        <div class="qa-q"><span class="qa-num">04</span><strong>Clé barrière backstage</strong> · qui la détient et comment on la récupère pour le montage ?</div>
                         <input type="text" name="Q12_Cle_backstage" placeholder="Détenteur, récupération, horaires">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">13</span>Confirmez-vous la possibilité de <strong>retours fournisseurs lundi matin</strong> (ex&nbsp;: fûts vides) ?</div>
-                        <input type="text" name="Q13_Retours_lundi" placeholder="Réponse">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">14</span><strong>Benne / grosse poubelle</strong> disponible en sortie d'événement ? Capacité ?</div>
-                        <input type="text" name="Q14_Benne_sortie" placeholder="Réponse">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">15</span><strong>Décompte exact des toilettes public</strong> dans le hall (nombre, hommes/femmes/PMR) ?</div>
-                        <input type="text" name="Q15_Toilettes_hall" placeholder="Ex : 4 H + 4 F + 1 PMR">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">16</span>Pièce / espace dédié pour les <strong>bénévoles</strong> (briefing, pause, vestiaire) ?</div>
-                        <input type="text" name="Q16_Espace_benevoles" placeholder="Réponse">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">17</span>Validation du <strong>deal autolaveuse + clean complet</strong> (modèle Villieu 2026) · utilisation par bénévole formé en échange du clean intégral salle ?</div>
-                        <input type="text" name="Q17_Deal_autolaveuse" placeholder="Réponse">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">18</span>Cohérence <strong>dimensions scène (93,77 m²) vs praticables (72 m²)</strong> · y a-t-il une scène fixe + extension praticables, ou autre configuration ?</div>
-                        <textarea name="Q18_Scene_vs_praticables" rows="3" placeholder="Détail de la configuration scénique"></textarea>
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">19</span><strong>Guirlandes de Noël</strong> · à cacher proprement, à retirer, autre ?</div>
+                        <div class="qa-q"><span class="qa-num">05</span><strong>Guirlandes de Noël</strong> · à cacher proprement, à retirer, autre ?</div>
                         <input type="text" name="Q19_Guirlandes" placeholder="Réponse">
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">20</span><strong>Hauteur sous plafond zone public</strong> exacte · au-dessus de la zone public principale (les 4,19 m relevés correspondent uniquement au bloc scène) ?</div>
-                        <input type="text" name="Q19b_Hauteur_public" placeholder="Hauteur sous plafond ou sous charpente, à la verticale de la zone public">
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">21</span><strong>Dimensions exactes des 4 grandes fenêtres latérales</strong> (largeur × hauteur, hauteur d'allège, vitrage simple/double, dépoli ou clair) ?</div>
-                        <textarea name="Q19c_Fenetres" rows="3" placeholder="Dimensions précises, type de verre, hauteur d'allège, possibilité de tendre des voiles devant"></textarea>
-                    </div>
-                </div>
-
-                <!-- ============ BLOC 4 · SÉCURITÉ ERP ============ -->
-                <div class="qa-block mt-4" style="--qa-c: var(--cat-lieu); --qa-c-bg: var(--cat-lieu-bg);">
-                    <div class="qa-block-h">
-                        <span class="icon-pill"><i class="fa-solid fa-shield-halved"></i></span>
-                        Sécurité &amp; ERP
-                        <span class="count">4 questions</span>
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">22</span><strong>Charges des poutres</strong> · historique structure ou note de calcul disponible pour confirmer la possibilité de <strong>2 truss + lights au-dessus du public</strong> ?</div>
+                        <div class="qa-q"><span class="qa-num">06</span><strong>Charges des poutres</strong> · historique structure ou note de calcul disponible pour confirmer la possibilité de <strong>2 truss + lights au-dessus du public</strong> ?</div>
                         <textarea name="Q20_Charges_poutres" rows="3" placeholder="Document, charge admissible, ou orientation BET structure"></textarea>
                     </div>
 
                     <div class="qa">
-                        <div class="qa-q"><span class="qa-num">23</span><strong>Flammes</strong> · accord formel commission de sécurité, exigences pyrotechnicien certifié, dépôt CERFA préfecture ?</div>
-                        <textarea name="Q21_Flammes" rows="3" placeholder="Accord écrit, conditions, démarches à enclencher"></textarea>
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">24</span><strong>Balcon VIP</strong> · ouverture encadrée possible (effectif compté, dégagement issue de secours, staff dédié) ? Conditions formelles ?</div>
+                        <div class="qa-q"><span class="qa-num">07</span><strong>Balcon VIP</strong> · ouverture encadrée possible (effectif compté, dégagement issue de secours, staff dédié) ? Conditions formelles ?</div>
                         <textarea name="Q22_Balcon_VIP" rows="3" placeholder="Conditions ERP pour ouverture VIP encadrée"></textarea>
-                    </div>
-
-                    <div class="qa">
-                        <div class="qa-q"><span class="qa-num">25</span><strong>Bruit / SPL</strong> · la salle dispose-t-elle d'une dérogation événementielle ? Plages horaires nocturnes encadrées ? Mesures dB existantes en façade ?</div>
-                        <textarea name="Q24_Bruit_SPL" rows="3" placeholder="Réponse"></textarea>
                     </div>
                 </div>
 
-                <!-- ============ AUTRES ============ -->
+<!-- ============ AUTRES ============ -->
                 <div class="card mt-4">
                     <div class="card-h"><i class="fa-solid fa-comment-dots"></i>Autres remarques</div>
                     <p class="text-xs text-zinc-500 mb-2">Pour les pièces jointes (notes de calcul, plans, devis, photos), envoyez un mail séparé à <a href="mailto:contact@mgentertainment.fr" class="font-medium text-zinc-900 hover:underline">contact@mgentertainment.fr</a>.</p>
@@ -2380,7 +2257,11 @@
             <ul class="changelog-list">
                 <li>
                     <span class="date">07 mai 2026</span>
-                    <span>Mail d'<strong>Alexandra Plet</strong> reçu (a.plet@mairie-lagnieu.fr) · intégré en section Contacts, question correspondante retirée du formulaire (passage 26 → 25 questions). Ajout d'un <strong>toast récurrent</strong> en bas-droite à chaque visite (slide-up, auto-hide 8s, fermeture session-based) en complément du modal d'accueil 1ʳᵉ visite.</span>
+                    <span>Refonte du formulaire en <strong>7 questions ciblées</strong> uniquement (au lieu de 25). Le reste des points (logistique, mobilier, espaces, sécurité opérationnelle…) reste documenté en <strong>notes et réflexions</strong> dans les sections du dossier mais n'apparaît plus comme question à remplir. Les questions de tarification salle (forfait week-end, grille asso) sont retirées de la consultation publique : elles font l'objet d'une négociation privée avec la mairie. Durée estimée : ~5 min.</span>
+                </li>
+                <li>
+                    <span class="date">07 mai 2026</span>
+                    <span>Mail d'<strong>Alexandra Plet</strong> reçu (a.plet@mairie-lagnieu.fr) · intégré en section Contacts, question correspondante retirée du formulaire. Ajout d'un <strong>toast récurrent</strong> en bas-droite à chaque visite (slide-up, auto-hide 8s, fermeture session-based) en complément du modal d'accueil 1ʳᵉ visite.</span>
                 </li>
                 <li>
                     <span class="date">07 mai 2026</span>
@@ -2388,7 +2269,7 @@
                 </li>
                 <li>
                     <span class="date">07 mai 2026</span>
-                    <span>Ajout d'un <strong>modal d'accueil</strong> à l'arrivée sur la page : recentre l'attention de Sébastien et Alexandra sur le questionnaire (~10-15 min) avec choix « Répondre maintenant » ou « Lire le contexte d'abord ». Mémorisé en localStorage pour ne pas réapparaître aux retours.</span>
+                    <span>Ajout d'un <strong>modal d'accueil</strong> à l'arrivée sur la page : recentre l'attention de Sébastien et Alexandra sur le questionnaire (~5 min) avec choix « Répondre maintenant » ou « Lire le contexte d'abord ». Mémorisé en localStorage pour ne pas réapparaître aux retours.</span>
                 </li>
                 <li>
                     <span class="date">07 mai 2026</span>
@@ -2479,7 +2360,7 @@
 
         function showToast() {
             // Pas si modal d'accueil va s'afficher (= 1ʳᵉ visite)
-            if (!localStorage.getItem('enjoylife_technique_intro_seen_v2')) return;
+            if (!localStorage.getItem('enjoylife_technique_intro_seen_v3')) return;
             // Pas si l'utilisateur l'a fermé dans cette session
             if (sessionStorage.getItem(TOAST_SESSION_KEY)) return;
             // Pas si on est déjà dans la section questions
@@ -2527,7 +2408,7 @@
         //   WELCOME MODAL (1ʳᵉ visite uniquement)
         // ========================================
         const welcomeModal = document.getElementById('welcome-modal');
-        const WELCOME_KEY = 'enjoylife_technique_intro_seen_v2';
+        const WELCOME_KEY = 'enjoylife_technique_intro_seen_v3';
 
         function showWelcomeModal() {
             if (localStorage.getItem(WELCOME_KEY)) return;
