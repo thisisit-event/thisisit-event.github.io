@@ -973,6 +973,163 @@
         }
         .form-foot i { color: var(--zinc-400); }
 
+        /* ── WELCOME MODAL ── */
+        .welcome-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .welcome-modal.show { display: flex; animation: welcomeFade 0.3s ease; }
+        .welcome-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .welcome-card {
+            position: relative;
+            background: #fff;
+            border-radius: 20px;
+            padding: 2.2rem 2.2rem 1.5rem;
+            max-width: 480px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25), 0 4px 12px rgba(0,0,0,0.06);
+            animation: welcomeSlide 0.4s cubic-bezier(0.2, 1.1, 0.6, 1);
+        }
+        @keyframes welcomeFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes welcomeSlide {
+            from { opacity: 0; transform: translateY(20px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .welcome-close {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            width: 32px; height: 32px;
+            border: none;
+            background: var(--zinc-100);
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: var(--zinc-500);
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.15s, color 0.15s, transform 0.15s;
+            line-height: 1;
+            font-family: inherit;
+            padding: 0;
+        }
+        .welcome-close:hover {
+            background: var(--zinc-200);
+            color: var(--zinc-900);
+            transform: rotate(90deg);
+        }
+        .welcome-icon {
+            width: 50px; height: 50px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--cat-cadrage) 0%, var(--cat-operations) 100%);
+            color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1.1rem;
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+        }
+        .welcome-greeting {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--zinc-500);
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        .welcome-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin-bottom: 0.85rem;
+            color: var(--zinc-900);
+        }
+        .welcome-text {
+            font-size: 0.95rem;
+            color: var(--zinc-700);
+            line-height: 1.55;
+            margin-bottom: 0.85rem;
+        }
+        .welcome-text strong { color: var(--zinc-900); font-weight: 600; }
+        .welcome-meta {
+            display: flex;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.4rem;
+            padding: 0.75rem 0.95rem;
+            background: var(--zinc-100);
+            border-radius: 10px;
+            font-size: 0.82rem;
+            color: var(--zinc-700);
+        }
+        .welcome-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .welcome-meta-item i { font-size: 0.85rem; color: var(--zinc-500); }
+        .welcome-meta-item strong { color: var(--zinc-900); font-weight: 600; }
+        .welcome-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-direction: column;
+        }
+        .welcome-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            background: #0a0a0a;
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.9rem 1.4rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+            font-family: inherit;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+        }
+        .welcome-btn-primary:hover {
+            background: #1f1f1f;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+        }
+        .welcome-btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            color: var(--zinc-500);
+            font-weight: 500;
+            font-size: 0.88rem;
+            padding: 0.7rem 1.4rem;
+            border: none;
+            cursor: pointer;
+            transition: color 0.15s;
+            font-family: inherit;
+        }
+        .welcome-btn-secondary:hover { color: var(--zinc-900); }
+        @media (max-width: 540px) {
+            .welcome-card { padding: 1.7rem 1.5rem 1.25rem; }
+            .welcome-title { font-size: 1.35rem; }
+            .welcome-text { font-size: 0.9rem; }
+            .welcome-meta { flex-direction: column; gap: 0.4rem; padding: 0.6rem 0.8rem; }
+        }
+
         /* ── PRINT ── */
         /* ── CHANGELOG ── */
         .changelog {
@@ -1081,6 +1238,36 @@
         <i class="fa-solid fa-paper-plane"></i>
         Répondre au questionnaire
     </a>
+
+    <!-- ============ WELCOME MODAL ============ -->
+    <div id="welcome-modal" class="welcome-modal" role="dialog" aria-labelledby="welcome-title" aria-modal="true">
+        <div class="welcome-backdrop" data-close></div>
+        <div class="welcome-card">
+            <button class="welcome-close" data-close aria-label="Fermer la fenêtre">×</button>
+            <div class="welcome-icon"><i class="fa-solid fa-clipboard-question"></i></div>
+            <div class="welcome-greeting">Bonjour</div>
+            <h2 class="welcome-title" id="welcome-title">On a besoin de vous</h2>
+            <p class="welcome-text">
+                Vous arrivez sur le <strong>dossier technique d'Enjoylife 2027</strong>.
+                Si vous êtes <strong>Sébastien</strong> (régie de la salle) ou <strong>Alexandra</strong> (mairie),
+                <strong>24 questions</strong> vous attendent — vous pouvez y répondre directement en ligne.
+            </p>
+            <div class="welcome-meta">
+                <div class="welcome-meta-item"><i class="fa-regular fa-clock"></i><strong>~10–15 min</strong></div>
+                <div class="welcome-meta-item"><i class="fa-solid fa-circle-check"></i>Tous les champs <strong>optionnels</strong></div>
+                <div class="welcome-meta-item"><i class="fa-solid fa-paper-plane"></i>Envoi <strong>par mail</strong></div>
+            </div>
+            <div class="welcome-actions">
+                <button class="welcome-btn-primary" data-action="answer">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Aller au questionnaire
+                </button>
+                <button class="welcome-btn-secondary" data-close>
+                    Lire le contexte d'abord
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- ============ MAIN ============ -->
     <main>
@@ -2029,6 +2216,10 @@
             <ul class="changelog-list">
                 <li>
                     <span class="date">07 mai 2026</span>
+                    <span>Ajout d'un <strong>modal d'accueil</strong> à l'arrivée sur la page : recentre l'attention de Sébastien et Alexandra sur le questionnaire (24 questions · ~10-15 min) avec choix « Répondre maintenant » ou « Lire le contexte d'abord ». Mémorisé en localStorage pour ne pas réapparaître aux retours.</span>
+                </li>
+                <li>
+                    <span class="date">07 mai 2026</span>
                     <span>Ajout de la mention <strong>+18 ans strict</strong> dans la carte d'identité (hero) et la section Vue d'ensemble. Cohérent avec le statut licence 3 et le profil public adulte (âge moyen 32 ans en 2026).</span>
                 </li>
                 <li>
@@ -2105,6 +2296,48 @@
         window.addEventListener('scroll', sync, { passive: true });
         window.addEventListener('resize', sync, { passive: true });
         sync();
+
+        // ========================================
+        //   WELCOME MODAL
+        // ========================================
+        const welcomeModal = document.getElementById('welcome-modal');
+        const WELCOME_KEY = 'enjoylife_technique_intro_seen_v1';
+
+        function showWelcomeModal() {
+            if (localStorage.getItem(WELCOME_KEY)) return;
+            // Si l'URL contient ?envoye=1 (post-soumission), ne pas afficher
+            if (new URLSearchParams(location.search).get('envoye') === '1') return;
+            welcomeModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+        function hideWelcomeModal({ remember = true } = {}) {
+            welcomeModal.classList.remove('show');
+            document.body.style.overflow = '';
+            if (remember) localStorage.setItem(WELCOME_KEY, '1');
+        }
+
+        welcomeModal.addEventListener('click', (e) => {
+            const closer = e.target.closest('[data-close]');
+            const answer = e.target.closest('[data-action="answer"]');
+            if (answer) {
+                hideWelcomeModal();
+                setTimeout(() => {
+                    const target = document.getElementById('questions');
+                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 250);
+            } else if (closer) {
+                hideWelcomeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && welcomeModal.classList.contains('show')) {
+                hideWelcomeModal();
+            }
+        });
+
+        // Délai léger pour laisser le hero se rendre avant l'apparition du modal
+        setTimeout(showWelcomeModal, 400);
 
         // Confirmation post-envoi du formulaire (Formsubmit redirige avec ?envoye=1)
         if (new URLSearchParams(location.search).get('envoye') === '1') {
