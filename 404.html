@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <title>404 · Off-set · ENJOYLIFE</title>
+  <meta name="description" content="Cette piste a quitté la setlist. Retour à l'expérience ENJOYLIFE." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#080808" />
+
+  <link rel="icon" href="https://enjoylife.b-cdn.net/Enjoylife%20Partenaire/img/enjoy-favicon.png" />
+  <link rel="apple-touch-icon" href="https://enjoylife.b-cdn.net/Enjoylife%20Partenaire/img/enjoy-favicon.png" />
+
+  <link rel="preload" href="fonts/FC-Faster.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="fonts/SFNSDisplay-Bold.otf" as="font" type="font/otf" crossorigin>
+
+  <style>
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Bold.otf') format('opentype'); font-weight:700; font-display:swap; }
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Heavy.otf') format('opentype'); font-weight:800; font-display:swap; }
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Medium.otf') format('opentype'); font-weight:500; font-display:swap; }
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Regular.otf') format('opentype'); font-weight:400; font-display:swap; }
+    @font-face { font-family:'SF'; src:url('fonts/SFNSDisplay-Light.otf') format('opentype'); font-weight:300; font-display:swap; }
+    @font-face { font-family:'FCFastest'; src:url('fonts/FC-Faster.otf') format('opentype'); font-weight:bold; font-display:swap; }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      background: #080808; color: #fff;
+      font-family: 'SF', sans-serif; font-weight: 400;
+      overflow: hidden;
+      -webkit-font-smoothing: antialiased;
+      display: flex; flex-direction: column;
+    }
+    ::selection { background: rgba(168,85,247,.28); }
+
+    /* Noise */
+    body::before {
+      content: ''; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 150px; opacity: .03;
+    }
+
+    /* Orb */
+    #orb {
+      position: fixed; width: 900px; height: 900px; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      background: radial-gradient(circle, rgba(99,102,241,.12) 0%, rgba(168,85,247,.06) 45%, transparent 70%);
+      border-radius: 50%; filter: blur(100px); z-index: 0; pointer-events: none;
+      animation: orb 12s ease-in-out infinite;
+    }
+    @keyframes orb {
+      0%,100% { opacity:.6; transform:translate(-50%,-50%) scale(1); }
+      50%     { opacity:1; transform:translate(-50%,-50%) scale(1.08); }
+    }
+
+    /* Light beams (lyres) */
+    .beam {
+      position: fixed; top: -10%; width: 2px; height: 140vh;
+      background: linear-gradient(to bottom, transparent 0%, rgba(168,85,247,.35) 30%, rgba(99,102,241,.25) 60%, transparent 100%);
+      z-index: 0; pointer-events: none; transform-origin: top center;
+      filter: blur(1px);
+    }
+    .beam.b1 { left: 18%; animation: sweep1 7s ease-in-out infinite; }
+    .beam.b2 { left: 50%; animation: sweep2 9s ease-in-out infinite; }
+    .beam.b3 { left: 82%; animation: sweep3 8s ease-in-out infinite; }
+    @keyframes sweep1 { 0%,100% { transform: rotate(-12deg); opacity:.4; } 50% { transform: rotate(8deg); opacity:.85; } }
+    @keyframes sweep2 { 0%,100% { transform: rotate(6deg); opacity:.35; } 50% { transform: rotate(-10deg); opacity:.7; } }
+    @keyframes sweep3 { 0%,100% { transform: rotate(10deg); opacity:.45; } 50% { transform: rotate(-6deg); opacity:.9; } }
+
+    /* Scanline very subtle */
+    body::after {
+      content: ''; position: fixed; inset: 0; z-index: 2; pointer-events: none;
+      background: repeating-linear-gradient(to bottom, transparent 0, transparent 2px, rgba(255,255,255,.012) 2px, rgba(255,255,255,.012) 3px);
+    }
+
+    /* Top bar */
+    #top {
+      position: relative; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 3rem; flex-shrink: 0;
+    }
+    #top .logo { display: flex; align-items: center; gap: .8rem; text-decoration: none; }
+    #top .logo img { height: 30px; width: auto; filter: brightness(0) invert(1); opacity: .9; }
+    #top .status {
+      display: inline-flex; align-items: center; gap: .55rem;
+      font-family: 'SF', sans-serif; font-weight: 500;
+      font-size: .65rem; letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+    }
+    #top .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #f43f5e;
+      box-shadow: 0 0 10px rgba(244,63,94,.7);
+      animation: blink 1.4s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100% { opacity:1; } 50% { opacity:.35; } }
+
+    /* Stage */
+    main {
+      flex: 1; position: relative; z-index: 5;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 2rem 1.5rem; text-align: center;
+    }
+
+    .lbl {
+      font-family: 'SF', sans-serif; font-weight: 500;
+      font-size: .68rem; letter-spacing: .22em; text-transform: uppercase;
+      color: #818cf8; opacity: .85;
+      margin-bottom: 1.6rem;
+    }
+    .lbl::before, .lbl::after {
+      content: '·'; margin: 0 .55rem; color: rgba(129,140,248,.5);
+    }
+
+    /* Le 404 */
+    .num {
+      font-family: 'FCFastest', sans-serif;
+      font-size: clamp(8rem, 26vw, 22rem);
+      line-height: .85; letter-spacing: -.02em;
+      background: linear-gradient(135deg, #818cf8 0%, #a855f7 55%, #6d28d9 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative; display: inline-block;
+      filter: drop-shadow(0 0 60px rgba(99,102,241,.35));
+    }
+    /* Glitch RGB */
+    .num::before, .num::after {
+      content: '404'; position: absolute; left: 0; top: 0; width: 100%;
+      -webkit-background-clip: initial; background-clip: initial;
+      -webkit-text-fill-color: initial;
+      mix-blend-mode: screen; pointer-events: none;
+    }
+    .num::before { color: rgba(244,63,94,.55); animation: glitch1 3.6s steps(1) infinite; }
+    .num::after  { color: rgba(56,189,248,.55); animation: glitch2 3.6s steps(1) infinite; }
+    @keyframes glitch1 {
+      0%,90%,100% { transform: translate(0,0); opacity: 0; }
+      91% { transform: translate(-3px,1px); opacity: .9; }
+      93% { transform: translate(2px,-2px); opacity: .8; }
+      95% { transform: translate(-1px,1px); opacity: .85; }
+      97% { transform: translate(0,0); opacity: 0; }
+    }
+    @keyframes glitch2 {
+      0%,90%,100% { transform: translate(0,0); opacity: 0; }
+      91% { transform: translate(2px,-1px); opacity: .9; }
+      93% { transform: translate(-3px,2px); opacity: .8; }
+      95% { transform: translate(1px,-1px); opacity: .85; }
+      97% { transform: translate(0,0); opacity: 0; }
+    }
+
+    .title {
+      font-family: 'FCFastest', sans-serif;
+      font-size: clamp(1.6rem, 4.4vw, 2.8rem);
+      letter-spacing: -.005em; line-height: 1;
+      color: #fff;
+      margin-top: 1.4rem;
+    }
+    .title em { font-style: normal; color: #818cf8; }
+
+    .sub {
+      font-family: 'SF', sans-serif; font-weight: 300;
+      font-size: clamp(.85rem, 1.4vw, 1rem);
+      color: rgba(255,255,255,.55);
+      max-width: 520px; line-height: 1.55;
+      margin-top: 1.2rem;
+    }
+
+    /* CTA group */
+    .cta-row {
+      display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center;
+      margin-top: 2.4rem;
+    }
+    .cta {
+      font-family: 'SF', sans-serif; font-weight: 800;
+      font-size: .72rem; letter-spacing: .06em; text-transform: uppercase;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: .65rem;
+      padding: .9rem 1.8rem; border-radius: 999px;
+      transition: box-shadow .3s, transform .2s, filter .3s, background .3s, border-color .3s;
+      position: relative; overflow: hidden;
+    }
+    .cta-primary {
+      color: #fff;
+      background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+      box-shadow: 0 0 28px rgba(99,102,241,.45), 0 4px 16px rgba(99,102,241,.3);
+    }
+    .cta-primary::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.18) 0%, transparent 60%);
+      border-radius: 999px; opacity: 0; transition: opacity .3s;
+    }
+    .cta-primary:hover { box-shadow: 0 0 48px rgba(168,85,247,.7), 0 8px 24px rgba(99,102,241,.5); transform: scale(1.04) translateY(-1px); filter: brightness(1.1); }
+    .cta-primary:hover::before { opacity: 1; }
+    .cta-primary:active { transform: scale(.97); }
+
+    .cta-ghost {
+      color: rgba(255,255,255,.85);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(10px);
+    }
+    .cta-ghost:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.22); color: #fff; }
+    .cta-ghost:active { transform: scale(.97); }
+
+    .cta svg { width: 14px; height: 14px; }
+
+    /* Ticker */
+    .ticker {
+      position: relative; z-index: 6; flex-shrink: 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      overflow: hidden; height: 44px;
+      background: rgba(8,8,8,.6); backdrop-filter: blur(8px);
+      display: flex; align-items: center;
+    }
+    .ticker-track {
+      display: flex; gap: 3rem; white-space: nowrap;
+      animation: ticker 38s linear infinite;
+      font-family: 'FCFastest', sans-serif;
+      font-size: .92rem; letter-spacing: .04em;
+      color: rgba(255,255,255,.55);
+    }
+    .ticker-track span { display: inline-flex; align-items: center; gap: 1rem; }
+    .ticker-track .sep { color: #818cf8; }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Footer line */
+    footer {
+      position: relative; z-index: 6; flex-shrink: 0;
+      padding: .9rem 3rem;
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: 'SF', sans-serif; font-weight: 400;
+      font-size: .62rem; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.32);
+    }
+
+    @media (max-width: 720px) {
+      #top { padding: 1rem 1.2rem; }
+      footer { padding: .8rem 1.2rem; flex-direction: column; gap: .35rem; text-align: center; }
+      .lbl::before, .lbl::after { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #orb, .beam, .num::before, .num::after, .ticker-track, .dot { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div id="orb"></div>
+  <div class="beam b1"></div>
+  <div class="beam b2"></div>
+  <div class="beam b3"></div>
+
+  <div id="top">
+    <a href="/" class="logo" aria-label="Retour à l'accueil ENJOYLIFE">
+      <img src="img/logo/enjoy-logo.png" alt="ENJOYLIFE" />
+    </a>
+    <div class="status">
+      <span class="dot" aria-hidden="true"></span>
+      Signal perdu
+    </div>
+  </div>
+
+  <main>
+    <div class="lbl">Erreur 404 · Off-set</div>
+    <div class="num" data-text="404">404</div>
+    <h1 class="title">Cette piste a quitté la <em>setlist</em>.</h1>
+    <p class="sub">
+      L'URL que tu cherches n'existe pas, ou plus.
+      Aucun panique · le show continue ailleurs.
+    </p>
+
+    <div class="cta-row">
+      <a href="/" class="cta cta-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Retour à l'accueil
+      </a>
+      <a href="https://shotgun.live/fr/venues/enjoylife-emx" class="cta cta-ghost" target="_blank" rel="noopener">
+        Billetterie Shotgun
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
+      <a href="https://instagram.com/enjoylife.emx" class="cta cta-ghost" target="_blank" rel="noopener">
+        Instagram
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+      </a>
+    </div>
+  </main>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>ENJOYLIFE 2027 <span class="sep">·</span> ÉDITION IV <span class="sep">·</span> PLAINE DE L'AIN <span class="sep">·</span> ELECTRONIC MUSIC EXPERIENCE <span class="sep">·</span> SIGNAL PERDU <span class="sep">·</span> RETOUR EN SCÈNE IMMINENT <span class="sep">·</span></span>
+      <span>ENJOYLIFE 2027 <span class="sep">·</span> ÉDITION IV <span class="sep">·</span> PLAINE DE L'AIN <span class="sep">·</span> ELECTRONIC MUSIC EXPERIENCE <span class="sep">·</span> SIGNAL PERDU <span class="sep">·</span> RETOUR EN SCÈNE IMMINENT <span class="sep">·</span></span>
+    </div>
+  </div>
+
+  <footer>
+    <span>MG Entertainment · Enjoylife</span>
+    <span>Erreur 404 · Page introuvable</span>
+  </footer>
+</body>
+</html>
