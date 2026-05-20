@@ -2362,15 +2362,15 @@
 
             <!-- ===== FORMULAIRE RÉPONSES ===== -->
             <form id="answer-form"
-                  action="https://formsubmit.co/contact@mgentertainment.fr"
+                  action="https://api.web3forms.com/submit"
                   method="POST"
                   class="mt-6">
 
-                <input type="hidden" name="_subject" value="🏛️ Réponses Dossier Technique · Lagnieu 2027">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://enjoylife-emx.fr/technique/?envoye=1">
-                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                <input type="hidden" name="access_key" value="91bff01e-6970-431f-886f-a446e4dc4d79">
+                <input type="hidden" name="subject" value="🏛️ Réponses Dossier Technique · Lagnieu 2027">
+                <input type="hidden" name="from_name" value="Dossier Technique Enjoylife 2027">
+                <input type="hidden" name="redirect" value="https://enjoylife-emx.fr/technique/?envoye=1">
+                <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
                 <!-- Identification -->
                 <div class="card">
@@ -2656,7 +2656,7 @@
         // Délai léger pour laisser le hero se rendre avant l'apparition du modal
         setTimeout(showWelcomeModal, 400);
 
-        // Confirmation post-envoi du formulaire (Formsubmit redirige avec ?envoye=1)
+        // Confirmation post-envoi du formulaire (Web3Forms redirige avec ?envoye=1)
         if (new URLSearchParams(location.search).get('envoye') === '1') {
             const f  = document.getElementById('answer-form');
             const ok = document.getElementById('form-success');
